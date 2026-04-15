@@ -1,0 +1,10 @@
+goi_search_results.json
+*.xlsx
+.env
+*.out
+*.err
+*.index
+*.xlsx
+dataset/
+result/
+thesis/

@@ -1,0 +1,11 @@
+# To install FAISS on GPU
+
+## load the module
+module load devel/miniforge/25.3.1-python-3.12
+
+## create conda env
+conda create -n thesis python=3.12
+conda activate thesis
+
+## install on GPU
+conda install -c pytorch -c nvidia faiss-gpu

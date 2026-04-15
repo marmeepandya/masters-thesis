@@ -1,0 +1,30 @@
+Sentence-BERT (Reimers & Gurevych, 2019) - https://arxiv.org/abs/1908.10084
+DPR — Dense Passage Retrieval (Karpukhin et al., 2020) - https://arxiv.org/abs/2004.04906
+FAISS paper (Johnson et al., 2017) - https://arxiv.org/abs/1702.08734
+BM25 — The Algorithm Behind the Search 
+IR Evaluation metrics - https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-in-information-retrieval-1.html
+BEIR Benchmark - https://arxiv.org/abs/2104.08663
+
+
+
+
+
+
+Tier 1 — Essential, read these first:
+
+1. Robertson & Zaragoza (2009) — "The Probabilistic Relevance Framework: BM25 and Beyond" — The original BM25 paper. Short and readable. You're already using BM25, so this gives you the theoretical grounding to explain it properly in your thesis.
+2. Karpukhin et al. (2020) — "Dense Passage Retrieval for Open-Domain Question Answering" (DPR) — DPR introduced the bi-encoder architecture trained with in-batch negatives, where each query is matched against relevant documents while treating other passages in the batch as hard negatives. OpenReview This is the foundational paper for dense retrieval and directly justifies your embedding approach.
+3. Thakur et al. (2021) — "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models" — The benchmark paper everyone cites when evaluating retrieval systems across domains. BM25 achieves an average nDCG@10 of 43.4 on BEIR, improved to over 52.6 via hybrid reranking. Emergent Mind Your results fit squarely into this pattern.
+4. Cormack et al. (2009) — "Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods" — The RRF paper. RRF merges ranked lists from sparse and dense retrievers post-retrieval without architectural changes, making it a simple yet effective fusion baseline. arXiv This is what you'll implement next.
+5. Johnson et al. (2019) — "Billion-scale similarity search with GPUs" (FAISS) — The FAISS paper. You're already using it, so read this to understand what IndexFlatL2 vs IndexIVFFlat vs HNSW actually means for your 20M scale-up.
+
+Tier 2 — Read after you've implemented hybrid retrieval:
+
+6. Khattab & Zaharia (2020) — "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT" — ColBERT introduces a late interaction mechanism that computes relevance via a MaxSim operator over per-token embeddings, delivering over 170× speedup relative to existing BERT-based cross-encoders while being more effective than non-BERT baselines. Berkeley EECS Good context for your related work chapter.
+7. Formal et al. (2021) — "SPLADE: Sparse Lexical and Expansion Model for First Stage Retrieval" — SPLADE leverages contextualized representations to perform lexical expansion through learned sparse representations ResearchGate, bridging the gap between BM25 and dense retrieval. Useful for the related work section.
+8. Izacard et al. (2021) — "Contriever: Unsupervised Dense Information Retrieval with Contrastive Learning" — Contriever is competitive with BM25 on 11 out of 15 BEIR datasets for Recall@100, making it a strong unsupervised dense baseline comparable to your all-MiniLM-L6-v2 setup. OpenReview
+
+Tier 3 — For when you're writing the thesis:
+
+9. Lin et al. (2022) — "A Survey of Model Architectures in Information Retrieval" — A comprehensive overview of the whole field. Good to have read before writing your related work chapter.
+10. Hybrid retrieval taxonomy paper (ResearchGate, 2025) — This covers the concept of complementarity ratio (RoC), which quantifies the complementary contributions of sparse and dense models and has been shown to directly correlate with improved retrieval performance. ResearchGate Useful framing for your motivation.
