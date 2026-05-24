@@ -38,7 +38,7 @@
 # Load API keys and verify GPU availability before doing any heavy work.
 # The GPU check is critical — BGE-large encoding on CPU takes ~30 min; on a T4/A100 it takes ~3 min.
 
-# In[ ]:
+# In[16]:
 
 
 import os
@@ -76,7 +76,7 @@ print(f'\nDevice: {DEVICE}')
 # | `time` / `datetime` | Runtime measurement |
 # | `pandas` / `numpy` | Data wrangling |
 
-# In[ ]:
+# In[17]:
 
 
 from rank_bm25 import BM25Okapi
@@ -103,7 +103,7 @@ print('All imports OK')
 # **Pseudo-relevance labels:** A company is *relevant* for a query if it appears in the production top-100.
 # This is the standard assumption when human annotations are unavailable.
 
-# In[ ]:
+# In[18]:
 
 
 # ── Load production results ────────────────────────────────────────────────
@@ -133,11 +133,11 @@ BM25_INDEX_TIME = time.time() - t0
 print(f'BM25 index built in {BM25_INDEX_TIME:.2f}s on {len(corpus_tokens):,} companies')
 
 # Save corpus for later use
-all_companies[['domain', 'name', 'summary']].to_csv('result/BM25-miniLM-BGE-TE/company_corpus.csv', index=False)
-print('Corpus saved to result/BM25-miniLM-BGE-TE/company_corpus.csv')
+all_companies[['domain', 'name', 'summary']].to_csv('result/3_baseline_comparison/company_corpus.csv', index=False)
+print('Corpus saved to result/3_baseline_comparison/company_corpus.csv')
 
 
-# In[ ]:
+# In[19]:
 
 
 import os
@@ -155,13 +155,13 @@ try:
         model="text-embedding-3-small"
     )
     emb = response.data[0].embedding
-    print(f"✅ API key works!")
+    print(f" API key works!")
     print(f"   Model  : text-embedding-3-small")
     print(f"   Vector : {len(emb)} dimensions")
     print(f"   First 5: {[round(x, 4) for x in emb[:5]]}")
 
 except Exception as e:
-    print(f"❌ API key failed: {e}")
+    print(f" API key failed: {e}")
 
 
 # ## 4 · Runtime Benchmark
@@ -183,7 +183,7 @@ except Exception as e:
 # 
 # We store all timings in `runtime_results` and display a final summary table at the end.
 
-# In[ ]:
+# In[20]:
 
 
 # This dict collects all runtime measurements — filled in as we go
@@ -231,8 +231,8 @@ minilm_encode_time = time.time() - t0
 runtime_results['MiniLM']['encode_s'] = minilm_encode_time
 print(f'MiniLM encoding: {minilm_encode_time/60:.1f} min  |  shape: {emb_minilm.shape}')
 
-np.save('result/BM25-miniLM-BGE-TE/embeddings_minilm.npy', emb_minilm)
-print('Saved to result/BM25-miniLM-BGE-TE/embeddings_minilm.npy')
+np.save('result/3_baseline_comparison/embeddings_minilm.npy', emb_minilm)
+print('Saved to result/3_baseline_comparison/embeddings_minilm.npy')
 
 
 # ## 6 · Encode with BGE-large (`BAAI/bge-large-en-v1.5`)
@@ -262,8 +262,8 @@ bge_encode_time = time.time() - t0
 runtime_results['BGE']['encode_s'] = bge_encode_time
 print(f'BGE encoding: {bge_encode_time/60:.1f} min  |  shape: {emb_bge.shape}')
 
-np.save('result/BM25-miniLM-BGE-TE/embeddings_bge.npy', emb_bge)
-print('Saved to result/BM25-miniLM-BGE-TE/embeddings_bge.npy')
+np.save('result/3_baseline_comparison/embeddings_bge.npy', emb_bge)
+print('Saved to result/3_baseline_comparison/embeddings_bge.npy')
 
 
 # ## 7 · Encode with OpenAI (`text-embedding-3-small`)
@@ -277,7 +277,7 @@ print('Saved to result/BM25-miniLM-BGE-TE/embeddings_bge.npy')
 # - Cannot be self-hosted — introduces API dependency and ongoing cost
 # - `normalize_embeddings` not needed — OpenAI returns normalised vectors by default
 
-# In[ ]:
+# In[22]:
 
 
 client = OpenAI(api_key=OPENAI_KEY)
@@ -304,8 +304,8 @@ openai_encode_time = time.time() - t0
 runtime_results['OpenAI']['encode_s'] = openai_encode_time
 print(f'OpenAI encoding: {openai_encode_time/60:.1f} min  |  shape: {emb_openai.shape}')
 
-np.save('result/BM25-miniLM-BGE-TE/embeddings_openai.npy', emb_openai)
-print('Saved to result/BM25-miniLM-BGE-TE/embeddings_openai.npy')
+np.save('result/3_baseline_comparison/embeddings_openai.npy', emb_openai)
+print('Saved to result/3_baseline_comparison/embeddings_openai.npy')
 
 
 # ## 8 · Build FAISS Indices & Measure Query Latency
@@ -317,7 +317,7 @@ print('Saved to result/BM25-miniLM-BGE-TE/embeddings_openai.npy')
 # - **BGE** → `IndexFlatIP` (normalised, cosine = inner product)
 # - **OpenAI** → `IndexFlatIP` (OpenAI returns unit-normalised vectors)
 
-# In[ ]:
+# In[21]:
 
 
 def build_faiss_index(embeddings, use_ip=False):
@@ -415,8 +415,8 @@ def run_dense_retrieval(model_fn, index, data, all_companies, label):
                 'summary':all_companies.iloc[idx]['summary'],
             })
     df = pd.DataFrame(results)
-    df.to_csv(f'result/BM25-miniLM-BGE-TE/retrieval_{label.lower()}.csv', index=False)
-    print(f'  Saved {len(df):,} rows to result/BM25-miniLM-BGE-TE/retrieval_{label.lower()}.csv')
+    df.to_csv(f'result/3_baseline_comparison/retrieval_{label.lower()}.csv', index=False)
+    print(f'  Saved {len(df):,} rows to result/3_baseline_comparison/retrieval_{label.lower()}.csv')
     return df
 
 # ── BM25 ─────────────────────────────────────────────────────────────────────
@@ -512,7 +512,7 @@ for item in data:
             })
 
 eval_df = pd.DataFrame(all_eval_rows)
-eval_df.to_csv('result/evaluation_all_methods.csv', index=False)
+eval_df.to_csv('result/3_baseline_comparison/evaluation_all_methods.csv', index=False)
 print(f'Evaluation saved: {len(eval_df):,} rows')
 print('\n=== NDCG@k RESULTS ===')
 pivot = eval_df.groupby(['method','k'])['ndcg'].mean().unstack('k')
@@ -556,8 +556,8 @@ summary_df = pd.DataFrame(rows).set_index('Method')
 print('=== FINAL COMPARISON: QUALITY + RUNTIME ===')
 print(summary_df.to_string())
 
-summary_df.to_csv('result/final_comparison.csv')
-print('\nSaved to result/final_comparison.csv')
+summary_df.to_csv('result/3_baseline_comparison/final_comparison.csv')
+print('\nSaved to result/3_baseline_comparison/final_comparison.csv')
 
 
 # ## 12 · NDCG@k Plot
@@ -604,9 +604,9 @@ ax2.set_title('Query Latency (encode + search)', fontsize=13, fontweight='bold')
 ax2.grid(axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('result/comparison_plot.png', bbox_inches='tight', dpi=150)
+plt.savefig('result/3_baseline_comparison/comparison_plot.png', bbox_inches='tight', dpi=150)
 plt.show()
-print('Plot saved to result/comparison_plot.png')
+print('Plot saved to result/3_baseline_comparison/comparison_plot.png')
 
 
 # ## 13 · Key Findings & Thesis Narrative

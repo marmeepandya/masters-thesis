@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=09_api_evaluation_new
+#SBATCH --job-name=05_baseline_nomic_summary
 #SBATCH --partition=gpu_a100_short
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --time=00:30:00
-#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/09_api_evaluation_new_%j.out
-#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/09_api_evaluation_new_%j.err
+#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/05_baseline_nomic_summary_%j.out
+#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/05_baseline_nomic_summary_%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=marmeep23@gmail.com
 
@@ -42,12 +42,12 @@ print('GPU:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'N
 echo "OLLAMA_BASE_URL=http://127.0.0.1:11435" >> .env
 
 # Convert notebook to script and run 
-jupyter nbconvert --to script 09_api_evaluation.ipynb
+jupyter nbconvert --to script 05_baseline_nomic_summary.ipynb
 
 # nbconvert saves as .txt — rename to .py before running
-mv 09_api_evaluation.txt 09_api_evaluation.py
+mv 05_baseline_nomic_summary.txt 05_baseline_nomic_summary.py
 
-python 09_api_evaluation.py
+python 05_baseline_nomic_summary.py
 
 # Cleanup 
 # Remove the OLLAMA_BASE_URL line we added to .env (keep .env clean)
