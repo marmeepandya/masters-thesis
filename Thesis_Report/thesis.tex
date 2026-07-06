@@ -1,0 +1,1071 @@
+% Do not change document class, margins, fonts, etc.
+\documentclass[a4paper,oneside,bibliography=totoc]{scrbook}
+
+% some useful packages (add more as needed)
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{algorithm} % you can modify the algorithm style to your liking
+\counterwithin{algorithm}{chapter} % so that algorithms have chapter numbers as well
+\usepackage{algorithmic}
+\usepackage{csquotes}
+\renewcommand{\algorithmiccomment}[1]{\hfill\textit{// #1}}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[colorlinks,citecolor=Green]{hyperref} % you may change/remove the colors
+\usepackage{lipsum} % you do not need this
+
+% chicago citation style
+\usepackage{natbib}
+\bibliographystyle{chicagoa}
+\setcitestyle{authoryear,round,semicolon,aysep={},yysep={,}} \let\cite\citep
+
+% example enviroments (add more as needed)
+\newtheorem{definition}{Definition} \newtheorem{proposition}{Proposition}
+
+%remove this: 
+% \textcolor{red}{TODO: }
+\usepackage{xcolor}
+
+
+\begin{document}
+
+\frontmatter \subject{Master Thesis} % change to appropriate type
+\title{Design and Evaluation of Efficient Semantic Company Retrieval at Scale}
+\author{Marmee Pandya\\
+  (matriculation number 1963521)} \date{\today}
+\publishers{{\small Submitted to}\\
+  Chair of Information Systems\\
+   Dr.\ Ralph Peeters\\
+  University of Mannheim\\}
+\maketitle
+
+\chapter{Abstract}
+
+Your thesis must contain an abstract. A good reference for thesis writing
+is~\citet{zobel2014}; we highly recommend that you study this or a similar book
+during your studies. He writes the following about the abstract:
+
+\blockcquote{zobel2004}{%
+  An abstract is typically a single paragraph of about 50 to 200 words. The
+  function of an abstract is to allow readers to judge whether or not the paper
+  is of relevance to them. It should therefore be a concise summary of the
+  paper's aims, scope, and conclusions. There is no space for unnecessary text;
+  an abstract should be kept to as few words as possible while remaining clear
+  and informative. Irrelevancies, such as minor details or a description of the
+  structure of the paper, are inappropriate, as are acronyms, abbreviations, and
+  mathematics. Sentences such as "We review relevant literature" should be
+  omitted.
+
+  The more specific an abstract is, the more interesting it is likely to be.
+  Instead of writing "space requirements can be significantly reduced", write
+  "space requirements can be reduced by 60\%". Instead of writing "we have a new
+  inversion algorithm", write "we have a new inversion algorithm, based on
+  move­to-front lists".
+
+  Many scientists browse research papers outside their area of expertise. You
+  should not assume that all likely readers will be specialists in the topic of
+  their paper-abstracts should be self-contained and written for as broad a
+  readership as possible. Only in rare circumstances should an abstract cite
+  another paper (for example, when one paper consists entirely of analysis of
+  results in another), in which case the reference should be given in full, not
+  as a citation to the bibliography.}
+
+% table of contents
+\begingroup%
+\hypersetup{hidelinks}% disable link color in TOC only
+\tableofcontents%
+\endgroup
+
+% none of the things below is needed, but you may add them if you feel that they
+% are helpful for your work \listofalgorithms \listoffigures \listoftables
+% \listtheorems{definition} \listtheorems{proposition}
+
+
+% okay, start new numbering ... here is where it really starts
+\mainmatter
+% here the original content of my thesis starts 
+
+\chapter{Project Overview}
+\label{ch:projectOverview}
+
+\texttt{Thesis Goal:} Build and evaluate an efficient embedding-based semantic retrieval system for large-scale company data that outperforms the current production search system.
+
+\noindent\texttt{Core Question:} Can embedding-based semantic retrieval combined with approximate nearest neighbor search efficiently generate accurate top-k candidate company sets from large-scale datasets while maintaining low query latency? \newline
+
+\noindent\textbf{Current Todo List:}
+- Literature Review
+
+
+
+IMPORTANT::: MUST READ AT THE TIME TO WRITING THE INTRODUCTION. 
+Aa current introduction page bani sake che. Ema last je bhi paragraph hase ema badha j sections/chapters explain krvana ke chapter 2 ma aa and chapter 3 ma aa and so on. Ek paragraph eno j banse. 
+
+\chapter{ISTARI.AI and its Data}
+\label{ch:istariAndData}
+
+\section{About ISTARI.AI}
+
+This thesis is conducted in collaboration with ISTARI.AI\protect\footnote{\url{https://docs.istari.ai/goi/goi_start_page/}}, a data intelligence company that specialises in providing high-quality firmographic data at scale. Istari's core product is a curated, organisation-level dataset that covers organisations worldwide, enabling use cases such as market analysis, company search, and lead generation. The central research challenge addressed in this thesis is improving the quality of semantic company retrieval, arises directly from Istari's operational needs.
+
+\section{The Global Organisation Index (GOI)}
+
+The primary dataset used in this thesis is Istari's \textbf{Global Organisation Index} (GOI), a curated collection of approximately 20 million active organisations spanning 232 countries and territories. The GOI serves as the canonical source of firmographic data within Istari's data infrastructure, covering organisation identity, location, industry classification, size, etc.
+
+\section{Data Pipeline and Methodology}
+
+The GOI is constructed through a multi-stage validation pipeline that deliberately prioritises data quality over volume. The pipeline proceeds as follows:
+
+\begin{enumerate}
+    \item \textbf{Registry Collection.} National registers are systematically queried worldwide, including commercial registers, company registers, and association registers. These primary sources are enriched with additional open data sources, yielding an initial pool of approximately 400 million organisations.
+
+    \item \textbf{Domain Attribution.} Each organisation is assessed for attribution to a clearly identifiable web domain. Approximately 10\% of the initial pool, around 40 million organisations can be matched to a domain. The remainder are excluded as they are either no longer active, were never truly operational (e.g., pure holding structures), or lack a web presence.
+
+    \item \textbf{Activity Verification.} The 40 million domain-attributed organisations are further filtered by verifying that their domains are still actively operated. This final step reduces the dataset to approximately 20 million organisations that are demonstrably active.
+\end{enumerate}
+
+This pipeline ensures that every record in the GOI is both web domain-verified and confirmed active, a key differentiator from traditional firmographic databases, which typically retain large numbers of inactive or dormant records.
+
+\subsection{Schema and Key Fields}
+
+Each record in the GOI contains a set of core identity fields, geographic fields, and classification fields. The fields most relevant to this thesis are summarised in Table~\ref{tab:goi_schema}.
+
+\begin{table}[h]
+\centering
+\caption{Key fields of the GOI schema used in this thesis.}
+\label{tab:goi_schema}
+\begin{tabular}{lll}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{name}              & STRING  & Organisation name \\
+\texttt{domain}            & STRING  & Organisation website domain (unique identifier) \\
+\texttt{summary}           & STRING  & AI-generated textual summary of the organisation \\
+\texttt{keywords}          & LIST    & Keywords \\
+\texttt{employee\_class}            & STRING  & Employee count bracket \\
+\texttt{country}            & STRING  & Country \\
+\texttt{country\_code}            & STRING  &  ISO Country Code \\
+\texttt{state / state\_code}            & STRING  & State or province \\
+\texttt{region / region\_code}            & STRING  & Region \\
+\texttt{district / district\_code}            & STRING  & District \\
+\texttt{municipality / muncipality\_code}            & STRING  & Municipality \\
+\texttt{address}            & STRING  & Full address \\
+\texttt{latitude}            & STRING  & Latitude coordinate \\
+\texttt{longitude}            & STRING  & Longitude coordinate \\
+\texttt{nace\_code}        & STRING  & NACE industry classification code \\
+\texttt{organization\_type}& STRING  & Company, Startup, Academic, Public, or Other \\
+\texttt{organization\_size}& STRING  & Micro, Small, Medium-sized, or Large enterprise \\
+\texttt{country}           & STRING  & Country of registration \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Of particular importance for this thesis is the \texttt{summary} field. This field contains an AI-generated natural language description of each organisation, synthesised from its web presence and available structured data. As explored in the data analysis phase of this work \textcolor{red}{TODO: fix the section}(see Section~\ref{sec:data_exploration}), the \texttt{summary} field is the most semantically rich and consistently populated field in the dataset, with effectively zero missing values across the corpus used for experiments. It therefore serves as the primary input for all retrieval models evaluated in this thesis.
+
+\subsection{Industry Classification: NACE Codes}
+
+Industries in the GOI are classified using the \textbf{NACE} taxonomy \protect\footnote{\url{https://ec.europa.eu/eurostat/web/nace}} (\textit{Nomenclature statistique des activités économiques dans la Communauté européenne}), the European Union's standard statistical classification of economic activities. The GOI covers 22 NACE sectors. Table~\ref{tab:nace_top} lists the ten most represented sectors in the dataset.
+
+\begin{table}[h]
+\centering
+\caption{Top 10 industries in the GOI by organisation count.}
+\label{tab:nace_top}
+\begin{tabular}{llrr}
+\toprule
+\textbf{NACE} & \textbf{Industry} & \textbf{Count} & \textbf{Share (\%)} \\
+\midrule
+N & Professional, scientific \& technical activities & 3{,}093{,}879 & 18.03 \\
+G & Wholesale \& retail trade                        & 2{,}240{,}191 & 13.05 \\
+C & Manufacturing                                    & 2{,}006{,}435 & 11.69 \\
+R & Human health \& social work                      & 1{,}440{,}340 &  8.39 \\
+K & Telecom, IT \& computing                         & 1{,}269{,}131 &  7.39 \\
+F & Construction                                     & 1{,}173{,}226 &  6.84 \\
+I & Accommodation \& food service                    & 1{,}126{,}594 &  6.56 \\
+S & Arts, sports \& recreation                       & 1{,}101{,}592 &  6.42 \\
+Q & Education                                        &   584{,}430 &  3.41 \\
+J & Publishing, broadcasting \& content              &   554{,}985 &  3.23 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Organisation Size Classification}
+
+Organisation size in the GOI is derived from employee and revenue signals and bucketed into four categories following EU SME definitions, as shown in Table~\ref{tab:size_dist}.
+
+\begin{table}[h]
+\centering
+\caption{Organisation size distribution in the GOI.}
+\label{tab:size_dist}
+\begin{tabular}{llrr}
+\toprule
+\textbf{Size} & \textbf{Employee Range} & \textbf{Count} & \textbf{Share (\%)} \\
+\midrule
+Micro           & 0--9   & 7{,}341{,}838 & 42.78 \\
+Small           & 10--49 & 7{,}494{,}409 & 43.67 \\
+Medium-sized    & 50--249 & 1{,}501{,}655 &  8.75 \\
+Large enterprise & 250+  &   824{,}126 &  4.80 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The distribution is heavily skewed towards smaller organisations: over 86\% of the GOI consists of micro and small enterprises. This has implications for retrieval, as queries targeting large enterprises represent a smaller and more distinctive subset of the corpus.
+
+\subsection{Geographic Coverage}
+
+The GOI covers 232 countries and territories. Table~\ref{tab:geo_top} lists the top five countries by volume.
+
+\begin{table}[h]
+\centering
+\caption{Top 5 countries by organisation count in the GOI.}
+\label{tab:geo_top}
+\begin{tabular}{lr}
+\toprule
+\textbf{Country} & \textbf{Organisations} \\
+\midrule
+United States   & 3{,}626{,}794 \\
+Germany         & 1{,}828{,}181 \\
+United Kingdom  & 1{,}013{,}026 \\
+Netherlands     &   778{,}416 \\
+Italy           &   625{,}754 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+It is worth noting that approximately 2.7 million organisations in the GOI do not have a standardised administrative region. These records are intentionally retained as they remain valuable for non-geographic analyses such as industry or domain-level retrieval, the primary focus of this thesis.
+
+\subsection{Evaluation Dataset}
+
+\textcolor{red}{TODO: Delete this topic?}
+
+For the experiments conducted in this thesis, the full 20 million company corpus is not directly used for retrieval in the baseline phase. Instead, Istari provided an evaluation dataset consisting of 101 real-world search queries along with their corresponding production search results (top 1,000 ranked companies per query). This yielded 101,000 (query, company) pairs in total.
+
+Where the same domain appears linked to multiple addresses, the GOI deduplicates by domain and retains the record with the highest employee count, treating it as the organisation's headquarters. This policy is relevant for the experimental corpus used in this thesis. After deduplication by domain, this evaluation dataset covers 98,716 unique companies - a representative subset of the GOI. All baseline retrieval experiments (BM25, sentence-embedding, and hybrid retrieval) are conducted over this corpus, with the production top-100 results per query serving as pseudo-relevance labels for evaluation. Scaling retrieval to the full 20 million corpus is planned for the later phases of the thesis using GPU-accelerated infrastructure provisioned by the supervisor. \textcolor{red}{TODO: Need to add section and also 98K is related to this or not.}
+
+\chapter{Literature}
+\label{ch:related_literature}
+
+% ============================================================
+\chapter{Experiments}
+\label{ch:experiments}
+% ============================================================
+
+This chapter describes the experimental setup, baseline retrieval systems,
+evaluation methodology, and results obtained for the company search task
+over Istari's Global Organisation Index~(GOI).
+Section~\ref{sec:exp_setup} introduces the dataset and evaluation protocol.
+Sections~\ref{sec:baseline_sparse}--\ref{sec:baseline_dense} describe each
+retrieval baseline in turn.
+Section~\ref{sec:exp_results} presents and analyses the results across all
+methods, and Section~\ref{sec:exp_runtime} provides a runtime comparison.
+
+% ────────────────────────────────────────────────────────────
+\section{Experimental Setup}
+\label{sec:exp_setup}
+% ────────────────────────────────────────────────────────────
+
+\subsection{Dataset}
+\label{subsec:dataset}
+
+The evaluation corpus is derived from Istari's production search logs.
+A set of 101 representative queries was provided by Istari, covering a
+wide range of company search intents, including industry-specific queries
+(e.g.\ \textit{``pharmaceutical companies in the US''}), geographic
+queries (e.g.\ \textit{``tech startups in Berlin''}), and
+functional queries (e.g.\ \textit{``B2B SaaS companies''}).
+For each query, the production system returned its top-1\,000 ranked
+results, yielding 101\,000 query--company pairs in total.
+After de-duplication across queries, the corpus consists of
+\textbf{98\,716 unique companies}, each represented by a domain name,
+a company name, and an AI-generated natural-language summary of the
+company's business activity.
+
+The summary field was selected as the primary retrieval field after
+an exploratory data analysis of all available GOI attributes.
+It was found to be fully populated across the corpus (0\% missing values)
+and to contain the richest semantic content for matching against
+free-text queries, compared to structured fields such as industry codes
+or founding year.
+
+\subsection{Evaluation Protocol}
+\label{subsec:eval_protocol}
+
+\paragraph{Pseudo-relevance labels.}
+No human-annotated relevance judgements are available for the Istari
+company search task.
+Following standard practice in information retrieval research when
+ground-truth labels are absent~\citep{voorhees1999trec}, this thesis
+adopts a \textit{pseudo-relevance} assumption: a company is considered
+\textbf{relevant} for a given query if and only if it appears in the
+\textbf{top-100 results} of Istari's production search system for
+that query.
+This yields a relevance set of at most 100 companies per query,
+representing ${\sim}0.1\%$ of the total corpus.
+
+This assumption has an important implication for the evaluation: the
+metrics measure the degree to which each retrieval system agrees with
+the production system, not whether it recovers objectively relevant
+companies.
+Consequently, a retrieval system that is strictly better than the
+production system may appear to underperform because it surfaces
+companies the production system missed.
+This limitation is acknowledged throughout the analysis.
+
+\paragraph{Metrics.}
+Three standard information retrieval metrics are reported at cut-offs
+$k \in \{10, 50, 100, 1000\}$:
+
+\begin{itemize}
+    \item \textbf{Precision@$k$}: the fraction of the top-$k$ retrieved
+    companies that are relevant.
+    This measures user-facing quality — what a user sees on the first
+    page of results.
+
+    \item \textbf{Recall@$k$}: the fraction of all relevant companies
+    that appear in the top-$k$ results.
+    This measures coverage — important for downstream re-ranking
+    pipelines that operate on a retrieved candidate set.
+
+    \item \textbf{NDCG@$k$} (Normalised Discounted Cumulative Gain):
+    a ranking-aware metric that rewards systems for placing relevant
+    companies higher in the list, using a logarithmic discount.
+    NDCG@$k$ is the primary quality metric in this thesis, as it
+    directly reflects the experience of a user who interacts primarily
+    with the top results.
+\end{itemize}
+
+All metrics are averaged across all 101 queries.
+Precision and Recall are always reported at the same cut-off values
+so that the precision--recall trade-off at each depth is visible.
+
+\subsection{Computational Environment}
+\label{subsec:compute}
+
+All experiments are conducted on the University of Mannheim HPC cluster.
+Dense model encoding is performed on an NVIDIA A100 GPU with 80\,GB
+HBM2 memory.
+BM25 retrieval runs on CPU.
+Query latency measurements are performed on the same hardware and reported
+as the mean over 20 benchmark queries to obtain stable estimates.
+Latency is decomposed into three components — local query encoding,
+FAISS index search, and external network time — so that self-hosted and
+API-based methods are compared on equal terms.
+
+% ────────────────────────────────────────────────────────────
+\section{Sparse Retrieval Baseline: BM25}
+\label{sec:baseline_sparse}
+% ────────────────────────────────────────────────────────────
+
+\subsection{Implementation}
+\label{subsec:bm25_impl}
+
+The BM25 baseline is implemented using the \texttt{rank\_bm25} Python
+library~\citep{robertson2009probabilistic}, which provides the Okapi
+BM25 variant with default hyperparameters $k_1 = 1.5$ and $b = 0.75$.
+All 98\,716 company summaries are tokenised using the NLTK punkt
+tokeniser~\citep{nltk} with lower-casing applied, and the resulting
+token lists are used to construct the BM25 inverted index.
+At query time, each query is tokenised identically and scored against
+the index.
+The top-1\,000 companies by BM25 score are retrieved for each query
+and stored for evaluation.
+Index construction takes 28.7 seconds and requires no GPU.
+
+\subsection{Qualitative Analysis}
+\label{subsec:bm25_qual}
+
+Manual inspection of BM25 results reveals a consistent failure mode
+arising from the \textit{vocabulary mismatch problem}: BM25 retrieves
+companies that contain query keywords in their description, regardless
+of whether those companies operate in the queried domain.
+
+A representative example is the query \textit{``software companies''}.
+The top BM25 results are predominantly investment banks and venture
+capital firms whose summaries frequently mention the word \textit{software}
+in the context of describing their investment portfolio
+(e.g.\ \textit{``we invest in software, fintech, and SaaS businesses''}).
+These companies are not software companies — they fund them.
+BM25 cannot distinguish between a company \textit{operating} in a
+domain and a company \textit{discussing} that domain.
+This limitation provides a clear and concrete motivation for
+semantic retrieval methods that operate on the meaning of text
+rather than on token overlap.
+
+% ────────────────────────────────────────────────────────────
+\section{Dense Retrieval Baselines}
+\label{sec:baseline_dense}
+% ────────────────────────────────────────────────────────────
+
+Three dense retrieval baselines are evaluated, covering a range of
+model sizes, computational requirements, and deployment constraints.
+All three follow the same two-stage pipeline introduced by
+\citet{karpukhin2020dense}: (i) encode all company summaries offline
+into a dense vector index using FAISS~\citep{johnson2017billion},
+and (ii) at query time, encode the query into a vector and retrieve
+the top-1\,000 nearest neighbours from the index.
+
+\subsection{all-MiniLM-L6-v2 (MiniLM)}
+\label{subsec:minilm}
+
+\texttt{all-MiniLM-L6-v2} is a lightweight sentence-transformer
+model~\citep{reimers2019sentence} with 22 million parameters,
+producing 384-dimensional embeddings.
+It is distilled from a larger BERT model and fine-tuned on sentence
+similarity tasks.
+All 98\,716 company summaries are encoded in a single batch pass,
+taking 0.6 minutes on the A100 GPU.
+A \texttt{faiss.IndexFlatL2} index (exact Euclidean search) is
+constructed over the resulting embeddings in 0.2 seconds.
+MiniLM does not require embedding normalisation.
+
+MiniLM is included as the smallest and most computationally efficient
+dense baseline, providing a lower bound on dense retrieval quality
+and establishing whether a minimal dense model is sufficient to
+outperform BM25.
+
+\subsection{BGE-large-en-v1.5 (BGE)}
+\label{subsec:bge}
+
+\texttt{BAAI/bge-large-en-v1.5} is a 335-million parameter BERT-large
+model developed by the Beijing Academy of Artificial
+Intelligence~\citep{chen2024bge}, producing 1\,024-dimensional embeddings.
+It is specifically optimised for dense retrieval through hard negative
+mining during fine-tuning — a training strategy in which the model
+is exposed to query--document pairs that are superficially similar
+but semantically distinct, forcing it to learn fine-grained semantic
+distinctions.
+
+Encoding all 98\,716 company summaries takes 7.0 minutes on the A100 GPU
+at a batch size of 256.
+BGE requires L2 normalisation of all embeddings
+(\texttt{normalize\_embeddings=True}), as it is trained under the
+cosine similarity objective.
+Accordingly, a \texttt{faiss.IndexFlatIP} index (inner product,
+equivalent to cosine similarity for unit-normalised vectors) is used
+rather than \texttt{IndexFlatL2}.
+
+At query time, each query is encoded independently and normalised
+before being passed to the FAISS index.
+The query encoding step takes 16.6\,ms on the A100 GPU, and the
+subsequent FAISS search takes 27.8\,ms, for a total query latency
+of 44.4\,ms.
+
+\subsection{OpenAI text-embedding-3-small (OpenAI)}
+\label{subsec:openai}
+
+\texttt{text-embedding-3-small} is a commercial embedding model
+provided by OpenAI via their REST API.
+It produces 1\,536-dimensional embeddings.
+Unlike the open-source models above, the architecture and training
+procedure are proprietary.
+Encoding all 98\,716 company summaries is performed via batched API
+calls (batch size 500) and takes 9.7 minutes, of which the majority
+is network latency rather than model computation.
+The resulting embeddings are unit-normalised by the API, and a
+\texttt{faiss.IndexFlatIP} index is constructed locally.
+The total cost of encoding the full corpus is approximately \$0.15
+at the published pricing of \$0.02 per million tokens.
+
+This model is included as the commercial upper-bound baseline,
+following a suggestion from the industry supervisor that a
+high-quality API-based embedding model be evaluated alongside
+open-source alternatives.
+
+\paragraph{Latency note.}
+Query latency for the OpenAI baseline comprises two components:
+a network round-trip to the OpenAI API servers (211.7\,ms, measured
+over 20 queries) and a local FAISS search (42.9\,ms).
+The network component is not a property of the model itself —
+it reflects internet latency between the University of Mannheim cluster
+and OpenAI's infrastructure — and should not be interpreted as a
+measure of model speed.
+For a fair comparison, the local FAISS search time (42.9\,ms)
+is comparable to BGE's search time (27.8\,ms), confirming that
+both methods perform equivalently at the index search stage.
+The substantive difference is that OpenAI requires an external
+API call for query encoding, whereas BGE encodes locally on GPU
+in 16.6\,ms.
+
+% ────────────────────────────────────────────────────────────
+\section{Results}
+\label{sec:exp_results}
+% ────────────────────────────────────────────────────────────
+
+\subsection{Retrieval Quality}
+\label{subsec:quality}
+
+Table~\ref{tab:main_results} presents the full evaluation results
+for all four methods across all metrics and cut-offs.
+
+\begin{table}[ht]
+\centering
+\caption{Retrieval quality of all four baseline systems averaged
+         over 101 queries. Bold indicates the best value in each column.
+         BGE and OpenAI are statistically indistinguishable across all metrics.}
+\label{tab:main_results}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lcccccccccccc}
+\toprule
+& \multicolumn{4}{c}{\textbf{NDCG@$k$}}
+& \multicolumn{4}{c}{\textbf{Precision@$k$}}
+& \multicolumn{4}{c}{\textbf{Recall@$k$}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}
+\textbf{Method}
+& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
+& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
+& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} \\
+\midrule
+BM25
+& 0.166 & 0.144 & 0.134 & 0.446
+& 0.156 & 0.136 & 0.128 & 0.068
+& 0.016 & 0.068 & 0.128 & 0.682 \\
+MiniLM
+& 0.192 & 0.150 & 0.133 & 0.432
+& 0.186 & 0.138 & 0.122 & 0.065
+& 0.019 & 0.069 & 0.122 & 0.653 \\
+BGE
+& \textbf{0.227} & \textbf{0.187} & \textbf{0.170} & \textbf{0.527}
+& 0.216 & \textbf{0.173} & \textbf{0.159} & \textbf{0.080}
+& \textbf{0.022} & \textbf{0.087} & \textbf{0.159} & 0.796 \\
+OpenAI
+& \textbf{0.227} & 0.174 & 0.161 & 0.526
+& \textbf{0.224} & 0.160 & 0.149 & \textbf{0.080}
+& \textbf{0.022} & 0.080 & 0.149 & \textbf{0.803} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{BM25 vs dense retrieval.}
+All three dense methods outperform BM25 at low cut-offs.
+At $k=10$, BGE and OpenAI achieve an NDCG of 0.227, representing a
+\textbf{37\% improvement} over BM25's 0.166.
+Precision@10 improves from 0.156 (BM25) to 0.216 (BGE) — a 38\%
+relative gain.
+This confirms the hypothesis that semantic retrieval better captures
+the intent of natural-language company search queries, particularly
+for cases where relevant companies use vocabulary different from the
+query terms.
+
+At large cut-offs ($k = 1000$), the gap narrows.
+BM25 achieves a Recall@1000 of 0.682, compared to BGE's 0.796 and
+OpenAI's 0.803.
+This pattern is consistent with findings in the BEIR
+benchmark~\citep{thakur2021beir}: dense models are stronger at
+ranking precision, while keyword-based methods maintain competitive
+coverage at large retrieval depths due to their broad lexical matching.
+
+\paragraph{BGE vs OpenAI.}
+BGE and OpenAI are \textbf{effectively equivalent} across all metrics
+and cut-offs.
+The largest observed difference is 0.013 NDCG points (at $k=50$),
+which is within the range of query-level variance and should not be
+interpreted as a meaningful quality advantage.
+This finding has an important practical implication: a free,
+self-hosted model (BGE) achieves the same retrieval quality as a
+commercial API (OpenAI) on this task.
+
+\paragraph{MiniLM.}
+MiniLM consistently underperforms BGE and OpenAI at all cut-offs,
+and is only marginally better than BM25 at large $k$
+(Recall@1000: 0.653 vs 0.682 for BM25).
+It is also slower than BGE in production (query latency 80.9\,ms vs
+44.4\,ms), as discussed in Section~\ref{sec:exp_runtime}.
+MiniLM is therefore dominated by BGE on both quality and speed,
+and there is no operating point at which it represents the optimal
+choice.
+
+\paragraph{Precision and the low-prevalence setting.}
+Absolute precision values are low across all methods
+(Precision@10 ranging from 0.156 to 0.224).
+This is expected: relevant companies represent at most 100 out of
+98\,716 corpus entries — approximately 0.1\% of the corpus.
+In such a low-prevalence setting, even a perfect retrieval system
+would show low absolute precision at large $k$.
+What matters is the relative improvement between methods: BGE and
+OpenAI achieve 38--43\% higher Precision@10 than BM25, which is a
+meaningful gain.
+
+\paragraph{The NDCG dip at $k = 100$.}
+An artifact of the evaluation design is visible in
+Table~\ref{tab:main_results}: NDCG values decrease from $k=10$
+to $k=100$ before rising sharply at $k=1000$ for all methods.
+This occurs because the pseudo-relevance labels are defined as the
+production top-100.
+At exactly $k=100$, NDCG measures whether all 100 relevant companies
+are ranked perfectly within the top-100 retrieved results — a maximally
+strict condition.
+At $k=1000$, there is substantially more room to accommodate the relevant
+set, and the metric rises accordingly.
+This artifact would not appear with human-annotated relevance labels
+that include varying degrees of relevance beyond a hard top-100 cut-off.
+
+% ────────────────────────────────────────────────────────────
+\section{Runtime Analysis}
+\label{sec:exp_runtime}
+% ────────────────────────────────────────────────────────────
+
+Table~\ref{tab:latency} presents the decomposed query latency for
+all four methods.
+Latency is broken into three components to enable a fair comparison
+between self-hosted models and the API-based OpenAI baseline.
+
+\begin{table}[ht]
+\centering
+\caption{Query latency decomposed into local encoding, FAISS search,
+         and external network time, averaged over 20 benchmark queries
+         on an NVIDIA A100 GPU. Network time reflects internet latency
+         to OpenAI servers and is not a property of the model.}
+\label{tab:latency}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lrrrrl}
+\toprule
+\textbf{Method}
+& \textbf{Encode (ms)}
+& \textbf{Search (ms)}
+& \textbf{Network (ms)}
+& \textbf{Total (ms)}
+& \textbf{Self-hostable} \\
+\midrule
+BM25   &   0.1 & 104.0 &   0.0 & 104.1 & Yes \\
+MiniLM &  68.9 &  12.0 &   0.0 &  80.9 & Yes \\
+BGE    &  16.6 &  27.8 &   0.0 &  \textbf{44.4} & Yes \\
+OpenAI & \textit{server} &  42.9 & 211.7 & 254.6 & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{BGE is the fastest method overall.}
+BGE achieves a total query latency of 44.4\,ms — faster than BM25
+(104.1\,ms), MiniLM (80.9\,ms), and OpenAI (254.6\,ms).
+This result is initially counterintuitive: BGE is a 335-million
+parameter neural network, whereas BM25 is a simple keyword scoring
+function.
+The explanation lies in hardware utilisation.
+BGE encodes the query vector on the A100 GPU (16.6\,ms), a
+highly parallelised operation that is extremely efficient for dense
+linear algebra.
+BM25, by contrast, computes token scores on CPU over an inverted
+index (104.0\,ms), which is sequential and memory-bound.
+This finding has a direct implication for production deployment:
+a GPU-equipped system running BGE delivers both better retrieval
+quality and lower query latency than a CPU-based BM25 system.
+
+\paragraph{MiniLM encodes slowly despite being a small model.}
+MiniLM's 68.9\,ms encoding time is slower than BGE's 16.6\,ms,
+despite having 15 times fewer parameters.
+This is because MiniLM encodes on CPU in these experiments, while
+BGE encodes on GPU.
+Hardware assignment dominates over model size for single-query
+encoding latency.
+
+\paragraph{OpenAI's latency is dominated by network time.}
+Of OpenAI's total 254.6\,ms, only 42.9\,ms is FAISS index search —
+comparable to BGE's 27.8\,ms search time.
+The remaining 211.7\,ms is the HTTP round-trip to OpenAI's servers.
+This latency is not a property of the embedding model; it reflects
+internet connectivity between the university cluster and OpenAI's
+infrastructure, and would vary across deployment environments.
+For a production system at Istari, API-based encoding would introduce
+an irreducible network dependency and per-query cost, whereas BGE
+could be self-hosted with predictable latency.
+
+\paragraph{Summary.}
+Table~\ref{tab:summary} summarises the key trade-offs across all four
+methods.
+
+\begin{table}[ht]
+\centering
+\caption{Summary comparison of all baseline retrieval methods.}
+\label{tab:summary}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lllllll}
+\toprule
+\textbf{Method}
+& \textbf{NDCG@10}
+& \textbf{Prec@10}
+& \textbf{Recall@1k}
+& \textbf{Latency}
+& \textbf{Cost}
+& \textbf{GPU req.} \\
+\midrule
+BM25   & 0.166 & 0.156 & 0.682 & 104\,ms & Free    & No \\
+MiniLM & 0.192 & 0.186 & 0.653 & 81\,ms  & Free    & No \\
+BGE    & \textbf{0.227} & 0.216 & 0.796 & \textbf{44\,ms} & Free & Yes (enc.) \\
+OpenAI & \textbf{0.227} & \textbf{0.224} & \textbf{0.803} & 255\,ms & \$0.02/M tok. & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+BGE emerges as the recommended baseline for subsequent experiments:
+it matches OpenAI's retrieval quality, is the fastest method in
+practice, is free, and can be fully self-hosted without API dependency.
+The results motivate the next experimental phase, in which a
+pre-filtering stage and hybrid retrieval system are built on top of
+the BGE baseline to further improve precision at low cut-offs
+and overall system efficiency.
+
+% here the original content of my thesis ends
+
+% This is the template here:
+\chapter{Introduction}
+\label{ch:intro}
+
+The structure of this example thesis is \emph{non-binding}, but is highly
+topic-dependent and should be discussed with your advisor. You probably do not
+want to go below the level of subsections, though.
+
+To cite, do it in one of the following ways:
+\begin{itemize}
+\item A single paper in text: As shown by \citet{doe2024proof}, X holds.
+\item Same with additional information: As shown by \citet[p. 20]{doe2024proof},
+  X holds.
+\item A single paper in parenthesis: X holds \cite{doe2024proof}.
+\item Multiple papers in parenthesis: X holds
+  \cite{brown2022techreport,smith2023conference,lee2023journal,doe2024proof}.
+\item Use footnotes to reference a website, such as the DWS thesis
+  guidelines.\footnote{\url{https://www.uni-mannheim.de/dws/teaching/thesis-guidelines/}}
+  Note that footnote marks are set after punctuation in English text. Only
+  reference a website when needed---e.g., the website of a library or a blog
+  post---and always cite corresponding scientific publications (if any) in
+  addition.
+\end{itemize}
+Format the bibliography consistently, e.g., as in the the example bibliography
+in this template. Only cite archival versions of papers (such as those published
+on \href{https://arxiv.org}{arXiv}) when there are no corresponding official
+publications (such as in conference proceedings); if there are such
+publications, then cite those instead.
+
+
+Some examples of references are:
+\begin{enumerate}
+\item Table~\ref{tab:sample} is an example table.
+\item Section~\ref{sec:preliminaries} is a later section of this thesis.
+\item Algorithm~\ref{alg:proofX} is an example algorithm.
+\item And finally, Equation~\eqref{eq:s} is an example equation.
+\end{enumerate}
+
+Here is the equation referred to above:
+\begin{equation}
+  \label{eq:s}
+  \mathcal{S}=\{\,a\cdot \operatorname{relu}(\mathbf{W^\top}\mathbf{x}) :
+  a\in\mathbb{R} \,\}
+\end{equation}
+
+\textbf{Important:} Fill out and sign the last page when you submit/deliver the
+final version of your thesis. Otherwise, your work cannot be accepted for legal
+reasons.
+
+The purpose of the introduction as summarized by~\citet{zobel2004}:
+
+\blockcquote{zobel2004}{%
+  An introduction can be regarded as an expanded version of the abstract. It
+  should describe the paper's topic, the problem being studied, references to
+  key papers, the approach to the solution, the scope and limitations of the
+  solution, and the outcomes. There needs to be enough detail to allow readers
+  to decide whether or not they need to read further. It should include
+  motivation: the introduction should explain why the problem is interesting,
+  what the relevant scientific issues are, and why the solution is a good one.
+
+  That is, the introduction should show that the paper is worth reading and it
+  should allow the reader to understand your perspective, so that the reader and
+  you can proceed on a basis of common understanding.
+
+  Many introductions follow a five-element organization:
+  \begin{enumerate}
+  \item A general statement introducing the broad research area of the
+    particular topic being investigated.
+  \item An explanation of the specific problem (difficulty, obstacle, challenge)
+    to be solved.
+  \item A brief review of existing or standard solutions to this problem and
+    their limitations.
+  \item An outline of the proposed new solution.
+  \item A summary of how the solution was evaluated and what the outcomes of the
+    evaluation were.
+  \end{enumerate}
+
+  An interesting exercise is to read other papers, analyze their introductions
+  to see if they have this form, and then decide whether they are effective. The
+  introduction can discuss the importance or ramifications of the conclusions
+  but should omit supporting evidence, which the interested reader can find in
+  the body of the paper. Relevant literature can be cited in the introduction,
+  but unnecessary jargon, complex mathematics, and in-depth discussion of the
+  literature belong elsewhere.
+
+  A paper isn't a story in which results are kept secret until a surprise
+  ending. The introduction should clearly tell the reader what in the paper is
+  new and what the outcomes are. There may still be a little suspense: revealing
+  what the results are does not necessarily reveal how they were achieved. If,
+  however, the existence of results is concealed until later on, the reader
+  might assume there are no results and discard the paper as worthless.}
+
+\chapter{Literature Review}
+\label{ch:related_work}
+
+\citet{zobel2004} writes:
+
+\blockcquote{zobel2004}{%
+  Few results or experiments are entirely new. Most often they are extensions of
+  or corrections to previous research-that is, most results are an incremental
+  addition to existing knowledge. A literature review, or survey, is used to
+  compare the new results to similar previously published results, to describe
+  existing knowledge, and to explain how it is extended by the new results. A
+  survey can also help a reader who is not expert in the field to understand the
+  paper and may point to standard references such as texts or survey articles.
+
+  In an ideal paper, the literature review is as interesting and thorough as the
+  description of the paper's contribution. There is great value for the reader
+  in a precise analysis of previous work that explains, for example, how
+  existing methods differ from one another and what their respective strengths
+  and weaknesses are. Such a review also creates a specific expectation of what
+  the contribution of the paper should be-it shapes what the readers expect of
+  your work, and thus shapes how they will respond to your ideas.
+
+  The literature review can be early in a paper, to describe the context of the
+  work, and might in that case be part of the introduction; or the literature
+  review can follow or be part of the main body, at which point a detailed
+  comparison between the old and the new can be made. If the literature review
+  is late in a paper, it is easier to present the surveyed results in a
+  consistent terminology, even when the cited papers have differing nomenclature
+  and notation. In many papers the literature review material is not gathered
+  into a single section, but is discussed where it is used-background material
+  in the introduction, analysis of other researchers' work as new results are
+  introduced, and so on. This approach can help you to write the paper as a
+  flowing narrative.
+
+  An issue that is difficult in some research is the relationship between new
+  scientific results and proprietary commercial technology. It often is the case
+  that scientists investigate problems that appear to be solved or addressed in
+  commercial products. For example, there is ongoing academic research into
+  methods for information retrieval despite the success of the search engines
+  deployed on the web. From the perspective of high research principle, the
+  existence of a commercial product is irrelevant: the ideas are not in the
+  public domain, it is not known how the problems were solved in the product,
+  and the researcher's contribution is valid. However, it may well be reckless
+  to ignore the product; it should be cited and discussed, while noting, for
+  example, that the methods and effectiveness of the commercial solution are
+  unknown. }
+
+An example structure for the literature review is given below; as before, this
+structure is non-binding and should be changed as appropriate.
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\section{Related Work on A}
+\label{sec:related_work_A}
+
+\section{Related Work on B}
+
+\section{Related Work on C}
+
+\section{Summary}
+
+\chapter{Body Chapter 1}
+\citet{zobel2004} writes:
+
+\blockcquote{zobel2004}{%
+  The body of a paper should present the results. The presentation should
+  provide necessary background and terminology, explain the chain of reasoning
+  that leads to the conclusions, provide the details of central proofs,
+  summarize any experimental outcomes, and state in detail the conclusions
+  outlined in the introduction. Descriptions of experiments should permit
+  reproduction and verification, as discussed in Chapter 11. There should also
+  be careful definitions of the hypothesis and major concepts, even those
+  described informally in the introduction. The structure should be evident in
+  the section headings. Since the body can be long, narrative flow and a clear
+  logical structure are essential.
+
+  The body should be reasonably independent of other papers. If, to understand
+  your paper, the reader must find specialized literature such as your earlier
+  papers or an obscure paper by your advisor, then its audience will be limited.
+
+  In some disciplines, research papers have highly standardized structures.
+  Editors may require, for example, that you use only the four headings
+  Introduction-Methods-Results-Discussion. This convention has not taken hold in
+  computer science, and in some cases such a structure impedes a clear
+  explanation of the work. For example, use of fixed headings may prohibit
+  development of a complex explanation in stages. In work combining two query
+  resolution techniques, we had to determine how they would interact, based on a
+  fresh evaluation of how they behaved independently. The final structure was,
+  in effect,
+  Introduction-Background-Methods-Results-Discussion-Methods-Results­Discussion.
+
+  Even if the standardized section names are not used, the body needs these
+  elements, if not necessarily under their standard headings. Components of the
+  body might include, among other things, background, previous work, proposals,
+  experimental design, analysis, results, and discussion. Specific research
+  projects suggest specific headings. For the "compression for fast external
+  sorting" project sketched earlier, the complete set of section headings might
+  be:
+
+  \begin{enumerate}
+  \item Introduction
+  \item External sorting
+  \item Compression techniques for database systems
+  \item Sorting with compression
+  \item Experimental setup
+  \item Results and discussion
+  \item Conclusions
+  \end{enumerate}
+
+  The wording of these headings does not follow the standard form, but the
+  intent of the wording is the same. Sections 2 and 3 are the background;
+  Section 4 contains novel algorithms, and Sections 4 and 5 together are the
+  methods.
+
+  The background material can be entirely separate from the discussion of
+  previous work on the same problem. The former is the knowledge the reader
+  needs to understand your contribution. The latter is, often, alternative
+  solutions that are superseded by your work. Together, the discussion of
+  background and previous work also introduce the state of the art and its
+  failings, the importance and circumstances of the research question, and
+  benchmarks or baselines that the new work should be compared to.
+
+  A body that consists of descriptions of algorithms followed by a dump of
+  experimental results is not sound science. In such a paper, the context of
+  prior work is not explained, as readers are left to draw their own inferences
+  about what the results mean.
+
+  In a thesis, each chapter has structure, including an introduction and a
+  summary or conclusions. This structure varies with the chapter's purpose. A
+  background chapter may gather a variety of topics necessary to understanding
+  of the contribution of the thesis, for example, whereas a chapter on a new
+  algorithm may have a simple linear organization in which the parts of the
+  algorithm are presented in tum. However, the introduction and summary should
+  help to link the thesis together-how the chapter builds on previous chapters
+  and how subsequent chapters make use of it. }
+
+\chapter{Body Chapter 2}
+
+Our key result is given as Algorithm~\ref{alg:proofX}. It's complete non-sense,
+of course! Note that algorithms, figures, and tables should generally be placed
+at the top of the page or on an individual page, but not within the main text.
+
+The following highly informative text is here so that the correct placement of
+Algorithm~\ref{alg:proofX} is visible. \lipsum[1-3]
+
+% [t] prefers top placement over in-text placement ([t!] forces it)
+\begin{algorithm}[t]
+  \caption{Proof that $X$ Holds}
+  \label{alg:proofX}
+  \begin{algorithmic}[1]
+    \REQUIRE A hypothesis $H$ that $X$ holds \ENSURE A proof that $X$ holds
+    \STATE $P \leftarrow \emptyset$ \COMMENT{Initialize proof as an empty set of
+      statements} \STATE $A \leftarrow \text{Assumptions from hypothesis } H$
+    \COMMENT{Extract assumptions from $H$} \FORALL{$a \in A$} \IF{$a$ is a known
+      axiom} \STATE Add $a$ to $P$ \ELSIF{$a$ can be derived from known axioms}
+    \STATE Derive $a$ from axioms and add to $P$ \ELSE \STATE \textbf{fail}
+    \COMMENT{If any assumption cannot be derived, proof fails} \ENDIF \ENDFOR
+    \STATE Use logical deductions on $P$ to prove intermediate results \STATE
+    Combine intermediate results to prove $X$ \RETURN $P$ \COMMENT{Return the
+      completed proof}
+  \end{algorithmic}
+\end{algorithm}
+
+\lipsum[4-10]
+
+\chapter{Experimental Evaluation}
+
+\section{Experimental Setup}
+
+\section{Results 1}
+
+% tables and figures should be at the top of the page, not in between text
+% fragments. Latex does this by default, so don't override it.
+\begin{table}[tb]
+  \centering
+  \begin{tabular}{lcr}
+    \toprule
+    \textbf{Item} & \textbf{Quantity} & \textbf{Price} \\
+    \midrule
+    Apples  & 10 & \$2.00 \\
+    Oranges & 5  & \$3.00 \\
+    Bananas & 7  & \$1.50 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Sample table using booktabs}
+  \label{tab:sample}
+\end{table}
+
+\section{Results 2}
+
+\section{Results 3}
+\section{Discussion}
+
+\chapter{Conclusions}
+
+\citet{zobel2004} writes:
+
+\blockcquote{zobel2004}{%
+  The closing section, or summary, is used to draw together the topics discussed
+  in the paper. It should include a concise statement of the paper's important
+  results and an explanation of their significance. This is an appropriate place
+  to state (or restate) any limitations of the work: shortcomings in the
+  experiments, problems that the theory does not address, and so on.
+
+  The conclusions are an appropriate place for a scientist to look beyond the
+  current context to other problems that were not addressed, to questions that
+  were not answered, to variations that could be explored. They may include
+  speculation, such as discussion of possible consequences of the results.
+
+  A \emph{conclusion} is that which concludes, or the end. \emph{Conclusions}
+  are the inferences drawn from a collection of information. Write
+  "Conclusions", not "Conclusion". If you have no conclusions to draw, write
+  "Summary".}
+
+\bibliography{references}
+
+
+\appendix
+\chapter{Additional Experimental Results}
+
+\citet{zobel2004} writes:
+
+\blockcquote{zobel2004}{%
+  Some papers have appendices giving detail of proofs or experimental results,
+  and, where appropriate, material such as listings of computer programs. The
+  purpose of an appendix is to hold bulky material that would otherwise
+  interfere with the narrative flow of the paper, or material that even
+  interested readers do not need to refer to. Appendices are rarely necessary.}
+
+In the context of a BSc or MSc thesis, the last sentence often does not hold.
+
+\chapter{Proof Details}
+
+\backmatter
+\chapter{Ehrenwörtliche Erklärung}
+
+Ich versichere, dass ich die beiliegende Bachelor-, Master-, Seminar-, oder
+Projektarbeit ohne Hilfe Dritter und ohne Benutzung anderer als der angegebenen
+Quellen und in der untenstehenden Tabelle angegebenen Hilfsmittel angefertigt
+und die den benutzten Quellen wörtlich oder inhaltlich entnommenen Stellen als
+solche kenntlich gemacht habe. Diese Arbeit hat in gleicher oder ähnlicher Form
+noch keiner Prüfungsbehörde vorgelegen. Ich bin mir bewusst, dass eine falsche
+Erklärung rechtliche Folgen haben wird.
+
+% Declare below which AI tools you used in the process of writing your work,
+% including text, image, code, and data generation. If you used a tool for a
+% purpose not included in the list yet, add it to the list.
+\begin{center}
+  \textbf{Declaration of Used AI Tools} \\[.3em]
+  \begin{tabularx}{\textwidth}{lXlc}
+    \toprule
+    Tool & Purpose & Where? & Useful? \\
+    \midrule
+    ChatGPT & Rephrasing & Throughout & + \\
+    DeepL & Translation & Throughout & + \\
+    ResearchGPT & Summarization of related work & Sec.~\ref{sec:related_work_A} & - \\
+    Dall-E & Image generation & Figs.~2, 3 & ++ \\
+    GPT-4 & Code generation & functions.py & + \\
+    ChatGPT & Related work hallucination & Most of bibliography & ++ \\
+    \bottomrule
+  \end{tabularx}
+\end{center}
+
+\vspace{2cm}
+\noindent Unterschrift\\
+\noindent Mannheim, den \today \hfill
+
+\end{document}

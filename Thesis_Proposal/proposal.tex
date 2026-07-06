@@ -1,0 +1,88 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{blindtext}
+
+\title{Design and Evaluation of Efficient Semantic Company Retrieval at Scale}
+\author{Marmee Pandya}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+ %These systems are used to identify relevant companies for tasks such as market analysis, strategic decision-making.
+
+Modern company intelligence platforms maintain datasets containing 40M company profiles. Despite the availability of large amounts of structured and unstructured data, retrieving relevant companies remains challenging. Current workflows often rely on manually configured filters and keyword-based queries, which require multiple iterations before satisfactory results are obtained.
+
+Classical information retrieval methods such as BM25 provide strong and efficient lexical matching and are widely used in large-scale search systems. However, these methods depend on direct term overlap between queries and documents. When related concepts are expressed using different terminology, relevant companies may not be retrieved.
+
+At the same time, industrial search systems must satisfy strict constraints on efficiency and scalability. Retrieval must remain accurate while operating on large scale datasets and providing low-latency responses.
+
+This thesis investigates whether embedding-based semantic retrieval combined with approximate nearest neighbor search can efficiently generate accurate top-k candidate company sets from large-scale datasets while maintaining low query latency.
+
+\section{Baseline}
+
+\subsection{Production Search Baseline}
+
+% This baseline reflects real-world performance and allows comparison with current operational standards. However, p
+
+The first baseline consists of the existing company search system currently used in practice. This system relies primarily on keyword-based matching and filtering strategies. For a given query, the ranked results returned by the production system will be collected and used as a reference point for comparison. Production retrieval results will not be treated as ground truth, but rather as one reference system among others.
+
+\subsection{BM25 Baseline}
+
+The second baseline is the BM25 ranking function, a widely used probabilistic retrieval model in information retrieval. Each company profile will be treated as a document, and queries will be matched against company descriptions using BM25 to produce a ranked list of relevant companies. %BM25 provides a strong and efficient lexical retrieval benchmark and serves as a controlled reference for comparing lexical and embedding-based retrieval methods.
+
+\subsection{Embedding-Based Literature Baseline}
+
+In addition to lexical baselines, at least one recent embedding-based dense retrieval method from the scientific literature will be implemented as a reference system. This baseline serves as a strong dense retrieval benchmark. Building upon this reference method, the thesis will further investigate potential improvements or adaptations tailored to large-scale company retrieval, with the goal of improving either retrieval effectiveness or efficiency.
+
+\section{Evaluation}
+
+The proposed system will be evaluated along three dimensions: retrieval quality, efficiency, and error analysis.
+
+\textbf{Retrieval Quality.}
+Retrieval performance will be measured using standard information retrieval metrics such as Precision@k, Recall@k, and NDCG@k, computed over the top-k retrieved companies. The embedding-based method will be compared against the production search system and the BM25 baseline. 
+
+The thesis will aim to evaluate against higher-quality relevance judgments. In particular, the possibility of obtaining post-LLM validated company results for a representative set of queries will be explored. Such a dataset would allow assessment of whether improved candidate generation can increase final retrieval accuracy while potentially reducing the number of companies passed to the downstream LLM stage, thereby improving overall system efficiency.
+
+\textbf{Efficiency.}
+Efficiency will be assessed by measuring query latency, throughput, and memory consumption of the retrieval system. Experiments will analyze the trade-off between retrieval accuracy and latency under different ANN index configurations and candidate set sizes.
+
+\textbf{Error Analysis.}
+A qualitative analysis will be conducted to examine cases where relevant companies were not retrieved or where irrelevant companies were ranked highly. Special attention will be given to vocabulary mismatch cases and failure modes of both lexical and embedding-based retrieval.
+
+As an optional extension, similarity-based explanatory analysis may be conducted to investigate embedding neighborhoods and visualize relationships between retrieved companies.
+
+\section{Goals}
+
+The goal of this thesis is to design, implement, and evaluate an efficient embedding-based candidate retrieval system for large-scale company data. % The primary focus lies on improving retrieval effectiveness while satisfying strict latency and scalability constraints.
+
+\noindent \textbf{Goal 1: Efficient Semantic Candidate Generation.}  
+Develop a semantic retrieval pipeline that encodes company descriptions into dense vector representations and supports scalable top-$k$ retrieval using approximate nearest neighbor search.
+
+\noindent \textbf{Goal 2: Evaluation of Effectiveness and Efficiency.}  
+Systematically compare the proposed approach against the production search system and a BM25 baseline using standard retrieval metrics (e.g., Precision@$k$, Recall@$k$, NDCG@$k$) and efficiency measures such as query latency and memory usage.
+
+\noindent \textbf{Goal 3 (Optional Extension): Explanatory Analysis.}  
+Explore similarity-based explanatory techniques, such as analysis of embedding neighborhoods or visualization of retrieved company clusters, to better understand retrieval behavior.
+
+\subsection{Workplan}
+
+\noindent \textbf{Month 1:}  
+Literature review on large-scale information retrieval, dense retrieval models, and approximate nearest neighbor indexing. Dataset preprocessing and definition of evaluation setup.
+
+\noindent \textbf{Months 2-3:}  
+Implementation of the BM25 baseline and embedding-based retrieval pipeline. Construction and tuning of vector indices (e.g., ANN structures). Preliminary experiments on retrieval quality and latency.
+
+\noindent \textbf{Month 4-5:}  
+Comprehensive experimental evaluation, including effectiveness--efficiency trade-off analysis and qualitative error analysis.
+
+\noindent \textbf{Month 6:}  
+Final analysis, consolidation of results, and thesis writing.
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}
+

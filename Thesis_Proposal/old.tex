@@ -1,0 +1,83 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[margin=2.5cm]{geometry}
+
+\title{Design and Evaluation of an Efficient Semantic Retrieval System for Large-Scale Company Data}
+
+\author{Marmee Pandya}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%\section{Introduction}
+
+
+%ISTARI.AI is a B2B and B2G intelligence platform that provides access to large-scale company data to support use cases such as supplier discovery, market research, and strategic decision-making. The platform maintains a dataset of approximately 40M+ company profiles and users of the platform rely on this data to identify relevant companies based on complex and often abstract requirements.
+
+\section{Introduction and Problem}
+
+Modern company intelligence platforms maintain datasets containing tens of millions of company profiles. These systems are used to identify relevant companies for tasks such as supplier discovery, market analysis, and strategic decision-making.
+
+Despite the availability of large amounts of structured and unstructured data, retrieving relevant companies remains challenging. Current workflows often rely on manually configured filters and keyword-based queries, which require multiple iterations before satisfactory results are obtained.
+
+Classical information retrieval methods such as BM25 provide strong and efficient lexical matching and are widely used in large-scale search systems. However, these methods depend on direct term overlap between queries and documents. When related concepts are expressed using different terminology, relevant companies may not be retrieved.
+
+At the same time, industrial search systems must satisfy strict constraints on efficiency and scalability. Retrieval must remain accurate while operating on datasets with tens of millions of entries and providing low-latency responses.
+
+This thesis investigates whether embedding-based semantic retrieval methods can improve search effectiveness while maintaining the efficiency requirements of large-scale company search systems.
+
+% Despite the richness of the available data, searching and filtering relevant companies remains a challenging task. Currently, employees must manually configure search parameters and filtering rules to approximate their customers' needs. This process is time-consuming and does not scale well as query complexity increases. In particular, manual rule-based search configurations struggle to capture user intent when it is expressed in natural language rather than as predefined keywords or structured filters.
+
+%Traditional keyword-based search methods further limit retrieval quality, as they rely on exact term matching and fail to account for semantic similarity between queries and company descriptions. As a result, relevant companies may be missed when different terminology is used to describe similar concepts, reducing both recall and user satisfaction.
+
+%This thesis proposes the design and evaluation of an automated semantic search system tailored to the company data provided by ISTARI.AI. The system enables users to retrieve relevant companies using natural-language queries by leveraging sentence-level semantic representations, without relying on large generative language models. In addition, the thesis investigates methods to make semantic retrieval explainable and visually interpretable, allowing users to understand why specific companies are retrieved and how retrieved companies relate to each other in the underlying semantic space. The proposed approach aims to reduce manual search configuration while improving retrieval quality, transparency, and usability in an industrial setting.
+
+\section{Baseline}
+To evaluate the effectiveness of the proposed semantic search system, classical keyword-based information retrieval methods will be used as baselines. These methods provide strong and well-established reference points for text-based retrieval tasks and allow a systematic comparison between lexical and semantic retrieval approaches.
+
+\subsection{BM25}
+
+The primary baseline will be the BM25 ranking function, a widely used probabilistic retrieval model in information retrieval systems. BM25 ranks documents based on term frequency, inverse document frequency, and document length normalization, making it robust across heterogeneous text collections. Each company profile will be treated as a document, and user queries will be matched against company descriptions using BM25 to produce a ranked list of relevant companies.
+
+BM25 serves as a strong baseline due to its competitive performance in large-scale retrieval settings and its high degree of interpretability, as retrieval scores can be traced back to individual query terms and their contributions.
+
+\subsection{TF-IDF (Optional)}
+
+As an additional reference point, a TF-IDF-based retrieval model may be implemented. In this approach, company descriptions and queries are represented as sparse vectors weighted by term frequency and inverse document frequency, and similarity is computed using cosine similarity. While simpler than BM25, TF-IDF provides a transparent and intuitive baseline that highlights the limitations of purely lexical matching in capturing semantic similarity.
+
+\subsection{Comparison to Semantic Retrieval}
+
+The performance and behavior of these keyword-based baselines will be compared to the proposed embedding-based semantic search system. This comparison will allow an analysis of trade-offs between retrieval quality, robustness to vocabulary mismatch, and explainability. In particular, the study will investigate cases where semantic retrieval outperforms lexical methods, as well as scenarios where simpler baselines remain competitive.
+
+\section{Goals and Work Plan}
+
+The goal of this thesis is to design, implement, and evaluate an explainable semantic search system for large-scale company data, with a focus on reducing manual search configuration and improving user understanding of retrieval results.
+
+\noindent \textbf{Goal 1: Semantic intent-based company search.} Develop a sentence-level semantic search pipeline that allows users to retrieve companies using natural-language queries. Company descriptions will be encoded using transformer-based embeddings, and approximate nearest neighbor search will be employed to ensure scalability to large datasets.
+
+% \noindent \textbf{Goal 2: Automation of manual search configuration.} Investigate how semantic representations can replace or reduce manually defined search rules by directly mapping user intent to relevant company profiles.
+
+\noindent \textbf{Goal 2: Explainable semantic retrieval.} Design methods to explain why a company was retrieved for a given query, for example by highlighting relevant text segments or providing similarity-based explanations. The trade-off between retrieval quality and interpretability will be analyzed.
+
+\noindent \textbf{Goal 3: Predictive and exploratory search support (optional extension).} Implement a predictive autocomplete mechanism to assist users in formulating queries, and design an interactive similarity-based visualization of search results. The visualization will project company embeddings into a low-dimensional space, where spatial proximity reflects semantic similarity, enabling users to explore clusters of related companies and understand relationships between retrieved results.
+
+
+\noindent \textbf{Workplan.} The thesis will be conducted over approximately six months. The first phase will focus on literature review and dataset preprocessing. The second phase will focus on explainability methods and evaluation. Optional extensions such as predictive search and visualization will be implemented if time permits. The final phase will consist of experimental evaluation, analysis of results, and thesis writing.
+
+
+\begin{multline*}
+% \section{Background}
+
+Information retrieval over large text collections has traditionally relied on keyword-based methods. While effective for exact term matching, these approaches are limited in their ability to model semantic similarity and often fail when queries and documents use different vocabularies to describe similar concepts.
+% keyword-based methods such as TF-IDF and BM25
+
+Recent advances in natural language processing have introduced embedding-based methods, where texts are mapped into dense vector representations that capture semantic meaning. Models such as Sentence-BERT enable sentence-level embeddings that can be compared using similarity metrics. Combined with approximate nearest neighbor (ANN) search techniques, these methods make it possible to perform semantic search efficiently even on large datasets.
+
+% Despite their effectiveness, embedding-based systems introduce new challenges. Semantic retrieval is often opaque, making it difficult for users to understand why certain results were returned. This lack of transparency can reduce trust in the system, especially in high-stakes B2B or B2G contexts. Explainable AI techniques aim to address this issue by providing insights into model behavior, but their application to large-scale semantic search remains an open research area.
+
+% Additionally, visual exploration techniques such as dimensionality reduction and similarity graphs have been proposed as tools to help users understand complex data spaces. Integrating such visualizations with semantic search may improve interpretability and user interaction, but their practical usefulness and scalability require systematic evaluation.
+\end{multline*}
+
+\newpage
+\end{document}
+
