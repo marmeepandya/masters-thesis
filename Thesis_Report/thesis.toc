@@ -1,0 +1,84 @@
+\contentsline {chapter}{\nonumberline Abstract}{ii}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Project Overview}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}ISTARI.AI and its Data}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}About ISTARI.AI}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Global Organisation Index (GOI)}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Data Pipeline and Methodology}{2}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Schema and Key Fields}{3}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Industry Classification: NACE Codes}{4}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Organisation Size Classification}{4}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Geographic Coverage}{4}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Evaluation Dataset}{5}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Literature}{6}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Experiments}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Experimental Setup}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Dataset}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Evaluation Protocol}{7}{subsection.4.1.2}%
+\contentsline {paragraph}{\nonumberline Pseudo-relevance labels.}{7}{paragraph*.4}%
+\contentsline {paragraph}{\nonumberline Metrics.}{8}{paragraph*.6}%
+\contentsline {subsection}{\numberline {4.1.3}Computational Environment}{8}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Sparse Retrieval Baseline: BM25}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Implementation}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Qualitative Analysis}{9}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Dense Retrieval Baselines}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}all-MiniLM-L6-v2 (MiniLM)}{9}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}BGE-large-en-v1.5 (BGE)}{9}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}OpenAI text-embedding-3-small (OpenAI)}{10}{subsection.4.3.3}%
+\contentsline {paragraph}{\nonumberline Latency note.}{10}{paragraph*.8}%
+\contentsline {section}{\numberline {4.4}Results}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Retrieval Quality}{10}{subsection.4.4.1}%
+\contentsline {paragraph}{\nonumberline BM25 vs dense retrieval.}{10}{paragraph*.10}%
+\contentsline {paragraph}{\nonumberline BGE vs OpenAI.}{11}{paragraph*.12}%
+\contentsline {paragraph}{\nonumberline MiniLM.}{11}{paragraph*.14}%
+\contentsline {paragraph}{\nonumberline Precision and the low-prevalence setting.}{11}{paragraph*.16}%
+\contentsline {paragraph}{\nonumberline The NDCG dip at $k = 100$.}{12}{paragraph*.18}%
+\contentsline {section}{\numberline {4.5}Runtime Analysis}{12}{section.4.5}%
+\contentsline {paragraph}{\nonumberline BGE is the fastest method overall.}{12}{paragraph*.20}%
+\contentsline {paragraph}{\nonumberline MiniLM encodes slowly despite being a small model.}{12}{paragraph*.22}%
+\contentsline {paragraph}{\nonumberline OpenAI's latency is dominated by network time.}{13}{paragraph*.24}%
+\contentsline {paragraph}{\nonumberline Summary.}{13}{paragraph*.26}%
+\contentsline {section}{\numberline {4.6}Evaluation Protocol Change for Follow-Up Experiments}{13}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Extended Baseline Comparison: Additional Embedding Models}{14}{section.4.7}%
+\contentsline {paragraph}{\nonumberline Findings.}{14}{paragraph*.28}%
+\contentsline {paragraph}{\nonumberline Encoding cost.}{15}{paragraph*.30}%
+\contentsline {paragraph}{\nonumberline Incomplete and abandoned models.}{15}{paragraph*.32}%
+\contentsline {section}{\numberline {4.8}BGE Instruction-Prefix Correction}{15}{section.4.8}%
+\contentsline {paragraph}{\nonumberline Finding.}{15}{paragraph*.34}%
+\contentsline {section}{\numberline {4.9}Query Expansion: HyDE Pipeline}{16}{section.4.9}%
+\contentsline {paragraph}{\nonumberline Finding.}{16}{paragraph*.36}%
+\contentsline {section}{\numberline {4.10}Hybrid Retrieval: Reciprocal Rank Fusion}{16}{section.4.10}%
+\contentsline {paragraph}{\nonumberline Finding.}{16}{paragraph*.38}%
+\contentsline {section}{\numberline {4.11}LLM-as-Judge Relevance Validation}{17}{section.4.11}%
+\contentsline {paragraph}{\nonumberline Finding.}{17}{paragraph*.40}%
+\contentsline {section}{\numberline {4.12}Production API Evaluation and MiniLM Rerank}{18}{section.4.12}%
+\contentsline {paragraph}{\nonumberline v1: keyword API.}{18}{paragraph*.42}%
+\contentsline {paragraph}{\nonumberline v2: semantic API.}{18}{paragraph*.44}%
+\contentsline {paragraph}{\nonumberline Reranking v2's own candidates with MiniLM.}{18}{paragraph*.46}%
+\contentsline {section}{\numberline {4.13}ANN Index Scaling to 2 Million Vectors}{18}{section.4.13}%
+\contentsline {paragraph}{\nonumberline Finding.}{18}{paragraph*.48}%
+\contentsline {section}{\numberline {4.14}Recall@1000 Error Analysis}{19}{section.4.14}%
+\contentsline {paragraph}{\nonumberline Finding.}{19}{paragraph*.50}%
+\contentsline {section}{\numberline {4.15}Oracle Union Recall Ceiling}{20}{section.4.15}%
+\contentsline {paragraph}{\nonumberline Findings.}{20}{paragraph*.52}%
+\contentsline {paragraph}{\nonumberline Interpretation.}{20}{paragraph*.54}%
+\contentsline {chapter}{\numberline {5}Introduction}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Literature Review}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Preliminaries}{24}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Related Work on A}{24}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Related Work on B}{24}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Related Work on C}{24}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Summary}{24}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Body Chapter 1}{25}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Body Chapter 2}{27}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Experimental Evaluation}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Experimental Setup}{29}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Results 1}{29}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Results 2}{29}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Results 3}{29}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Discussion}{29}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Conclusions}{30}{chapter.10}%
+\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.55}%
+\contentsline {chapter}{\numberline {A}Additional Experimental Results}{33}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Proof Details}{34}{appendix.B}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{35}{chapter*.56}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

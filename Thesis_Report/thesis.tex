@@ -16,11 +16,11 @@
 \renewcommand{\algorithmiccomment}[1]{\hfill\textit{// #1}}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[colorlinks,citecolor=Green]{hyperref} % you may change/remove the colors
-\usepackage{lipsum} % you do not need this
+% lipsum package removed -- not available on this cluster's TeX install and only used by template placeholder text below
 
 % chicago citation style
 \usepackage{natbib}
-\bibliographystyle{chicagoa}
+\bibliographystyle{plainnat} % chicagoa.bst is unavailable on this cluster's TeX install; plainnat ships with natbib and works with the authoryear \setcitestyle below -- switch back to chicagoa if your submission environment has it
 \setcitestyle{authoryear,round,semicolon,aysep={},yysep={,}} \let\cite\citep
 
 % example enviroments (add more as needed)
@@ -29,7 +29,7 @@
 %remove this: 
 % \textcolor{red}{TODO: }
 \usepackage{xcolor}
-
+\usepackage[htt]{hyphenat}
 
 \begin{document}
 
@@ -706,6 +706,448 @@ pre-filtering stage and hybrid retrieval system are built on top of
 the BGE baseline to further improve precision at low cut-offs
 and overall system efficiency.
 
+% ────────────────────────────────────────────────────────────
+\section{Evaluation Protocol Change for Follow-Up Experiments}
+\label{sec:protocol_note}
+% ────────────────────────────────────────────────────────────
+
+All experiments described in the remainder of this chapter
+(Sections~\ref{sec:extended_baselines}--\ref{sec:oracle_union}) use a
+\textbf{relaxed pseudo-relevance definition}: a company counts as
+relevant if it appears anywhere in production's \textbf{top-1\,000}
+results for a query, rather than the top-100 threshold used in
+Section~\ref{subsec:eval_protocol} and Table~\ref{tab:main_results}.
+The relaxed threshold was adopted so that reranking, fusion, and
+oracle-ceiling experiments would have enough relevant companies per
+query to produce meaningful comparisons over large candidate pools.
+As a direct consequence, the absolute NDCG/Precision/Recall values
+reported from here on are on a different (generally much higher)
+numerical scale than Table~\ref{tab:main_results}, and
+\textbf{are not directly comparable to it}.
+All comparisons in the following sections should be read only
+relative to one another, within the same section.
+
+% ────────────────────────────────────────────────────────────
+\section{Extended Baseline Comparison: Additional Embedding Models}
+\label{sec:extended_baselines}
+% ────────────────────────────────────────────────────────────
+
+Five further dense embedding models were evaluated on the same
+98\,716-company corpus, all-fields text representation, and 101-query
+evaluation set described in Section~\ref{subsec:dataset}:
+
+\begin{itemize}
+    \item \textbf{BGE-M3} (\texttt{BAAI/bge-m3}): a multi-lingual,
+    multi-functionality embedding model, 1\,024-dimensional embeddings.
+    \item \textbf{GTE-large} (\texttt{thenlper/gte-large}): a
+    general-purpose text embedding model, 1\,024 dimensions.
+    \item \textbf{E5-Mistral-7B-Instruct}
+    (\texttt{intfloat/e5-mistral-7b-instruct}): an instruction-tuned
+    7-billion-parameter Mistral-based embedding model, 4\,096 dimensions.
+    \item \textbf{Linq-Embed-Mistral}
+    (\texttt{Linq-AI-Research/Linq-Embed-Mistral}): a 7B-parameter
+    Mistral-based embedding model fine-tuned for retrieval,
+    4\,096 dimensions.
+    \item \textbf{SFR-Embedding-Mistral}
+    (\texttt{Salesforce/SFR-Embedding-Mistral}): Salesforce's
+    7B-parameter Mistral-based retrieval embedding model,
+    4\,096 dimensions.
+\end{itemize}
+
+\begin{table}[ht]
+\centering
+\caption{Extended baseline results under the relaxed (top-1\,000)
+         pseudo-relevance protocol (Section~\ref{sec:protocol_note}).
+         Bold indicates the best value in each column.}
+\label{tab:extended_baselines}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lcccccccc}
+\toprule
+& \multicolumn{4}{c}{\textbf{NDCG@$k$}}
+& \multicolumn{4}{c}{\textbf{Recall@$k$}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+\textbf{Method}
+& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
+& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} \\
+\midrule
+BGE-M3        & 0.935 & 0.921 & 0.911 & 0.732 & 0.009 & 0.046 & 0.091 & 0.704 \\
+GTE-large     & \textbf{0.946} & \textbf{0.937} & \textbf{0.929} & \textbf{0.790} & 0.010 & 0.047 & 0.093 & \textbf{0.768} \\
+E5-Mistral-7B & 0.631 & 0.587 & 0.544 & 0.303 & 0.006 & 0.029 & 0.052 & 0.274 \\
+Linq-Mistral  & 0.936 & 0.925 & 0.918 & 0.772 & 0.009 & 0.046 & 0.091 & 0.749 \\
+SFR-Mistral   & 0.938 & 0.926 & 0.919 & 0.770 & 0.009 & \textbf{0.046} & \textbf{0.092} & 0.746 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Findings.}
+GTE-large is the strongest of the five additional models
+(NDCG@10~=~0.946, Recall@1000~=~0.790), ahead of SFR-Mistral
+(0.938 / 0.770), Linq-Mistral (0.936 / 0.772), and BGE-M3
+(0.935 / 0.732). These four sit close together and clearly ahead of
+E5-Mistral-7B-Instruct, which substantially underperforms
+(NDCG@10~=~0.631, Recall@1000~=~0.303) despite sharing the same base
+architecture and parameter count as Linq-Mistral and SFR-Mistral --
+indicating that fine-tuning data and strategy, not model size, are the
+dominant factor for this retrieval task. Notably, the two much smaller
+1\,024-dimensional models (BGE-M3, GTE-large) are competitive with or
+better than the 7B-parameter models, at a fraction of the encoding
+cost.
+
+\paragraph{Encoding cost.}
+The three 7B-parameter models required substantially more compute to
+encode the corpus: E5-Mistral took 2\,011 seconds (33.5 min),
+Linq-Mistral 2\,039 seconds (34.0 min), and SFR-Mistral 2\,032 seconds
+(33.9 min), all on an A100 GPU, and all requiring checkpoint/resume
+logic to fit within the cluster's 30-minute job wall-time limit.
+This is roughly five times the encoding time of the original
+335M-parameter BGE-large baseline (7.0 minutes, Section~\ref{subsec:bge}),
+for retrieval quality that is not better and, in E5-Mistral's case,
+substantially worse.
+
+\paragraph{Incomplete and abandoned models.}
+Two further large embedding models were attempted but did not produce
+final results. \textbf{BGE-Multilingual-Gemma2}
+(\texttt{BAAI/bge-multilingual-gemma2}, 9B parameters) encoding is
+still in progress at the time of writing: model loading alone takes
+15--27 minutes on this cluster's shared storage (highly variable due
+to filesystem I/O contention), leaving little of the 30-minute job
+window for actual encoding, so the job must be resubmitted repeatedly
+to make incremental progress via checkpointing. \textbf{NV-Embed-v2}
+(\texttt{nvidia/NV-Embed-v2}) was abandoned after a persistent
+\texttt{AttributeError} caused by an incompatibility between the
+model's custom code and the installed \texttt{transformers} library
+version, which could not be resolved without a library downgrade that
+risked breaking the other baselines' environment.
+
+% ────────────────────────────────────────────────────────────
+\section{BGE Instruction-Prefix Correction}
+\label{sec:bge_prefix}
+% ────────────────────────────────────────────────────────────
+
+The original BGE-large baseline (Section~\ref{subsec:bge}) encoded
+queries without an instruction prefix. BGE-large's model card
+specifies that, for retrieval tasks, each \emph{query} should be
+prefixed with the instruction \textit{``Represent this sentence for
+searching relevant passages: ''} before encoding; the passage
+(company) side requires no prefix, so the cached company embeddings
+could be reused without re-encoding the corpus. This fix was retested
+on both the all-fields and summary-only variants of the BGE baseline.
+
+\begin{table}[ht]
+\centering
+\caption{Effect of the query instruction prefix on BGE-large, measured
+         under the relaxed top-1\,000 protocol (Section~\ref{sec:protocol_note}).}
+\label{tab:bge_prefix}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Variant} & \textbf{NDCG@10} & \textbf{Recall@1000} & $\Delta$\textbf{NDCG@10} & $\Delta$\textbf{Recall@1000} \\
+\midrule
+All-fields, no prefix   & 0.942 & 0.726 & --      & --      \\
+All-fields, with prefix & 0.937 & 0.727 & $-$0.005 & $+$0.001 \\
+Summary-only, no prefix   & 0.937 & 0.700 & --      & --      \\
+Summary-only, with prefix & 0.924 & 0.707 & $-$0.014 & $+$0.007 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+Contrary to expectation, applying the officially documented query
+prefix produced only a marginal and mixed effect on this dataset:
+Recall@1000 improved negligibly (+0.001 for all-fields, +0.007 for
+summary-only), while NDCG@10 slightly \emph{decreased} in both variants.
+Both effects are small enough to plausibly be within query-level noise.
+This suggests that, for this company-retrieval task, BGE-large's query
+prefix convention -- tuned primarily for open-domain passage retrieval
+benchmarks -- does not transfer into a measurable improvement, and the
+model's underlying limitation observed in Section~\ref{subsec:bge}
+(underperforming MiniLM on Recall@1000) is not explained by the missing
+prefix.
+
+% ────────────────────────────────────────────────────────────
+\section{Query Expansion: HyDE Pipeline}
+\label{sec:hyde}
+% ────────────────────────────────────────────────────────────
+
+HyDE (Hypothetical Document Embeddings) expands each query by asking a
+local LLM (\texttt{llama3.1:8b} via Ollama) to generate $N=10$
+stochastic (temperature~$=0.8$) hypothetical company descriptions that
+would ideally answer the query. The embeddings of these 10 descriptions
+are averaged into a single query vector, which is then searched against
+the MiniLM company index. A second stage reranks the top-50 HyDE
+results with a cross-encoder (\texttt{BAAI/bge-reranker-v2-m3}).
+
+\begin{table}[ht]
+\centering
+\caption{HyDE pipeline results (relaxed top-1\,000 protocol) compared
+         against the plain MiniLM baseline re-evaluated under the same
+         protocol.}
+\label{tab:hyde}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} & \textbf{Latency (ms)} \\
+\midrule
+MiniLM (no expansion)        & 0.975 & 0.741 & 16.9 \\
+Stage 1: HyDE + MiniLM       & 0.829 & 0.596 & 9\,246.9 \\
+Stage 2: HyDE + MiniLM + Reranker & 0.954 & 0.596 & 9\,488.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+Query expansion via HyDE \emph{hurts} retrieval quality relative to
+directly encoding the original query: Stage 1 NDCG@10 drops from 0.975
+to 0.829, and Recall@1000 drops from 0.741 to 0.596. Adding a
+cross-encoder reranker (Stage 2) recovers most of the NDCG@10 loss
+(0.829~$\to$~0.954) by re-ordering the top-50 candidates, but cannot
+recover the recall loss, since reranking only reorders an already
+-fixed candidate set. Latency is dominated overwhelmingly by the LLM
+call itself (9.2 seconds), three orders of magnitude slower than
+directly encoding the query with MiniLM (16.9~ms). For this dataset,
+HyDE is not a worthwhile query-expansion strategy: it is far slower and
+retrieves a worse candidate set than simply embedding the query
+directly.
+
+% ────────────────────────────────────────────────────────────
+\section{Hybrid Retrieval: Reciprocal Rank Fusion}
+\label{sec:rrf}
+% ────────────────────────────────────────────────────────────
+
+As an alternative to query expansion, BM25 and MiniLM rankings are
+fused directly using Reciprocal Rank Fusion (RRF),
+$\mathrm{RRF}(d) = \sum_{\text{method}} \frac{1}{k + \mathrm{rank}(d)}$
+with $k=60$ \citep{cormack2009reciprocal}. A second stage reranks the
+top-50 fused results with the same cross-encoder used for HyDE.
+
+\begin{table}[ht]
+\centering
+\caption{Hybrid RRF results (relaxed top-1\,000 protocol).}
+\label{tab:rrf}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} & \textbf{Latency (ms)} \\
+\midrule
+MiniLM (no fusion)              & 0.975 & 0.741 & 16.9 \\
+Stage 1: RRF (BM25 + MiniLM)    & 0.955 & 0.724 & 104.9 \\
+Stage 2: RRF + Reranker          & 0.975 & 0.724 & 352.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+Unlike HyDE, RRF fusion of BM25 and MiniLM adds negligible latency
+(the fusion step itself takes 2.2\,ms) and, after reranking, matches
+the plain MiniLM baseline's NDCG@10 (0.975) while Recall@1000 remains
+slightly below MiniLM alone (0.724 vs 0.741) -- BM25's keyword matches
+do not add companies beyond what MiniLM already retrieves for this
+query set, so fusion mostly re-confirms rather than extends MiniLM's
+candidate pool. RRF is a much cheaper and more effective way to
+incorporate a second retrieval signal than HyDE-style query expansion.
+
+% ────────────────────────────────────────────────────────────
+\section{LLM-as-Judge Relevance Validation}
+\label{sec:llm_judge}
+% ────────────────────────────────────────────────────────────
+
+Because the pseudo-relevance labels (Section~\ref{subsec:eval_protocol})
+assume production's own rankings are correct, an independent check was
+run using an LLM to directly judge relevance. For 20 held-out queries
+(from a pool of 101, split 81/20 train/held-out), the top-20 production
+results per query were judged individually on a 0/1/2 relevance scale
+by an LLM given the query and the company summary, yielding 400
+graded judgements in total.
+
+\begin{table}[ht]
+\centering
+\caption{NDCG under pseudo-relevance labels vs.\ LLM-judged relevance
+         labels, on the 20 held-out queries.}
+\label{tab:llm_judge}
+\begin{tabular}{lccc}
+\toprule
+\textbf{$k$} & \textbf{Pseudo-relevance NDCG} & \textbf{LLM-judged NDCG} & $\Delta$ \\
+\midrule
+10   & 0.964 & 0.963 & $-$0.001 \\
+50   & 0.947 & 0.982 & $+$0.035 \\
+100  & 0.939 & 0.982 & $+$0.042 \\
+500  & 0.868 & 0.982 & $+$0.113 \\
+1000 & 0.771 & 0.982 & $+$0.210 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+At $k=10$, pseudo-relevance and LLM-judged NDCG agree closely
+(0.964 vs 0.963), supporting the use of production's own top results
+as a reasonable relevance proxy at shallow depths. The two diverge
+sharply as $k$ grows: LLM-judged NDCG stays essentially flat at 0.982
+out to $k=1000$, while pseudo-relevance NDCG falls to 0.771. This is
+consistent with the pseudo-relevance labels being a hard top-100 cutoff
+(Section~\ref{subsec:eval_protocol}): once retrieval looks past that
+cutoff, pseudo-relevance necessarily penalises the system even for
+companies an LLM judge considers genuinely relevant. This supports the
+interpretation, already flagged in Section~\ref{subsec:eval_protocol},
+that pseudo-relevance NDCG at large $k$ understates true system quality
+rather than reflecting a real quality gap.
+
+% ────────────────────────────────────────────────────────────
+\section{Production API Evaluation and MiniLM Rerank}
+\label{sec:api_eval}
+% ────────────────────────────────────────────────────────────
+
+Two rounds of evaluation compared the local pipeline against Istari's
+live production search API, using a separate ground truth (the
+production system's own graded semantic-search results at a similarity
+threshold of 0.75) rather than the pseudo-relevance labels used
+elsewhere in this chapter.
+
+\paragraph{v1: keyword API.}
+The first round compared Istari's v1 (BM25-based) production API
+against local MiniLM, both queried against the same 101 queries.
+Istari v1 BM25 NDCG@10 was 0.101 and Recall@1000 was 0.109 (network
+latency 2\,828\,ms/query), against local MiniLM's NDCG@10 of 0.935 and
+Recall@1000 of 0.766 (local GPU latency 26.6\,ms/query) -- confirming
+that the production keyword API is a much weaker retrieval signal than
+even the simplest local dense baseline.
+
+\paragraph{v2: semantic API.}
+A second round added Istari's newer v2 semantic search API (live,
+paginated over the full 20-million-company GOI, quota-aware). Istari
+v2 NDCG@10 was 0.985 and Recall@1000 (at the achievable depth of 816
+results) was 0.650, clearly ahead of local MiniLM (NDCG@10 0.935,
+Recall@816 0.709) at shallow cutoffs, though local MiniLM's Recall
+catches up and slightly exceeds v2's at $k=816$. Network latency for
+v2 (1\,966\,ms/query for a full fetch) remains far higher than local
+MiniLM (26.4\,ms/query).
+
+\paragraph{Reranking v2's own candidates with MiniLM.}
+A follow-up experiment took v2's own retrieved candidate pool and
+re-ordered it locally using MiniLM, to test whether local reranking
+could improve on v2's native ranking without changing which companies
+are retrieved. This made results \emph{worse}: NDCG@10 fell from 0.985
+(v2 native ranking) to 0.855 (MiniLM-reranked). Istari's v2 semantic
+ranking is not simply a MiniLM-style dense embedding search under the
+hood -- it outperforms MiniLM's own ranking of the same candidates.
+
+% ────────────────────────────────────────────────────────────
+\section{ANN Index Scaling to 2 Million Vectors}
+\label{sec:ann_scaling}
+% ────────────────────────────────────────────────────────────
+
+To test whether the exact search used throughout this chapter
+(\texttt{IndexFlatL2}/\texttt{IndexFlatIP}) remains practical at
+production scale, the 98\,716 real MiniLM company embeddings were
+padded with 1\,901\,284 synthetic filler vectors (real embeddings
+perturbed with Gaussian noise at 15\% of the average vector norm),
+giving a 2-million-vector corpus. Exact search (\texttt{FlatL2}) was
+compared against approximate indexes: IVF (\texttt{nlist}=4096, with
+\texttt{nprobe} $\in \{1, 8, 32, 128, 4096\}$) and HNSW ($M=32$, with
+\texttt{efSearch} $\in \{16, 64, 256\}$).
+
+\begin{table}[ht]
+\centering
+\caption{Exact vs.\ approximate search at 2M-vector scale (relaxed
+         top-1\,000 protocol). Only representative configurations shown.}
+\label{tab:ann_scaling}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Index} & \textbf{NDCG@10} & \textbf{Recall@1000} & \textbf{ms/query} & \textbf{Speedup} & \textbf{Index size} \\
+\midrule
+Exact (FlatL2)        & 0.975 & 0.741 & 175.5 & 1.0$\times$ & 3\,072\,MB \\
+IVF (nprobe=8)         & 0.974 & 0.743 & 26.4  & 6.6$\times$ & 3\,094\,MB \\
+HNSW (efSearch=256)    & 0.975 & 0.727 & 26.9  & 6.5$\times$ & 3\,616\,MB \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+Both IVF (\texttt{nprobe}=8) and HNSW (\texttt{efSearch}=256) recover
+essentially all of exact search's NDCG@10, and IVF slightly exceeds
+exact search's Recall@1000 (0.743 vs 0.741, within noise), while
+running 6.5--6.6$\times$ faster at 2-million-vector scale, at the cost
+of modest additional index memory (0.7\% and 17.7\% larger,
+respectively). This confirms that approximate search is a safe and
+substantial efficiency gain for scaling the retrieval system toward
+the full 20-million-company GOI, without a meaningful quality trade-off
+at this scale.
+
+% ────────────────────────────────────────────────────────────
+\section{Recall@1000 Error Analysis}
+\label{sec:error_analysis}
+% ────────────────────────────────────────────────────────────
+
+To understand why exact MiniLM search caps at Recall@1000~=~0.741
+(Section~\ref{sec:ann_scaling}), every production-relevant company that
+MiniLM failed to retrieve within the top-1\,000 was extracted and
+searched for at much greater depth ($k=10\,000$), yielding
+26\,185 missed (query, company) pairs across all 101 queries.
+
+\begin{table}[ht]
+\centering
+\caption{Classification of the 26\,185 Recall@1000 misses by how far
+         beyond rank 1\,000 the true company was actually ranked.}
+\label{tab:error_analysis}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Bucket} & \textbf{Count} & \textbf{Share (\%)} \\
+\midrule
+Near miss (rank 1\,000--2\,000)   & 16\,157 & 61.7 \\
+Mid miss (rank 2\,000--5\,000)    &  8\,061 & 30.8 \\
+Far miss (rank 5\,000--10\,000)   &  1\,375 &  5.3 \\
+Not found (beyond rank 10\,000)   &    592 &  2.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.}
+The large majority of misses (61.7\%) are near misses, just outside the
+top-1\,000 cutoff, suggesting most of the recall gap is a matter of
+ranking granularity rather than a hard semantic failure. Only 2.3\% of
+misses are not found at all within $k=10\,000$, indicating genuine
+embedding failures are rare. Separately, 3.8\% of missed companies
+(996 of 26\,185) were flagged as boilerplate content, and one extreme
+case of description duplication was found: the placeholder text
+``Bluehost.com'' appears as the company description for 709 distinct
+domains, meaning these domains are indistinguishable to any
+text-embedding model and can never be individually retrieved correctly.
+This is a concrete data-quality artifact rather than a retrieval-model
+limitation, and sets a hard ceiling on achievable recall for any
+embedding-based method operating on the \texttt{summary} field alone.
+
+% ────────────────────────────────────────────────────────────
+\section{Oracle Union Recall Ceiling}
+\label{sec:oracle_union}
+% ────────────────────────────────────────────────────────────
+
+Before investing in a trained reranker or a fine-tuning pipeline, it is
+useful to know the best-case recall achievable by simply combining the
+candidate pools already produced by every method run so far --- at zero
+additional encoding cost, since every channel's top-1\,000 results per
+query are already cached on disk. This experiment computes, for every
+combination of the six available channels (MiniLM, BM25, BGE-all-fields,
+BGE-summary, OpenAI-large, Nomic), the recall of the \emph{union} of
+their top-1\,000 candidate sets against the top-1\,000 ground truth.
+
+\paragraph{Findings.}
+The best single channel (MiniLM alone) reaches Recall@1000~=~0.741.
+The full union of all six channels reaches 0.936 (average combined pool
+size 1\,949 candidates/query), a gain of +0.196 over MiniLM alone. The
+best-performing \emph{pair} is MiniLM~+~OpenAI-large, at 0.856 (average
+pool size 1\,300). A pool-size sweep on this best pair shows the
+ceiling is highly sensitive to how many candidates are taken per
+channel: at 100 candidates/channel the union only reaches 0.150 recall,
+rising to 0.581 at 500, and 0.856 at the full 1\,000.
+
+\paragraph{Interpretation.}
+Because the six-channel union clears 0.936 -- well above any individual
+channel -- the different retrieval methods are largely making
+\emph{complementary}, not correlated, errors: a reranker operating over
+a modestly sized union pool (rather than a single channel) is likely
+sufficient to approach this ceiling, and a full fine-tuning pipeline is
+not obviously necessary to close the remaining gap. The residual
+0.064 recall lost even under the full six-channel union is consistent
+with the hard data-quality ceiling identified in
+Section~\ref{sec:error_analysis} (duplicated/boilerplate company
+descriptions that no embedding-based channel can disambiguate).
+
 % here the original content of my thesis ends
 
 % This is the template here:
@@ -944,7 +1386,7 @@ of course! Note that algorithms, figures, and tables should generally be placed
 at the top of the page or on an individual page, but not within the main text.
 
 The following highly informative text is here so that the correct placement of
-Algorithm~\ref{alg:proofX} is visible. \lipsum[1-3]
+Algorithm~\ref{alg:proofX} is visible.
 
 % [t] prefers top placement over in-text placement ([t!] forces it)
 \begin{algorithm}[t]
@@ -963,8 +1405,6 @@ Algorithm~\ref{alg:proofX} is visible. \lipsum[1-3]
       completed proof}
   \end{algorithmic}
 \end{algorithm}
-
-\lipsum[4-10]
 
 \chapter{Experimental Evaluation}
 

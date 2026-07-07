@@ -1,0 +1,104 @@
+\begin{thebibliography}{15}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bird et~al.(2009)Bird, Klein, and Loper]{nltk}
+Steven Bird, Ewan Klein, and Edward Loper.
+\newblock {NLTK}: the natural language toolkit, 2009.
+
+\bibitem[Brown(2022)]{brown2022techreport}
+Emily Brown.
+\newblock A technical report on novel proofs for {X}.
+\newblock Technical Report TR-2022-09, Hypothetical Research Institute, Eureka,
+  2022.
+
+\bibitem[Chen et~al.(2024)Chen, Xiao, Zhang, Luo, Lian, and Liu]{chen2024bge}
+Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu.
+\newblock {BGE} m3-embedding: Multi-lingual, multi-functionality,
+  multi-granularity text embeddings through self-knowledge distillation, 2024.
+
+\bibitem[Cormack et~al.(2009)Cormack, Clarke, and
+  B{\"u}ttcher]{cormack2009reciprocal}
+Gordon~V. Cormack, Charles L.~A. Clarke, and Stefan B{\"u}ttcher.
+\newblock Reciprocal rank fusion outperforms condorcet and individual rank
+  learning methods.
+\newblock In \emph{Proceedings of the 32nd International ACM SIGIR Conference
+  on Research and Development in Information Retrieval}, pages 758--759, 2009.
+
+\bibitem[Doe(2024)]{doe2024proof}
+Jane Doe.
+\newblock \emph{The Comprehensive Guide to Proving {X}}, volume~3.
+\newblock Fictional Academic Press, Springfield, 2nd edition, 2024.
+\newblock ISBN 123-4567890123.
+
+\bibitem[Johnson et~al.(2019)Johnson, Douze, and J{\'e}gou]{johnson2017billion}
+Jeff Johnson, Matthijs Douze, and Herv{\'e} J{\'e}gou.
+\newblock Billion-scale similarity search with {GPU}s.
+\newblock \emph{IEEE Transactions on Big Data}, 7\penalty0 (3):\penalty0
+  535--547, 2019.
+
+\bibitem[Karpukhin et~al.(2020)Karpukhin, O{\u{g}}uz, Min, Lewis, Wu, Edunov,
+  Chen, and Yih]{karpukhin2020dense}
+Vladimir Karpukhin, Barlas O{\u{g}}uz, Sewon Min, Patrick Lewis, Ledell Wu,
+  Sergey Edunov, Danqi Chen, and Wen-tau Yih.
+\newblock Dense passage retrieval for open-domain question answering.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 6769--6781, 2020.
+
+\bibitem[Lee and Green(2023)]{lee2023journal}
+Michael Lee and Sarah Green.
+\newblock A comprehensive study on the validity of {X}.
+\newblock \emph{Journal of Hypothetical Studies}, 15\penalty0 (4):\penalty0
+  123--145, July 2023.
+\newblock \doi{10.5678/jhs.2023.154.123}.
+
+\bibitem[Reimers and Gurevych(2019)]{reimers2019sentence}
+Nils Reimers and Iryna Gurevych.
+\newblock Sentence-{BERT}: Sentence embeddings using {S}iamese {BERT}-networks.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP-IJCNLP)}, pages 3982--3992, 2019.
+
+\bibitem[Robertson and Zaragoza(2009)]{robertson2009probabilistic}
+Stephen Robertson and Hugo Zaragoza.
+\newblock The probabilistic relevance framework: {BM25} and beyond.
+\newblock \emph{Foundations and Trends in Information Retrieval}, 3\penalty0
+  (4):\penalty0 333--389, 2009.
+\newblock \doi{10.1561/1500000019}.
+
+\bibitem[Smith and Johnson(2023)]{smith2023conference}
+John Smith and Alice Johnson.
+\newblock Proof techniques for {X}.
+\newblock In \emph{Proceedings of the International Symposium on Incorrect
+  Proofs}, pages 45--58, Atlantis, 2023. Symposium Publications.
+\newblock \doi{10.1234/symp2023.45}.
+
+\bibitem[Thakur et~al.(2021)Thakur, Reimers, R{\"u}ckl{\'e}, Srivastava, and
+  Gurevych]{thakur2021beir}
+Nandan Thakur, Nils Reimers, Andreas R{\"u}ckl{\'e}, Abhishek Srivastava, and
+  Iryna Gurevych.
+\newblock {BEIR}: A heterogeneous benchmark for zero-shot evaluation of
+  information retrieval models.
+\newblock In \emph{Proceedings of the Neural Information Processing Systems
+  Track on Datasets and Benchmarks}, 2021.
+
+\bibitem[Voorhees(1999)]{voorhees1999trec}
+Ellen~M Voorhees.
+\newblock The trec-8 question answering track report.
+\newblock In \emph{Proceedings of TREC}, 1999.
+
+\bibitem[Zobel(2004)]{zobel2004}
+Justin Zobel.
+\newblock \emph{Writing for Computer Science}.
+\newblock Springer London, 2nd edition, 2004.
+\newblock \doi{https://doi.org/10.1007/978-0-85729-422-7}.
+
+\bibitem[Zobel(2014)]{zobel2014}
+Justin Zobel.
+\newblock \emph{Writing for Computer Science}.
+\newblock Springer London, 3rd edition, 2014.
+\newblock \doi{https://doi.org/10.1007/978-1-4471-6639-9}.
+
+\end{thebibliography}

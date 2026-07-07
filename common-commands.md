@@ -244,3 +244,10 @@ git log --oneline -5
 ├── run_rag_full.sh                        # SLURM batch script
 └── requirements.txt                       # Python dependencies
 ```
+
+
+
+
+
+
+latexmk -pdf -interaction=nonstopmode thesis.tex
