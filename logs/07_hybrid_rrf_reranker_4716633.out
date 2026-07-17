@@ -1,0 +1,195 @@
+Ollama started with PID 129267
+[GIN] 2026/05/15 - 22:31:27 | 200 |   22.106271ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/15 - 22:31:27 | 200 |   24.509745ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/15 - 22:31:27 | 200 |      30.976µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/15 - 22:31:27 | 200 |   24.989824ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    5 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    5 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/07_hybrid_rrf_reranker/ — ready
+[Setup] RRF k         : 60
+[Setup] RRF top-k     : 1000
+[Setup] Rerank top-k  : 50
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading BM25 results...
+[Load] BM25 rows      : 101,000
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+
+[Load] BM25 queries   : 101
+[Load] MiniLM queries : 101
+[Load] Sanity check passed ✅
+[RRF] Running fusion for 101 queries...
+[RRF] k=60, top_n=1000
+-------------------------------------------------------
+[RRF]  20/101  |  avg 2.51ms/query  |  ~3s remaining
+[RRF]  40/101  |  avg 2.44ms/query  |  ~1s remaining
+[RRF]  60/101  |  avg 2.41ms/query  |  ~1s remaining
+[RRF]  80/101  |  avg 2.41ms/query  |  ~0s remaining
+[RRF] 100/101  |  avg 2.40ms/query  |  ~0s remaining
+[RRF] 101/101  |  avg 2.41ms/query  |  ~0s remaining
+-------------------------------------------------------
+[RRF] Done!
+[RRF] Avg fusion time : 2.41ms/query
+[RRF] Total results   : 101,000
+[RRF] Saved to        : result/07_hybrid_rrf_reranker/rrf_results.csv
+
+[RRF] Coverage analysis:
+  BM25 unique domains   : 71,916
+  MiniLM unique domains : 77,515
+  RRF union             : 77,153
+  In BM25 only          : 11,397
+  In MiniLM only        : 16,996
+  In both               : 60,519
+[Eval1] Evaluating Stage 1 (Hybrid RRF)...
+[Eval1] 25/101 queries evaluated...
+[Eval1] 50/101 queries evaluated...
+[Eval1] 75/101 queries evaluated...
+[Eval1] 100/101 queries evaluated...
+[Eval1] === STAGE 1 RESULTS: Hybrid BM25 + MiniLM (RRF) ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.287      0.276    0.028    0.050
+  50        0.227      0.209    0.104    0.139
+  100       0.199      0.182    0.182    0.182
+  500       0.444      0.118    0.589    0.196
+  1000      0.572      0.084    0.842    0.153
+[Reranker] Loading BGE cross-encoder reranker...
+[Reranker] Loaded in 29.1s on cuda
+[Warmup] Warming up reranker with 5 dummy calls...
+[Warmup] GPU warm ✅
+[Stage2] Re-ranking top-50 for 101 queries...
+------------------------------------------------------------
+[Stage2]  20/101  |  avg 274ms  steady 274ms  |  ~25s remaining
+[Stage2]  40/101  |  avg 272ms  steady 269ms  |  ~19s remaining
+[Stage2]  60/101  |  avg 272ms  steady 272ms  |  ~13s remaining
+[Stage2]  80/101  |  avg 273ms  steady 275ms  |  ~7s remaining
+[Stage2] 100/101  |  avg 271ms  steady 263ms  |  ~0s remaining
+[Stage2] 101/101  |  avg 271ms  steady 264ms  |  ~0s remaining
+------------------------------------------------------------
+[Stage2] Done!
+[Stage2] Avg rerank time    : 271ms
+[Stage2] Steady-state time  : 264ms  (last 20 queries)
+[Stage2] Saved to           : result/07_hybrid_rrf_reranker/rrf_reranked_results.csv
+[Eval2] Evaluating Stage 2 (RRF + Reranker)...
+[Eval2] 25/101 queries evaluated...
+[Eval2] 50/101 queries evaluated...
+[Eval2] 75/101 queries evaluated...
+[Eval2] 100/101 queries evaluated...
+[Eval2] === STAGE 2 RESULTS: RRF + Reranker ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.282      0.278    0.028    0.051
+  50        0.226      0.209    0.104    0.139
+  100       0.199      0.182    0.182    0.182
+  500       0.444      0.118    0.589    0.196
+  1000      0.572      0.084    0.842    0.153
+[Latency] ============================================================
+[Latency] PIPELINE LATENCY BREAKDOWN
+[Latency] ============================================================
+
+  Note: BM25 and MiniLM can run in PARALLEL in production
+  Parallel retrieval latency = max(BM25=102.7ms, MiniLM=16.9ms)
+
+  Component                 | Stage 1 (RRF) | Stage 2 (RRF+Reranker)
+  ------------------------- | ------------- | ----------------------
+  Parallel retrieval        |    102.7ms     |    102.7ms
+  RRF fusion                |    2.41ms      |    2.41ms
+  Cross-encoder reranker    |      N/A       |    264ms
+  ------------------------- | ------------- | ----------------------
+  TOTAL                     |    105.1ms     |    369ms
+
+  MiniLM baseline (single)  :  16.9ms
+  Hybrid RRF                :  105.1ms  (+88.2ms vs MiniLM)
+  Hybrid RRF + Reranker     :  369ms  (+352ms vs MiniLM)
+
+[Latency] Saved to result/07_hybrid_rrf_reranker/latency_breakdown.csv
+[Compare] Loading all baseline evaluations...
+  ✅ BM25
+  ✅ MiniLM
+  ✅ BGE
+  ✅ Nomic
+  ✅ OpenAI-large
+
+===========================================================================
+  Method                            k |    NDCG |    Prec |  Recall |      F1
+  ===========================================================================
+  BM25                             10 |   0.212 |   0.194 |   0.019 |   0.035
+  BM25                             50 |   0.161 |   0.145 |   0.072 |   0.097
+  BM25                            100 |   0.149 |   0.137 |   0.137 |   0.137
+  BM25                            500 |   0.370 |   0.101 |   0.504 |   0.168
+  BM25                           1000 |   0.496 |   0.075 |   0.754 |   0.137
+  ---------------------------------------------------------------------------
+  MiniLM                           10 |   0.293 |   0.269 |   0.027 |   0.049
+  MiniLM                           50 |   0.224 |   0.202 |   0.101 |   0.135
+  MiniLM                          100 |   0.198 |   0.179 |   0.179 |   0.179
+  MiniLM                          500 |   0.441 |   0.117 |   0.584 |   0.195
+  MiniLM                         1000 |   0.574 |   0.085 |   0.847 |   0.154
+  ---------------------------------------------------------------------------
+  BGE                              10 |   0.205 |   0.207 |   0.021 |   0.038
+  BGE                              50 |   0.192 |   0.188 |   0.094 |   0.125
+  BGE                             100 |   0.174 |   0.167 |   0.167 |   0.167
+  BGE                             500 |   0.406 |   0.111 |   0.555 |   0.185
+  BGE                            1000 |   0.542 |   0.082 |   0.822 |   0.149
+  ---------------------------------------------------------------------------
+  Hybrid RRF                       10 |   0.287 |   0.276 |   0.028 |   0.050
+  Hybrid RRF                       50 |   0.227 |   0.209 |   0.104 |   0.139
+  Hybrid RRF                      100 |   0.199 |   0.182 |   0.182 |   0.182
+  Hybrid RRF                      500 |   0.444 |   0.118 |   0.589 |   0.196
+  Hybrid RRF                     1000 |   0.572 |   0.084 |   0.842 |   0.153
+  ---------------------------------------------------------------------------
+  Hybrid RRF + Reranker            10 |   0.282 |   0.278 |   0.028 |   0.051
+  Hybrid RRF + Reranker            50 |   0.226 |   0.209 |   0.104 |   0.139
+  Hybrid RRF + Reranker           100 |   0.199 |   0.182 |   0.182 |   0.182
+  Hybrid RRF + Reranker           500 |   0.444 |   0.118 |   0.589 |   0.196
+  Hybrid RRF + Reranker          1000 |   0.572 |   0.084 |   0.842 |   0.153
+  ---------------------------------------------------------------------------
+
+[Compare] Full table saved to result/07_hybrid_rrf_reranker/comparison_all.csv
+[Findings] ============================================================
+[Findings] KEY FINDINGS — HYBRID RRF PIPELINE
+[Findings] ============================================================
+
+[Findings] NDCG@10 progression:
+  BM25 baseline            : 0.212
+  MiniLM baseline          : 0.293
+  Hybrid RRF               : 0.287  (-2.0% vs MiniLM)
+  Hybrid RRF + Reranker    : 0.282  (-3.7% vs MiniLM)
+
+[Findings] Recall@1000:
+  MiniLM baseline          : 0.847
+  Hybrid RRF               : 0.842  (-0.5% vs MiniLM)
+
+[Findings] Latency:
+  MiniLM baseline          :  16.9ms
+  Hybrid RRF               :  105.1ms (parallel retrieval + RRF)
+  Hybrid RRF + Reranker    :  369ms
+[Findings] ============================================================
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 4716633
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:02:00
+CPU Efficiency: 4.29% of 00:46:36 core-walltime
+Job Wall-clock time: 00:03:53
+Memory Utilized: 2.48 GB
+Memory Efficiency: 2.70% of 91.80 GB (91.80 GB/node)

@@ -1,0 +1,5 @@
+Error: listen tcp 127.0.0.1:11435: bind: address already in use
+[NbConvertApp] WARNING | pattern '04_baseline_openai_large_summary_new.ipynb' matched no files
+mv: cannot stat '04_baseline_openai_large_summary_new.txt': No such file or directory
+python: can't open file '/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/04_baseline_openai_large_summary_new.py': [Errno 2] No such file or directory
+/var/spool/slurmd/job4905676/slurm_script: line 57: kill: (1785128) - No such process

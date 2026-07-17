@@ -1,0 +1,45 @@
+Ollama started with PID 1559716
+[GIN] 2026/05/14 - 16:40:13 | 200 |    9.670044ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 16:40:13 | 200 |   14.983578ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/14 - 16:40:13 | 200 |      24.181µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 16:40:13 | 200 |   20.642542ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    4 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    4 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/05_baseline_nomic/ — ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Sample document text (first company):
+  search_document: Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software ...
+[Load] Note: search_document: prefix added to all 98,716 companies
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[GPU] VRAM            : 42.4 GB
+[GPU] Using device    : cuda
+[Encode] Loading Nomic model...
+[Encode] First run downloads ~550MB from HuggingFace...
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n565
+Job ID: 4696318
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:43
+CPU Efficiency: 2.51% of 00:28:36 core-walltime
+Job Wall-clock time: 00:02:23
+Memory Utilized: 673.45 MB
+Memory Efficiency: 0.72% of 91.80 GB (91.80 GB/node)

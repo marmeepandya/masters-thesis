@@ -1,0 +1,4 @@
+method,avg_ms,note
+Istari v1 BM25,2828.5,2 network calls × 500
+Istari v2 Semantic,1966.1,"2 page(s) × 408 (approx), full 20M GOI"
+Our MiniLM (98K),26.4,local A100 GPU

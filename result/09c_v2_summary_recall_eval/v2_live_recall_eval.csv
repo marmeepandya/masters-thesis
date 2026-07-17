@@ -1,0 +1,4 @@
+query,k,n_retrieved,ndcg,precision,recall,f1
+software companies,50,250,0.8512,0.22,0.5,0.3056
+software companies,100,250,0.7672,0.13,0.5909,0.2131
+healthcare providers,50,62,0.9746,0.36,0.4615,0.4045

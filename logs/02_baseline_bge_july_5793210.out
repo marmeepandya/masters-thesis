@@ -1,0 +1,93 @@
+Ollama started with PID 1892529
+[GIN] 2026/07/05 - 21:21:33 | 200 |   10.414731ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/05 - 21:21:33 | 200 |   13.157154ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/05 - 21:21:33 | 200 |      21.046µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/05 - 21:21:33 | 200 |   19.289261ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder: result/02_baseline_bge/ — ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Sample rich text (first company):
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[GPU] VRAM            : 42.4 GB
+[GPU] Using device    : cuda
+[Encode] Loading BGE-large model...
+[Encode] Model loaded in  : 9.6s  on cuda:0
+[Encode] Encoding all companies...
+[Encode] This takes ~7 minutes on A100 GPU
+[Encode] Done in          : 14.0 minutes
+[Encode] Embeddings shape : (98716, 1024)
+[Encode] Saved to         : result/02_baseline_bge/company_embeddings.npy
+[FAISS] Loading embeddings...
+[FAISS] Embeddings shape  : (98716, 1024)
+[FAISS] Building index...
+[FAISS] Index built in    : 0.18s
+[FAISS] Vectors in index  : 98,716
+[FAISS] Index saved to    : result/02_baseline_bge/company_faiss.index
+[Run] Starting BGE retrieval for 101 queries...
+[Run] Retrieving top-1000 per query
+-------------------------------------------------------
+[Run]  20/101  |  avg 53.3ms/query  |  ~8s remaining
+[Run]  40/101  |  avg 48.7ms/query  |  ~6s remaining
+[Run]  60/101  |  avg 47.2ms/query  |  ~4s remaining
+[Run]  80/101  |  avg 46.5ms/query  |  ~2s remaining
+[Run] 100/101  |  avg 46.1ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 46.1ms/query  |  ~0s remaining
+-------------------------------------------------------
+[Run] Done!
+[Run] Total results       : 101,000
+[Run] Avg query latency   : 46.1ms
+[Run] Saved to            : result/02_baseline_bge/bge_results.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/02_baseline_bge/evaluation_bge.csv
+[Summary] ============================================================
+[Summary] BGE-large BASELINE RESULTS
+
+[Summary] Encoding time     : 14.0 minutes
+[Summary] Index build time  : 0.18s
+[Summary] Avg query latency : 46.1ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 1024
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.942      0.940    0.009    0.019
+  50        0.922      0.916    0.046    0.087
+  100       0.914      0.908    0.091    0.165
+  500       0.854      0.842    0.421    0.562
+  1000      0.751      0.726    0.726    0.726
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n565
+Job ID: 5793210
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:16:18
+CPU Efficiency: 7.81% of 03:28:36 core-walltime
+Job Wall-clock time: 00:17:23
+Memory Utilized: 2.45 GB
+Memory Efficiency: 2.67% of 91.80 GB (91.80 GB/node)

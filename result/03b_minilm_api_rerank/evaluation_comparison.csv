@@ -1,0 +1,607 @@
+method,query,k,ndcg,precision,recall,f1,overlap
+API Native,software companies,10,0.9776,0.5,0.2273,0.3125,3
+API Native,software companies,30,0.9138,0.3,0.4091,0.3462,12
+API Native,software companies,44,0.8839,0.25,0.5,0.3333,19
+API Native,healthcare providers,10,0.9952,1.0,0.2564,0.4082,5
+API Native,healthcare providers,30,0.9882,0.5333,0.4103,0.4638,16
+API Native,healthcare providers,44,0.9733,0.4091,0.4615,0.4337,19
+API Native,AI startups in Berlin,10,0.9943,1.0,0.2439,0.3922,7
+API Native,AI startups in Berlin,30,0.9682,0.7333,0.5366,0.6197,20
+API Native,AI startups in Berlin,44,0.9731,0.6364,0.6829,0.6588,30
+API Native,renewable energy companies in Germany,10,0.9901,1.0,0.0146,0.0287,2
+API Native,renewable energy companies in Germany,30,0.99,1.0,0.0437,0.0837,13
+API Native,renewable energy companies in Germany,44,0.9941,1.0,0.064,0.1204,29
+API Native,companies providing cloud migration services,10,0.9921,1.0,0.0313,0.0608,4
+API Native,companies providing cloud migration services,30,0.9928,1.0,0.094,0.1719,16
+API Native,companies providing cloud migration services,44,0.9922,1.0,0.1379,0.2424,25
+API Native,B2B SaaS platforms,10,0.9953,1.0,0.0339,0.0656,7
+API Native,B2B SaaS platforms,30,0.9963,1.0,0.1017,0.1846,24
+API Native,B2B SaaS platforms,44,0.995,1.0,0.1492,0.2596,28
+API Native,machine learning companies,10,0.9903,0.4,0.8,0.5333,6
+API Native,machine learning companies,30,0.9895,0.1667,1.0,0.2857,17
+API Native,machine learning companies,44,0.9602,0.1136,1.0,0.2041,27
+API Native,IoT solution providers,10,0.989,1.0,0.01,0.0198,4
+API Native,IoT solution providers,30,0.9908,1.0,0.03,0.0583,16
+API Native,IoT solution providers,44,0.9902,1.0,0.044,0.0843,21
+API Native,enterprise software vendors,10,0.992,1.0,0.01,0.0198,2
+API Native,enterprise software vendors,30,0.9967,1.0,0.03,0.0583,27
+API Native,enterprise software vendors,44,0.9966,1.0,0.044,0.0843,39
+API Native,small consulting firms,10,0.9927,0.9,0.2143,0.3462,5
+API Native,small consulting firms,30,0.9922,0.6333,0.4524,0.5278,17
+API Native,small consulting firms,44,0.9759,0.5,0.5238,0.5116,22
+API Native,tech companies in Munich,10,0.9927,0.9,0.225,0.36,6
+API Native,tech companies in Munich,30,0.9933,0.7,0.525,0.6,19
+API Native,tech companies in Munich,44,0.9773,0.5909,0.65,0.619,26
+API Native,manufacturing in Baden-Württemberg,10,0.9935,1.0,0.1818,0.3077,7
+API Native,manufacturing in Baden-Württemberg,30,0.9964,1.0,0.5455,0.7059,20
+API Native,manufacturing in Baden-Württemberg,44,0.98,0.8636,0.6909,0.7677,36
+API Native,e-commerce platforms,10,0.9912,1.0,0.01,0.0198,4
+API Native,e-commerce platforms,30,0.9908,1.0,0.03,0.0583,12
+API Native,e-commerce platforms,44,0.9595,0.9545,0.042,0.0805,16
+API Native,pharmaceutical companies,10,0.9906,1.0,0.01,0.0198,4
+API Native,pharmaceutical companies,30,0.99,1.0,0.03,0.0583,11
+API Native,pharmaceutical companies,44,0.9901,1.0,0.044,0.0843,16
+API Native,logistics companies in the US,10,0.9917,1.0,0.0147,0.029,6
+API Native,logistics companies in the US,30,0.995,1.0,0.0442,0.0846,19
+API Native,logistics companies in the US,44,0.9935,0.9545,0.0619,0.1162,29
+API Native,data analytics companies,10,0.9975,1.0,0.01,0.0198,6
+API Native,data analytics companies,30,0.9941,1.0,0.03,0.0583,16
+API Native,data analytics companies,44,0.9944,1.0,0.044,0.0843,24
+API Native,cybersecurity firms,10,0.9299,0.9,0.009,0.0178,3
+API Native,cybersecurity firms,30,0.9335,0.9333,0.028,0.0544,14
+API Native,cybersecurity firms,44,0.9121,0.9091,0.04,0.0766,16
+API Native,financial services companies,10,0.9909,1.0,0.01,0.0198,3
+API Native,financial services companies,30,0.9898,1.0,0.03,0.0583,12
+API Native,financial services companies,44,0.9903,1.0,0.044,0.0843,17
+API Native,retail chains in Europe,10,0.994,1.0,0.1695,0.2899,6
+API Native,retail chains in Europe,30,0.9923,0.8333,0.4237,0.5618,20
+API Native,retail chains in Europe,44,0.9907,0.7045,0.5254,0.6019,27
+API Native,construction companies,10,0.988,1.0,0.01,0.0198,2
+API Native,construction companies,30,0.9437,0.9333,0.028,0.0544,8
+API Native,construction companies,44,0.924,0.9091,0.04,0.0766,11
+API Native,marketing agencies,10,0.9896,1.0,0.01,0.0198,2
+API Native,marketing agencies,30,0.9623,0.9667,0.029,0.0563,7
+API Native,marketing agencies,44,0.9689,0.9773,0.043,0.0824,16
+API Native,human resources software,10,0.9948,1.0,0.01,0.0198,6
+API Native,human resources software,30,0.9954,1.0,0.03,0.0583,20
+API Native,human resources software,44,0.996,1.0,0.044,0.0843,30
+API Native,supply chain management companies,10,0.9929,1.0,0.0229,0.0447,5
+API Native,supply chain management companies,30,0.994,1.0,0.0686,0.1285,19
+API Native,supply chain management companies,44,0.9933,1.0,0.1007,0.183,22
+API Native,solar panel manufacturers,10,0.9944,1.0,0.01,0.0198,8
+API Native,solar panel manufacturers,30,0.9932,1.0,0.03,0.0583,16
+API Native,solar panel manufacturers,44,0.9922,1.0,0.044,0.0843,20
+API Native,agricultural technology companies,10,0.9964,1.0,0.012,0.0237,7
+API Native,agricultural technology companies,30,0.9949,1.0,0.036,0.0694,19
+API Native,agricultural technology companies,44,0.9921,1.0,0.0528,0.1002,22
+API Native,electric vehicle manufacturers,10,0.9952,1.0,0.01,0.0198,6
+API Native,electric vehicle manufacturers,30,0.9926,1.0,0.03,0.0583,16
+API Native,electric vehicle manufacturers,44,0.9925,1.0,0.044,0.0843,22
+API Native,biotech companies,10,0.9927,1.0,0.0239,0.0467,6
+API Native,biotech companies,30,0.9937,1.0,0.0718,0.1339,19
+API Native,biotech companies,44,0.9946,1.0,0.1053,0.1905,26
+API Native,digital transformation consultants,10,0.9962,1.0,0.01,0.0198,8
+API Native,digital transformation consultants,30,0.9969,1.0,0.03,0.0583,23
+API Native,digital transformation consultants,44,0.997,1.0,0.044,0.0843,28
+API Native,cloud computing providers,10,0.9834,1.0,0.01,0.0198,1
+API Native,cloud computing providers,30,0.9861,1.0,0.03,0.0583,5
+API Native,cloud computing providers,44,0.9881,1.0,0.044,0.0843,11
+API Native,mobile app development companies,10,0.9902,1.0,0.01,0.0198,5
+API Native,mobile app development companies,30,0.9938,1.0,0.03,0.0583,18
+API Native,mobile app development companies,44,0.9938,1.0,0.044,0.0843,21
+API Native,web design agencies,10,0.9953,1.0,0.01,0.0198,8
+API Native,web design agencies,30,0.9935,1.0,0.03,0.0583,17
+API Native,web design agencies,44,0.9474,0.9318,0.041,0.0785,23
+API Native,SEO companies,10,0.9945,1.0,0.01,0.0198,5
+API Native,SEO companies,30,0.9697,0.9667,0.029,0.0563,11
+API Native,SEO companies,44,0.959,0.9545,0.042,0.0805,17
+API Native,social media marketing agencies,10,0.9925,1.0,0.01,0.0198,5
+API Native,social media marketing agencies,30,0.9934,1.0,0.03,0.0583,17
+API Native,social media marketing agencies,44,0.9933,1.0,0.044,0.0843,25
+API Native,venture capital firms,10,0.9948,1.0,0.01,0.0198,5
+API Native,venture capital firms,30,0.994,1.0,0.03,0.0583,13
+API Native,venture capital firms,44,0.9941,1.0,0.044,0.0843,25
+API Native,private equity firms,10,0.9854,1.0,0.01,0.0198,1
+API Native,private equity firms,30,0.9919,1.0,0.03,0.0583,13
+API Native,private equity firms,44,0.9914,1.0,0.044,0.0843,20
+API Native,investment banks,10,0.9951,1.0,0.0262,0.051,4
+API Native,investment banks,30,0.9944,1.0,0.0785,0.1456,16
+API Native,investment banks,44,0.9947,0.9773,0.1126,0.2019,27
+API Native,insurance companies,10,0.9833,1.0,0.01,0.0198,0
+API Native,insurance companies,30,0.8965,0.8667,0.026,0.0505,5
+API Native,insurance companies,44,0.8378,0.7955,0.035,0.067,6
+API Native,real estate developers,10,0.9913,1.0,0.01,0.0198,3
+API Native,real estate developers,30,0.9684,0.9667,0.029,0.0563,11
+API Native,real estate developers,44,0.9739,0.9773,0.043,0.0824,21
+API Native,property management companies,10,0.9895,1.0,0.01,0.0198,5
+API Native,property management companies,30,0.9888,1.0,0.03,0.0583,14
+API Native,property management companies,44,0.991,1.0,0.044,0.0843,24
+API Native,hospital management companies,10,0.988,0.8,0.3478,0.4848,4
+API Native,hospital management companies,30,0.9919,0.5,0.6522,0.566,20
+API Native,hospital management companies,44,0.9913,0.3636,0.6957,0.4776,28
+API Native,medical device manufacturers,10,0.9924,1.0,0.01,0.0198,3
+API Native,medical device manufacturers,30,0.9938,1.0,0.03,0.0583,16
+API Native,medical device manufacturers,44,0.9932,1.0,0.044,0.0843,26
+API Native,telecommunications companies,10,0.9882,1.0,0.0166,0.0327,3
+API Native,telecommunications companies,30,0.9867,0.9667,0.0482,0.0918,9
+API Native,telecommunications companies,44,0.9884,0.9545,0.0698,0.13,19
+API Native,internet service providers,10,0.9854,1.0,0.01,0.0198,1
+API Native,internet service providers,30,0.9868,1.0,0.03,0.0583,10
+API Native,internet service providers,44,0.9847,1.0,0.044,0.0843,13
+API Native,manufacturing automation companies,10,0.9963,1.0,0.01,0.0198,6
+API Native,manufacturing automation companies,30,0.9932,1.0,0.03,0.0583,14
+API Native,manufacturing automation companies,44,0.9928,1.0,0.044,0.0843,19
+API Native,robotics companies,10,0.9836,1.0,0.068,0.1274,2
+API Native,robotics companies,30,0.9875,0.8667,0.1769,0.2938,15
+API Native,robotics companies,44,0.9869,0.7727,0.2313,0.356,20
+API Native,3D printing companies,10,0.9881,1.0,0.01,0.0198,2
+API Native,3D printing companies,30,0.9867,1.0,0.03,0.0583,7
+API Native,3D printing companies,44,0.9871,1.0,0.044,0.0843,15
+API Native,packaging companies,10,0.9968,1.0,0.01,0.0198,3
+API Native,packaging companies,30,0.922,0.9,0.027,0.0524,11
+API Native,packaging companies,44,0.9215,0.9091,0.04,0.0766,12
+API Native,food processing companies,10,0.9928,1.0,0.01,0.0198,2
+API Native,food processing companies,30,0.994,1.0,0.03,0.0583,21
+API Native,food processing companies,44,0.9946,1.0,0.044,0.0843,31
+API Native,beverage companies,10,0.9935,1.0,0.0339,0.0656,4
+API Native,beverage companies,30,0.9925,1.0,0.1017,0.1846,19
+API Native,beverage companies,44,0.9583,0.8409,0.1254,0.2183,27
+API Native,mining companies,10,0.9841,0.9,0.1154,0.2045,2
+API Native,mining companies,30,0.9832,0.6667,0.2564,0.3704,8
+API Native,mining companies,44,0.9686,0.5227,0.2949,0.377,13
+API Native,oil and gas companies,10,0.9901,1.0,0.015,0.0295,4
+API Native,oil and gas companies,30,0.9895,1.0,0.0449,0.086,11
+API Native,oil and gas companies,44,0.9895,1.0,0.0659,0.1236,15
+API Native,energy storage companies,10,0.9911,1.0,0.0186,0.0365,6
+API Native,energy storage companies,30,0.9898,1.0,0.0558,0.1056,14
+API Native,energy storage companies,44,0.9914,1.0,0.0818,0.1512,26
+API Native,waste management companies,10,0.9905,1.0,0.01,0.0198,3
+API Native,waste management companies,30,0.9658,0.9667,0.029,0.0563,10
+API Native,waste management companies,44,0.9547,0.9545,0.042,0.0805,16
+API Native,water treatment companies,10,0.9872,1.0,0.01,0.0198,1
+API Native,water treatment companies,30,0.9869,1.0,0.03,0.0583,7
+API Native,water treatment companies,44,0.9726,0.9773,0.043,0.0824,10
+API Native,aerospace companies,10,0.9973,1.0,0.0429,0.0823,8
+API Native,aerospace companies,30,0.9955,1.0,0.1288,0.2281,20
+API Native,aerospace companies,44,0.9934,0.9773,0.1845,0.3105,25
+API Native,defense contractors,10,0.9974,1.0,0.3125,0.4762,8
+API Native,defense contractors,30,0.9961,0.8333,0.7812,0.8065,25
+API Native,defense contractors,44,0.997,0.7045,0.9688,0.8158,36
+API Native,transportation companies,10,0.9867,1.0,0.0121,0.024,3
+API Native,transportation companies,30,0.8954,0.8333,0.0303,0.0585,7
+API Native,transportation companies,44,0.8835,0.7955,0.0424,0.0806,10
+API Native,shipping companies,10,0.9915,1.0,0.01,0.0198,4
+API Native,shipping companies,30,0.9686,0.9667,0.029,0.0563,11
+API Native,shipping companies,44,0.9745,0.9773,0.043,0.0824,19
+API Native,trucking companies,10,0.9872,1.0,0.01,0.0198,2
+API Native,trucking companies,30,0.991,1.0,0.03,0.0583,13
+API Native,trucking companies,44,0.9907,1.0,0.044,0.0843,20
+API Native,freight forwarding companies,10,0.9979,1.0,0.01,0.0198,5
+API Native,freight forwarding companies,30,0.997,1.0,0.03,0.0583,19
+API Native,freight forwarding companies,44,0.9969,1.0,0.044,0.0843,24
+API Native,warehousing companies,10,0.9943,1.0,0.0169,0.0333,5
+API Native,warehousing companies,30,0.9893,1.0,0.0508,0.0968,12
+API Native,warehousing companies,44,0.9904,1.0,0.0746,0.1388,21
+API Native,cold storage companies,10,0.9942,1.0,0.01,0.0198,4
+API Native,cold storage companies,30,0.9943,1.0,0.03,0.0583,17
+API Native,cold storage companies,44,0.9944,1.0,0.044,0.0843,24
+API Native,retail technology companies,10,0.9903,1.0,0.0206,0.0404,6
+API Native,retail technology companies,30,0.9914,1.0,0.0619,0.1165,20
+API Native,retail technology companies,44,0.9925,1.0,0.0907,0.1664,27
+API Native,point of sale systems providers,10,0.9905,1.0,0.01,0.0198,2
+API Native,point of sale systems providers,30,0.9927,1.0,0.03,0.0583,15
+API Native,point of sale systems providers,44,0.9928,1.0,0.044,0.0843,22
+API Native,inventory management software,10,0.9951,1.0,0.01,0.0198,6
+API Native,inventory management software,30,0.9935,1.0,0.03,0.0583,16
+API Native,inventory management software,44,0.9931,1.0,0.044,0.0843,25
+API Native,customer relationship management (CRM) software,10,0.9975,1.0,0.0119,0.0234,6
+API Native,customer relationship management (CRM) software,30,0.9976,1.0,0.0356,0.0687,19
+API Native,customer relationship management (CRM) software,44,0.9969,1.0,0.0522,0.0992,33
+API Native,enterprise resource planning (ERP) systems,10,0.9977,1.0,0.01,0.0198,7
+API Native,enterprise resource planning (ERP) systems,30,0.9964,1.0,0.03,0.0583,19
+API Native,enterprise resource planning (ERP) systems,44,0.9959,1.0,0.044,0.0843,29
+API Native,business intelligence (BI) companies,10,0.9931,1.0,0.0124,0.0246,4
+API Native,business intelligence (BI) companies,30,0.9957,1.0,0.0373,0.0719,23
+API Native,business intelligence (BI) companies,44,0.9952,1.0,0.0547,0.1038,29
+API Native,IT consulting firms,10,0.9923,1.0,0.01,0.0198,4
+API Native,IT consulting firms,30,0.994,1.0,0.03,0.0583,16
+API Native,IT consulting firms,44,0.9935,1.0,0.044,0.0843,21
+API Native,cybersecurity solutions providers,10,0.9971,1.0,0.01,0.0198,6
+API Native,cybersecurity solutions providers,30,0.9945,1.0,0.03,0.0583,19
+API Native,cybersecurity solutions providers,44,0.9944,1.0,0.044,0.0843,25
+API Native,cloud security providers,10,0.9883,1.0,0.061,0.1149,5
+API Native,cloud security providers,30,0.9903,0.9667,0.1768,0.299,15
+API Native,cloud security providers,44,0.9889,0.8182,0.2195,0.3462,20
+API Native,managed service providers (MSPs),10,0.9974,1.0,0.0385,0.0741,5
+API Native,managed service providers (MSPs),30,0.9979,1.0,0.1154,0.2069,24
+API Native,managed service providers (MSPs),44,0.9975,1.0,0.1692,0.2895,38
+API Native,remote monitoring and management (RMM) software,10,0.9998,1.0,0.1639,0.2817,9
+API Native,remote monitoring and management (RMM) software,30,0.9973,0.9333,0.459,0.6154,26
+API Native,remote monitoring and management (RMM) software,44,0.9969,0.9091,0.6557,0.7619,35
+API Native,data center providers,10,0.992,1.0,0.0248,0.0484,4
+API Native,data center providers,30,0.992,0.9667,0.072,0.1339,16
+API Native,data center providers,44,0.9919,0.9318,0.1017,0.1834,28
+API Native,web hosting companies,10,0.2895,0.3,0.003,0.0059,0
+API Native,web hosting companies,30,0.1439,0.1,0.003,0.0058,0
+API Native,web hosting companies,44,0.1116,0.0682,0.003,0.0057,0
+API Native,domain name registrars,10,0.9832,0.7,0.0824,0.1474,6
+API Native,domain name registrars,30,0.9862,0.7667,0.2706,0.4,18
+API Native,domain name registrars,44,0.9667,0.6136,0.3176,0.4186,25
+API Native,content management systems (CMS),10,0.9896,1.0,0.01,0.0198,6
+API Native,content management systems (CMS),30,0.9907,1.0,0.03,0.0583,16
+API Native,content management systems (CMS),44,0.9903,1.0,0.044,0.0843,22
+API Native,e-learning platforms,10,0.993,1.0,0.01,0.0198,3
+API Native,e-learning platforms,30,0.9935,1.0,0.03,0.0583,16
+API Native,e-learning platforms,44,0.9938,1.0,0.044,0.0843,22
+API Native,online marketing agencies,10,0.9948,1.0,0.01,0.0198,4
+API Native,online marketing agencies,30,0.9913,1.0,0.03,0.0583,15
+API Native,online marketing agencies,44,0.9915,1.0,0.044,0.0843,22
+API Native,lead generation companies,10,0.9956,1.0,0.0169,0.0333,6
+API Native,lead generation companies,30,0.9964,1.0,0.0508,0.0968,20
+API Native,lead generation companies,44,0.9956,1.0,0.0746,0.1388,30
+API Native,market research firms,10,0.9904,1.0,0.01,0.0198,5
+API Native,market research firms,30,0.9911,1.0,0.03,0.0583,16
+API Native,market research firms,44,0.99,1.0,0.044,0.0843,21
+API Native,public relations agencies,10,0.9864,1.0,0.01,0.0198,4
+API Native,public relations agencies,30,0.9928,1.0,0.03,0.0583,22
+API Native,public relations agencies,44,0.9929,1.0,0.044,0.0843,30
+API Native,graphic design studios,10,0.9886,1.0,0.01,0.0198,1
+API Native,graphic design studios,30,0.989,1.0,0.03,0.0583,7
+API Native,graphic design studios,44,0.9899,1.0,0.044,0.0843,12
+API Native,video production companies,10,0.9908,1.0,0.01,0.0198,4
+API Native,video production companies,30,0.9919,1.0,0.03,0.0583,12
+API Native,video production companies,44,0.9915,1.0,0.044,0.0843,17
+API Native,translation services,10,0.9942,1.0,0.01,0.0198,4
+API Native,translation services,30,0.991,1.0,0.03,0.0583,8
+API Native,translation services,44,0.9901,1.0,0.044,0.0843,14
+API Native,legal technology companies,10,0.9989,1.0,0.01,0.0198,9
+API Native,legal technology companies,30,0.9947,1.0,0.03,0.0583,16
+API Native,legal technology companies,44,0.9942,1.0,0.044,0.0843,28
+API Native,accounting software providers,10,0.9943,1.0,0.0128,0.0253,6
+API Native,accounting software providers,30,0.9923,1.0,0.0385,0.0741,15
+API Native,accounting software providers,44,0.992,1.0,0.0564,0.1068,21
+API Native,tax preparation services,10,0.9958,1.0,0.01,0.0198,4
+API Native,tax preparation services,30,0.9942,1.0,0.03,0.0583,16
+API Native,tax preparation services,44,0.9929,1.0,0.044,0.0843,21
+API Native,payroll processing companies,10,0.9948,1.0,0.01,0.0198,5
+API Native,payroll processing companies,30,0.9945,1.0,0.03,0.0583,16
+API Native,payroll processing companies,44,0.9944,1.0,0.044,0.0843,26
+API Native,financial planning services,10,0.9923,1.0,0.01,0.0198,5
+API Native,financial planning services,30,0.9935,1.0,0.03,0.0583,16
+API Native,financial planning services,44,0.9942,1.0,0.044,0.0843,23
+API Native,investment management firms,10,0.998,1.0,0.01,0.0198,7
+API Native,investment management firms,30,0.9964,1.0,0.03,0.0583,22
+API Native,investment management firms,44,0.9947,1.0,0.044,0.0843,28
+API Native,wealth management firms,10,0.9946,1.0,0.01,0.0198,2
+API Native,wealth management firms,30,0.9934,1.0,0.03,0.0583,13
+API Native,wealth management firms,44,0.9757,0.9773,0.043,0.0824,19
+API Native,commercial real estate brokers,10,0.9977,1.0,0.01,0.0198,6
+API Native,commercial real estate brokers,30,0.9964,1.0,0.03,0.0583,20
+API Native,commercial real estate brokers,44,0.9961,1.0,0.044,0.0843,29
+API Native,residential real estate brokers,10,0.9968,1.0,0.01,0.0198,6
+API Native,residential real estate brokers,30,0.997,1.0,0.03,0.0583,19
+API Native,residential real estate brokers,44,0.9965,1.0,0.044,0.0843,25
+API Native,construction equipment manufacturers,10,0.9898,1.0,0.01,0.0198,3
+API Native,construction equipment manufacturers,30,0.9901,1.0,0.03,0.0583,10
+API Native,construction equipment manufacturers,44,0.9904,1.0,0.044,0.0843,18
+API Native,building materials suppliers,10,0.9879,1.0,0.01,0.0198,2
+API Native,building materials suppliers,30,0.9851,1.0,0.03,0.0583,6
+API Native,building materials suppliers,44,0.9852,1.0,0.044,0.0843,10
+API Native,renewable energy project developers,10,0.9913,1.0,0.01,0.0198,6
+API Native,renewable energy project developers,30,0.9964,1.0,0.03,0.0583,25
+API Native,renewable energy project developers,44,0.9964,1.0,0.044,0.0843,33
+API Native,sustainable agriculture companies,10,0.9908,0.7,0.1129,0.1944,6
+API Native,sustainable agriculture companies,30,0.9902,0.6667,0.3226,0.4348,16
+API Native,sustainable agriculture companies,44,0.9736,0.4773,0.3387,0.3962,18
+API Native,vertical farming companies,10,0.9945,1.0,0.1,0.1818,7
+API Native,vertical farming companies,30,0.9965,1.0,0.3,0.4615,21
+API Native,vertical farming companies,44,0.9954,0.9773,0.43,0.5972,33
+API Native,precision agriculture technology providers,10,0.994,1.0,0.0202,0.0397,6
+API Native,precision agriculture technology providers,30,0.9923,1.0,0.0607,0.1145,16
+API Native,precision agriculture technology providers,44,0.9923,1.0,0.0891,0.1636,25
+API Native,alternative protein manufacturers,10,0.9969,1.0,0.2439,0.3922,8
+API Native,alternative protein manufacturers,30,0.9931,0.7,0.5122,0.5915,18
+API Native,alternative protein manufacturers,44,0.9925,0.6136,0.6585,0.6353,29
+MiniLM Reranked,software companies,10,0.4192,0.1,0.0455,0.0625,1
+MiniLM Reranked,software companies,30,0.5738,0.1333,0.1818,0.1538,4
+MiniLM Reranked,software companies,44,0.5862,0.0909,0.1818,0.1212,6
+MiniLM Reranked,healthcare providers,10,0.8758,0.1,0.0256,0.0408,0
+MiniLM Reranked,healthcare providers,30,0.8777,0.2,0.1538,0.1739,6
+MiniLM Reranked,healthcare providers,44,0.8086,0.1591,0.1795,0.1687,8
+MiniLM Reranked,AI startups in Berlin,10,0.8997,0.5,0.122,0.1961,3
+MiniLM Reranked,AI startups in Berlin,30,0.8355,0.2667,0.1951,0.2254,8
+MiniLM Reranked,AI startups in Berlin,44,0.8026,0.1818,0.1951,0.1882,8
+MiniLM Reranked,renewable energy companies in Germany,10,0.9572,0.9,0.0131,0.0258,0
+MiniLM Reranked,renewable energy companies in Germany,30,0.9169,0.8667,0.0378,0.0725,4
+MiniLM Reranked,renewable energy companies in Germany,44,0.9328,0.9091,0.0582,0.1094,11
+MiniLM Reranked,companies providing cloud migration services,10,0.9528,0.9,0.0282,0.0547,0
+MiniLM Reranked,companies providing cloud migration services,30,0.963,0.8333,0.0784,0.1433,3
+MiniLM Reranked,companies providing cloud migration services,44,0.966,0.7955,0.1097,0.1928,8
+MiniLM Reranked,B2B SaaS platforms,10,0.9645,1.0,0.0339,0.0656,2
+MiniLM Reranked,B2B SaaS platforms,30,0.9686,0.9333,0.0949,0.1723,5
+MiniLM Reranked,B2B SaaS platforms,44,0.9719,0.8636,0.1288,0.2242,8
+MiniLM Reranked,machine learning companies,10,0.9796,0.2,0.4,0.2667,4
+MiniLM Reranked,machine learning companies,30,0.9378,0.1,0.6,0.1714,10
+MiniLM Reranked,machine learning companies,44,0.9322,0.0682,0.6,0.1224,17
+MiniLM Reranked,IoT solution providers,10,0.9689,1.0,0.01,0.0198,1
+MiniLM Reranked,IoT solution providers,30,0.9487,0.9667,0.029,0.0563,4
+MiniLM Reranked,IoT solution providers,44,0.9247,0.9318,0.041,0.0785,6
+MiniLM Reranked,enterprise software vendors,10,0.9679,1.0,0.01,0.0198,0
+MiniLM Reranked,enterprise software vendors,30,0.9222,0.9333,0.028,0.0544,5
+MiniLM Reranked,enterprise software vendors,44,0.939,0.9545,0.042,0.0805,20
+MiniLM Reranked,small consulting firms,10,0.6921,0.1,0.0238,0.0385,0
+MiniLM Reranked,small consulting firms,30,0.7091,0.1,0.0714,0.0833,3
+MiniLM Reranked,small consulting firms,44,0.7238,0.0909,0.0952,0.093,4
+MiniLM Reranked,tech companies in Munich,10,0.6722,0.1,0.025,0.04,0
+MiniLM Reranked,tech companies in Munich,30,0.7724,0.2333,0.175,0.2,6
+MiniLM Reranked,tech companies in Munich,44,0.7845,0.2045,0.225,0.2143,9
+MiniLM Reranked,manufacturing in Baden-Württemberg,10,0.9302,0.2,0.0364,0.0615,2
+MiniLM Reranked,manufacturing in Baden-Württemberg,30,0.799,0.1,0.0545,0.0706,2
+MiniLM Reranked,manufacturing in Baden-Württemberg,44,0.8067,0.1591,0.1273,0.1414,5
+MiniLM Reranked,e-commerce platforms,10,0.4783,0.6,0.006,0.0119,0
+MiniLM Reranked,e-commerce platforms,30,0.6783,0.8,0.024,0.0466,0
+MiniLM Reranked,e-commerce platforms,44,0.7156,0.8182,0.036,0.069,0
+MiniLM Reranked,pharmaceutical companies,10,0.7382,0.7,0.007,0.0139,1
+MiniLM Reranked,pharmaceutical companies,30,0.6188,0.5667,0.017,0.033,2
+MiniLM Reranked,pharmaceutical companies,44,0.6217,0.5909,0.026,0.0498,6
+MiniLM Reranked,logistics companies in the US,10,0.8913,0.9,0.0133,0.0261,1
+MiniLM Reranked,logistics companies in the US,30,0.7654,0.6667,0.0295,0.0564,6
+MiniLM Reranked,logistics companies in the US,44,0.7201,0.6136,0.0398,0.0747,8
+MiniLM Reranked,data analytics companies,10,0.9665,1.0,0.01,0.0198,0
+MiniLM Reranked,data analytics companies,30,0.9677,1.0,0.03,0.0583,3
+MiniLM Reranked,data analytics companies,44,0.9551,0.9773,0.043,0.0824,5
+MiniLM Reranked,cybersecurity firms,10,0.8351,0.8,0.008,0.0158,0
+MiniLM Reranked,cybersecurity firms,30,0.8041,0.8,0.024,0.0466,2
+MiniLM Reranked,cybersecurity firms,44,0.7975,0.7955,0.035,0.067,5
+MiniLM Reranked,financial services companies,10,0.9689,1.0,0.01,0.0198,1
+MiniLM Reranked,financial services companies,30,0.9287,0.9333,0.028,0.0544,3
+MiniLM Reranked,financial services companies,44,0.9101,0.9091,0.04,0.0766,6
+MiniLM Reranked,retail chains in Europe,10,0.9669,0.7,0.1186,0.2029,2
+MiniLM Reranked,retail chains in Europe,30,0.9426,0.3,0.1525,0.2022,6
+MiniLM Reranked,retail chains in Europe,44,0.9496,0.25,0.1864,0.2136,10
+MiniLM Reranked,construction companies,10,0.8152,0.8,0.008,0.0158,0
+MiniLM Reranked,construction companies,30,0.7381,0.7,0.021,0.0408,0
+MiniLM Reranked,construction companies,44,0.7159,0.6818,0.03,0.0575,2
+MiniLM Reranked,marketing agencies,10,0.6839,0.8,0.008,0.0158,0
+MiniLM Reranked,marketing agencies,30,0.5605,0.5667,0.017,0.033,1
+MiniLM Reranked,marketing agencies,44,0.6084,0.6364,0.028,0.0536,2
+MiniLM Reranked,human resources software,10,0.9631,1.0,0.01,0.0198,0
+MiniLM Reranked,human resources software,30,0.9735,1.0,0.03,0.0583,3
+MiniLM Reranked,human resources software,44,0.9761,1.0,0.044,0.0843,8
+MiniLM Reranked,supply chain management companies,10,0.9675,0.9,0.0206,0.0403,1
+MiniLM Reranked,supply chain management companies,30,0.947,0.8333,0.0572,0.1071,3
+MiniLM Reranked,supply chain management companies,44,0.9237,0.7045,0.0709,0.1289,5
+MiniLM Reranked,solar panel manufacturers,10,0.7803,0.8,0.008,0.0158,1
+MiniLM Reranked,solar panel manufacturers,30,0.8534,0.9,0.027,0.0524,3
+MiniLM Reranked,solar panel manufacturers,44,0.8672,0.9091,0.04,0.0766,4
+MiniLM Reranked,agricultural technology companies,10,0.901,0.7,0.0084,0.0166,2
+MiniLM Reranked,agricultural technology companies,30,0.8417,0.7333,0.0264,0.0509,7
+MiniLM Reranked,agricultural technology companies,44,0.8407,0.75,0.0396,0.0752,8
+MiniLM Reranked,electric vehicle manufacturers,10,0.9738,1.0,0.01,0.0198,1
+MiniLM Reranked,electric vehicle manufacturers,30,0.925,0.9333,0.028,0.0544,3
+MiniLM Reranked,electric vehicle manufacturers,44,0.9378,0.9545,0.042,0.0805,6
+MiniLM Reranked,biotech companies,10,0.9721,0.9,0.0215,0.0421,1
+MiniLM Reranked,biotech companies,30,0.9436,0.6667,0.0478,0.0893,4
+MiniLM Reranked,biotech companies,44,0.9522,0.75,0.0789,0.1429,7
+MiniLM Reranked,digital transformation consultants,10,0.9709,1.0,0.01,0.0198,1
+MiniLM Reranked,digital transformation consultants,30,0.8247,0.8,0.024,0.0466,5
+MiniLM Reranked,digital transformation consultants,44,0.8444,0.8409,0.037,0.0709,6
+MiniLM Reranked,cloud computing providers,10,0.441,0.6,0.006,0.0119,0
+MiniLM Reranked,cloud computing providers,30,0.5766,0.6667,0.02,0.0388,4
+MiniLM Reranked,cloud computing providers,44,0.512,0.5455,0.024,0.046,8
+MiniLM Reranked,mobile app development companies,10,0.5416,0.7,0.007,0.0139,0
+MiniLM Reranked,mobile app development companies,30,0.7331,0.8667,0.026,0.0505,1
+MiniLM Reranked,mobile app development companies,44,0.7743,0.8864,0.039,0.0747,6
+MiniLM Reranked,web design agencies,10,0.897,0.9,0.009,0.0178,0
+MiniLM Reranked,web design agencies,30,0.8897,0.9,0.027,0.0524,5
+MiniLM Reranked,web design agencies,44,0.8333,0.8182,0.036,0.069,6
+MiniLM Reranked,SEO companies,10,0.6911,0.8,0.008,0.0158,0
+MiniLM Reranked,SEO companies,30,0.7236,0.7667,0.023,0.0447,5
+MiniLM Reranked,SEO companies,44,0.6879,0.7045,0.031,0.0594,6
+MiniLM Reranked,social media marketing agencies,10,0.9486,1.0,0.01,0.0198,0
+MiniLM Reranked,social media marketing agencies,30,0.869,0.8667,0.026,0.0505,1
+MiniLM Reranked,social media marketing agencies,44,0.8469,0.8409,0.037,0.0709,3
+MiniLM Reranked,venture capital firms,10,0.887,0.9,0.009,0.0178,1
+MiniLM Reranked,venture capital firms,30,0.8764,0.9,0.027,0.0524,3
+MiniLM Reranked,venture capital firms,44,0.8999,0.9318,0.041,0.0785,7
+MiniLM Reranked,private equity firms,10,0.9642,1.0,0.01,0.0198,0
+MiniLM Reranked,private equity firms,30,0.9441,0.9667,0.029,0.0563,2
+MiniLM Reranked,private equity firms,44,0.9537,0.9773,0.043,0.0824,6
+MiniLM Reranked,investment banks,10,0.969,0.9,0.0236,0.0459,0
+MiniLM Reranked,investment banks,30,0.9719,0.9,0.0707,0.1311,0
+MiniLM Reranked,investment banks,44,0.9738,0.8409,0.0969,0.1737,1
+MiniLM Reranked,insurance companies,10,0.4447,0.4,0.004,0.0079,0
+MiniLM Reranked,insurance companies,30,0.3371,0.3,0.009,0.0175,1
+MiniLM Reranked,insurance companies,44,0.2939,0.25,0.011,0.0211,2
+MiniLM Reranked,real estate developers,10,0.6976,0.7,0.007,0.0139,1
+MiniLM Reranked,real estate developers,30,0.7715,0.8,0.024,0.0466,3
+MiniLM Reranked,real estate developers,44,0.7888,0.8182,0.036,0.069,9
+MiniLM Reranked,property management companies,10,0.8571,0.9,0.009,0.0178,0
+MiniLM Reranked,property management companies,30,0.7666,0.7667,0.023,0.0447,5
+MiniLM Reranked,property management companies,44,0.7846,0.7955,0.035,0.067,10
+MiniLM Reranked,hospital management companies,10,0.9609,0.3,0.1304,0.1818,0
+MiniLM Reranked,hospital management companies,30,0.9442,0.1667,0.2174,0.1887,8
+MiniLM Reranked,hospital management companies,44,0.9365,0.1818,0.3478,0.2388,15
+MiniLM Reranked,medical device manufacturers,10,0.9121,0.9,0.009,0.0178,2
+MiniLM Reranked,medical device manufacturers,30,0.9481,0.9667,0.029,0.0563,6
+MiniLM Reranked,medical device manufacturers,44,0.9559,0.9773,0.043,0.0824,14
+MiniLM Reranked,telecommunications companies,10,0.7503,0.9,0.015,0.0294,0
+MiniLM Reranked,telecommunications companies,30,0.7422,0.5667,0.0282,0.0538,1
+MiniLM Reranked,telecommunications companies,44,0.7488,0.5682,0.0415,0.0774,4
+MiniLM Reranked,internet service providers,10,0.8871,0.9,0.009,0.0178,1
+MiniLM Reranked,internet service providers,30,0.9087,0.9333,0.028,0.0544,3
+MiniLM Reranked,internet service providers,44,0.8469,0.8409,0.037,0.0709,6
+MiniLM Reranked,manufacturing automation companies,10,0.7064,0.7,0.007,0.0139,0
+MiniLM Reranked,manufacturing automation companies,30,0.74,0.7667,0.023,0.0447,3
+MiniLM Reranked,manufacturing automation companies,44,0.7645,0.7955,0.035,0.067,7
+MiniLM Reranked,robotics companies,10,0.8869,0.5,0.034,0.0637,2
+MiniLM Reranked,robotics companies,30,0.8364,0.4333,0.0884,0.1469,8
+MiniLM Reranked,robotics companies,44,0.8368,0.4318,0.1293,0.199,12
+MiniLM Reranked,3D printing companies,10,0.8291,0.9,0.009,0.0178,0
+MiniLM Reranked,3D printing companies,30,0.8059,0.8333,0.025,0.0485,3
+MiniLM Reranked,3D printing companies,44,0.8145,0.8409,0.037,0.0709,5
+MiniLM Reranked,packaging companies,10,0.8419,0.8,0.008,0.0158,0
+MiniLM Reranked,packaging companies,30,0.8094,0.8,0.024,0.0466,1
+MiniLM Reranked,packaging companies,44,0.7403,0.7045,0.031,0.0594,3
+MiniLM Reranked,food processing companies,10,0.9768,1.0,0.01,0.0198,1
+MiniLM Reranked,food processing companies,30,0.9437,0.9667,0.029,0.0563,3
+MiniLM Reranked,food processing companies,44,0.9521,0.9773,0.043,0.0824,9
+MiniLM Reranked,beverage companies,10,0.7637,0.6,0.0203,0.0393,1
+MiniLM Reranked,beverage companies,30,0.8019,0.7,0.0712,0.1292,5
+MiniLM Reranked,beverage companies,44,0.8251,0.5909,0.0881,0.1534,11
+MiniLM Reranked,mining companies,10,0.9786,0.8,0.1026,0.1818,0
+MiniLM Reranked,mining companies,30,0.9552,0.4667,0.1795,0.2593,9
+MiniLM Reranked,mining companies,44,0.897,0.3409,0.1923,0.2459,13
+MiniLM Reranked,oil and gas companies,10,0.9637,0.6,0.009,0.0177,2
+MiniLM Reranked,oil and gas companies,30,0.8996,0.7333,0.0329,0.063,4
+MiniLM Reranked,oil and gas companies,44,0.8531,0.7045,0.0464,0.0871,6
+MiniLM Reranked,energy storage companies,10,0.8606,0.7,0.013,0.0255,2
+MiniLM Reranked,energy storage companies,30,0.8904,0.7667,0.0428,0.081,6
+MiniLM Reranked,energy storage companies,44,0.8779,0.7955,0.0651,0.1203,8
+MiniLM Reranked,waste management companies,10,0.7261,0.7,0.007,0.0139,1
+MiniLM Reranked,waste management companies,30,0.7497,0.7667,0.023,0.0447,5
+MiniLM Reranked,waste management companies,44,0.7406,0.75,0.033,0.0632,9
+MiniLM Reranked,water treatment companies,10,0.7443,0.7,0.007,0.0139,1
+MiniLM Reranked,water treatment companies,30,0.733,0.7333,0.022,0.0427,3
+MiniLM Reranked,water treatment companies,44,0.6793,0.6591,0.029,0.0556,7
+MiniLM Reranked,aerospace companies,10,0.9629,0.8,0.0343,0.0658,3
+MiniLM Reranked,aerospace companies,30,0.9476,0.6,0.0773,0.1369,9
+MiniLM Reranked,aerospace companies,44,0.9393,0.5909,0.1116,0.1877,12
+MiniLM Reranked,defense contractors,10,0.9236,0.1,0.0312,0.0476,0
+MiniLM Reranked,defense contractors,30,0.9427,0.1667,0.1562,0.1613,5
+MiniLM Reranked,defense contractors,44,0.9501,0.1591,0.2188,0.1842,9
+MiniLM Reranked,transportation companies,10,0.5335,0.6,0.0073,0.0144,0
+MiniLM Reranked,transportation companies,30,0.5002,0.5,0.0182,0.0351,1
+MiniLM Reranked,transportation companies,44,0.4679,0.4318,0.023,0.0437,3
+MiniLM Reranked,shipping companies,10,0.6917,0.6,0.006,0.0119,0
+MiniLM Reranked,shipping companies,30,0.7661,0.7667,0.023,0.0447,3
+MiniLM Reranked,shipping companies,44,0.7863,0.7955,0.035,0.067,7
+MiniLM Reranked,trucking companies,10,0.8743,0.9,0.009,0.0178,2
+MiniLM Reranked,trucking companies,30,0.8836,0.9,0.027,0.0524,6
+MiniLM Reranked,trucking companies,44,0.8752,0.8864,0.039,0.0747,7
+MiniLM Reranked,freight forwarding companies,10,0.9071,0.9,0.009,0.0178,0
+MiniLM Reranked,freight forwarding companies,30,0.8451,0.8333,0.025,0.0485,2
+MiniLM Reranked,freight forwarding companies,44,0.8293,0.8182,0.036,0.069,2
+MiniLM Reranked,warehousing companies,10,0.963,0.8,0.0136,0.0267,3
+MiniLM Reranked,warehousing companies,30,0.7948,0.6667,0.0339,0.0645,3
+MiniLM Reranked,warehousing companies,44,0.8359,0.7045,0.0525,0.0978,6
+MiniLM Reranked,cold storage companies,10,0.9684,1.0,0.01,0.0198,0
+MiniLM Reranked,cold storage companies,30,0.9713,1.0,0.03,0.0583,4
+MiniLM Reranked,cold storage companies,44,0.9737,1.0,0.044,0.0843,6
+MiniLM Reranked,retail technology companies,10,0.9499,0.9,0.0186,0.0364,0
+MiniLM Reranked,retail technology companies,30,0.9563,0.8,0.0495,0.0932,2
+MiniLM Reranked,retail technology companies,44,0.9616,0.8182,0.0742,0.1361,6
+MiniLM Reranked,point of sale systems providers,10,0.9767,1.0,0.01,0.0198,1
+MiniLM Reranked,point of sale systems providers,30,0.9773,1.0,0.03,0.0583,3
+MiniLM Reranked,point of sale systems providers,44,0.9629,0.9773,0.043,0.0824,7
+MiniLM Reranked,inventory management software,10,0.9717,1.0,0.01,0.0198,0
+MiniLM Reranked,inventory management software,30,0.9742,1.0,0.03,0.0583,7
+MiniLM Reranked,inventory management software,44,0.9754,1.0,0.044,0.0843,13
+MiniLM Reranked,customer relationship management (CRM) software,10,0.9621,1.0,0.0119,0.0234,1
+MiniLM Reranked,customer relationship management (CRM) software,30,0.9649,1.0,0.0356,0.0687,5
+MiniLM Reranked,customer relationship management (CRM) software,44,0.9675,1.0,0.0522,0.0992,8
+MiniLM Reranked,enterprise resource planning (ERP) systems,10,0.9559,1.0,0.01,0.0198,0
+MiniLM Reranked,enterprise resource planning (ERP) systems,30,0.9431,0.9667,0.029,0.0563,3
+MiniLM Reranked,enterprise resource planning (ERP) systems,44,0.9375,0.9545,0.042,0.0805,8
+MiniLM Reranked,business intelligence (BI) companies,10,0.9696,1.0,0.0124,0.0246,1
+MiniLM Reranked,business intelligence (BI) companies,30,0.9705,1.0,0.0373,0.0719,3
+MiniLM Reranked,business intelligence (BI) companies,44,0.9725,0.9773,0.0535,0.1014,9
+MiniLM Reranked,IT consulting firms,10,0.7083,0.7,0.007,0.0139,0
+MiniLM Reranked,IT consulting firms,30,0.8235,0.8667,0.026,0.0505,2
+MiniLM Reranked,IT consulting firms,44,0.8596,0.9091,0.04,0.0766,3
+MiniLM Reranked,cybersecurity solutions providers,10,0.9681,1.0,0.01,0.0198,0
+MiniLM Reranked,cybersecurity solutions providers,30,0.9267,0.9333,0.028,0.0544,3
+MiniLM Reranked,cybersecurity solutions providers,44,0.9392,0.9545,0.042,0.0805,8
+MiniLM Reranked,cloud security providers,10,0.9592,0.7,0.0427,0.0805,1
+MiniLM Reranked,cloud security providers,30,0.9229,0.6,0.1098,0.1856,9
+MiniLM Reranked,cloud security providers,44,0.8578,0.5227,0.1402,0.2212,10
+MiniLM Reranked,managed service providers (MSPs),10,0.9442,0.6,0.0231,0.0444,1
+MiniLM Reranked,managed service providers (MSPs),30,0.9513,0.6333,0.0731,0.131,6
+MiniLM Reranked,managed service providers (MSPs),44,0.9554,0.6136,0.1038,0.1776,9
+MiniLM Reranked,remote monitoring and management (RMM) software,10,0.9635,0.7,0.1148,0.1972,5
+MiniLM Reranked,remote monitoring and management (RMM) software,30,0.9455,0.5,0.2459,0.3297,13
+MiniLM Reranked,remote monitoring and management (RMM) software,44,0.9513,0.4091,0.2951,0.3429,17
+MiniLM Reranked,data center providers,10,0.9758,1.0,0.0248,0.0484,3
+MiniLM Reranked,data center providers,30,0.9722,0.8,0.0596,0.1109,4
+MiniLM Reranked,data center providers,44,0.9731,0.7955,0.0868,0.1566,7
+MiniLM Reranked,web hosting companies,10,0.1386,0.1,0.001,0.002,1
+MiniLM Reranked,web hosting companies,30,0.1168,0.1,0.003,0.0058,1
+MiniLM Reranked,web hosting companies,44,0.107,0.0909,0.004,0.0077,1
+MiniLM Reranked,domain name registrars,10,0.9527,0.3,0.0353,0.0632,0
+MiniLM Reranked,domain name registrars,30,0.9544,0.1667,0.0588,0.087,1
+MiniLM Reranked,domain name registrars,44,0.7883,0.1364,0.0706,0.093,2
+MiniLM Reranked,content management systems (CMS),10,0.9575,1.0,0.01,0.0198,0
+MiniLM Reranked,content management systems (CMS),30,0.9367,0.9667,0.029,0.0563,1
+MiniLM Reranked,content management systems (CMS),44,0.8844,0.8864,0.039,0.0747,2
+MiniLM Reranked,e-learning platforms,10,0.9755,1.0,0.01,0.0198,1
+MiniLM Reranked,e-learning platforms,30,0.9791,1.0,0.03,0.0583,4
+MiniLM Reranked,e-learning platforms,44,0.9794,1.0,0.044,0.0843,6
+MiniLM Reranked,online marketing agencies,10,0.7091,0.7,0.007,0.0139,0
+MiniLM Reranked,online marketing agencies,30,0.7715,0.8,0.024,0.0466,4
+MiniLM Reranked,online marketing agencies,44,0.7706,0.7955,0.035,0.067,5
+MiniLM Reranked,lead generation companies,10,0.9612,1.0,0.0169,0.0333,1
+MiniLM Reranked,lead generation companies,30,0.9418,0.9667,0.0492,0.0935,5
+MiniLM Reranked,lead generation companies,44,0.9492,0.9773,0.0729,0.1356,9
+MiniLM Reranked,market research firms,10,0.9526,1.0,0.01,0.0198,0
+MiniLM Reranked,market research firms,30,0.8942,0.9,0.027,0.0524,5
+MiniLM Reranked,market research firms,44,0.8968,0.9091,0.04,0.0766,6
+MiniLM Reranked,public relations agencies,10,0.9528,1.0,0.01,0.0198,2
+MiniLM Reranked,public relations agencies,30,0.9452,0.9667,0.029,0.0563,9
+MiniLM Reranked,public relations agencies,44,0.9198,0.9318,0.041,0.0785,12
+MiniLM Reranked,graphic design studios,10,0.9837,1.0,0.01,0.0198,1
+MiniLM Reranked,graphic design studios,30,0.937,0.9333,0.028,0.0544,6
+MiniLM Reranked,graphic design studios,44,0.9481,0.9545,0.042,0.0805,6
+MiniLM Reranked,video production companies,10,0.5613,0.7,0.007,0.0139,0
+MiniLM Reranked,video production companies,30,0.678,0.7667,0.023,0.0447,1
+MiniLM Reranked,video production companies,44,0.6827,0.75,0.033,0.0632,3
+MiniLM Reranked,translation services,10,0.966,1.0,0.01,0.0198,0
+MiniLM Reranked,translation services,30,0.9702,1.0,0.03,0.0583,1
+MiniLM Reranked,translation services,44,0.9429,0.9545,0.042,0.0805,4
+MiniLM Reranked,legal technology companies,10,0.6611,0.8,0.008,0.0158,1
+MiniLM Reranked,legal technology companies,30,0.7717,0.8667,0.026,0.0505,2
+MiniLM Reranked,legal technology companies,44,0.7706,0.8409,0.037,0.0709,2
+MiniLM Reranked,accounting software providers,10,0.8707,0.8,0.0103,0.0203,0
+MiniLM Reranked,accounting software providers,30,0.9229,0.9333,0.0359,0.0691,1
+MiniLM Reranked,accounting software providers,44,0.9339,0.9545,0.0538,0.1019,4
+MiniLM Reranked,tax preparation services,10,0.8912,0.9,0.009,0.0178,1
+MiniLM Reranked,tax preparation services,30,0.8335,0.8333,0.025,0.0485,5
+MiniLM Reranked,tax preparation services,44,0.8499,0.8636,0.038,0.0728,7
+MiniLM Reranked,payroll processing companies,10,0.9826,1.0,0.01,0.0198,0
+MiniLM Reranked,payroll processing companies,30,0.9831,1.0,0.03,0.0583,11
+MiniLM Reranked,payroll processing companies,44,0.9831,1.0,0.044,0.0843,17
+MiniLM Reranked,financial planning services,10,0.5277,0.6,0.006,0.0119,0
+MiniLM Reranked,financial planning services,30,0.653,0.7333,0.022,0.0427,1
+MiniLM Reranked,financial planning services,44,0.6476,0.7045,0.031,0.0594,4
+MiniLM Reranked,investment management firms,10,0.9626,1.0,0.01,0.0198,0
+MiniLM Reranked,investment management firms,30,0.9456,0.9667,0.029,0.0563,3
+MiniLM Reranked,investment management firms,44,0.9544,0.9773,0.043,0.0824,6
+MiniLM Reranked,wealth management firms,10,0.7455,0.8,0.008,0.0158,0
+MiniLM Reranked,wealth management firms,30,0.7721,0.8,0.024,0.0466,1
+MiniLM Reranked,wealth management firms,44,0.7095,0.7045,0.031,0.0594,3
+MiniLM Reranked,commercial real estate brokers,10,0.7375,0.8,0.008,0.0158,0
+MiniLM Reranked,commercial real estate brokers,30,0.7152,0.7333,0.022,0.0427,1
+MiniLM Reranked,commercial real estate brokers,44,0.7595,0.7955,0.035,0.067,6
+MiniLM Reranked,residential real estate brokers,10,0.9128,0.9,0.009,0.0178,0
+MiniLM Reranked,residential real estate brokers,30,0.8999,0.9,0.027,0.0524,1
+MiniLM Reranked,residential real estate brokers,44,0.9186,0.9318,0.041,0.0785,2
+MiniLM Reranked,construction equipment manufacturers,10,0.9069,0.9,0.009,0.0178,1
+MiniLM Reranked,construction equipment manufacturers,30,0.9241,0.9333,0.028,0.0544,3
+MiniLM Reranked,construction equipment manufacturers,44,0.9376,0.9545,0.042,0.0805,6
+MiniLM Reranked,building materials suppliers,10,0.9062,0.9,0.009,0.0178,1
+MiniLM Reranked,building materials suppliers,30,0.7923,0.7667,0.023,0.0447,2
+MiniLM Reranked,building materials suppliers,44,0.7871,0.7727,0.034,0.0651,5
+MiniLM Reranked,renewable energy project developers,10,0.9496,1.0,0.01,0.0198,0
+MiniLM Reranked,renewable energy project developers,30,0.9361,0.9667,0.029,0.0563,3
+MiniLM Reranked,renewable energy project developers,44,0.9133,0.9318,0.041,0.0785,4
+MiniLM Reranked,sustainable agriculture companies,10,0.9562,0.5,0.0806,0.1389,1
+MiniLM Reranked,sustainable agriculture companies,30,0.9193,0.3,0.1452,0.1957,5
+MiniLM Reranked,sustainable agriculture companies,44,0.9167,0.2273,0.1613,0.1887,8
+MiniLM Reranked,vertical farming companies,10,0.9474,0.4,0.04,0.0727,0
+MiniLM Reranked,vertical farming companies,30,0.9385,0.4,0.12,0.1846,6
+MiniLM Reranked,vertical farming companies,44,0.9474,0.4545,0.2,0.2778,12
+MiniLM Reranked,precision agriculture technology providers,10,0.964,1.0,0.0202,0.0397,1
+MiniLM Reranked,precision agriculture technology providers,30,0.961,0.9333,0.0567,0.1069,4
+MiniLM Reranked,precision agriculture technology providers,44,0.9656,0.9545,0.085,0.1561,8
+MiniLM Reranked,alternative protein manufacturers,10,0.945,0.3,0.0732,0.1176,0
+MiniLM Reranked,alternative protein manufacturers,30,0.9597,0.3,0.2195,0.2535,5
+MiniLM Reranked,alternative protein manufacturers,44,0.965,0.3409,0.3659,0.3529,16

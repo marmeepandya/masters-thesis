@@ -1,0 +1,8 @@
+Error: listen tcp 127.0.0.1:11435: bind: address already in use
+[NbConvertApp] Converting notebook 05_baseline_nomic_summary.ipynb to script
+[NbConvertApp] Writing 16653 bytes to 05_baseline_nomic_summary.py
+mv: cannot stat '05_baseline_nomic_summary.txt': No such file or directory
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+<All keys matched successfully>
+[transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+/var/spool/slurmd/job4905685/slurm_script: line 57: kill: (1793378) - No such process

@@ -1,0 +1,106 @@
+stage,method,query,k,ndcg,precision,recall,overlap
+1,Istari BM25,software companies,5,0.0,0.0,0.0,0
+1,Istari BM25,software companies,10,0.0,0.0,0.0,0
+1,Istari BM25,software companies,20,0.0,0.0,0.0,0
+1,Istari BM25,software companies,50,0.0,0.0,0.0,0
+1,Istari BM25,software companies,100,0.0,0.0,0.0,0
+1,Istari BM25,software companies,500,0.005,0.002,0.01,1
+1,Istari BM25,software companies,1000,0.01,0.001,0.01,3
+1,Istari BM25,healthcare providers,5,0.0,0.0,0.0,0
+1,Istari BM25,healthcare providers,10,0.0,0.0,0.0,0
+1,Istari BM25,healthcare providers,20,0.0,0.0,0.0,0
+1,Istari BM25,healthcare providers,50,0.0,0.0,0.0,0
+1,Istari BM25,healthcare providers,100,0.0,0.0,0.0,0
+1,Istari BM25,healthcare providers,500,0.0,0.0,0.0,1
+1,Istari BM25,healthcare providers,1000,0.0,0.0,0.0,2
+1,Istari BM25,AI startups in Berlin,5,0.0,0.0,0.0,0
+1,Istari BM25,AI startups in Berlin,10,0.0,0.0,0.0,0
+1,Istari BM25,AI startups in Berlin,20,0.071,0.1,0.02,1
+1,Istari BM25,AI startups in Berlin,50,0.102,0.12,0.06,6
+1,Istari BM25,AI startups in Berlin,100,0.063,0.06,0.06,6
+1,Istari BM25,AI startups in Berlin,500,0.12,0.03,0.15,27
+1,Istari BM25,AI startups in Berlin,1000,0.197,0.015,0.15,36
+1,Istari BM25,renewable energy companies in Germany,5,0.0,0.0,0.0,0
+1,Istari BM25,renewable energy companies in Germany,10,0.0,0.0,0.0,0
+1,Istari BM25,renewable energy companies in Germany,20,0.0,0.0,0.0,0
+1,Istari BM25,renewable energy companies in Germany,50,0.0,0.0,0.0,0
+1,Istari BM25,renewable energy companies in Germany,100,0.0,0.0,0.0,0
+1,Istari BM25,renewable energy companies in Germany,500,0.006,0.002,0.01,6
+1,Istari BM25,renewable energy companies in Germany,1000,0.011,0.001,0.01,10
+1,Istari BM25,companies providing cloud migration services,5,0.0,0.0,0.0,0
+1,Istari BM25,companies providing cloud migration services,10,0.0,0.0,0.0,0
+1,Istari BM25,companies providing cloud migration services,20,0.0,0.0,0.0,0
+1,Istari BM25,companies providing cloud migration services,50,0.029,0.04,0.02,2
+1,Istari BM25,companies providing cloud migration services,100,0.033,0.04,0.04,4
+1,Istari BM25,companies providing cloud migration services,500,0.057,0.016,0.08,32
+1,Istari BM25,companies providing cloud migration services,1000,0.098,0.008,0.08,59
+1,Istari BM25 + Filter,software companies,5,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,software companies,10,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,software companies,20,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,software companies,50,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,software companies,100,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,software companies,500,0.005,0.002,0.01,1
+1,Istari BM25 + Filter,software companies,1000,0.01,0.001,0.01,3
+1,Istari BM25 + Filter,healthcare providers,5,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,healthcare providers,10,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,healthcare providers,20,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,healthcare providers,50,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,healthcare providers,100,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,healthcare providers,500,0.0,0.0,0.0,1
+1,Istari BM25 + Filter,healthcare providers,1000,0.0,0.0,0.0,2
+1,Istari BM25 + Filter,AI startups in Berlin,5,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,AI startups in Berlin,10,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,AI startups in Berlin,20,0.071,0.1,0.02,1
+1,Istari BM25 + Filter,AI startups in Berlin,50,0.102,0.12,0.06,6
+1,Istari BM25 + Filter,AI startups in Berlin,100,0.063,0.06,0.06,6
+1,Istari BM25 + Filter,AI startups in Berlin,500,0.12,0.03,0.15,27
+1,Istari BM25 + Filter,AI startups in Berlin,1000,0.197,0.015,0.15,36
+1,Istari BM25 + Filter,renewable energy companies in Germany,5,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,renewable energy companies in Germany,10,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,renewable energy companies in Germany,20,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,renewable energy companies in Germany,50,0.015,0.02,0.01,1
+1,Istari BM25 + Filter,renewable energy companies in Germany,100,0.025,0.03,0.03,3
+1,Istari BM25 + Filter,renewable energy companies in Germany,500,0.078,0.024,0.12,27
+1,Istari BM25 + Filter,renewable energy companies in Germany,1000,0.139,0.012,0.12,33
+1,Istari BM25 + Filter,companies providing cloud migration services,5,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,companies providing cloud migration services,10,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,companies providing cloud migration services,20,0.0,0.0,0.0,0
+1,Istari BM25 + Filter,companies providing cloud migration services,50,0.029,0.04,0.02,2
+1,Istari BM25 + Filter,companies providing cloud migration services,100,0.033,0.04,0.04,4
+1,Istari BM25 + Filter,companies providing cloud migration services,500,0.057,0.016,0.08,32
+1,Istari BM25 + Filter,companies providing cloud migration services,1000,0.098,0.008,0.08,59
+1,Our MiniLM,software companies,5,0.36,0.4,0.02,0
+1,Our MiniLM,software companies,10,0.378,0.4,0.04,2
+1,Our MiniLM,software companies,20,0.244,0.2,0.04,2
+1,Our MiniLM,software companies,50,0.197,0.16,0.08,6
+1,Our MiniLM,software companies,100,0.137,0.1,0.1,10
+1,Our MiniLM,software companies,500,0.314,0.078,0.39,164
+1,Our MiniLM,software companies,1000,0.39,0.054,0.54,458
+1,Our MiniLM,healthcare providers,5,0.509,0.4,0.02,0
+1,Our MiniLM,healthcare providers,10,0.33,0.2,0.02,0
+1,Our MiniLM,healthcare providers,20,0.319,0.25,0.05,0
+1,Our MiniLM,healthcare providers,50,0.325,0.3,0.15,7
+1,Our MiniLM,healthcare providers,100,0.262,0.23,0.23,23
+1,Our MiniLM,healthcare providers,500,0.454,0.11,0.55,229
+1,Our MiniLM,healthcare providers,1000,0.595,0.083,0.83,746
+1,Our MiniLM,AI startups in Berlin,5,0.684,0.6,0.03,1
+1,Our MiniLM,AI startups in Berlin,10,0.586,0.5,0.05,3
+1,Our MiniLM,AI startups in Berlin,20,0.516,0.45,0.09,5
+1,Our MiniLM,AI startups in Berlin,50,0.385,0.32,0.16,9
+1,Our MiniLM,AI startups in Berlin,100,0.305,0.25,0.25,25
+1,Our MiniLM,AI startups in Berlin,500,0.456,0.1,0.5,180
+1,Our MiniLM,AI startups in Berlin,1000,0.531,0.065,0.65,481
+1,Our MiniLM,renewable energy companies in Germany,5,0.17,0.2,0.01,0
+1,Our MiniLM,renewable energy companies in Germany,10,0.319,0.4,0.04,0
+1,Our MiniLM,renewable energy companies in Germany,20,0.206,0.2,0.04,0
+1,Our MiniLM,renewable energy companies in Germany,50,0.308,0.34,0.17,8
+1,Our MiniLM,renewable energy companies in Germany,100,0.299,0.31,0.31,31
+1,Our MiniLM,renewable energy companies in Germany,500,0.589,0.156,0.78,283
+1,Our MiniLM,renewable energy companies in Germany,1000,0.691,0.098,0.98,759
+1,Our MiniLM,companies providing cloud migration services,5,0.0,0.0,0.0,0
+1,Our MiniLM,companies providing cloud migration services,10,0.066,0.1,0.01,0
+1,Our MiniLM,companies providing cloud migration services,20,0.183,0.25,0.05,1
+1,Our MiniLM,companies providing cloud migration services,50,0.22,0.26,0.13,7
+1,Our MiniLM,companies providing cloud migration services,100,0.214,0.23,0.23,23
+1,Our MiniLM,companies providing cloud migration services,500,0.483,0.134,0.67,249
+1,Our MiniLM,companies providing cloud migration services,1000,0.528,0.076,0.76,548

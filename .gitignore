@@ -1,10 +1,19 @@
-goi_search_results.json
-*.xlsx
 .env
-*.out
-*.err
-*.index
-*.xlsx
-dataset/
-result/
 thesis/
+thesis_broken_*/
+__pycache__/
+*.pyc
+
+# Large reproducible caches -- regenerable from notebooks + dataset/, backed up
+# separately to Google Drive rather than git (GitHub hard-rejects files >100MB
+# anyway, and git is not a good fit for tens of GB of binary blobs).
+*.npy
+*.faiss
+*.index
+*.pt
+*.pkl
+result/**/*.json
+
+# Raw dataset file exceeds GitHub's 100MB hard limit (120MB) -- the gzipped
+# copy (dataset/goi_search_results.json.gz, ~19MB) is committed instead.
+dataset/goi_search_results.json

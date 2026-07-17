@@ -1,0 +1,29 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/15_baseline_bge_gemma2/ -- ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[Load] Building all-fields rich text for each company...
+[Load] Sample rich text (first company):
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[GPU] VRAM           : 42.4 GB
+[Encode] Loading BGE-Multilingual-Gemma2 (fp16)...
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n569
+Job ID: 5836892
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:06
+CPU Efficiency: 0.03% of 06:00:00 core-walltime
+Job Wall-clock time: 00:30:00
+Memory Utilized: 18.86 GB
+Memory Efficiency: 20.54% of 91.80 GB (91.80 GB/node)

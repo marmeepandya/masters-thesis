@@ -1,0 +1,85 @@
+Ollama started with PID 141327
+[GIN] 2026/07/06 - 18:24:22 | 200 |    3.567411ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 18:24:22 | 200 |    5.704845ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 18:24:22 | 200 |      19.933µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 18:24:22 | 200 |   18.912748ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/13_bge_prefix_summary/ -- ready
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[FAISS] Loading cached company embeddings (no re-encoding needed)...
+[FAISS] Embeddings shape : (98716, 1024)
+[FAISS] Loading cached IndexFlatIP...
+[FAISS] Vectors in index : 98,716
+[Note] Text representation used to build these embeddings: summary field only (matches 02_baseline_bge_summary.ipynb's 'Set A' corpus)
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[Encode] Loading BGE-large model...
+[Encode] Model loaded in 9.3s on cuda:0
+[Run] Starting BGE retrieval for 101 queries (WITH instruction prefix)...
+-------------------------------------------------------
+[Run]  20/101  |  avg 89.5ms/query  |  ~11s remaining
+[Run]  40/101  |  avg 65.5ms/query  |  ~7s remaining
+[Run]  60/101  |  avg 57.5ms/query  |  ~4s remaining
+[Run]  80/101  |  avg 53.7ms/query  |  ~2s remaining
+[Run] 100/101  |  avg 51.3ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 51.2ms/query  |  ~0s remaining
+-------------------------------------------------------
+[Run] Done!
+[Run] Avg query latency : 51.2ms
+[Run] Saved to          : result/13_bge_prefix_summary/bge_results_prefix.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/13_bge_prefix_summary/evaluation_bge_prefix.csv
+[Compare] Loading original (no-prefix) BGE evaluation for comparison...
+
+  k        Recall (no prefix)   Recall (with prefix)    Delta
+  --------------------------------------------------------------
+  10                    0.009                  0.009   -0.000
+  50                    0.046                  0.046   -0.000
+  100                   0.091                  0.091   +0.000
+  500                   0.414                  0.416   +0.002
+  1000                  0.700                  0.707   +0.007
+[Summary] ============================================================
+[Summary] BGE-large RESULTS (Summary-Only, WITH query instruction prefix)
+
+[Summary] Query encoding note : "Represent this sentence for searching relevant passages: " prefix added
+[Summary] Avg query latency  : 51.2ms
+[Summary] Companies (cached) : 98,716
+[Summary] Embedding dims     : 1024
+[Summary] Queries evaluated  : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.924      0.928    0.009    0.018
+  50        0.919      0.918    0.046    0.087
+  100       0.914      0.912    0.091    0.166
+  500       0.845      0.832    0.416    0.554
+  1000      0.734      0.707    0.707    0.707
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n562
+Job ID: 5818800
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:11
+CPU Efficiency: 2.73% of 00:43:24 core-walltime
+Job Wall-clock time: 00:03:37
+Memory Utilized: 1.85 GB
+Memory Efficiency: 2.01% of 91.80 GB (91.80 GB/node)

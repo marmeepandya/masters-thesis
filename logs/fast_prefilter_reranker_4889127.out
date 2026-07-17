@@ -1,0 +1,214 @@
+Ollama started with PID 2302074
+[GIN] 2026/06/01 - 15:59:17 | 200 |      60.331µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/01 - 15:59:17 | 200 |     137.209µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/06/01 - 15:59:17 | 200 |      19.306µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/01 - 15:59:17 | 200 |       6.476µs |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/06/01 - 15:59:17 | 200 |      20.434µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/01 - 15:59:17 | 200 |      23.597µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/01 - 15:59:17 | 200 |     9.40265ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    3 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    3 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    2 months ago    
+[GIN] 2026/06/01 - 15:59:17 | 200 |    9.173468ms |       127.0.0.1 | GET      "/api/tags"
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/06/01 - 15:59:43 | 200 |     9.86012ms |       127.0.0.1 | GET      "/api/tags"
+[Setup] Device        : cuda
+[Setup] GPU           : NVIDIA A100-PCIE-40GB
+[Setup] VRAM          : 42.4 GB
+[Setup] Result folder : result/6_fast_prefilter/
+[Setup] BGE retrieves top-1000 | Reranker reranks top-50
+[Setup] Fallback to full corpus if filter leaves < 100 companies
+[Load] Loading corpus...
+[Load] Corpus size           : 98,716 companies
+[Load] Columns               : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Fixing summary_keywords column (string → list)...
+[Load] Parsing took          : 2411ms
+[Load] Sample keywords (idx 0): ['software development', 'consumer market', 'software company', 'product development', 'client partnerships', 'software solutions', 'innovation', 'technology', 'consumer software', 'software services']
+[Load] Type check            : <class 'list'>
+
+[Load] Field coverage:
+  country                  : 100.0% filled
+  state                    : 79.4% filled
+  municipality             : 20.7% filled
+  nace_code                : 100.0% filled
+  organization_size        : 100.0% filled
+  organization_type        : 100.0% filled
+  summary_keywords         : 100.0% filled
+
+[Load] Loading queries and production results...
+[Load] Queries               : 101
+[Load] Production rows       : 101,000
+[Index] Building inverted index on summary_keywords...
+[Index] Built in             : 6345ms
+[Index] Unique keywords      : 104,030
+[Index] Unique countries     : 151
+[Index] Unique NACE codes    : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
+[Index] Unique states        : 1,203
+[Index] Unique cities        : 7,485
+
+[Index] Test lookups:
+  "software": keywords=14,151  country=0  city=0
+  "healthcare": keywords=4,072  country=0  city=0
+  "germany": keywords=1,259  country=9,160  city=0
+  "berlin": keywords=428  country=0  city=726
+  "manufacturing": keywords=10,395  country=0  city=0
+[Filter] === FILTER TEST RESULTS ===
+Query                                           Before    After  Reduction  Filters
+----------------------------------------------------------------------------------------------------
+software companies in Germany                   98,716    1,092      98.9%  country=germany | nace=K | kw=['software', 'germany'] (1.6ms)
+healthcare providers                            98,716   98,716       0.0%  nace=Q | kw=['healthcare'] (2.8ms)
+AI startups in Berlin                           98,716      340      99.7%  city=berlin | kw=['berlin'] (1.2ms)
+manufacturing in Baden-Württemberg              98,716      325      99.7%  nace=C | kw=['manufacturing', 'baden-württemberg'] (0.4ms)
+renewable energy companies                      98,716      991      99.0%  nace=D | kw=['renewable', 'energy'] (0.4ms)
+logistics companies in the US                   98,716    5,884      94.0%  nace=H | kw=['logistics'] (0.6ms)
+B2B SaaS platforms                              98,716    3,760      96.2%  nace=K | kw=['b2b', 'saas'] (0.7ms)
+[Models] Loading BGE embedding model...
+[Models] BGE loaded in 3.7s on cuda
+[Models] Loading pre-computed BGE embeddings...
+[Models] Embeddings shape    : (98716, 1024)
+[Models] Loading cross-encoder reranker...
+[GIN] 2026/06/01 - 16:00:28 | 200 | 10.546551817s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:28 | 404 |    8.031746ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:28 | 404 |    7.438385ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:29 | 404 |    7.327922ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:30 | 200 |  580.370732ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:30 | 404 |    7.859135ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:30 | 404 |    7.509549ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:31 | 404 |    7.624579ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:31 | 200 |  519.874696ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:32 | 200 |  511.406313ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:33 | 200 |  537.359264ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:33 | 404 |    7.742683ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:34 | 404 |    7.988623ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:34 | 404 |    7.992722ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:35 | 200 |  450.843493ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:35 | 404 |      7.3794ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:35 | 404 |     7.61243ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:36 | 404 |    7.726021ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:37 | 200 |  936.500674ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:38 | 200 |  985.962238ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:39 | 200 |  1.184905467s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:39 | 200 |  593.062121ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:40 | 200 |  849.074565ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:41 | 200 |  1.115160649s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:42 | 200 |  940.498458ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:43 | 200 |  985.112502ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:44 | 200 |  882.693621ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:45 | 200 |  990.120664ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:46 | 200 |  952.893585ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:47 | 200 |  1.064896819s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:49 | 200 |  917.038019ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:50 | 200 |  1.164000446s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:51 | 200 |  750.156857ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:52 | 200 |  775.129314ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:52 | 200 |  521.873105ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:53 | 200 |  874.781247ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:54 | 200 |   946.56589ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:55 | 200 |  948.785716ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:56 | 200 |  1.079090225s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:57 | 200 |  944.518587ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:58 | 200 |  802.112691ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:00:59 | 200 |  1.060879945s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:00 | 200 |  965.120518ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:01 | 200 |  1.075775959s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:02 | 200 |  1.032046783s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:03 | 200 |  1.013907847s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:04 | 200 |  714.757764ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:05 | 200 |   971.32514ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:06 | 200 |  1.071108728s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:07 | 200 |  943.222863ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:08 | 200 |  930.753391ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:08 | 200 |   816.24604ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:09 | 200 |   998.79949ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:10 | 200 |  904.557135ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:11 | 200 |  414.573698ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:12 | 200 |  926.575279ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:13 | 200 |  924.592126ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:13 | 200 |  639.671568ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:14 | 200 |  667.476621ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:15 | 200 |  668.757752ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:16 | 200 |   1.00590829s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:16 | 200 |  759.252122ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:17 | 200 |  725.431366ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:18 | 200 |  1.024305394s |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:19 | 200 |  983.113571ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:20 | 200 |  978.182927ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:21 | 200 |  939.725329ms |       127.0.0.1 | POST     "/api/chat"
+[Models] Reranker loaded in 14.9s on cuda
+[Models] All models ready ✅
+[Test] Running smoke test: "software companies in Germany"
+  [Filter] Country match: "germany" → 9,160 companies
+  [Filter] NACE match: "software" → NACE K → 30,491 companies
+  [Filter] Keyword match: "software" → 14,151 companies
+  [Filter] Keyword match: "germany" → 1,259 companies
+
+[Test] Total pipeline time   : 1496ms
+[Test] Corpus after filter   : 1,092 / 98,716
+[Test] BGE retrieved         : 1000
+[Test] After reranking top-10:
+  Rank   Name                                            Reranker      BGE
+  ---------------------------------------------------------------------------
+  1      Software-Bakery GmbH                              4.2537   0.6832
+  2      TRT Software GmbH                                 3.9289   0.6765
+  3      DSG deutliche Software GmbH                       3.8285   0.7062
+  4      pcvisit Software AG                               3.8168   0.7118
+  5      AM Software Solutions GmbH                        3.7889   0.6913
+  6      BitAutor                                          3.2569   0.6889
+  7      NEULAND Software GmbH                             2.5009   0.6760
+  8      NEULAND Software GmbH                             2.5009   0.6760
+  9      openApp                                           1.8048   0.7008
+  10     heroes GmbH                                      -0.9541   0.6752
+[Test] Smoke test passed ✅
+[Run] Starting full pipeline for 101 queries...
+[Run] Filter → BGE (top-1000) → Reranker (top-50)
+------------------------------------------------------------
+[Run]  10/101  |  avg 397ms/query  |  ~36s remaining  |  last filter: 389 companies
+[Run]  20/101  |  avg 434ms/query  |  ~35s remaining  |  last filter: 1,526 companies
+[Run]  30/101  |  avg 447ms/query  |  ~32s remaining  |  last filter: 19,276 companies
+[Run]  40/101  |  avg 452ms/query  |  ~28s remaining  |  last filter: 34,337 companies
+[Run]  50/101  |  avg 458ms/query  |  ~23s remaining  |  last filter: 1,236 companies
+[Run]  60/101  |  avg 457ms/query  |  ~19s remaining  |  last filter: 4,160 companies
+[Run]  70/101  |  avg 457ms/query  |  ~14s remaining  |  last filter: 3,552 companies
+[Run]  80/101  |  avg 456ms/query  |  ~10s remaining  |  last filter: 2,773 companies
+[Run]  90/101  |  avg 467ms/query  |  ~5s remaining  |  last filter: 11,616 companies
+[Run] 100/101  |  avg 468ms/query  |  ~0s remaining  |  last filter: 1,394 companies
+[Run] 101/101  |  avg 468ms/query  |  ~0s remaining  |  last filter: 968 companies
+------------------------------------------------------------
+[Run] Done! Total: 47.3s  |  Avg: 468ms/query
+[Run] Results saved  : result/fast_prefilter/reranked_filtered.csv
+[Run] Latency saved  : result/fast_prefilter/latency_filtered.csv
+
+[Run] Filter statistics:
+  Avg corpus after filter : 13,747 companies (86.1% reduction)
+  Fallback to full corpus : 7/101 queries
+  Queries using country   : 101/101
+  Queries using city      : 101/101
+  Queries using NACE      : 101/101
+  Queries using keywords  : 101/101
+[Eval] Starting evaluation...
+[GIN] 2026/06/01 - 16:01:21 | 200 |  426.907055ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:22 | 200 |  422.151025ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:22 | 200 |  418.468461ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:23 | 200 |  435.843518ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:23 | 200 |  415.783327ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2026/06/01 - 16:01:24 | 200 |  420.795462ms |       127.0.0.1 | POST     "/api/chat"
+Job complete!
+[GIN] 2026/06/01 - 16:01:24 | 500 |  255.066761ms |       127.0.0.1 | POST     "/api/chat"
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 4889127
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:44
+CPU Efficiency: 5.45% of 00:31:48 core-walltime
+Job Wall-clock time: 00:02:39
+Memory Utilized: 3.89 GB
+Memory Efficiency: 4.24% of 91.80 GB (91.80 GB/node)

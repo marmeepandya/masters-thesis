@@ -1,0 +1,83 @@
+Ollama started with PID 3995215
+[GIN] 2026/07/06 - 21:10:24 | 200 |      78.859µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 21:10:24 | 200 |     135.519µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 21:10:24 | 200 |      22.398µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 21:10:24 | 200 |   13.821597ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/18_baseline_e5_mistral/ -- ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[Load] Building all-fields rich text for each company...
+[Load] Sample rich text (first company):
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[GPU] VRAM           : 42.4 GB
+[Encode] Loading E5-Mistral-7B-Instruct (fp16)...
+[Encode] Model loaded in 0.7 minutes
+[Encode] Final embeddings already on disk -- skipping corpus encoding
+[FAISS] Index built, 98,716 vectors, dim=4096
+[Run] Starting E5-Mistral retrieval for 101 queries...
+[Run]  20/101  |  avg 180.3ms/query
+[Run]  40/101  |  avg 163.4ms/query
+[Run]  60/101  |  avg 157.6ms/query
+[Run]  80/101  |  avg 154.7ms/query
+[Run] 100/101  |  avg 153.0ms/query
+[Run] 101/101  |  avg 152.9ms/query
+[Run] Done! Avg latency: 152.9ms
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/18_baseline_e5_mistral/evaluation_e5_mistral.csv
+[Summary] ============================================================
+[Summary] E5-Mistral RESULTS (All-Fields)
+
+[Summary] Encoding time     : 33.5 minutes
+[Summary] Avg query latency : 152.9ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 4096
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.631      0.629    0.006    0.012
+  50        0.587      0.572    0.029    0.054
+  100       0.544      0.523    0.052    0.095
+  500       0.384      0.353    0.177    0.236
+  1000      0.303      0.274    0.274    0.274
+
+[Summary] Comparison against models already tested (Recall@1000):
+  BM25              : 0.635
+  Nomic             : 0.684
+  BGE summary-only  : 0.707  (prefix-fixed)
+  BGE all-fields    : 0.727  (prefix-fixed)
+  OpenAI large      : 0.728
+  MiniLM            : 0.741  (best so far)
+  E5-Mistral        : 0.274
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5821692
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:41
+CPU Efficiency: 3.58% of 00:47:00 core-walltime
+Job Wall-clock time: 00:03:55
+Memory Utilized: 13.98 GB
+Memory Efficiency: 15.23% of 91.80 GB (91.80 GB/node)

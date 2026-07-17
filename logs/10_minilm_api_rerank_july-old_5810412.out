@@ -1,0 +1,147 @@
+Ollama started with PID 1798104
+[GIN] 2026/07/06 - 11:41:45 | 200 |    15.78558ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 11:41:45 | 200 |    6.143188ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 11:41:45 | 200 |      27.936µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 11:41:45 | 200 |   19.177481ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] V2 URL        : https://api.istari.ai/v2/search
+[Setup] API key set   : ✅
+[Setup] Result dir    : result/03b_minilm_api_rerank/
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[Model] Loading MiniLM (all-MiniLM-L6-v2)...
+[Model] Loaded in 3.8s on cuda:0
+[Model] Embedding dims : 384 (same convention as 03_baseline_minilm.ipynb — raw embeddings, L2 distance, normalize_embeddings=False)
+[Setup] Testing v2 API...
+[Setup] v2 API OK ✅  — got 3 results
+[Setup] Sample      : Sweet Software (sweetsoftware.co.nz)
+[Setup] Live quota remaining this month → requests: 4421, results: 49214
+[Load] Loading queries...
+[Load] 101 queries from column "query"
+[Load] First 5: ['software companies', 'healthcare providers', 'AI startups in Berlin', 'renewable energy companies in Germany', 'companies providing cloud migration services']
+[v2] No cache — starting fresh
+[v2] Live remaining budget    : 4421 requests, 49214 results
+[v2] Queries to fetch         : 101/101
+[v2] Size per query           : 438  (1 page(s)/query, 500 max/page)
+[v2] Estimated cost this run  : 101 requests, 44238 results
+[v2] Evaluation k values      : [10, 30, 50, 100, 200, 438]
+[v2] Functions defined ✅ (paginates via search_after, dedupes by domain, capped at max_pages/query, fatal only on real quota exhaustion, short retry on transient rate limits, no cache poisoning)
+[v2] Fetching 101 queries at target size=438 each (1 page(s)/query)...
+------------------------------------------------------------
+[v2]  10/101  |  438 results  |  avg 424ms/query  |  ~286s remaining  |  quota results left: 44834
+[v2]  20/101  |  438 results  |  avg 458ms/query  |  ~270s remaining  |  quota results left: 40454
+[v2]  30/101  |  438 results  |  avg 498ms/query  |  ~244s remaining  |  quota results left: 36074
+[v2]  40/101  |  438 results  |  avg 506ms/query  |  ~212s remaining  |  quota results left: 31694
+[v2]  50/101  |  438 results  |  avg 567ms/query  |  ~182s remaining  |  quota results left: 27314
+[v2]  60/101  |  438 results  |  avg 613ms/query  |  ~149s remaining  |  quota results left: 22934
+[v2]  70/101  |  438 results  |  avg 633ms/query  |  ~114s remaining  |  quota results left: 18554
+[v2]  80/101  |  438 results  |  avg 637ms/query  |  ~78s remaining  |  quota results left: 14174
+[v2]  90/101  |  438 results  |  avg 679ms/query  |  ~41s remaining  |  quota results left: 9794
+[v2] 100/101  |  438 results  |  avg 657ms/query  |  ~4s remaining  |  quota results left: 5414
+[v2] 101/101  |  438 results  |  avg 656ms/query  |  ~0s remaining  |  quota results left: 4976
+------------------------------------------------------------
+[v2] Done! 101 queries fetched.
+[v2] Candidates per query: min=438  max=438  avg=438
+[v2] Saved to result/03b_minilm_api_rerank/v2_results.json
+[Rerank] Re-ranking 101 queries with MiniLM...
+-------------------------------------------------------
+[Rerank]  20/101  |  avg 343.7ms/query  |  ~28s remaining
+[Rerank]  40/101  |  avg 311.3ms/query  |  ~19s remaining
+[Rerank]  60/101  |  avg 303.5ms/query  |  ~13s remaining
+[Rerank]  80/101  |  avg 299.9ms/query  |  ~6s remaining
+[Rerank] 100/101  |  avg 295.2ms/query  |  ~0s remaining
+[Rerank] 101/101  |  avg 295.1ms/query  |  ~0s remaining
+-------------------------------------------------------
+[Rerank] Done!
+[Rerank] Avg rerank time (encode + sort) : 295.1ms/query
+[Rerank] Saved to : result/03b_minilm_api_rerank/minilm_reranked_results.csv
+[GT] Loading ground truth...
+[GT] Loaded 101 queries
+[GT] Matched 101/101 queries to ground truth
+[Eval] Metric functions defined ✅
+[Eval] Computing metrics for both rankings...
+[Eval] Done — 1,212 rows saved to result/03b_minilm_api_rerank/evaluation_comparison.csv
+===========================================================================
+EVALUATION vs GOI GROUND TRUTH  (threshold=0.75)
+===========================================================================
+  Method                    k |    NDCG |    Prec |  Recall |      F1 |  Overlap
+  ===========================================================================
+  API Native               10 |   0.985 |   0.970 |   0.050 |   0.076 |      4.6
+  API Native               30 |   0.978 |   0.932 |   0.113 |   0.150 |     15.5
+  API Native               50 |   0.972 |   0.898 |   0.154 |   0.188 |     25.8
+  API Native              100 |   0.955 |   0.843 |   0.227 |   0.255 |     52.1
+  API Native              200 |   0.916 |   0.768 |   0.328 |   0.346 |    106.7
+  API Native              438 |   0.813 |   0.636 |   0.491 |   0.454 |    243.9
+  ---------------------------------------------------------------------------
+  MiniLM Reranked          10 |   0.855 |   0.764 |   0.024 |   0.038 |      0.7
+  MiniLM Reranked          30 |   0.849 |   0.729 |   0.057 |   0.083 |      3.9
+  MiniLM Reranked          50 |   0.840 |   0.711 |   0.086 |   0.117 |      8.7
+  MiniLM Reranked         100 |   0.827 |   0.690 |   0.153 |   0.188 |     26.0
+  MiniLM Reranked         200 |   0.813 |   0.668 |   0.269 |   0.294 |     77.8
+  MiniLM Reranked         438 |   0.792 |   0.636 |   0.491 |   0.454 |    243.9
+  ---------------------------------------------------------------------------
+[Latency] ============================================================
+  v2 API fetch (network)      : 656ms avg  (1 page(s)/query at size=438)
+  MiniLM re-rank (local GPU)  : 295.1ms avg  (encode query + ~438 candidates + sort)
+  Combined (fetch + rerank)   : 951ms avg
+[Latency] NOTE: the fetch component is a full deep fetch (up to 1000 results),
+[Latency] not directly comparable to production's typical per-search latency
+[Latency] (see 09b_api_evaluation_v2.ipynb Section 9b for that comparison).
+[Latency] Saved to result/03b_minilm_api_rerank/latency_summary.csv
+[Findings] ============================================================
+[Findings] MiniLM RERANKED vs API NATIVE (same candidate pool)
+[Findings] ============================================================
+
+  k=10:
+    API Native        NDCG=0.985  Recall=0.050  ← higher NDCG
+    MiniLM Reranked   NDCG=0.855  Recall=0.024  (-13.1% vs native)
+
+  k=30:
+    API Native        NDCG=0.978  Recall=0.113  ← higher NDCG
+    MiniLM Reranked   NDCG=0.849  Recall=0.057  (-13.2% vs native)
+
+  k=50:
+    API Native        NDCG=0.972  Recall=0.154  ← higher NDCG
+    MiniLM Reranked   NDCG=0.840  Recall=0.086  (-13.5% vs native)
+
+  k=100:
+    API Native        NDCG=0.955  Recall=0.227  ← higher NDCG
+    MiniLM Reranked   NDCG=0.827  Recall=0.153  (-13.4% vs native)
+
+  k=200:
+    API Native        NDCG=0.916  Recall=0.328  ← higher NDCG
+    MiniLM Reranked   NDCG=0.813  Recall=0.269  (-11.2% vs native)
+
+  k=438:
+    API Native        NDCG=0.813  Recall=0.491  ← higher NDCG
+    MiniLM Reranked   NDCG=0.792  Recall=0.491  (-2.6% vs native)
+
+[Findings] Recall@438 sanity check: API Native=0.4914  MiniLM Reranked=0.4914
+[Findings] These should be IDENTICAL (or nearly so) -- re-ranking only reorders the
+[Findings] same fetched candidate pool, it cannot add companies that were not retrieved.
+[Findings] Any real difference between the two methods should show up in NDCG/Precision
+[Findings] at shallow k, not in Recall at the deepest fetched depth.
+
+[Done] result/03b_minilm_api_rerank/ — all files saved.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n568
+Job ID: 5810412
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:33
+CPU Efficiency: 1.40% of 01:50:24 core-walltime
+Job Wall-clock time: 00:09:12
+Memory Utilized: 1.36 GB
+Memory Efficiency: 1.48% of 91.80 GB (91.80 GB/node)

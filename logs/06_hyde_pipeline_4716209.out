@@ -1,0 +1,221 @@
+Ollama started with PID 4149149
+[GIN] 2026/05/15 - 19:43:29 | 200 |   10.484203ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/15 - 19:43:30 | 200 |   24.042154ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/15 - 19:43:30 | 200 |    4.050889ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/15 - 19:43:30 | 200 |   25.971615ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    5 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    5 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/06_hyde_pipeline/ — ready
+[Setup] Ollama URL    : http://127.0.0.1:11435
+[Setup] HyDE model    : llama3.1:8b
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] VRAM        : 42.4 GB
+[Imports] All packages loaded successfully
+[Load] Loading corpus...
+[Load] Unique companies  : 98,716
+[Load] Loading queries...
+[Load] Queries           : 101
+[Load] Loading production labels...
+[Load] Production rows   : 101,000
+[Load] Loading MiniLM embeddings...
+[Load] Embeddings shape  : (98716, 384)
+[Load] Building FAISS index...
+[Load] FAISS index built : 98,716 vectors in 0.07s
+[Models] Loading MiniLM...
+[Models] MiniLM loaded in  : 53.9s on cuda:0
+[Models] Loading BGE reranker...
+[Models] First run downloads ~570MB...
+[GIN] 2026/05/15 - 19:47:06 | 200 |   10.420615ms |       127.0.0.1 | GET      "/api/tags"
+[Models] Reranker loaded in : 18.1s on cuda
+[Models] Checking Ollama...
+[Models] Ollama running    : http://127.0.0.1:11435
+[Models] Available models  : ['mistral:7b', 'llama3.1:8b', 'mistral-nemo:latest']
+[Models] HyDE model ready  : llama3.1:8b ✅
+[HyDE] Loading existing descriptions from disk...
+[HyDE] Loaded 101 descriptions
+[Inspect] === HYDE DESCRIPTION QUALITY CHECK ===
+
+Query   : "software companies"
+HyDE    : This multinational technology firm specializes in developing cloud-based enterprise software solutions for various industries, including finance, healthcare, and retail. Headquartered in Silicon Valley, California, it has a global presence with offices in over 20 countries worldwide. Its flagship products include a suite of integrated applications for customer relationship management, sales force automation, and marketing automation.
+Gen time: 10453ms
+----------------------------------------------------------------------
+Query   : "healthcare providers"
+HyDE    : This multinational healthcare provider offers a range of medical services, including primary care, specialist consultations, and hospital care, with a strong presence in Asia-Pacific region. They operate over 200 facilities across 10 countries, employing thousands of doctors, nurses, and other healthcare professionals. Their network includes hospitals, clinics, and diagnostic centers, providing comprehensive care to patients from diverse backgrounds.
+Gen time: 811ms
+----------------------------------------------------------------------
+Query   : "AI startups in Berlin"
+HyDE    : This innovative tech firm is a leading artificial intelligence startup based in Berlin, Germany, specializing in developing cutting-edge machine learning solutions for various industries, including healthcare and finance. Their team of expert engineers and researchers work closely with clients to design and implement customized AI-powered tools that drive business growth and efficiency. With a strong focus on research and development, they continuously push the boundaries of what is possible with AI technology.
+Gen time: 829ms
+----------------------------------------------------------------------
+Query   : "B2B SaaS platforms"
+HyDE    : This company is a leading provider of business-to-business software-as-a-service (SaaS) platforms, specializing in cloud-based solutions for enterprise resource planning and supply chain management. Headquartered in San Francisco, California, they serve clients across various industries globally, with a strong presence in North America and Europe. Their platform enables companies to streamline operations, improve efficiency, and enhance decision-making capabilities.
+Gen time: 786ms
+----------------------------------------------------------------------
+Query   : "tech companies in Munich"
+HyDE    : This German-based technology firm specializes in developing cutting-edge software solutions for the automotive industry, with a focus on artificial intelligence and data analytics. Headquartered in Munich, they have established partnerships with major car manufacturers to integrate their innovative technologies into vehicle systems. Their team of over 200 engineers and developers work from their offices in the heart of the city's tech hub.
+Gen time: 731ms
+----------------------------------------------------------------------
+Query   : "data analytics companies"
+HyDE    : This global consulting firm specializes in providing advanced data analytics solutions to Fortune 500 clients across various industries, including finance, healthcare, and retail. With offices in New York, London, and Singapore, their team of experts leverages machine learning algorithms and statistical modeling to drive business insights and optimize operational efficiency. Their services include predictive analytics, data visualization, and business intelligence implementation.
+Gen time: 747ms
+----------------------------------------------------------------------
+Query   : "marketing agencies"
+HyDE    : This global marketing agency specializes in digital strategy and campaign execution for Fortune 500 companies, with offices in New York, London, and Tokyo. Their services include social media management, content creation, and data analytics to drive brand awareness and customer engagement. With a team of over 200 experts, they have worked with clients across industries such as finance, technology, and healthcare.
+Gen time: 750ms
+----------------------------------------------------------------------
+Query   : "web design agencies"
+HyDE    : This company specializes in creating visually stunning and user-friendly websites for clients across various industries, including e-commerce, finance, and non-profit organizations. Based in New York City, they offer a range of services such as custom website design, development, and digital marketing solutions to help businesses establish a strong online presence. Their team of expert designers and developers use the latest technologies to craft innovative web experiences that drive results for their clients.
+Gen time: 848ms
+----------------------------------------------------------------------
+Query   : "oil and gas companies"
+HyDE    : This multinational energy corporation is one of the largest independent oil and natural gas producers in the world, with operations spanning over 20 countries across North America, Europe, Africa, and Asia. The company's portfolio includes onshore and offshore exploration, production, and refining activities, as well as a significant presence in the liquefied natural gas (LNG) market. Headquartered in Houston, Texas, it has a long history of innovation and commitment to environmental responsibility.
+Gen time: 919ms
+----------------------------------------------------------------------
+Query   : "domain name registrars"
+HyDE    : This global provider of domain registration services offers a wide range of top-level domains (TLDs) to individuals and businesses worldwide, with a focus on ease of use and competitive pricing. Based in the United States, they provide 24/7 customer support and have a strong presence in the e-commerce industry. Their platform allows users to register, transfer, and manage their domain names with ease.
+Gen time: 807ms
+----------------------------------------------------------------------
+
+[Inspect] Avg description length : 469 chars
+[Inspect] Fallbacks (used raw query): 0/101
+[Warmup] Warming up GPU with 5 dummy queries...
+[Warmup] GPU warm — latency measurement starting now
+
+[Stage1] Starting HyDE + MiniLM retrieval for 101 queries...
+[Stage1] Encoding HyDE descriptions (not raw queries)
+------------------------------------------------------------
+[Stage1]  20/101  |  avg 17.3ms/query (encode+search)  |  ~5s remaining
+[Stage1]  40/101  |  avg 17.1ms/query (encode+search)  |  ~3s remaining
+[Stage1]  60/101  |  avg 17.0ms/query (encode+search)  |  ~2s remaining
+[Stage1]  80/101  |  avg 17.0ms/query (encode+search)  |  ~1s remaining
+[Stage1] 100/101  |  avg 17.0ms/query (encode+search)  |  ~0s remaining
+[Stage1] 101/101  |  avg 17.0ms/query (encode+search)  |  ~0s remaining
+------------------------------------------------------------
+[Stage1] Done!
+[Stage1] Avg HyDE generation     : 874ms
+[Stage1] Avg encode + search      : 17.0ms
+[Stage1] Avg total (HyDE+MiniLM)  : 891ms
+[Stage1] Saved to                 : result/06_hyde_pipeline/hyde_minilm_results.csv
+[Eval1] Evaluating Stage 1 (HyDE + MiniLM)...
+[Eval1] 25/101 queries evaluated...
+[Eval1] 50/101 queries evaluated...
+[Eval1] 75/101 queries evaluated...
+[Eval1] 100/101 queries evaluated...
+[Eval1] === STAGE 1 RESULTS: HyDE + MiniLM ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.089      0.090    0.009    0.016
+  50        0.096      0.097    0.049    0.065
+  100       0.097      0.098    0.098    0.098
+  500       0.276      0.079    0.397    0.132
+  1000      0.395      0.063    0.634    0.115
+[Warmup] Warming up reranker with 3 dummy calls...
+[Warmup] Reranker warm ✅
+
+[Stage2] Re-ranking top-50 for 101 queries...
+[Stage2] Using ORIGINAL query for reranking (not HyDE description)
+------------------------------------------------------------
+[Stage2]  20/101  |  avg 276ms/query  |  ~25s remaining
+[Stage2]  40/101  |  avg 271ms/query  |  ~19s remaining
+[Stage2]  60/101  |  avg 274ms/query  |  ~13s remaining
+[Stage2]  80/101  |  avg 273ms/query  |  ~6s remaining
+[Stage2] 100/101  |  avg 273ms/query  |  ~0s remaining
+[Stage2] 101/101  |  avg 273ms/query  |  ~0s remaining
+------------------------------------------------------------
+[Stage2] Done!
+[Stage2] Avg reranker time         : 273ms
+[Stage2] Avg total pipeline        : 1163ms
+[Stage2] Saved to                  : result/06_hyde_pipeline/hyde_reranked_results.csv
+[Eval2] Evaluating Stage 2 (HyDE + MiniLM + Reranker)...
+[Eval2] 25/101 queries evaluated...
+[Eval2] 50/101 queries evaluated...
+[Eval2] 75/101 queries evaluated...
+[Eval2] 100/101 queries evaluated...
+[Eval2] === STAGE 2 RESULTS: HyDE + MiniLM + Reranker ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.182      0.168    0.017    0.031
+  50        0.118      0.097    0.049    0.065
+  100       0.110      0.098    0.098    0.098
+  500       0.289      0.079    0.397    0.132
+  1000      0.409      0.063    0.634    0.115
+[Latency] ============================================================
+[Latency] PIPELINE LATENCY BREAKDOWN
+[Latency] ============================================================
+
+  Component               |  Stage 1         |  Stage 2
+  ----------------------- | ---------------- | ----------------
+  MiniLM baseline         |     16.9ms       |     16.9ms
+  + HyDE generation       |      874ms       |      874ms
+  + MiniLM encode+search  |     17.0ms       |     17.0ms
+  + Cross-encoder rerank  |       N/A         |      273ms
+  ----------------------- | ---------------- | ----------------
+  TOTAL                   |      891ms       |     1163ms
+
+[Latency] Note: HyDE generation can be parallelised or cached
+[Latency] for repeated/similar queries in production.
+
+[Latency] Saved to result/06_hyde_pipeline/latency_breakdown.csv
+[Compare] Loaded MiniLM baseline evaluation
+
+[Compare] ============================================================
+[Compare] FULL PIPELINE COMPARISON
+[Compare] ============================================================
+  Method                              k |    NDCG |    Prec |  Recall |      F1
+  ======================================================================
+  MiniLM all fields (baseline)       10 |   0.293 |   0.269 |   0.027 |   0.049
+  MiniLM all fields (baseline)       50 |   0.224 |   0.202 |   0.101 |   0.135
+  MiniLM all fields (baseline)      100 |   0.198 |   0.179 |   0.179 |   0.179
+  MiniLM all fields (baseline)      500 |   0.441 |   0.117 |   0.584 |   0.195
+  MiniLM all fields (baseline)     1000 |   0.574 |   0.085 |   0.847 |   0.154
+  ----------------------------------------------------------------------
+  HyDE + MiniLM                      10 |   0.089 |   0.090 |   0.009 |   0.016
+  HyDE + MiniLM                      50 |   0.096 |   0.097 |   0.049 |   0.065
+  HyDE + MiniLM                     100 |   0.097 |   0.098 |   0.098 |   0.098
+  HyDE + MiniLM                     500 |   0.276 |   0.079 |   0.397 |   0.132
+  HyDE + MiniLM                    1000 |   0.395 |   0.063 |   0.634 |   0.115
+  ----------------------------------------------------------------------
+  HyDE + MiniLM + Reranker           10 |   0.182 |   0.168 |   0.017 |   0.031
+  HyDE + MiniLM + Reranker           50 |   0.118 |   0.097 |   0.049 |   0.065
+  HyDE + MiniLM + Reranker          100 |   0.110 |   0.098 |   0.098 |   0.098
+  HyDE + MiniLM + Reranker          500 |   0.289 |   0.079 |   0.397 |   0.132
+  HyDE + MiniLM + Reranker         1000 |   0.409 |   0.063 |   0.634 |   0.115
+  ----------------------------------------------------------------------
+
+[Compare] Saved to result/06_hyde_pipeline/comparison_all.csv
+[Findings] ============================================================
+[Findings] KEY FINDINGS
+[Findings] ============================================================
+
+[Findings] NDCG@10 progression:
+  MiniLM baseline          : 0.293
+  + HyDE                   : 0.089  (-69.7% vs baseline)
+  + HyDE + Reranker        : 0.182  (-37.7% vs baseline)
+
+[Findings] Latency progression:
+  MiniLM baseline          : 16.9ms
+  HyDE + MiniLM            : 891ms  (+874ms HyDE generation)
+  HyDE + MiniLM + Reranker : 1163ms  (+273ms reranking)
+[Findings] ============================================================
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 4716209
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:02:07
+CPU Efficiency: 3.55% of 00:59:36 core-walltime
+Job Wall-clock time: 00:04:58
+Memory Utilized: 2.73 GB
+Memory Efficiency: 2.97% of 91.80 GB (91.80 GB/node)

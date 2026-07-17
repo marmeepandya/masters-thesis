@@ -1,0 +1,15 @@
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5818953
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:06
+CPU Efficiency: 0.53% of 00:18:48 core-walltime
+Job Wall-clock time: 00:01:34
+Memory Utilized: 450.87 MB
+Memory Efficiency: 0.48% of 91.80 GB (91.80 GB/node)

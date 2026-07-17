@@ -1,0 +1,160 @@
+Ollama started with PID 1760904
+[GIN] 2026/07/06 - 10:12:43 | 200 |   10.471845ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 10:12:43 | 200 |    4.870258ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 10:12:43 | 200 |      18.196µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 10:12:43 | 200 |   13.930047ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] V2 URL        : https://api.istari.ai/v2/search
+[Setup] API key set   : ✅
+[Setup] Result dir    : result/09b_api_v2/
+[Setup] Testing v2 API...
+[Setup] v2 API OK ✅  — got 3 results
+[Setup] Sample      : Sweet Software (sweetsoftware.co.nz)
+[Setup] Live quota remaining this month → requests: 4864, results: 244998
+[Load] Loading queries...
+[Load] 101 queries from column "query"
+[Load] First 5: ['software companies', 'healthcare providers', 'AI startups in Berlin', 'renewable energy companies in Germany', 'companies providing cloud migration services']
+[Load] Loading cached results from result/09_api_evaluation/...
+[Load] v1 BM25 cached : 101 queries ✅
+[Load] MiniLM cached  : 101 queries ✅
+[v2] Live remaining budget    : 4864 requests, 244998 results
+[v2] Queries to fetch         : 101
+[v2] Size per query           : 1000  (2 page(s)/query, 500 max/page)
+[v2] Estimated cost this run  : 202 requests, 101000 results
+[v2] Evaluation k values      : [10, 30, 50, 100, 200, 500, 1000]
+[v2] Functions defined ✅ (paginates via search_after up to 500/page, fatal only on real quota exhaustion, short retry on transient rate limits, no cache poisoning)
+[v2] Loading cache from a previous run: 101/101 queries
+[v2] Dropped 101 poisoned/shallow cached entries (refetching at size=1000): ['software companies', 'healthcare providers', 'AI startups in Berlin', 'renewable energy companies in Germany', 'companies providing cloud migration services', 'B2B SaaS platforms', 'machine learning companies', 'IoT solution providers', 'enterprise software vendors', 'small consulting firms', 'tech companies in Munich', 'manufacturing in Baden-Württemberg', 'e-commerce platforms', 'pharmaceutical companies', 'logistics companies in the US', 'data analytics companies', 'cybersecurity firms', 'financial services companies', 'retail chains in Europe', 'construction companies', 'marketing agencies', 'human resources software', 'supply chain management companies', 'solar panel manufacturers', 'agricultural technology companies', 'electric vehicle manufacturers', 'biotech companies', 'digital transformation consultants', 'cloud computing providers', 'mobile app development companies', 'web design agencies', 'SEO companies', 'social media marketing agencies', 'venture capital firms', 'private equity firms', 'investment banks', 'insurance companies', 'real estate developers', 'property management companies', 'hospital management companies', 'medical device manufacturers', 'telecommunications companies', 'internet service providers', 'manufacturing automation companies', 'robotics companies', '3D printing companies', 'packaging companies', 'food processing companies', 'beverage companies', 'mining companies', 'oil and gas companies', 'energy storage companies', 'waste management companies', 'water treatment companies', 'aerospace companies', 'defense contractors', 'transportation companies', 'shipping companies', 'trucking companies', 'freight forwarding companies', 'warehousing companies', 'cold storage companies', 'retail technology companies', 'point of sale systems providers', 'inventory management software', 'customer relationship management (CRM) software', 'enterprise resource planning (ERP) systems', 'business intelligence (BI) companies', 'IT consulting firms', 'cybersecurity solutions providers', 'cloud security providers', 'managed service providers (MSPs)', 'remote monitoring and management (RMM) software', 'data center providers', 'web hosting companies', 'domain name registrars', 'content management systems (CMS)', 'e-learning platforms', 'online marketing agencies', 'lead generation companies', 'market research firms', 'public relations agencies', 'graphic design studios', 'video production companies', 'translation services', 'legal technology companies', 'accounting software providers', 'tax preparation services', 'payroll processing companies', 'financial planning services', 'investment management firms', 'wealth management firms', 'commercial real estate brokers', 'residential real estate brokers', 'construction equipment manufacturers', 'building materials suppliers', 'renewable energy project developers', 'sustainable agriculture companies', 'vertical farming companies', 'precision agriculture technology providers', 'alternative protein manufacturers']
+[v2] Valid cached queries at current depth: 0/101
+[v2] Queries to fetch : 101
+[v2] Fetching 101 queries at target size=1000 each (2 page(s)/query)...
+------------------------------------------------------------
+[v2]  10/101  |  1000 results  |  avg 5831ms/query  |  ~1051s remaining  |  quota results left: 234998
+[v2]  20/101  |  1000 results  |  avg 5570ms/query  |  ~927s remaining  |  quota results left: 224998
+[v2]  30/101  |  1000 results  |  avg 5035ms/query  |  ~779s remaining  |  quota results left: 214998
+    [v2] ERROR 504 on "SEO companies": {"message": "Network error communicating with endpoint"}
+[v2] Skipping "SEO companies" due to error above — NOT cached, will retry next run.
+[v2]  40/101  |  902 results  |  avg 5008ms/query  |  ~654s remaining  |  quota results left: 206096
+[v2]  50/101  |  1000 results  |  avg 4765ms/query  |  ~538s remaining  |  quota results left: 196096
+[v2]  60/101  |  1000 results  |  avg 4484ms/query  |  ~422s remaining  |  quota results left: 186148
+[v2]  70/101  |  1000 results  |  avg 4198ms/query  |  ~312s remaining  |  quota results left: 176148
+[v2]  80/101  |  1000 results  |  avg 3981ms/query  |  ~207s remaining  |  quota results left: 166178
+[v2]  90/101  |  1000 results  |  avg 3837ms/query  |  ~107s remaining  |  quota results left: 156178
+[v2] 100/101  |  1000 results  |  avg 3743ms/query  |  ~10s remaining  |  quota results left: 146178
+[v2] 101/101  |  1000 results  |  avg 3744ms/query  |  ~0s remaining  |  quota results left: 145178
+------------------------------------------------------------
+[v2] Done! 100 queries fetched.
+[v2] Results per query: min=902  max=1000  avg=998
+[v2] Saved to result/09b_api_v2/v2_results.json
+[GT] Loading ground truth...
+[GT] Loaded 101 queries
+[GT] Matched 101/101 queries to ground truth
+[Eval] Metric functions defined ✅
+[Eval] Computing metrics for all methods and queries...
+[Eval] Done — 2,121 rows saved to result/09b_api_v2/evaluation_v2_comparison.csv
+===========================================================================
+EVALUATION vs GOI GROUND TRUTH  (threshold=0.75)
+===========================================================================
+  Method                        k |    NDCG |    Prec |  Recall |      F1 |  Overlap
+  ===========================================================================
+  Istari v1 BM25               10 |   0.101 |   0.072 |   0.002 |   0.004 |      0.0
+  Istari v1 BM25               30 |   0.096 |   0.069 |   0.008 |   0.010 |      0.3
+  Istari v1 BM25               50 |   0.096 |   0.066 |   0.011 |   0.013 |      0.7
+  Istari v1 BM25              100 |   0.090 |   0.060 |   0.017 |   0.019 |      1.8
+  Istari v1 BM25              200 |   0.082 |   0.055 |   0.028 |   0.027 |      4.8
+  Istari v1 BM25              500 |   0.072 |   0.048 |   0.054 |   0.039 |     20.7
+  Istari v1 BM25             1000 |   0.071 |   0.048 |   0.109 |   0.054 |     34.3
+  ---------------------------------------------------------------------------
+  Istari v2 Semantic           10 |   0.975 |   0.960 |   0.050 |   0.076 |      4.5
+  Istari v2 Semantic           30 |   0.969 |   0.922 |   0.113 |   0.149 |     15.4
+  Istari v2 Semantic           50 |   0.962 |   0.889 |   0.154 |   0.188 |     25.6
+  Istari v2 Semantic          100 |   0.946 |   0.834 |   0.226 |   0.253 |     51.8
+  Istari v2 Semantic          200 |   0.908 |   0.760 |   0.327 |   0.344 |    105.9
+  Istari v2 Semantic          500 |   0.782 |   0.602 |   0.520 |   0.463 |    277.6
+  Istari v2 Semantic         1000 |   0.632 |   0.451 |   0.698 |   0.486 |    584.9
+  ---------------------------------------------------------------------------
+  Our MiniLM (98K)             10 |   0.935 |   0.810 |   0.023 |   0.036 |      0.5
+  Our MiniLM (98K)             30 |   0.928 |   0.768 |   0.052 |   0.077 |      2.7
+  Our MiniLM (98K)             50 |   0.925 |   0.754 |   0.078 |   0.111 |      5.7
+  Our MiniLM (98K)            100 |   0.919 |   0.731 |   0.136 |   0.181 |     17.9
+  Our MiniLM (98K)            200 |   0.904 |   0.707 |   0.241 |   0.290 |     54.8
+  Our MiniLM (98K)            500 |   0.862 |   0.658 |   0.499 |   0.487 |    243.6
+  Our MiniLM (98K)           1000 |   0.766 |   0.565 |   0.794 |   0.598 |    740.7
+  ---------------------------------------------------------------------------
+[Latency] ============================================================
+  Istari v1 BM25 (network)    : 2828ms avg  (2 × 500 per query)
+  Istari v2 Semantic (network) : 3744ms avg  (includes pagination sleep)
+  Our MiniLM (local A100)      : 26.4ms steady-state
+[Latency] NOTE: network vs local latency not directly comparable
+[Latency] Saved to result/09b_api_v2/latency_summary.csv
+[Findings] ============================================================
+[Findings] KEY COMPARISON: v2 Semantic vs Our MiniLM
+[Findings] ============================================================
+
+  k=10:
+    Istari v1 BM25      NDCG=0.101
+    Istari v2 Semantic  NDCG=0.975  Recall=0.050  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.935  Recall=0.023  (-4.1% vs v2)
+
+  k=30:
+    Istari v1 BM25      NDCG=0.096
+    Istari v2 Semantic  NDCG=0.969  Recall=0.113  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.928  Recall=0.052  (-4.2% vs v2)
+
+  k=50:
+    Istari v1 BM25      NDCG=0.096
+    Istari v2 Semantic  NDCG=0.962  Recall=0.154  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.925  Recall=0.078  (-3.9% vs v2)
+
+  k=100:
+    Istari v1 BM25      NDCG=0.090
+    Istari v2 Semantic  NDCG=0.946  Recall=0.226  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.919  Recall=0.136  (-2.9% vs v2)
+
+  k=200:
+    Istari v1 BM25      NDCG=0.082
+    Istari v2 Semantic  NDCG=0.908  Recall=0.327  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.904  Recall=0.241  (-0.4% vs v2)
+
+  k=500:
+    Istari v1 BM25      NDCG=0.072
+    Istari v2 Semantic  NDCG=0.782  Recall=0.520  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.862  Recall=0.499  (+10.3% vs v2)
+
+  k=1000:
+    Istari v1 BM25      NDCG=0.071
+    Istari v2 Semantic  NDCG=0.632  Recall=0.698  ← production ceiling
+    Our MiniLM (98K)    NDCG=0.766  Recall=0.794  (+21.2% vs v2)
+
+[Findings] ============================================================
+[Findings] CORPUS COVERAGE GAP
+[Findings] ============================================================
+
+  Recall@1000 — v2 (20M): 0.698   MiniLM (98K): 0.794
+  Gap: -9.6 pp — companies v2 finds on 20M that our 98K corpus cannot contain.
+  This is a CORPUS COVERAGE gap, not a MODEL QUALITY gap.
+  MiniLM's embedding approach is sound — the 98K subsample is the bottleneck.
+
+[Done] result/09b_api_v2/ — all files saved.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n568
+Job ID: 5809176
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:27
+CPU Efficiency: 0.21% of 03:32:24 core-walltime
+Job Wall-clock time: 00:17:42
+Memory Utilized: 755.04 MB
+Memory Efficiency: 0.80% of 91.80 GB (91.80 GB/node)

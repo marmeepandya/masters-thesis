@@ -1,0 +1,313 @@
+Ollama started with PID 2302075
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    3 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    3 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    2 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+Ollama is running at http://127.0.0.1:11435
+Available models: ['mistral:7b', 'llama3.1:8b', 'mistral-nemo:latest']
+WARNING: mistral:3b not found — run: ollama pull mistral:3b
+
+Device : cuda
+GPU    : NVIDIA A100-PCIE-40GB
+
+Result folders created under result/4_llm_prefilter/
+Total companies : 98,716
+Columns available: ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+Total queries   : 101
+
+Loading BGE model...
+Loading pre-computed BGE embeddings...
+Embeddings shape: (98716, 1024)
+=== CORPUS FIELD COVERAGE ===
+  rank                           filled=100.0%  unique=1,000
+  similarity_score               filled=100.0%  unique=86,378
+  domain                         filled=100.0%  unique=98,716
+  name                           filled=100.0%  unique=84,286
+  organization_type              filled=100.0%  unique=5
+  organization_size              filled=100.0%  unique=4
+  country                        filled=100.0%  unique=151
+  state                          filled= 79.4%  unique=1,203
+  district                       filled= 37.0%  unique=8,599
+  municipality                   filled= 20.7%  unique=7,485
+  summary                        filled=100.0%  unique=88,066
+  summary_keywords               filled=100.0%  unique=87,847
+  nace_code                      filled=100.0%  unique=20
+  query_id                       filled=100.0%  unique=101
+  query                          filled=100.0%  unique=101
+
+=== SAMPLE VALUES ===
+  country: ['United States', 'South Africa', 'Poland', 'China', 'Spain', 'India', 'Brazil', 'Greece']
+=== FILTER EXTRACTION TEST ===
+  WARNING: filter extraction failed for "software companies in Germany": 404 Client Error: Not Found for url: http://127.0.0.1:11435/api/chat
+Query   : software companies in Germany
+Llama   : {'country': 'Germany', 'nace_code': 'K', 'keywords': ['software']}
+Ministral: {}
+
+  WARNING: filter extraction failed for "AI startups in Berlin": 404 Client Error: Not Found for url: http://127.0.0.1:11435/api/chat
+Query   : AI startups in Berlin
+Llama   : {'country': 'Germany', 'municipality': 'Berlin', 'nace_code': 'K', 'keywords': ['AI', 'artificial intelligence', 'machine learning']}
+Ministral: {}
+
+  WARNING: filter extraction failed for "manufacturing in Baden-Württemberg": Invalid \uXXXX escape: line 1 column 42 (char 41)
+  WARNING: filter extraction failed for "manufacturing in Baden-Württemberg": 404 Client Error: Not Found for url: http://127.0.0.1:11435/api/chat
+Query   : manufacturing in Baden-Württemberg
+Llama   : {}
+Ministral: {}
+
+  WARNING: filter extraction failed for "large pharmaceutical companies": 404 Client Error: Not Found for url: http://127.0.0.1:11435/api/chat
+Query   : large pharmaceutical companies
+Llama   : {'organization_size': 'Large', 'keywords': ['pharmaceutical']}
+Ministral: {}
+
+Extracting filters with Llama-3.1-8B (llama3.1:8b)...
+  10/101 done  |  avg 948ms/query
+  WARNING: filter extraction failed for "manufacturing in Baden-Württemberg": Invalid \uXXXX escape: line 1 column 42 (char 41)
+  20/101 done  |  avg 1072ms/query
+  30/101 done  |  avg 1037ms/query
+  40/101 done  |  avg 975ms/query
+  50/101 done  |  avg 934ms/query
+  WARNING: filter extraction failed for "water treatment companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "aerospace companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "defense contractors": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "transportation companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "shipping companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "trucking companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "freight forwarding companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  60/101 done  |  avg 921ms/query
+  WARNING: filter extraction failed for "warehousing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cold storage companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "retail technology companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "point of sale systems providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "inventory management software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "customer relationship management (CRM) software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "enterprise resource planning (ERP) systems": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "business intelligence (BI) companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "IT consulting firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cybersecurity solutions providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  70/101 done  |  avg 933ms/query
+  WARNING: filter extraction failed for "cloud security providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "managed service providers (MSPs)": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "remote monitoring and management (RMM) software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "data center providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "web hosting companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "domain name registrars": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "content management systems (CMS)": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "e-learning platforms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "online marketing agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "lead generation companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  80/101 done  |  avg 941ms/query
+  WARNING: filter extraction failed for "market research firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "public relations agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "graphic design studios": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "video production companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "translation services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "legal technology companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "accounting software providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "tax preparation services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "payroll processing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "financial planning services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  90/101 done  |  avg 948ms/query
+  WARNING: filter extraction failed for "investment management firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "wealth management firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "commercial real estate brokers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "residential real estate brokers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "construction equipment manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "building materials suppliers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "renewable energy project developers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "sustainable agriculture companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "vertical farming companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "precision agriculture technology providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  100/101 done  |  avg 954ms/query
+  WARNING: filter extraction failed for "alternative protein manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+Done! Average extraction time: 954ms/query
+Extracting filters with Ministral-3B (mistral:3b)...
+  WARNING: filter extraction failed for "software companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "healthcare providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "AI startups in Berlin": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "renewable energy companies in Germany": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "companies providing cloud migration services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "B2B SaaS platforms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "machine learning companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "IoT solution providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "enterprise software vendors": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "small consulting firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  10/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "tech companies in Munich": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "manufacturing in Baden-Württemberg": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "e-commerce platforms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "pharmaceutical companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "logistics companies in the US": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "data analytics companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cybersecurity firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "financial services companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "retail chains in Europe": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "construction companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  20/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "marketing agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "human resources software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "supply chain management companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "solar panel manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "agricultural technology companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "electric vehicle manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "biotech companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "digital transformation consultants": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cloud computing providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "mobile app development companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  30/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "web design agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "SEO companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "social media marketing agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "venture capital firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "private equity firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "investment banks": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "insurance companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "real estate developers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "property management companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "hospital management companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  40/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "medical device manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "telecommunications companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "internet service providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "manufacturing automation companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "robotics companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "3D printing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "packaging companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "food processing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "beverage companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "mining companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  50/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "oil and gas companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "energy storage companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "waste management companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "water treatment companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "aerospace companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "defense contractors": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "transportation companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "shipping companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "trucking companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "freight forwarding companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  60/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "warehousing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cold storage companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "retail technology companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "point of sale systems providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "inventory management software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "customer relationship management (CRM) software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "enterprise resource planning (ERP) systems": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "business intelligence (BI) companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "IT consulting firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "cybersecurity solutions providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  70/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "cloud security providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "managed service providers (MSPs)": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "remote monitoring and management (RMM) software": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "data center providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "web hosting companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "domain name registrars": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "content management systems (CMS)": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "e-learning platforms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "online marketing agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "lead generation companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  80/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "market research firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "public relations agencies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "graphic design studios": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "video production companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "translation services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "legal technology companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "accounting software providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "tax preparation services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "payroll processing companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "financial planning services": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  90/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "investment management firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "wealth management firms": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "commercial real estate brokers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "residential real estate brokers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "construction equipment manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "building materials suppliers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "renewable energy project developers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "sustainable agriculture companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "vertical farming companies": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  WARNING: filter extraction failed for "precision agriculture technology providers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+  100/101 done  |  avg 1002ms/query
+  WARNING: filter extraction failed for "alternative protein manufacturers": HTTPConnectionPool(host='127.0.0.1', port=11435): Max retries exceeded with url: /api/chat (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=11435): Failed to establish a new connection: [Errno 111] Connection refused"))
+Done! Average extraction time: 1002ms/query
+
+Saved filter files to result/prefilter/
+=== SAMPLE FILTER COMPARISONS ===
+Query                                         Llama                                    Ministral
+------------------------------------------------------------------------------------------------------------------------
+software companies                            {'nace_code': 'K', 'keywords': ['softw   {}
+healthcare providers                          {'nace_code': 'Q', 'keywords': ['healt   {}
+AI startups in Berlin                         {'country': 'Germany', 'municipality':   {}
+renewable energy companies in Germany         {'country': 'Germany', 'keywords': ['r   {}
+companies providing cloud migration service   {'keywords': ['cloud migration service   {}
+B2B SaaS platforms                            {'nace_code': 'K', 'keywords': ['B2B',   {}
+machine learning companies                    {'keywords': ['machine learning']}       {}
+IoT solution providers                        {'keywords': ['IoT', 'solution', 'prov   {}
+enterprise software vendors                   {'nace_code': 'K', 'keywords': ['enter   {}
+small consulting firms                        {'nace_code': 'M', 'organization_size'   {}
+tech companies in Munich                      {'country': 'Germany', 'municipality':   {}
+manufacturing in Baden-Württemberg            {}                                       {}
+e-commerce platforms                          {'keywords': ['e-commerce', 'platform'   {}
+pharmaceutical companies                      {'keywords': ['pharmaceutical']}         {}
+logistics companies in the US                 {'country': 'United States', 'nace_cod   {}
+
+=== FILTER COVERAGE STATS ===
+
+Llama:
+  Queries with NO filter extracted: 49/101
+  keywords            : extracted for 52/101 queries (51%)
+  nace_code           : extracted for 28/101 queries (28%)
+  country             : extracted for 5/101 queries (5%)
+  municipality        : extracted for 2/101 queries (2%)
+  organization_size   : extracted for 1/101 queries (1%)
+
+Ministral:
+  Queries with NO filter extracted: 101/101
+=== FILTER APPLICATION TESTS ===
+Filter: {'country': 'Germany', 'nace_code': 'K', 'keywords': ['software']}
+  Result: 98,716 → 1,050 companies  (1.1%)  
+
+Filter: {'country': 'Germany', 'municipality': 'Berlin', 'nace_code': 'K'}
+  Result: 98,716 → 234 companies  (0.2%)  
+
+Filter: {'nace_code': 'C', 'state': 'Baden-Württemberg'}
+  Result: 98,716 → 412 companies  (0.4%)  
+
+Filter: {'nace_code': 'K', 'organization_size': 'Large'}
+  Result: 98,716 → 5,001 companies  (5.1%)  
+
+Running pre-filter pipeline with llama...
+  Done!
+  Avg corpus size after filter : 56,327 / 98,716 companies (57.1%)
+  Avg online query latency     : 1545ms (excludes LLM extraction)
+  Fallback to full corpus      : 56/101 queries
+  Saved to result/prefilter/retrieval_llama.csv
+Running pre-filter pipeline with ministral...
+  Done!
+  Avg corpus size after filter : 98,716 / 98,716 companies (100.0%)
+  Avg online query latency     : 197ms (excludes LLM extraction)
+  Fallback to full corpus      : 101/101 queries
+  Saved to result/prefilter/retrieval_ministral.csv
+Evaluation complete!
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 4889128
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:04:32
+CPU Efficiency: 4.20% of 01:48:00 core-walltime
+Job Wall-clock time: 00:09:00
+Memory Utilized: 3.18 GB
+Memory Efficiency: 3.47% of 91.80 GB (91.80 GB/node)

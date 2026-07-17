@@ -1,0 +1,260 @@
+Ollama started with PID 3653582
+[GIN] 2026/06/29 - 21:52:35 | 200 |      73.662µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/29 - 21:52:35 | 200 |     156.258µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/06/29 - 21:52:35 | 200 |      19.861µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/29 - 21:52:35 | 200 |   10.558113ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    7 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    7 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] V2 URL        : https://api.istari.ai/v2/search
+[Setup] API key set   : ✅
+[Setup] Result dir    : result/09b_api_v2/
+
+[Setup] Testing v2 API...
+[Setup] v2 API OK ✅  — got 3 results
+[Setup] Sample      : Sweet Software (sweetsoftware.co.nz)
+
+[Load] Loading queries...
+[Load] 101 queries from column "query"
+
+[Load] Loading cached results from result/09_api_evaluation/...
+[Load] v1 BM25 cached : 101 queries ✅
+[Load] MiniLM cached  : 101 queries ✅
+[v2] No cache — starting fresh
+[v2] Queries to fetch : 101
+[v2] Fetching 101 queries...
+------------------------------------------------------------
+  [v2] ERROR for "software companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "healthcare providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "AI startups in Berlin": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "renewable energy companies in Germany": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "companies providing cloud migration serv": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "B2B SaaS platforms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "machine learning companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "IoT solution providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "enterprise software vendors": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "small consulting firms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2]  10/101  |  0 results  |  avg 645ms  |  ~86s remaining
+  [v2] ERROR for "tech companies in Munich": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "manufacturing in Baden-Württemberg": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "e-commerce platforms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "pharmaceutical companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "logistics companies in the US": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "data analytics companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "cybersecurity firms": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "financial services companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "retail chains in Europe": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "construction companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2]  20/101  |  0 results  |  avg 927ms  |  ~100s remaining
+  [v2] ERROR for "marketing agencies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "human resources software": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "supply chain management companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "solar panel manufacturers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "agricultural technology companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "electric vehicle manufacturers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "biotech companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "digital transformation consultants": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "cloud computing providers": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "mobile app development companies": 429 {"message":"Too Many Requests"}
+
+[v2]  30/101  |  0 results  |  avg 833ms  |  ~81s remaining
+  [v2] ERROR for "web design agencies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "SEO companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "social media marketing agencies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "venture capital firms": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "private equity firms": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "investment banks": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "insurance companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "real estate developers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "property management companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "hospital management companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2]  40/101  |  0 results  |  avg 1101ms  |  ~86s remaining
+  [v2] ERROR for "medical device manufacturers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "telecommunications companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "internet service providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "manufacturing automation companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "robotics companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "3D printing companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "packaging companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "food processing companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "beverage companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "mining companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2]  50/101  |  0 results  |  avg 1137ms  |  ~73s remaining
+  [v2] ERROR for "oil and gas companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "energy storage companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "waste management companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "water treatment companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "aerospace companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "defense contractors": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "transportation companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "shipping companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "trucking companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "freight forwarding companies": 429 {"message":"Too Many Requests"}
+
+[v2]  60/101  |  0 results  |  avg 972ms  |  ~52s remaining
+  [v2] ERROR for "warehousing companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "cold storage companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "retail technology companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "point of sale systems providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "inventory management software": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "customer relationship management (CRM) s": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "enterprise resource planning (ERP) syste": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "business intelligence (BI) companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "IT consulting firms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "cybersecurity solutions providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2]  70/101  |  0 results  |  avg 1013ms  |  ~41s remaining
+  [v2] ERROR for "cloud security providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "managed service providers (MSPs)": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "remote monitoring and management (RMM) s": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "data center providers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "web hosting companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "domain name registrars": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "content management systems (CMS)": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "e-learning platforms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "online marketing agencies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "lead generation companies": 429 {"message":"Too Many Requests"}
+
+[v2]  80/101  |  0 results  |  avg 969ms  |  ~27s remaining
+  [v2] ERROR for "market research firms": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "public relations agencies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "graphic design studios": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "video production companies": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "translation services": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "legal technology companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "accounting software providers": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "tax preparation services": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "payroll processing companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "financial planning services": 429 {"message":"Too Many Requests"}
+
+[v2]  90/101  |  0 results  |  avg 874ms  |  ~13s remaining
+  [v2] ERROR for "investment management firms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "wealth management firms": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "commercial real estate brokers": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "residential real estate brokers": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "construction equipment manufacturers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "building materials suppliers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "renewable energy project developers": 429 {"message":"Too Many Requests"}
+
+  [v2] ERROR for "sustainable agriculture companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "vertical farming companies": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+  [v2] ERROR for "precision agriculture technology provide": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2] 100/101  |  0 results  |  avg 1021ms  |  ~1s remaining
+  [v2] ERROR for "alternative protein manufacturers": 422 {"detail":[{"type":"less_than_equal","loc":["body","size"],"msg":"Input should b
+[v2] 101/101  |  0 results  |  avg 1012ms  |  ~0s remaining
+------------------------------------------------------------
+[v2] Done! 101 queries fetched.
+[v2] Saved to result/09b_api_v2/v2_results.json
+[v2] Results per query: min=0  max=0  avg=0
+
+[GT] Loading ground truth...
+[GT] Matched 101/101 queries
+
+[Eval] Computing metrics...
+[Eval] Saved 1,515 rows to result/09b_api_v2/evaluation_v2_comparison.csv
+
+===========================================================================
+EVALUATION vs GOI GROUND TRUTH (threshold=0.75)
+===========================================================================
+  Method                        k |    NDCG |    Prec |  Recall |      F1 |  Overlap
+  ===========================================================================
+  Istari v1 BM25               10 |   0.101 |   0.072 |   0.002 |   0.004 |      0.0
+  Istari v1 BM25               50 |   0.096 |   0.066 |   0.011 |   0.013 |      0.7
+  Istari v1 BM25              100 |   0.090 |   0.060 |   0.017 |   0.019 |      1.8
+  Istari v1 BM25              500 |   0.072 |   0.048 |   0.054 |   0.039 |     20.7
+  Istari v1 BM25             1000 |   0.071 |   0.048 |   0.109 |   0.054 |     34.3
+  ---------------------------------------------------------------------------
+  Istari v2 Semantic           10 |   0.000 |   0.000 |   0.000 |   0.000 |      0.0
+  Istari v2 Semantic           50 |   0.000 |   0.000 |   0.000 |   0.000 |      0.0
+  Istari v2 Semantic          100 |   0.000 |   0.000 |   0.000 |   0.000 |      0.0
+  Istari v2 Semantic          500 |   0.000 |   0.000 |   0.000 |   0.000 |      0.0
+  Istari v2 Semantic         1000 |   0.000 |   0.000 |   0.000 |   0.000 |      0.0
+  ---------------------------------------------------------------------------
+  Our MiniLM (98K)             10 |   0.935 |   0.810 |   0.023 |   0.036 |      0.5
+  Our MiniLM (98K)             50 |   0.925 |   0.754 |   0.078 |   0.111 |      5.7
+  Our MiniLM (98K)            100 |   0.919 |   0.731 |   0.136 |   0.181 |     17.9
+  Our MiniLM (98K)            500 |   0.862 |   0.658 |   0.499 |   0.487 |    243.6
+  Our MiniLM (98K)           1000 |   0.766 |   0.565 |   0.794 |   0.598 |    740.7
+  ---------------------------------------------------------------------------
+
+[Latency] ============================================================
+  Istari v1 BM25 (network)   : 2828ms avg  (2 × API calls)
+  Istari v2 Semantic (network): 1012ms avg
+  Our MiniLM (local GPU)      : 26.4ms steady-state
+[Latency] NOTE: network vs local not directly comparable
+[Latency] Saved to result/09b_api_v2/latency_summary.csv
+
+[Findings] ============================================================
+[Findings] KEY COMPARISON: v2 Semantic vs Our MiniLM
+[Findings] ============================================================
+
+  k=10:
+    Istari v1 BM25      NDCG=0.101
+    Istari v2 Semantic  NDCG=0.000  Recall=0.000
+    Our MiniLM (98K)    NDCG=0.935  Recall=0.023  (+inf% vs v2)
+
+  k=100:
+    Istari v1 BM25      NDCG=0.090
+    Istari v2 Semantic  NDCG=0.000  Recall=0.000
+    Our MiniLM (98K)    NDCG=0.919  Recall=0.136  (+inf% vs v2)
+
+  k=1000:
+    Istari v1 BM25      NDCG=0.071
+    Istari v2 Semantic  NDCG=0.000  Recall=0.000
+    Our MiniLM (98K)    NDCG=0.766  Recall=0.794  (+inf% vs v2)
+
+[Findings] ============================================================
+[Findings] INTERPRETATION
+[Findings] ============================================================
+
+  Recall@1000 gap (v2 - MiniLM): -79.4 percentage points
+  This gap = companies v2 finds on 20M that our 98K system misses.
+  This is the corpus coverage gap, not a model quality gap.
+
+[Done] result/09b_api_v2/ — all files saved.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 5433211
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:09
+CPU Efficiency: 0.41% of 00:36:48 core-walltime
+Job Wall-clock time: 00:03:04
+Memory Utilized: 452.72 MB
+Memory Efficiency: 0.48% of 91.80 GB (91.80 GB/node)

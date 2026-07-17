@@ -1,0 +1,46 @@
+method,query,k,ndcg,precision,pct_relevant
+Istari BM25,software companies,5,0.927,1.0,100.0
+Istari BM25,software companies,10,0.921,1.0,100.0
+Istari BM25,software companies,20,0.981,1.0,100.0
+Istari BM25,healthcare providers,5,0.893,1.0,100.0
+Istari BM25,healthcare providers,10,0.857,0.9,90.0
+Istari BM25,healthcare providers,20,0.954,0.95,95.0
+Istari BM25,AI startups in Berlin,5,0.786,0.8,80.0
+Istari BM25,AI startups in Berlin,10,0.725,0.7,70.0
+Istari BM25,AI startups in Berlin,20,0.885,0.6,60.0
+Istari BM25,renewable energy companies in Germany,5,0.735,1.0,100.0
+Istari BM25,renewable energy companies in Germany,10,0.73,0.9,90.0
+Istari BM25,renewable energy companies in Germany,20,0.908,0.95,95.0
+Istari BM25,companies providing cloud migration services,5,1.0,1.0,100.0
+Istari BM25,companies providing cloud migration services,10,0.928,1.0,100.0
+Istari BM25,companies providing cloud migration services,20,0.978,0.9,90.0
+Istari BM25 + Filter,software companies,5,0.927,1.0,100.0
+Istari BM25 + Filter,software companies,10,0.921,1.0,100.0
+Istari BM25 + Filter,software companies,20,0.981,1.0,100.0
+Istari BM25 + Filter,healthcare providers,5,0.893,1.0,100.0
+Istari BM25 + Filter,healthcare providers,10,0.857,0.9,90.0
+Istari BM25 + Filter,healthcare providers,20,0.954,0.95,95.0
+Istari BM25 + Filter,AI startups in Berlin,5,0.786,0.8,80.0
+Istari BM25 + Filter,AI startups in Berlin,10,0.725,0.7,70.0
+Istari BM25 + Filter,AI startups in Berlin,20,0.885,0.6,60.0
+Istari BM25 + Filter,renewable energy companies in Germany,5,0.765,1.0,100.0
+Istari BM25 + Filter,renewable energy companies in Germany,10,0.847,1.0,100.0
+Istari BM25 + Filter,renewable energy companies in Germany,20,0.924,0.95,95.0
+Istari BM25 + Filter,companies providing cloud migration services,5,1.0,1.0,100.0
+Istari BM25 + Filter,companies providing cloud migration services,10,0.928,1.0,100.0
+Istari BM25 + Filter,companies providing cloud migration services,20,0.978,0.9,90.0
+Our MiniLM,software companies,5,1.0,1.0,100.0
+Our MiniLM,software companies,10,1.0,1.0,100.0
+Our MiniLM,software companies,20,1.0,1.0,100.0
+Our MiniLM,healthcare providers,5,0.893,1.0,100.0
+Our MiniLM,healthcare providers,10,0.931,1.0,100.0
+Our MiniLM,healthcare providers,20,0.971,1.0,100.0
+Our MiniLM,AI startups in Berlin,5,1.0,1.0,100.0
+Our MiniLM,AI startups in Berlin,10,0.967,1.0,100.0
+Our MiniLM,AI startups in Berlin,20,0.992,0.95,95.0
+Our MiniLM,renewable energy companies in Germany,5,1.0,1.0,100.0
+Our MiniLM,renewable energy companies in Germany,10,1.0,1.0,100.0
+Our MiniLM,renewable energy companies in Germany,20,1.0,1.0,100.0
+Our MiniLM,companies providing cloud migration services,5,1.0,1.0,100.0
+Our MiniLM,companies providing cloud migration services,10,1.0,1.0,100.0
+Our MiniLM,companies providing cloud migration services,20,1.0,1.0,100.0

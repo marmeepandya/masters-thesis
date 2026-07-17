@@ -1,0 +1,82 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/26_baseline_simlm/ -- ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[Load] Building title + body fields for each company...
+[Load] Sample (first company):
+  title: Software Genesis, Inc.
+  body : Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development company focused on the consumer market,...
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[GPU] VRAM           : 42.4 GB
+[Encode] Loading SimLM...
+[Encode] Model loaded in 32.2s on cuda
+[Encode] Encoding all companies (title + body as sentence pair)...
+[Encode] Final embeddings already on disk -- loading, skipping corpus encoding
+[Encode] Done in 0.0 minutes (this session)
+[Encode] Embeddings shape : (98716, 768)
+[FAISS] Index built, 98,716 vectors, dim=768
+[Run] Starting SimLM retrieval for 101 queries...
+[Run]  20/101  |  avg 92.0ms/query
+[Run]  40/101  |  avg 59.8ms/query
+[Run]  60/101  |  avg 49.2ms/query
+[Run]  80/101  |  avg 43.8ms/query
+[Run] 100/101  |  avg 40.6ms/query
+[Run] 101/101  |  avg 40.5ms/query
+[Run] Done! Avg latency: 40.5ms
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/26_baseline_simlm/evaluation_simlm.csv
+[Summary] ============================================================
+[Summary] SimLM RESULTS (title + body)
+
+[Summary] Avg query latency : 40.5ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 768
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.923      0.920    0.009    0.018
+  50        0.891      0.881    0.044    0.084
+  100       0.872      0.861    0.086    0.157
+  300       0.816      0.800    0.240    0.369
+  500       0.765      0.745    0.372    0.496
+  1000      0.642      0.609    0.609    0.609
+
+[Summary] Comparison against models already tested (Recall@1000):
+  BM25              : 0.635
+  E5-Mistral        : 0.274
+  Nomic             : 0.684
+  BGE-M3            : 0.704
+  BGE summary-only  : 0.707  (prefix-fixed)
+  BGE all-fields    : 0.727  (prefix-fixed)
+  OpenAI large      : 0.728
+  MiniLM            : 0.741
+  SFR-Mistral       : 0.746
+  Linq-Mistral      : 0.749
+  GTE-large         : 0.768  (best solo so far)
+  SimLM             : 0.609
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n570
+Job ID: 5868293
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:12
+CPU Efficiency: 3.37% of 00:35:36 core-walltime
+Job Wall-clock time: 00:02:58
+Memory Utilized: 2.58 GB
+Memory Efficiency: 2.82% of 91.80 GB (91.80 GB/node)

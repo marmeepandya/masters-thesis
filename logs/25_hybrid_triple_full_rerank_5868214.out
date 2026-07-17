@@ -1,0 +1,79 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/25_hybrid_triple_full_rerank/ -- ready
+[Setup] Top-k per channel : 1000
+[Setup] Final k           : 1000
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading Linq-Embed-Mistral results...
+[Load] Linq rows      : 101,000
+[Load] Loading GTE-large results...
+[Load] GTE-large rows : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+[Load] Sanity check passed
+[Pool] Avg pool size : 1424
+[Pool] Min pool size : 1010
+[Pool] Max pool size : 2102
+[Oracle] 3-way union oracle Recall@1000 : 0.903
+[Oracle] (2-way MiniLM+Linq ceiling from notebook 22 was 0.869, for comparison)
+[Reranker] Loading BGE cross-encoder reranker...
+[Reranker] Loaded in 16.1s on cuda
+[Warmup] Warming up reranker with 3 dummy calls...
+[Warmup] GPU warm
+[Rerank] Scoring full union pool for 101 queries...
+[Rerank] Final results already on disk -- loading, skipping rerank
+[Rerank] Done!
+[Rerank] Avg rerank time (this session) : nans/query
+[Rerank] Saved to        : result/25_hybrid_triple_full_rerank/reranked_results.csv
+[Eval] Evaluating 3-way full-pool rerank results...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] === 3-WAY FULL-POOL RERANK RESULTS ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.955      0.955    0.010    0.019
+  50        0.955      0.955    0.048    0.091
+  100       0.951      0.950    0.095    0.173
+  300       0.932      0.927    0.278    0.428
+  500       0.909      0.901    0.450    0.600
+  1000      0.824      0.804    0.804    0.804
+[Compare] Loading notebook 24 results for comparison...
+   k  triple_ndcg  triple_recall  pair_ndcg  pair_recall
+  10        0.955          0.010      0.955        0.010
+  50        0.955          0.048      0.956        0.048
+ 100        0.951          0.095      0.952        0.095
+ 300        0.932          0.278        NaN          NaN
+ 500        0.909          0.450      0.911        0.452
+1000        0.824          0.804      0.823        0.802
+
+[Compare] 3-way full-pool rerank Recall@1000 : 0.804
+[Compare] 3-way oracle ceiling                : 0.903
+[Compare] Remaining gap                       : 0.098
+
+[Compare] Saved to result/25_hybrid_triple_full_rerank/comparison_vs_prior.csv
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5868214
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:01
+CPU Efficiency: 3.43% of 00:29:36 core-walltime
+Job Wall-clock time: 00:02:28
+Memory Utilized: 3.23 GB
+Memory Efficiency: 3.52% of 91.80 GB (91.80 GB/node)

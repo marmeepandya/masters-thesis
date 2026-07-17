@@ -1,0 +1,20 @@
+2026/05/15 19:43:12 routes.go:1186: INFO server config env="map[CUDA_VISIBLE_DEVICES:0 GPU_DEVICE_ORDINAL:0 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_DEBUG:false OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11435 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/home/ma/ma_ma/ma_mpandya/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:0 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://*] OLLAMA_SCHED_SPREAD:false ROCR_VISIBLE_DEVICES:0 http_proxy: https_proxy: no_proxy:]"
+time=2026-05-15T19:43:12.096+02:00 level=INFO source=images.go:432 msg="total blobs: 13"
+time=2026-05-15T19:43:12.108+02:00 level=INFO source=images.go:439 msg="total unused blobs removed: 0"
+time=2026-05-15T19:43:12.160+02:00 level=INFO source=routes.go:1237 msg="Listening on 127.0.0.1:11435 (version 0.5.11)"
+time=2026-05-15T19:43:12.173+02:00 level=INFO source=gpu.go:217 msg="looking for compatible GPUs"
+time=2026-05-15T19:43:12.594+02:00 level=INFO source=types.go:130 msg="inference compute" id=GPU-4757ea82-e09f-c9aa-0064-27dfefc663a0 library=cuda variant=v12 compute=8.0 driver=12.8 name="NVIDIA A100-PCIE-40GB" total="39.5 GiB" available="39.1 GiB"
+[NbConvertApp] Converting notebook 06_hyde_pipeline.ipynb to script
+[NbConvertApp] Writing 23585 bytes to 06_hyde_pipeline.txt
+HTTP Error 429 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+Rate limited. Waiting 50.0s before retry [Retry 1/5].
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:  56%|█████▋    | 58/103 [00:00<00:00, 573.02it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 826.90it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  17%|█▋        | 65/393 [00:00<00:00, 604.04it/s]Loading weights:  43%|████▎     | 169/393 [00:00<00:00, 840.29it/s]Loading weights:  65%|██████▍   | 254/393 [00:00<00:00, 711.90it/s]Loading weights:  85%|████████▍ | 334/393 [00:00<00:00, 726.60it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 774.13it/s]

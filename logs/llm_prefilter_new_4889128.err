@@ -1,0 +1,27 @@
+Error: listen tcp 127.0.0.1:11435: bind: address already in use
+[NbConvertApp] Converting notebook llm_prefilter.ipynb to script
+[NbConvertApp] Writing 37477 bytes to llm_prefilter.py
+mv: cannot stat 'llm_prefilter.txt': No such file or directory
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  31%|███       | 121/391 [00:00<00:00, 1206.73it/s]Loading weights:  65%|██████▍   | 253/391 [00:00<00:00, 1251.81it/s]Loading weights:  97%|█████████▋| 379/391 [00:00<00:00, 1241.63it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 1266.65it/s]
+Traceback (most recent call last):
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/llm_prefilter.py", line 745, in <module>
+    bge_baseline_df = pd.read_csv('result/evaluation_fixed.csv')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'result/evaluation_fixed.csv'
+/var/spool/slurmd/job4889128/slurm_script: line 57: kill: (2302075) - No such process

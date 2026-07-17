@@ -1,0 +1,405 @@
+method,query_id,query,k,precision,recall,ndcg
+Ministral,1,software companies,10,0.0,0.0,0.0
+Ministral,1,software companies,50,0.06,0.03,0.050172342734137586
+Ministral,1,software companies,100,0.03,0.03,0.030904992465698264
+Ministral,1,software companies,1000,0.022,0.22,0.1366614344657753
+Ministral,2,healthcare providers,10,0.3,0.03,0.25469837558210445
+Ministral,2,healthcare providers,50,0.22,0.11,0.2163637610427318
+Ministral,2,healthcare providers,100,0.16,0.16,0.17089602537003162
+Ministral,2,healthcare providers,1000,0.078,0.78,0.5214760993472786
+Ministral,3,AI startups in Berlin,10,0.6,0.06,0.6936634693435663
+Ministral,3,AI startups in Berlin,50,0.32,0.16,0.41095212843307527
+Ministral,3,AI startups in Berlin,100,0.28,0.28,0.3446101538039329
+Ministral,3,AI startups in Berlin,1000,0.079,0.79,0.6315205224098549
+Ministral,4,renewable energy companies in Germany,10,0.1,0.01,0.13886244387355454
+Ministral,4,renewable energy companies in Germany,50,0.2,0.1,0.18765035751579112
+Ministral,4,renewable energy companies in Germany,100,0.21,0.21,0.19950239065423342
+Ministral,4,renewable energy companies in Germany,1000,0.093,0.93,0.597527848289587
+Ministral,5,companies providing cloud migration services,10,0.2,0.02,0.22400556151517553
+Ministral,5,companies providing cloud migration services,50,0.24,0.12,0.23301169535219363
+Ministral,5,companies providing cloud migration services,100,0.21,0.21,0.21059431325101435
+Ministral,5,companies providing cloud migration services,1000,0.095,0.95,0.6478744344211249
+Ministral,6,B2B SaaS platforms,10,0.2,0.02,0.23365080824310533
+Ministral,6,B2B SaaS platforms,50,0.16,0.08,0.18508139020105327
+Ministral,6,B2B SaaS platforms,100,0.12,0.12,0.14405034907685293
+Ministral,6,B2B SaaS platforms,1000,0.054,0.54,0.3843295660899321
+Ministral,7,machine learning companies,10,0.7,0.07,0.7479350596733328
+Ministral,7,machine learning companies,50,0.48,0.24,0.5376303651987158
+Ministral,7,machine learning companies,100,0.4,0.4,0.45425520193394375
+Ministral,7,machine learning companies,1000,0.091,0.91,0.7541083203187962
+Ministral,8,IoT solution providers,10,0.3,0.03,0.22119341301481266
+Ministral,8,IoT solution providers,50,0.18,0.09,0.18683239256114298
+Ministral,8,IoT solution providers,100,0.18,0.18,0.18370708310092834
+Ministral,8,IoT solution providers,1000,0.082,0.82,0.5379655810860465
+Ministral,9,enterprise software vendors,10,0.4,0.04,0.30052609691860804
+Ministral,9,enterprise software vendors,50,0.52,0.26,0.46617418128570937
+Ministral,9,enterprise software vendors,100,0.33,0.33,0.3428881765991087
+Ministral,9,enterprise software vendors,1000,0.07,0.7,0.5585216421613597
+Ministral,10,small consulting firms,10,0.3,0.03,0.29025978496956456
+Ministral,10,small consulting firms,50,0.18,0.09,0.20363006270401862
+Ministral,10,small consulting firms,100,0.13,0.13,0.15770572433899505
+Ministral,10,small consulting firms,1000,0.054,0.54,0.3865019264120792
+Ministral,11,tech companies in Munich,10,0.1,0.01,0.11004588314904008
+Ministral,11,tech companies in Munich,50,0.16,0.08,0.15426517329669392
+Ministral,11,tech companies in Munich,100,0.14,0.14,0.14171835902933896
+Ministral,11,tech companies in Munich,1000,0.084,0.84,0.5407077463101558
+Ministral,12,manufacturing in Baden-Württemberg,10,0.1,0.01,0.22009176629808017
+Ministral,12,manufacturing in Baden-Württemberg,50,0.16,0.08,0.19336196538299075
+Ministral,12,manufacturing in Baden-Württemberg,100,0.18,0.18,0.19786647879693872
+Ministral,12,manufacturing in Baden-Württemberg,1000,0.085,0.85,0.5824004099736115
+Ministral,13,e-commerce platforms,10,0.1,0.01,0.06362078819895171
+Ministral,13,e-commerce platforms,50,0.04,0.02,0.03670053259810987
+Ministral,13,e-commerce platforms,100,0.02,0.02,0.022606671756229588
+Ministral,13,e-commerce platforms,1000,0.057,0.57,0.30041377153993337
+Ministral,14,pharmaceutical companies,10,0.3,0.03,0.2618080742270754
+Ministral,14,pharmaceutical companies,50,0.16,0.08,0.1726627346297211
+Ministral,14,pharmaceutical companies,100,0.17,0.17,0.17377922118595776
+Ministral,14,pharmaceutical companies,1000,0.087,0.87,0.5607957077996597
+Ministral,15,logistics companies in the US,10,0.2,0.02,0.1584091525685025
+Ministral,15,logistics companies in the US,50,0.22,0.11,0.20521262742438232
+Ministral,15,logistics companies in the US,100,0.17,0.17,0.17368719459438156
+Ministral,15,logistics companies in the US,1000,0.062,0.62,0.43316740880306076
+Ministral,16,data analytics companies,10,0.0,0.0,0.0
+Ministral,16,data analytics companies,50,0.08,0.04,0.06534999604495927
+Ministral,16,data analytics companies,100,0.12,0.12,0.10078357115647082
+Ministral,16,data analytics companies,1000,0.081,0.81,0.4914563612986181
+Ministral,17,cybersecurity firms,10,0.2,0.02,0.1635413866202963
+Ministral,17,cybersecurity firms,50,0.14,0.07,0.1349081269865695
+Ministral,17,cybersecurity firms,100,0.12,0.12,0.12218756703634116
+Ministral,17,cybersecurity firms,1000,0.084,0.84,0.5213266436237383
+Ministral,18,financial services companies,10,0.2,0.02,0.14279514403613733
+Ministral,18,financial services companies,50,0.2,0.1,0.18876042036876126
+Ministral,18,financial services companies,100,0.13,0.13,0.13896881318086676
+Ministral,18,financial services companies,1000,0.062,0.62,0.41092235131572524
+Ministral,19,retail chains in Europe,10,0.4,0.04,0.2980272981222516
+Ministral,19,retail chains in Europe,50,0.4,0.2,0.3625336614254987
+Ministral,19,retail chains in Europe,100,0.24,0.24,0.2530289829939867
+Ministral,19,retail chains in Europe,1000,0.087,0.87,0.6192715394844456
+Ministral,20,construction companies,10,0.0,0.0,0.0
+Ministral,20,construction companies,50,0.08,0.04,0.05615187195450685
+Ministral,20,construction companies,100,0.12,0.12,0.09577177106612683
+Ministral,20,construction companies,1000,0.058,0.58,0.3497089834067119
+Ministral,21,marketing agencies,10,0.1,0.01,0.07336392209936005
+Ministral,21,marketing agencies,50,0.04,0.02,0.04378378429344628
+Ministral,21,marketing agencies,100,0.07,0.07,0.06626622450036296
+Ministral,21,marketing agencies,1000,0.054,0.54,0.3201071384274744
+Ministral,22,human resources software,10,0.1,0.01,0.06625422345438903
+Ministral,22,human resources software,50,0.14,0.07,0.12322118623416865
+Ministral,22,human resources software,100,0.15,0.15,0.13769227036108575
+Ministral,22,human resources software,1000,0.091,0.91,0.5770612460878757
+Ministral,23,supply chain management companies,10,0.1,0.01,0.07839826897867533
+Ministral,23,supply chain management companies,50,0.16,0.08,0.1490878514568839
+Ministral,23,supply chain management companies,100,0.12,0.12,0.12111731381353001
+Ministral,23,supply chain management companies,1000,0.076,0.76,0.4683505671328826
+Ministral,24,solar panel manufacturers,10,0.3,0.03,0.2618080742270754
+Ministral,24,solar panel manufacturers,50,0.36,0.18,0.3360340386387805
+Ministral,24,solar panel manufacturers,100,0.28,0.28,0.28310314367208
+Ministral,24,solar panel manufacturers,1000,0.098,0.98,0.6886206932283375
+Ministral,25,agricultural technology companies,10,0.5,0.05,0.5522654773870531
+Ministral,25,agricultural technology companies,50,0.12,0.06,0.21314315445968735
+Ministral,25,agricultural technology companies,100,0.13,0.13,0.1843670161764587
+Ministral,25,agricultural technology companies,1000,0.065,0.65,0.47564452828682696
+Ministral,26,electric vehicle manufacturers,10,0.4,0.04,0.40067051810063
+Ministral,26,electric vehicle manufacturers,50,0.34,0.17,0.3524415726209588
+Ministral,26,electric vehicle manufacturers,100,0.29,0.29,0.30890836529701104
+Ministral,26,electric vehicle manufacturers,1000,0.093,0.93,0.6747638878622768
+Ministral,27,biotech companies,10,0.4,0.04,0.4920062203073637
+Ministral,27,biotech companies,50,0.2,0.1,0.2698842543781398
+Ministral,27,biotech companies,100,0.15,0.15,0.20496011511683654
+Ministral,27,biotech companies,1000,0.085,0.85,0.5987480541392615
+Ministral,28,digital transformation consultants,10,0.0,0.0,0.0
+Ministral,28,digital transformation consultants,50,0.08,0.04,0.06563601953839326
+Ministral,28,digital transformation consultants,100,0.13,0.13,0.10749386012492085
+Ministral,28,digital transformation consultants,1000,0.067,0.67,0.4068589915848407
+Ministral,29,cloud computing providers,10,0.4,0.04,0.4220949603708207
+Ministral,29,cloud computing providers,50,0.18,0.09,0.23495086240708193
+Ministral,29,cloud computing providers,100,0.18,0.18,0.21515483080773978
+Ministral,29,cloud computing providers,1000,0.078,0.78,0.5533832551299539
+Ministral,30,mobile app development companies,10,0.0,0.0,0.0
+Ministral,30,mobile app development companies,50,0.14,0.07,0.11867317041918984
+Ministral,30,mobile app development companies,100,0.15,0.15,0.13463617908426184
+Ministral,30,mobile app development companies,1000,0.096,0.96,0.5871717779487552
+Ministral,31,web design agencies,10,0.0,0.0,0.0
+Ministral,31,web design agencies,50,0.06,0.03,0.0523472525386901
+Ministral,31,web design agencies,100,0.07,0.07,0.06344581477646859
+Ministral,31,web design agencies,1000,0.08,0.8,0.4457484217763388
+Ministral,32,SEO companies,10,0.5,0.05,0.5766882048947064
+Ministral,32,SEO companies,50,0.12,0.06,0.21703576705853786
+Ministral,32,SEO companies,100,0.09,0.09,0.15718111912497942
+Ministral,32,SEO companies,1000,0.09,0.9,0.6192680476215618
+Ministral,33,social media marketing agencies,10,0.1,0.01,0.22009176629808017
+Ministral,33,social media marketing agencies,50,0.32,0.16,0.3252013380787802
+Ministral,33,social media marketing agencies,100,0.27,0.27,0.2860246410680155
+Ministral,33,social media marketing agencies,1000,0.086,0.86,0.6228473640926496
+Ministral,34,venture capital firms,10,0.3,0.03,0.25284102718517737
+Ministral,34,venture capital firms,50,0.16,0.08,0.17108839998647626
+Ministral,34,venture capital firms,100,0.15,0.15,0.159426059195211
+Ministral,34,venture capital firms,1000,0.068,0.68,0.45400370275537566
+Ministral,35,private equity firms,10,0.1,0.01,0.13886244387355454
+Ministral,35,private equity firms,50,0.16,0.08,0.1639440525183123
+Ministral,35,private equity firms,100,0.15,0.15,0.1551003620554629
+Ministral,35,private equity firms,1000,0.076,0.76,0.4888849119638136
+Ministral,36,investment banks,10,0.3,0.03,0.2934367834519528
+Ministral,36,investment banks,50,0.24,0.12,0.24541731897780422
+Ministral,36,investment banks,100,0.18,0.18,0.19857810738030118
+Ministral,36,investment banks,1000,0.082,0.82,0.5623883299045453
+Ministral,37,insurance companies,10,0.0,0.0,0.0
+Ministral,37,insurance companies,50,0.14,0.07,0.11157544906198538
+Ministral,37,insurance companies,100,0.2,0.2,0.16856992686585648
+Ministral,37,insurance companies,1000,0.094,0.94,0.5748293510397037
+Ministral,38,real estate developers,10,0.3,0.03,0.4440973278132557
+Ministral,38,real estate developers,50,0.14,0.07,0.22320027110781487
+Ministral,38,real estate developers,100,0.1,0.1,0.16077857007095453
+Ministral,38,real estate developers,1000,0.067,0.67,0.4810710160284664
+Ministral,39,property management companies,10,0.2,0.02,0.21726071285222986
+Ministral,39,property management companies,50,0.18,0.09,0.1904254274893122
+Ministral,39,property management companies,100,0.13,0.13,0.14737314709414245
+Ministral,39,property management companies,1000,0.09,0.9,0.580104558152448
+Ministral,40,hospital management companies,10,0.4,0.04,0.5067837010870873
+Ministral,40,hospital management companies,50,0.34,0.17,0.3798326971685402
+Ministral,40,hospital management companies,100,0.29,0.29,0.32666278359997886
+Ministral,40,hospital management companies,1000,0.081,0.81,0.6342963102122241
+Ministral,41,medical device manufacturers,10,0.5,0.05,0.47684658870035296
+Ministral,41,medical device manufacturers,50,0.28,0.14,0.29799668173782273
+Ministral,41,medical device manufacturers,100,0.23,0.23,0.2521666024840066
+Ministral,41,medical device manufacturers,1000,0.097,0.97,0.6808079145900192
+Ministral,42,telecommunications companies,10,0.0,0.0,0.0
+Ministral,42,telecommunications companies,50,0.06,0.03,0.04746524764060088
+Ministral,42,telecommunications companies,100,0.07,0.07,0.05910404724308359
+Ministral,42,telecommunications companies,1000,0.062,0.62,0.3594496986353278
+Ministral,43,internet service providers,10,0.1,0.01,0.06943122193677727
+Ministral,43,internet service providers,50,0.12,0.06,0.09893866219221627
+Ministral,43,internet service providers,100,0.13,0.13,0.11352127947068037
+Ministral,43,internet service providers,1000,0.088,0.88,0.5335733808827058
+Ministral,44,manufacturing automation companies,10,0.1,0.01,0.07336392209936005
+Ministral,44,manufacturing automation companies,50,0.06,0.03,0.0538549056533329
+Ministral,44,manufacturing automation companies,100,0.14,0.14,0.11798298449341389
+Ministral,44,manufacturing automation companies,1000,0.085,0.85,0.5081984522949606
+Ministral,45,robotics companies,10,0.1,0.01,0.22009176629808017
+Ministral,45,robotics companies,50,0.12,0.06,0.15846509412948892
+Ministral,45,robotics companies,100,0.13,0.13,0.15151606551592642
+Ministral,45,robotics companies,1000,0.094,0.94,0.599699402637743
+Ministral,46,3D printing companies,10,0.0,0.0,0.0
+Ministral,46,3D printing companies,50,0.12,0.06,0.09385722440729835
+Ministral,46,3D printing companies,100,0.17,0.17,0.14176936838061643
+Ministral,46,3D printing companies,1000,0.099,0.99,0.5840395796061821
+Ministral,47,packaging companies,10,0.2,0.02,0.15457433957839825
+Ministral,47,packaging companies,50,0.16,0.08,0.14962002268865227
+Ministral,47,packaging companies,100,0.22,0.22,0.2001692495163898
+Ministral,47,packaging companies,1000,0.095,0.95,0.5939533988215583
+Ministral,48,food processing companies,10,0.1,0.01,0.07839826897867533
+Ministral,48,food processing companies,50,0.12,0.06,0.11787782248431639
+Ministral,48,food processing companies,100,0.12,0.12,0.12004538655034377
+Ministral,48,food processing companies,1000,0.094,0.94,0.5745214263521239
+Ministral,49,beverage companies,10,0.2,0.02,0.2082936658103318
+Ministral,49,beverage companies,50,0.16,0.08,0.1699626129416277
+Ministral,49,beverage companies,100,0.11,0.11,0.1278807164787783
+Ministral,49,beverage companies,1000,0.093,0.93,0.5844846486816966
+Ministral,50,mining companies,10,0.7,0.07,0.800693766409882
+Ministral,50,mining companies,50,0.22,0.11,0.3453736904678379
+Ministral,50,mining companies,100,0.18,0.18,0.26670907697991886
+Ministral,50,mining companies,1000,0.092,0.92,0.6772351629380781
+Ministral,51,oil and gas companies,10,0.1,0.01,0.07336392209936005
+Ministral,51,oil and gas companies,50,0.1,0.05,0.0906160682605238
+Ministral,51,oil and gas companies,100,0.14,0.14,0.12362511255171044
+Ministral,51,oil and gas companies,1000,0.094,0.94,0.5646554299510658
+Ministral,52,energy storage companies,10,0.6,0.06,0.624232247406789
+Ministral,52,energy storage companies,50,0.32,0.16,0.3738705321981367
+Ministral,52,energy storage companies,100,0.25,0.25,0.30088015632655046
+Ministral,52,energy storage companies,1000,0.099,0.99,0.7207656415735257
+Ministral,53,waste management companies,10,0.0,0.0,0.0
+Ministral,53,waste management companies,50,0.06,0.03,0.041987890297497305
+Ministral,53,waste management companies,100,0.14,0.14,0.11118528831333778
+Ministral,53,waste management companies,1000,0.095,0.95,0.5524975490102746
+Ministral,54,water treatment companies,10,0.2,0.02,0.28952298823485745
+Ministral,54,water treatment companies,50,0.12,0.06,0.1636620946416212
+Ministral,54,water treatment companies,100,0.13,0.13,0.15379578965259488
+Ministral,54,water treatment companies,1000,0.1,1.0,0.6408603080302221
+Ministral,55,aerospace companies,10,0.1,0.01,0.08514311764162098
+Ministral,55,aerospace companies,50,0.18,0.09,0.16127289495824784
+Ministral,55,aerospace companies,100,0.15,0.15,0.14533511232463595
+Ministral,55,aerospace companies,1000,0.092,0.92,0.5757375947853736
+Ministral,56,defense contractors,10,0.3,0.03,0.22466337602289155
+Ministral,56,defense contractors,50,0.3,0.15,0.2951202390609061
+Ministral,56,defense contractors,100,0.2,0.2,0.22017861496425822
+Ministral,56,defense contractors,1000,0.087,0.87,0.6093259961328776
+Ministral,57,transportation companies,10,0.1,0.01,0.08514311764162098
+Ministral,57,transportation companies,50,0.14,0.07,0.12843983356631897
+Ministral,57,transportation companies,100,0.11,0.11,0.10939908366046674
+Ministral,57,transportation companies,1000,0.059,0.59,0.36942168248547474
+Ministral,58,shipping companies,10,0.1,0.01,0.06943122193677727
+Ministral,58,shipping companies,50,0.1,0.05,0.09059255012990362
+Ministral,58,shipping companies,100,0.1,0.1,0.09266159909975262
+Ministral,58,shipping companies,1000,0.06,0.6,0.3806752059502991
+Ministral,59,trucking companies,10,0.1,0.01,0.06625422345438903
+Ministral,59,trucking companies,50,0.14,0.07,0.12093781199131463
+Ministral,59,trucking companies,100,0.14,0.14,0.12711646593053672
+Ministral,59,trucking companies,1000,0.083,0.83,0.5061628510164314
+Ministral,60,freight forwarding companies,10,0.0,0.0,0.0
+Ministral,60,freight forwarding companies,50,0.1,0.05,0.07990801758181663
+Ministral,60,freight forwarding companies,100,0.08,0.08,0.07200153823245695
+Ministral,60,freight forwarding companies,1000,0.077,0.77,0.45132109185293445
+Ministral,61,warehousing companies,10,0.2,0.02,0.1884441521277154
+Ministral,61,warehousing companies,50,0.22,0.11,0.2084700177174894
+Ministral,61,warehousing companies,100,0.18,0.18,0.1814997139060963
+Ministral,61,warehousing companies,1000,0.083,0.83,0.5508262625737408
+Ministral,62,cold storage companies,10,0.1,0.01,0.07336392209936005
+Ministral,62,cold storage companies,50,0.2,0.1,0.17219938214295388
+Ministral,62,cold storage companies,100,0.14,0.14,0.13739836978293615
+Ministral,62,cold storage companies,1000,0.093,0.93,0.5819440766676562
+Ministral,63,retail technology companies,10,0.3,0.03,0.2032389337527008
+Ministral,63,retail technology companies,50,0.16,0.08,0.1595254897041359
+Ministral,63,retail technology companies,100,0.13,0.13,0.13729770613605924
+Ministral,63,retail technology companies,1000,0.084,0.84,0.5320813035751694
+Ministral,64,point of sale systems providers,10,0.0,0.0,0.0
+Ministral,64,point of sale systems providers,50,0.08,0.04,0.0679800728728541
+Ministral,64,point of sale systems providers,100,0.12,0.12,0.10498843409716035
+Ministral,64,point of sale systems providers,1000,0.095,0.95,0.5751206212740799
+Ministral,65,inventory management software,10,0.6,0.06,0.615406227586239
+Ministral,65,inventory management software,50,0.44,0.22,0.4781858769343926
+Ministral,65,inventory management software,100,0.38,0.38,0.4192777483543201
+Ministral,65,inventory management software,1000,0.093,0.93,0.7525489688458091
+Ministral,66,customer relationship management (CRM) software,10,0.1,0.01,0.06362078819895171
+Ministral,66,customer relationship management (CRM) software,50,0.3,0.15,0.25248410657384557
+Ministral,66,customer relationship management (CRM) software,100,0.24,0.24,0.22437140110239215
+Ministral,66,customer relationship management (CRM) software,1000,0.098,0.98,0.6520261730188898
+Ministral,67,enterprise resource planning (ERP) systems,10,0.2,0.02,0.2984900352767555
+Ministral,67,enterprise resource planning (ERP) systems,50,0.18,0.09,0.21658616034222353
+Ministral,67,enterprise resource planning (ERP) systems,100,0.11,0.11,0.14880339858745534
+Ministral,67,enterprise resource planning (ERP) systems,1000,0.065,0.65,0.45920278149237476
+Ministral,68,business intelligence (BI) companies,10,0.1,0.01,0.13886244387355454
+Ministral,68,business intelligence (BI) companies,50,0.24,0.12,0.2283903783158177
+Ministral,68,business intelligence (BI) companies,100,0.19,0.19,0.19634304630489877
+Ministral,68,business intelligence (BI) companies,1000,0.09,0.9,0.6134042677969087
+Ministral,69,IT consulting firms,10,0.0,0.0,0.0
+Ministral,69,IT consulting firms,50,0.04,0.02,0.033055207834460434
+Ministral,69,IT consulting firms,100,0.06,0.06,0.05158926655543479
+Ministral,69,IT consulting firms,1000,0.054,0.54,0.3168364588266275
+Ministral,70,cybersecurity solutions providers,10,0.3,0.03,0.37850091886658266
+Ministral,70,cybersecurity solutions providers,50,0.1,0.05,0.16609315150943127
+Ministral,70,cybersecurity solutions providers,100,0.09,0.09,0.13307437820675153
+Ministral,70,cybersecurity solutions providers,1000,0.059,0.59,0.4030813410340206
+Ministral,71,cloud security providers,10,0.4,0.04,0.31017134364653787
+Ministral,71,cloud security providers,50,0.32,0.16,0.3161459966248774
+Ministral,71,cloud security providers,100,0.22,0.22,0.24225429004926224
+Ministral,71,cloud security providers,1000,0.078,0.78,0.5439074765102656
+Ministral,72,managed service providers (MSPs),10,0.1,0.01,0.06943122193677727
+Ministral,72,managed service providers (MSPs),50,0.12,0.06,0.10697255235598177
+Ministral,72,managed service providers (MSPs),100,0.17,0.17,0.15099764561679715
+Ministral,72,managed service providers (MSPs),1000,0.073,0.73,0.47683583525281087
+Ministral,73,remote monitoring and management (RMM) software,10,0.8,0.08,0.84860265890399
+Ministral,73,remote monitoring and management (RMM) software,50,0.46,0.23,0.5388112950691412
+Ministral,73,remote monitoring and management (RMM) software,100,0.37,0.37,0.4396557656250155
+Ministral,73,remote monitoring and management (RMM) software,1000,0.078,0.78,0.6721339502288431
+Ministral,74,data center providers,10,0.2,0.02,0.2051166673279436
+Ministral,74,data center providers,50,0.2,0.1,0.20473048073000952
+Ministral,74,data center providers,100,0.17,0.17,0.17898651151443498
+Ministral,74,data center providers,1000,0.078,0.78,0.5272192878071313
+Ministral,75,web hosting companies,10,0.1,0.01,0.22009176629808017
+Ministral,75,web hosting companies,50,0.02,0.01,0.07753300701100829
+Ministral,75,web hosting companies,100,0.01,0.01,0.047758523260819974
+Ministral,75,web hosting companies,1000,0.036,0.36,0.21993249154715275
+Ministral,76,domain name registrars,10,0.2,0.02,0.12987501165334076
+Ministral,76,domain name registrars,50,0.2,0.1,0.17993344827910832
+Ministral,76,domain name registrars,100,0.21,0.21,0.19435365780372893
+Ministral,76,domain name registrars,1000,0.1,1.0,0.6238312745147457
+Ministral,77,content management systems (CMS),10,0.5,0.05,0.4066392799050653
+Ministral,77,content management systems (CMS),50,0.36,0.18,0.35281881501769796
+Ministral,77,content management systems (CMS),100,0.29,0.29,0.30195788426678305
+Ministral,77,content management systems (CMS),1000,0.097,0.97,0.6834655976124762
+Ministral,78,e-learning platforms,10,0.3,0.03,0.22119341301481266
+Ministral,78,e-learning platforms,50,0.34,0.17,0.3219695175447806
+Ministral,78,e-learning platforms,100,0.21,0.21,0.23113132279317838
+Ministral,78,e-learning platforms,1000,0.1,1.0,0.6794414941178558
+Ministral,79,online marketing agencies,10,0.2,0.02,0.17993148201117176
+Ministral,79,online marketing agencies,50,0.24,0.12,0.22767384395192825
+Ministral,79,online marketing agencies,100,0.15,0.15,0.16357516945903652
+Ministral,79,online marketing agencies,1000,0.068,0.68,0.4579707285087045
+Ministral,80,lead generation companies,10,0.2,0.02,0.19518900079066107
+Ministral,80,lead generation companies,50,0.24,0.12,0.22985520377350807
+Ministral,80,lead generation companies,100,0.17,0.17,0.1794444789496486
+Ministral,80,lead generation companies,1000,0.096,0.96,0.6127452786939314
+Ministral,81,market research firms,10,0.1,0.01,0.09478836436955078
+Ministral,81,market research firms,50,0.18,0.09,0.16984965554779816
+Ministral,81,market research firms,100,0.16,0.16,0.15781637144749483
+Ministral,81,market research firms,1000,0.091,0.91,0.569216896286209
+Ministral,82,public relations agencies,10,0.1,0.01,0.07839826897867533
+Ministral,82,public relations agencies,50,0.14,0.07,0.12467446344218767
+Ministral,82,public relations agencies,100,0.17,0.17,0.15327213488616007
+Ministral,82,public relations agencies,1000,0.088,0.88,0.55983715610194
+Ministral,83,graphic design studios,10,0.5,0.05,0.42331179510529354
+Ministral,83,graphic design studios,50,0.26,0.13,0.27070629499572957
+Ministral,83,graphic design studios,100,0.16,0.16,0.18930992470532151
+Ministral,83,graphic design studios,1000,0.098,0.98,0.6469969575122265
+Ministral,84,video production companies,10,0.1,0.01,0.06362078819895171
+Ministral,84,video production companies,50,0.14,0.07,0.12089414198223886
+Ministral,84,video production companies,100,0.15,0.15,0.1371347999723212
+Ministral,84,video production companies,1000,0.099,0.99,0.5975874411565539
+Ministral,85,translation services,10,0.0,0.0,0.0
+Ministral,85,translation services,50,0.02,0.01,0.017651958988418856
+Ministral,85,translation services,100,0.06,0.06,0.04890120367344411
+Ministral,85,translation services,1000,0.099,0.99,0.565227102183135
+Ministral,86,legal technology companies,10,0.0,0.0,0.0
+Ministral,86,legal technology companies,50,0.12,0.06,0.09486036111992527
+Ministral,86,legal technology companies,100,0.11,0.11,0.09620901712954037
+Ministral,86,legal technology companies,1000,0.099,0.99,0.5902613882979408
+Ministral,87,accounting software providers,10,0.2,0.02,0.17993148201117176
+Ministral,87,accounting software providers,50,0.14,0.07,0.14269219477120348
+Ministral,87,accounting software providers,100,0.13,0.13,0.13501757316173732
+Ministral,87,accounting software providers,1000,0.085,0.85,0.5385500754267872
+Ministral,88,tax preparation services,10,0.1,0.01,0.06625422345438903
+Ministral,88,tax preparation services,50,0.16,0.08,0.1419713706356187
+Ministral,88,tax preparation services,100,0.21,0.21,0.1877477972981502
+Ministral,88,tax preparation services,1000,0.096,0.96,0.599541058408925
+Ministral,89,payroll processing companies,10,0.4,0.04,0.3282410109263901
+Ministral,89,payroll processing companies,50,0.22,0.11,0.23042850637899737
+Ministral,89,payroll processing companies,100,0.2,0.2,0.21105553320281273
+Ministral,89,payroll processing companies,1000,0.095,0.95,0.64189754834489
+Ministral,90,financial planning services,10,0.1,0.01,0.13886244387355454
+Ministral,90,financial planning services,50,0.12,0.06,0.12977829891824955
+Ministral,90,financial planning services,100,0.08,0.08,0.09581131918242827
+Ministral,90,financial planning services,1000,0.071,0.71,0.4426632355754457
+Ministral,91,investment management firms,10,0.0,0.0,0.0
+Ministral,91,investment management firms,50,0.08,0.04,0.06740879135047723
+Ministral,91,investment management firms,100,0.07,0.07,0.06497169640855362
+Ministral,91,investment management firms,1000,0.061,0.61,0.36572802471680865
+Ministral,92,wealth management firms,10,0.0,0.0,0.0
+Ministral,92,wealth management firms,50,0.06,0.03,0.047409313514128686
+Ministral,92,wealth management firms,100,0.07,0.07,0.06054056474529593
+Ministral,92,wealth management firms,1000,0.058,0.58,0.33854827957677724
+Ministral,93,commercial real estate brokers,10,0.2,0.02,0.2082936658103318
+Ministral,93,commercial real estate brokers,50,0.16,0.08,0.17864361942378176
+Ministral,93,commercial real estate brokers,100,0.16,0.16,0.17019860716547977
+Ministral,93,commercial real estate brokers,1000,0.085,0.85,0.5720569276878674
+Ministral,94,residential real estate brokers,10,0.2,0.02,0.2082936658103318
+Ministral,94,residential real estate brokers,50,0.14,0.07,0.1557948163410463
+Ministral,94,residential real estate brokers,100,0.15,0.15,0.15752853957136526
+Ministral,94,residential real estate brokers,1000,0.085,0.85,0.5543566762436065
+Ministral,95,construction equipment manufacturers,10,0.1,0.01,0.22009176629808017
+Ministral,95,construction equipment manufacturers,50,0.24,0.12,0.2529424363076599
+Ministral,95,construction equipment manufacturers,100,0.19,0.19,0.2089079829467315
+Ministral,95,construction equipment manufacturers,1000,0.093,0.93,0.6296272714136558
+Ministral,96,building materials suppliers,10,0.1,0.01,0.07839826897867533
+Ministral,96,building materials suppliers,50,0.12,0.06,0.10923561488495268
+Ministral,96,building materials suppliers,100,0.17,0.17,0.1517026869027922
+Ministral,96,building materials suppliers,1000,0.099,0.99,0.6114147757223037
+Ministral,97,renewable energy project developers,10,0.2,0.02,0.1635413866202963
+Ministral,97,renewable energy project developers,50,0.12,0.06,0.12109675118926586
+Ministral,97,renewable energy project developers,100,0.2,0.2,0.18157532069163324
+Ministral,97,renewable energy project developers,1000,0.087,0.87,0.5584943939886259
+Ministral,98,sustainable agriculture companies,10,0.0,0.0,0.0
+Ministral,98,sustainable agriculture companies,50,0.18,0.09,0.15198402757689625
+Ministral,98,sustainable agriculture companies,100,0.17,0.17,0.15437480964037142
+Ministral,98,sustainable agriculture companies,1000,0.074,0.74,0.47061665945096237
+Ministral,99,vertical farming companies,10,0.2,0.02,0.13568544539116628
+Ministral,99,vertical farming companies,50,0.46,0.23,0.38090902232301743
+Ministral,99,vertical farming companies,100,0.41,0.41,0.37418819355683064
+Ministral,99,vertical farming companies,1000,0.094,0.94,0.6911372129486152
+Ministral,100,precision agriculture technology providers,10,0.1,0.01,0.09478836436955078
+Ministral,100,precision agriculture technology providers,50,0.38,0.19,0.3311718561276205
+Ministral,100,precision agriculture technology providers,100,0.29,0.29,0.28291188478749874
+Ministral,100,precision agriculture technology providers,1000,0.099,0.99,0.6817885078183265
+Ministral,101,alternative protein manufacturers,10,0.5,0.05,0.3913817611255761
+Ministral,101,alternative protein manufacturers,50,0.26,0.13,0.2730919268076683
+Ministral,101,alternative protein manufacturers,100,0.22,0.22,0.2387047154733074
+Ministral,101,alternative protein manufacturers,1000,0.098,0.98,0.684270663908998

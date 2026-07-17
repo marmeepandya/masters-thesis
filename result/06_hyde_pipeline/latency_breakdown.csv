@@ -1,0 +1,4 @@
+pipeline,hyde_gen_ms,encode_search_ms,rerank_ms,total_ms
+MiniLM baseline,0.0,16.9,0.0,16.9
+HyDE + MiniLM,9225.4,21.4,0.0,9246.9
+HyDE + MiniLM + Reranker,9225.4,21.4,241.5,9488.3

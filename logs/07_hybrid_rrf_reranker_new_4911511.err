@@ -1,0 +1,7 @@
+Error: listen tcp 127.0.0.1:11435: bind: address already in use
+[NbConvertApp] Converting notebook 07_hybrid_rrf_reranker.ipynb to script
+[NbConvertApp] Writing 24994 bytes to 07_hybrid_rrf_reranker.py
+mv: cannot stat '07_hybrid_rrf_reranker.txt': No such file or directory
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 5939.31it/s]
+/var/spool/slurmd/job4911511/slurm_script: line 57: kill: (1837751) - No such process

@@ -1,0 +1,85 @@
+Ollama started with PID 3813963
+[GIN] 2026/07/06 - 18:35:56 | 200 |      65.414µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 18:35:56 | 200 |     114.025µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 18:35:56 | 200 |      19.043µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 18:35:56 | 200 |   14.212932ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/14_bge_prefix_allfields/ -- ready
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[FAISS] Loading cached company embeddings (no re-encoding needed)...
+[FAISS] Embeddings shape : (98716, 1024)
+[FAISS] Loading cached IndexFlatIP...
+[FAISS] Vectors in index : 98,716
+[Note] Text representation used to build these embeddings: all fields -- name, country, state, city, district, organization_type, organization_size, nace_code, summary, summary_keywords (matches 02_baseline_bge.ipynb's corpus)
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[Encode] Loading BGE-large model...
+[Encode] Model loaded in 9.6s on cuda:0
+[Run] Starting BGE retrieval for 101 queries (WITH instruction prefix)...
+-------------------------------------------------------
+[Run]  20/101  |  avg 93.4ms/query  |  ~11s remaining
+[Run]  40/101  |  avg 68.9ms/query  |  ~7s remaining
+[Run]  60/101  |  avg 60.7ms/query  |  ~4s remaining
+[Run]  80/101  |  avg 57.0ms/query  |  ~2s remaining
+[Run] 100/101  |  avg 54.5ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 54.4ms/query  |  ~0s remaining
+-------------------------------------------------------
+[Run] Done!
+[Run] Avg query latency : 54.4ms
+[Run] Saved to          : result/14_bge_prefix_allfields/bge_results_prefix.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/14_bge_prefix_allfields/evaluation_bge_prefix.csv
+[Compare] Loading original (no-prefix) BGE evaluation for comparison...
+
+  k        Recall (no prefix)   Recall (with prefix)    Delta
+  --------------------------------------------------------------
+  10                    0.009                  0.009   -0.000
+  50                    0.046                  0.046   +0.000
+  100                   0.091                  0.091   +0.000
+  500                   0.421                  0.421   -0.000
+  1000                  0.726                  0.727   +0.001
+[Summary] ============================================================
+[Summary] BGE-large RESULTS (All-Fields, WITH query instruction prefix)
+
+[Summary] Query encoding note : "Represent this sentence for searching relevant passages: " prefix added
+[Summary] Avg query latency  : 54.4ms
+[Summary] Companies (cached) : 98,716
+[Summary] Embedding dims     : 1024
+[Summary] Queries evaluated  : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.937      0.932    0.009    0.018
+  50        0.925      0.921    0.046    0.088
+  100       0.916      0.910    0.091    0.166
+  500       0.854      0.842    0.421    0.561
+  1000      0.751      0.727    0.727    0.727
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5819064
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:12
+CPU Efficiency: 3.70% of 00:32:24 core-walltime
+Job Wall-clock time: 00:02:42
+Memory Utilized: 2.21 GB
+Memory Efficiency: 2.41% of 91.80 GB (91.80 GB/node)

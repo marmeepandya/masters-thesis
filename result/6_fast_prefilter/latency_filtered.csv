@@ -1,0 +1,102 @@
+query_id,query,corpus_before,corpus_after,reduction_pct,fallback_used,filter_ms,bge_ms,rerank_ms,total_ms,filter_country,filter_city,filter_nace,filter_keywords
+1,software companies,98716,12440,87.4,False,1.9,71.8,238.0,311.7,,,K,['software']
+2,healthcare providers,98716,98716,0.0,True,1.6,440.6,246.3,688.4,,,Q,['healthcare']
+3,AI startups in Berlin,98716,340,99.7,False,1.4,20.1,237.8,259.3,,berlin,,['berlin']
+4,renewable energy companies in Germany,98716,440,99.6,False,0.7,16.6,245.7,263.0,germany,,D,"['renewable', 'energy', 'germany', 'renewable energy']"
+5,companies providing cloud migration services,98716,7930,92.0,False,1.2,50.7,260.9,312.7,,,K,"['cloud', 'migration', 'cloud migration']"
+6,B2B SaaS platforms,98716,3760,96.2,False,1.0,27.1,256.1,284.1,,,K,"['b2b', 'saas', 'platforms', 'b2b saas', 'saas platforms']"
+7,machine learning companies,98716,2559,97.4,False,0.4,22.9,256.0,279.3,,,,"['machine', 'learning', 'machine learning']"
+8,IoT solution providers,98716,1443,98.5,False,0.2,19.1,265.2,284.5,,,,['iot']
+9,enterprise software vendors,98716,12443,87.4,False,1.6,70.2,235.6,307.4,,,K,"['software', 'vendors', 'software vendors']"
+10,small consulting firms,98716,389,99.6,False,0.8,16.4,239.1,256.3,,,M,['consulting']
+11,tech companies in Munich,98716,1772,98.2,False,0.4,20.2,249.5,270.1,,,K,"['tech', 'munich']"
+12,manufacturing in Baden-Württemberg,98716,325,99.7,False,0.7,19.4,236.2,256.3,,,C,"['manufacturing', 'baden-württemberg']"
+13,e-commerce platforms,98716,1061,98.9,False,0.7,18.1,242.8,261.5,,,G,"['e-commerce', 'platforms', 'e-commerce platforms']"
+14,pharmaceutical companies,98716,98716,0.0,True,1.4,432.4,294.4,728.2,,,Q,['pharmaceutical']
+15,logistics companies in the US,98716,5884,94.0,False,2.2,36.2,262.4,300.7,,,H,['logistics']
+16,data analytics companies,98716,8666,91.2,False,1.7,54.1,251.6,307.4,,,K,"['data', 'analytics', 'data analytics']"
+17,cybersecurity firms,98716,3552,96.4,False,0.3,26.1,262.0,288.5,,,,['cybersecurity']
+18,financial services companies,98716,10008,89.9,False,0.7,50.7,243.7,295.2,,,,['financial']
+19,retail chains in Europe,98716,2200,97.8,False,0.8,21.5,260.6,283.0,,,G,"['retail', 'chains', 'europe', 'retail chains']"
+20,construction companies,98716,1526,98.5,False,0.6,19.1,206.7,226.4,,,F,['construction']
+21,marketing agencies,98716,9912,90.0,False,0.8,50.2,286.0,337.0,,,,"['marketing', 'agencies', 'marketing agencies']"
+22,human resources software,98716,12512,87.3,False,2.1,69.4,237.3,308.8,,,K,"['human', 'resources', 'software', 'human resources']"
+23,supply chain management companies,98716,37698,61.8,False,3.3,176.3,292.3,472.0,,,,"['supply', 'chain', 'management', 'supply chain', 'chain management']"
+24,solar panel manufacturers,98716,583,99.4,False,0.3,16.9,250.2,267.4,,,D,"['solar', 'panel', 'manufacturers', 'solar panel']"
+25,agricultural technology companies,98716,5964,94.0,False,1.6,34.3,264.2,300.1,,,K,"['agricultural', 'technology', 'agricultural technology']"
+26,electric vehicle manufacturers,98716,1997,98.0,False,0.3,21.0,300.6,321.9,,,,"['electric', 'vehicle', 'manufacturers', 'electric vehicle', 'vehicle manufacturers']"
+27,biotech companies,98716,429,99.6,False,0.1,16.5,281.6,298.1,,,,['biotech']
+28,digital transformation consultants,98716,14384,85.4,False,1.3,81.7,244.5,327.5,,,,"['digital', 'transformation', 'consultants', 'digital transformation', 'transformation consultants']"
+29,cloud computing providers,98716,7967,91.9,False,1.3,44.7,252.3,298.3,,,K,"['cloud', 'computing', 'cloud computing']"
+30,mobile app development companies,98716,19276,80.5,False,1.9,102.9,240.8,345.7,,,,"['mobile', 'app', 'development', 'mobile app', 'app development']"
+31,web design agencies,98716,14768,85.0,False,1.7,83.4,261.0,346.1,,,,"['web', 'design', 'agencies', 'web design']"
+32,SEO companies,98716,2836,97.1,False,0.3,24.0,221.7,246.1,,,,['seo']
+33,social media marketing agencies,98716,735,99.3,False,1.0,17.5,236.4,254.9,,,J,"['social', 'media', 'marketing', 'agencies', 'social media', 'media marketing', 'marketing agencies']"
+34,venture capital firms,98716,98716,0.0,True,1.6,438.7,245.2,685.6,,,,"['venture', 'capital', 'venture capital']"
+35,private equity firms,98716,4005,95.9,False,1.9,27.6,240.4,269.9,,,,"['private', 'equity', 'private equity']"
+36,investment banks,98716,9063,90.8,False,0.7,48.3,256.6,305.6,,,,"['investment', 'banks']"
+37,insurance companies,98716,153,99.8,False,0.3,15.8,260.3,276.3,,,K,['insurance']
+38,real estate developers,98716,7045,92.9,False,0.9,38.3,245.3,284.5,,,,"['real', 'estate', 'developers', 'real estate']"
+39,property management companies,98716,36300,63.2,False,2.3,176.8,236.7,415.8,,,,"['property', 'management', 'property management']"
+40,hospital management companies,98716,34337,65.2,False,2.2,167.2,284.1,453.4,,,,"['hospital', 'management', 'hospital management']"
+41,medical device manufacturers,98716,98716,0.0,True,1.8,441.2,266.4,709.4,,,Q,"['medical', 'device', 'manufacturers', 'medical device']"
+42,telecommunications companies,98716,2330,97.6,False,1.3,25.6,246.4,273.3,,,,['telecommunications']
+43,internet service providers,98716,4111,95.8,False,0.4,29.5,247.6,277.5,,,,['internet']
+44,manufacturing automation companies,98716,8376,91.5,False,1.6,45.4,262.4,309.5,,,C,"['manufacturing', 'automation', 'manufacturing automation']"
+45,robotics companies,98716,1597,98.4,False,0.2,20.7,268.8,289.8,,,,['robotics']
+46,3D printing companies,98716,1449,98.5,False,0.2,21.8,258.9,280.9,,,,['printing']
+47,packaging companies,98716,1908,98.1,False,0.2,20.1,262.0,282.4,,,,['packaging']
+48,food processing companies,98716,2675,97.3,False,0.8,22.6,262.4,285.9,,,C,"['food', 'processing', 'food processing']"
+49,beverage companies,98716,1140,98.8,False,0.1,18.5,282.1,300.7,,,,['beverage']
+50,mining companies,98716,1236,98.7,False,0.1,18.2,246.1,264.4,,,,['mining']
+51,oil and gas companies,98716,1293,98.7,False,0.2,18.3,274.7,293.2,,,,"['oil', 'gas']"
+52,energy storage companies,98716,991,99.0,False,0.6,20.9,310.1,331.6,,,D,"['energy', 'storage', 'energy storage']"
+53,waste management companies,98716,34152,65.4,False,2.0,166.5,280.0,448.4,,,,"['waste', 'management', 'waste management']"
+54,water treatment companies,98716,1930,98.0,False,0.4,24.1,258.0,282.5,,,,"['water', 'treatment', 'water treatment']"
+55,aerospace companies,98716,1434,98.5,False,0.2,22.1,249.1,271.3,,,,['aerospace']
+56,defense contractors,98716,1756,98.2,False,0.2,22.8,259.5,282.5,,,,"['defense', 'contractors', 'defense contractors']"
+57,transportation companies,98716,4648,95.3,False,0.3,32.1,219.7,252.1,,,,['transportation']
+58,shipping companies,98716,2624,97.3,False,0.4,22.6,243.7,266.6,,,H,['shipping']
+59,trucking companies,98716,1513,98.5,False,0.1,19.3,231.1,250.6,,,,['trucking']
+60,freight forwarding companies,98716,4160,95.8,False,0.5,26.6,297.3,324.4,,,H,"['freight', 'forwarding', 'freight forwarding']"
+61,warehousing companies,98716,3262,96.7,False,0.3,24.4,306.7,331.4,,,,['warehousing']
+62,cold storage companies,98716,4242,95.7,False,0.4,27.3,261.9,289.6,,,,"['cold', 'storage', 'cold storage']"
+63,retail technology companies,98716,2498,97.5,False,1.4,22.5,245.6,269.6,,,G,"['retail', 'technology', 'retail technology']"
+64,point of sale systems providers,98716,7927,92.0,False,1.1,41.2,253.8,296.2,,,,"['point', 'sale', 'systems']"
+65,inventory management software,98716,17474,82.3,False,3.7,92.3,261.9,357.9,,,K,"['inventory', 'management', 'software', 'inventory management', 'management software']"
+66,customer relationship management (CRM) software,98716,19255,80.5,False,4.0,100.1,264.9,369.0,,,K,"['customer', 'relationship', 'management', '(crm)', 'software', 'customer relationship', 'relationship management']"
+67,enterprise resource planning (ERP) systems,98716,12859,87.0,False,1.8,62.0,290.1,353.8,,,,"['resource', 'planning', '(erp)', 'systems', 'resource planning']"
+68,business intelligence (BI) companies,98716,4497,95.4,False,0.5,32.2,258.4,291.1,,,,"['intelligence', '(bi)']"
+69,IT consulting firms,98716,389,99.6,False,0.6,20.0,224.4,245.0,,,M,['consulting']
+70,cybersecurity solutions providers,98716,3552,96.4,False,0.2,28.8,247.2,276.1,,,,['cybersecurity']
+71,cloud security providers,98716,9699,90.2,False,1.5,49.8,258.0,309.4,,,K,"['cloud', 'security', 'cloud security']"
+72,managed service providers (MSPs),98716,2945,97.0,False,0.3,24.2,283.0,307.6,,,,['managed']
+73,remote monitoring and management (RMM) software,98716,17976,81.8,False,3.5,93.6,253.9,351.0,,,K,"['remote', 'monitoring', 'management', 'software', 'remote monitoring']"
+74,data center providers,98716,8181,91.7,False,1.5,45.9,255.0,302.4,,,K,"['data', 'center', 'data center']"
+75,web hosting companies,98716,10027,89.8,False,0.9,55.4,162.3,218.6,,,,"['web', 'hosting', 'web hosting']"
+76,domain name registrars,98716,1991,98.0,False,0.2,24.0,229.7,253.9,,,,"['domain', 'name', 'registrars', 'domain name']"
+77,content management systems (CMS),98716,41512,57.9,False,2.4,198.2,248.8,449.4,,,,"['content', 'management', 'systems', 'content management', 'management systems']"
+78,e-learning platforms,98716,1278,98.7,False,0.3,22.1,255.8,278.2,,,,"['e-learning', 'platforms', 'e-learning platforms']"
+79,online marketing agencies,98716,15923,83.9,False,1.6,88.9,245.9,336.4,,,,"['online', 'marketing', 'agencies', 'online marketing', 'marketing agencies']"
+80,lead generation companies,98716,2773,97.2,False,0.5,26.5,239.1,266.2,,,,"['lead', 'generation', 'lead generation']"
+81,market research firms,98716,98716,0.0,True,1.9,441.5,236.9,680.4,,market,,"['market', 'research', 'market research']"
+82,public relations agencies,98716,2980,97.0,False,1.8,27.4,237.2,266.4,,,,"['public', 'relations', 'agencies', 'public relations']"
+83,graphic design studios,98716,8877,91.0,False,1.1,46.6,238.4,286.0,,,,"['graphic', 'design', 'studios', 'graphic design', 'design studios']"
+84,video production companies,98716,1441,98.5,False,0.8,22.5,294.6,317.9,,,C,"['video', 'production', 'video production']"
+85,translation services,98716,1044,98.9,False,0.1,18.0,266.1,284.1,,,,['translation']
+86,legal technology companies,98716,98716,0.0,True,2.3,432.8,233.8,669.0,,,M,"['legal', 'technology', 'legal technology']"
+87,accounting software providers,98716,98716,0.0,True,3.5,432.6,246.2,682.2,,,M,"['accounting', 'software', 'accounting software']"
+88,tax preparation services,98716,3008,97.0,False,1.6,24.2,228.5,254.3,,,,"['tax', 'preparation', 'tax preparation']"
+89,payroll processing companies,98716,5359,94.6,False,0.7,31.0,251.3,283.0,,,,"['payroll', 'processing', 'payroll processing']"
+90,financial planning services,98716,11616,88.2,False,1.1,57.5,213.3,271.9,,,,"['financial', 'planning', 'financial planning']"
+91,investment management firms,98716,37339,62.2,False,2.3,178.8,258.9,440.0,,,,"['investment', 'management', 'investment management']"
+92,wealth management firms,98716,34114,65.4,False,2.7,163.7,264.5,430.9,,,,"['wealth', 'management', 'wealth management']"
+93,commercial real estate brokers,98716,9857,90.0,False,1.6,51.6,289.7,342.9,,,,"['commercial', 'real', 'estate', 'brokers', 'real estate']"
+94,residential real estate brokers,98716,9042,90.8,False,1.1,51.6,260.3,313.1,,,,"['residential', 'real', 'estate', 'brokers', 'real estate']"
+95,construction equipment manufacturers,98716,1541,98.4,False,1.0,19.5,263.5,284.0,,,F,"['construction', 'equipment', 'manufacturers', 'construction equipment', 'equipment manufacturers']"
+96,building materials suppliers,98716,972,99.0,False,0.5,17.6,264.9,283.0,,,F,"['building', 'materials', 'suppliers', 'building materials']"
+97,renewable energy project developers,98716,991,99.0,False,0.7,17.8,258.8,277.3,,,D,"['renewable', 'energy', 'project', 'developers', 'renewable energy', 'energy project', 'project developers']"
+98,sustainable agriculture companies,98716,1391,98.6,False,0.5,18.6,265.8,284.8,,,A,"['sustainable', 'agriculture', 'sustainable agriculture']"
+99,vertical farming companies,98716,1229,98.8,False,0.3,18.8,264.4,283.5,,,A,"['vertical', 'farming', 'vertical farming']"
+100,precision agriculture technology providers,98716,1394,98.6,False,1.1,19.6,255.0,275.6,,,A,"['precision', 'agriculture', 'technology', 'precision agriculture', 'agriculture technology']"
+101,alternative protein manufacturers,98716,968,99.0,False,0.2,17.7,268.3,286.3,,,,"['alternative', 'protein', 'manufacturers', 'alternative protein']"
