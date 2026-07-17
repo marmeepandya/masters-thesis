@@ -1,0 +1,98 @@
+Ollama started with PID 475930
+[GIN] 2026/07/05 - 22:32:38 | 200 |   10.321659ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/05 - 22:32:38 | 200 |   19.894443ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/05 - 22:32:38 | 200 |    3.443752ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/05 - 22:32:38 | 200 |   24.881995ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/03_baseline_minilm/ — ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Sample rich text (first company):
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[GPU] VRAM            : 42.4 GB
+[GPU] Using device    : cuda
+[Encode] Loading MiniLM model...
+[Encode] Model loaded in  : 4.7s  on cuda:0
+[Encode] Embedding dims   : 384
+[Encode] Parameters       : ~22M
+[Encode] Encoding all companies...
+[Encode] Batch size       : 256
+[Encode] Done in          : 1.1 minutes
+[Encode] Embeddings shape : (98716, 384)
+[Encode] Saved to         : result/03_baseline_minilm/company_embeddings.npy
+[FAISS] Loading embeddings...
+[FAISS] Embeddings shape  : (98716, 384)
+[FAISS] Building IndexFlatL2...
+[FAISS] Index built in    : 0.07s
+[FAISS] Vectors in index  : 98,716
+[FAISS] Index type        : IndexFlatL2 (exact L2 distance)
+[FAISS] Index saved to    : result/03_baseline_minilm/company_faiss.index
+[Run] Starting MiniLM retrieval for 101 queries...
+[Run] Retrieving top-1000 per query
+-------------------------------------------------------
+[Run]  20/101  |  avg 26.6ms/query  |  ~5s remaining
+[Run]  40/101  |  avg 21.4ms/query  |  ~4s remaining
+[Run]  60/101  |  avg 19.7ms/query  |  ~2s remaining
+[Run]  80/101  |  avg 18.9ms/query  |  ~1s remaining
+[Run] 100/101  |  avg 18.4ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 18.3ms/query  |  ~0s remaining
+-------------------------------------------------------
+[Run] Done!
+[Run] Total results       : 101,000
+[Run] Avg query latency   : 18.3ms
+[Run] Saved to            : result/03_baseline_minilm/minilm_results.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/03_baseline_minilm/evaluation_minilm.csv
+[Summary] ============================================================
+[Summary] MiniLM BASELINE RESULTS
+
+[Summary] Encoding time     : 1.1 minutes
+[Summary] Index build time  : 0.07s
+[Summary] Avg query latency : 18.3ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 384
+[Summary] FAISS index type  : IndexFlatL2
+[Summary] Normalisation     : False (not required for MiniLM)
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.975      0.972    0.010    0.019
+  50        0.955      0.950    0.047    0.090
+  100       0.945      0.938    0.094    0.171
+  500       0.872      0.858    0.429    0.572
+  1000      0.767      0.741    0.741    0.741
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 5795271
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:03:56
+CPU Efficiency: 7.07% of 00:55:36 core-walltime
+Job Wall-clock time: 00:04:38
+Memory Utilized: 2.04 GB
+Memory Efficiency: 2.22% of 91.80 GB (91.80 GB/node)

@@ -1,0 +1,28 @@
+Ollama started with PID 2235045
+[GIN] 2026/05/18 - 20:01:21 | 200 |   13.995044ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/18 - 20:01:21 | 200 |   11.478893ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/18 - 20:01:21 | 200 |      32.785µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/18 - 20:01:21 | 200 |   20.183223ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    8 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    8 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/05/18 - 20:02:01 | 200 |   13.288934ms |       127.0.0.1 | GET      "/api/tags"
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 4738787
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:10
+CPU Efficiency: 0.13% of 02:04:00 core-walltime
+Job Wall-clock time: 00:10:20
+Memory Utilized: 307.77 MB
+Memory Efficiency: 0.33% of 91.80 GB (91.80 GB/node)

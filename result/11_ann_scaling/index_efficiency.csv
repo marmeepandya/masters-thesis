@@ -1,0 +1,4 @@
+index,build_time_s,footprint_mb
+Exact (FlatL2),,3072.0
+IVF,,3094.3
+HNSW,2612.590189933777,3616.3

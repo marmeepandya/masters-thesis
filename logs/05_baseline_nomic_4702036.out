@@ -1,0 +1,99 @@
+Ollama started with PID 1500559
+[GIN] 2026/05/14 - 20:06:35 | 200 |   11.355061ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 20:06:35 | 200 |    6.307678ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/14 - 20:06:35 | 200 |      26.346µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 20:06:35 | 200 |   18.209987ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    4 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    4 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/05_baseline_nomic/ — ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Sample document text (first company):
+  search_document: Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software ...
+[Load] Note: search_document: prefix added to all 98,716 companies
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[GPU] VRAM            : 42.4 GB
+[GPU] Using device    : cuda
+[Encode] Embeddings already exist — loading from disk...
+[Encode] Loaded shape  : (98716, 768)
+[Encode] Dims          : 768
+[FAISS] Loading embeddings...
+[FAISS] Embeddings shape  : (98716, 768)
+[FAISS] Building IndexFlatIP...
+[FAISS] Index built in    : 0.12s
+[FAISS] Vectors in index  : 98,716
+[FAISS] Index type        : IndexFlatIP (cosine similarity)
+[FAISS] Vector dims       : 768
+[FAISS] Index saved to    : result/05_baseline_nomic/company_faiss.index
+[Run] Loading Nomic model for query encoding...
+[Run] Model loaded on cuda:0
+[Run] Starting Nomic retrieval for 101 queries...
+[Run] Retrieving top-1000 per query
+[Run] Using search_query: prefix on all queries
+------------------------------------------------------------
+[Run]  20/101  |  avg 90.8ms/query  |  ~11s remaining
+[Run]  40/101  |  avg 61.3ms/query  |  ~6s remaining
+[Run]  60/101  |  avg 51.5ms/query  |  ~4s remaining
+[Run]  80/101  |  avg 46.6ms/query  |  ~2s remaining
+[Run] 100/101  |  avg 43.7ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 43.6ms/query  |  ~0s remaining
+------------------------------------------------------------
+[Run] Done!
+[Run] Total results       : 101,000
+[Run] Avg query latency   : 43.6ms
+[Run] Saved to            : result/05_baseline_nomic/nomic_results.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/05_baseline_nomic/evaluation_nomic.csv
+[Summary] ============================================================
+[Summary] Nomic-embed-text-v1.5 RESULTS
+[Summary] ============================================================
+[Summary] Encoding time     : loaded from disk
+[Summary] Index build time  : 0.12s
+[Summary] Avg query latency : 43.6ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 768
+[Summary] FAISS index type  : IndexFlatIP
+[Summary] Normalisation     : True (normalize_embeddings=True)
+[Summary] Task prefix docs  : search_document:
+[Summary] Task prefix query : search_query:
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.197      0.191    0.019    0.035
+  50        0.184      0.179    0.089    0.119
+  100       0.167      0.159    0.159    0.159
+  500       0.396      0.108    0.539    0.180
+  1000      0.520      0.079    0.786    0.143
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n578
+Job ID: 4702036
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:15
+CPU Efficiency: 3.51% of 00:35:36 core-walltime
+Job Wall-clock time: 00:02:58
+Memory Utilized: 2.29 GB
+Memory Efficiency: 2.49% of 91.80 GB (91.80 GB/node)

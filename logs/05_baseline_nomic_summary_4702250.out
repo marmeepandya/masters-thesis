@@ -1,0 +1,107 @@
+Ollama started with PID 1733060
+[GIN] 2026/05/14 - 20:56:37 | 200 |      83.154µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 20:56:37 | 200 |      142.04µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/14 - 20:56:37 | 200 |      23.251µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 20:56:37 | 200 |    10.28624ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    4 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    4 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/05_baseline_nomic_summary/ — ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Sample document text (first company):
+  search_document: Software Genesis is a software development company focused on the consumer market, offering a unique and revolutionary approach to software creation. They aim to partner with clients from the initial idea stage through to completion, guiding them through their processes. The company...
+[Load] Note: search_document: prefix added to all 98,716 companies
+[GPU] CUDA available  : True
+[GPU] Device          : NVIDIA A100-PCIE-40GB
+[GPU] VRAM            : 42.4 GB
+[GPU] Using device    : cuda
+[Encode] Loading Nomic model...
+[Encode] First run downloads ~550MB from HuggingFace...
+[Encode] Model loaded in  : 6.7s  on cuda:0
+[Encode] Embedding dims   : 768
+[Encode] Parameters       : ~137M
+[Encode] Encoding all companies...
+[Encode] Using search_document: prefix on all texts
+[Encode] Batch size       : 256
+[Encode] Done in          : 3.2 minutes
+[Encode] Embeddings shape : (98716, 768)
+[Encode] Sample norms     : [1.0, 1.0, 0.9999999403953552, 1.0, 1.0]  (should all be ~1.0)
+[Encode] Saved to         : result/05_baseline_nomic/company_embeddings.npy
+[FAISS] Loading embeddings...
+[FAISS] Embeddings shape  : (98716, 768)
+[FAISS] Building IndexFlatIP...
+[FAISS] Index built in    : 0.12s
+[FAISS] Vectors in index  : 98,716
+[FAISS] Index type        : IndexFlatIP (cosine similarity)
+[FAISS] Vector dims       : 768
+[FAISS] Index saved to    : result/05_baseline_nomic/company_faiss.index
+[Run] Starting Nomic retrieval for 101 queries...
+[Run] Retrieving top-1000 per query
+[Run] Using search_query: prefix on all queries
+------------------------------------------------------------
+[Run]  20/101  |  avg 33.8ms/query  |  ~6s remaining
+[Run]  40/101  |  avg 33.0ms/query  |  ~5s remaining
+[Run]  60/101  |  avg 32.7ms/query  |  ~3s remaining
+[Run]  80/101  |  avg 32.6ms/query  |  ~2s remaining
+[Run] 100/101  |  avg 32.6ms/query  |  ~0s remaining
+[Run] 101/101  |  avg 32.6ms/query  |  ~0s remaining
+------------------------------------------------------------
+[Run] Done!
+[Run] Total results       : 101,000
+[Run] Avg query latency   : 32.6ms
+[Run] Saved to            : result/05_baseline_nomic/nomic_results.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/05_baseline_nomic/evaluation_nomic.csv
+[Summary] ============================================================
+[Summary] Nomic-embed-text-v1.5 RESULTS
+[Summary] ============================================================
+
+[Summary] Encoding time     : 3.2 min
+[Summary] Index build time  : 0.12s
+[Summary] Avg query latency : 32.6ms
+[Summary] Companies encoded : 98,716
+[Summary] Embedding dims    : 768
+[Summary] FAISS index type  : IndexFlatIP
+[Summary] Normalisation     : True (normalize_embeddings=True)
+[Summary] Task prefix docs  : search_document:
+[Summary] Task prefix query : search_query:
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.192      0.179    0.018    0.033
+  50        0.167      0.157    0.079    0.105
+  100       0.154      0.146    0.146    0.146
+  500       0.367      0.100    0.500    0.167
+  1000      0.486      0.074    0.736    0.134
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 4702250
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:04:55
+CPU Efficiency: 7.32% of 01:07:12 core-walltime
+Job Wall-clock time: 00:05:36
+Memory Utilized: 2.25 GB
+Memory Efficiency: 2.46% of 91.80 GB (91.80 GB/node)

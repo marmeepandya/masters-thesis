@@ -1,0 +1,165 @@
+Ollama started with PID 1774776
+[GIN] 2026/07/06 - 10:42:44 | 200 |    9.735569ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 10:42:44 | 200 |    8.328895ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 10:42:44 | 200 |      28.592µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 10:42:44 | 200 |   20.743193ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] V2 URL        : https://api.istari.ai/v2/search
+[Setup] API key set   : ✅
+[Setup] Result dir    : result/09b_api_v2/
+[Setup] Testing v2 API...
+[Setup] v2 API OK ✅  — got 3 results
+[Setup] Sample      : Sweet Software (sweetsoftware.co.nz)
+[Setup] Live quota remaining this month → requests: 4663, results: 145175
+[Load] Loading queries...
+[Load] 101 queries from column "query"
+[Load] First 5: ['software companies', 'healthcare providers', 'AI startups in Berlin', 'renewable energy companies in Germany', 'companies providing cloud migration services']
+[Load] Loading cached results from result/09_api_evaluation/...
+[Load] v1 BM25 cached : 101 queries ✅
+[Load] MiniLM cached  : 101 queries ✅
+[v2] Live remaining budget    : 4663 requests, 145175 results
+[v2] Queries to fetch         : 101
+[v2] Size per query           : 1000  (2 page(s)/query, 500 max/page)
+[v2] Estimated cost this run  : 202 requests, 101000 results
+[v2] Evaluation k values      : [10, 30, 50, 100, 200, 500, 1000]
+[v2] Functions defined ✅ (paginates via search_after up to 500/page, fatal only on real quota exhaustion, short retry on transient rate limits, no cache poisoning)
+[v2] Loading cache from a previous run: 100/101 queries
+[v2] Dropped 52 poisoned/shallow cached entries (refetching at size=1000): ['software companies', 'healthcare providers', 'AI startups in Berlin', 'B2B SaaS platforms', 'machine learning companies', 'enterprise software vendors', 'small consulting firms', 'tech companies in Munich', 'manufacturing in Baden-Württemberg', 'logistics companies in the US', 'cybersecurity firms', 'retail chains in Europe', 'construction companies', 'marketing agencies', 'supply chain management companies', 'agricultural technology companies', 'cloud computing providers', 'web design agencies', 'social media marketing agencies', 'insurance companies', 'real estate developers', 'property management companies', 'hospital management companies', 'medical device manufacturers', 'telecommunications companies', 'robotics companies', 'food processing companies', 'beverage companies', 'water treatment companies', 'defense contractors', 'transportation companies', 'shipping companies', 'warehousing companies', 'retail technology companies', 'inventory management software', 'customer relationship management (CRM) software', 'cloud security providers', 'managed service providers (MSPs)', 'remote monitoring and management (RMM) software', 'web hosting companies', 'domain name registrars', 'online marketing agencies', 'translation services', 'legal technology companies', 'financial planning services', 'commercial real estate brokers', 'residential real estate brokers', 'construction equipment manufacturers', 'building materials suppliers', 'renewable energy project developers', 'sustainable agriculture companies', 'alternative protein manufacturers']
+[v2] Valid cached queries at current depth: 48/101
+[v2] Queries to fetch : 53
+[v2] Fetching 53 queries at target size=1000 each (2 page(s)/query)...
+------------------------------------------------------------
+[v2]  10/53  |  1000 results  |  avg 3260ms/query  |  ~404s remaining  |  quota results left: 135175
+[v2]  20/53  |  1000 results  |  avg 3270ms/query  |  ~311s remaining  |  quota results left: 125175
+[v2]  30/53  |  1000 results  |  avg 3234ms/query  |  ~213s remaining  |  quota results left: 115273
+[v2]  40/53  |  970 results  |  avg 3015ms/query  |  ~114s remaining  |  quota results left: 105355
+[v2]  50/53  |  1000 results  |  avg 2831ms/query  |  ~25s remaining  |  quota results left: 95355
+[v2]  53/53  |  1000 results  |  avg 2785ms/query  |  ~0s remaining  |  quota results left: 92355
+------------------------------------------------------------
+[v2] Done! 101 queries fetched.
+[v2] Results per query: min=902  max=1000  avg=998
+[v2] Saved to result/09b_api_v2/v2_results.json
+[GT] Loading ground truth...
+[GT] Loaded 101 queries
+[GT] Matched 101/101 queries to ground truth
+[Eval] Metric functions defined ✅
+[Eval] Computing metrics for all methods and queries...
+[Eval] Done — 2,121 rows saved to result/09b_api_v2/evaluation_v2_comparison.csv
+===========================================================================
+EVALUATION vs GOI GROUND TRUTH  (threshold=0.75)
+===========================================================================
+  Method                        k |    NDCG |    Prec |  Recall |      F1 |  Overlap
+  ===========================================================================
+  Istari v1 BM25               10 |   0.101 |   0.072 |   0.002 |   0.004 |      0.0
+  Istari v1 BM25               30 |   0.096 |   0.069 |   0.008 |   0.010 |      0.3
+  Istari v1 BM25               50 |   0.096 |   0.066 |   0.011 |   0.013 |      0.7
+  Istari v1 BM25              100 |   0.090 |   0.060 |   0.017 |   0.019 |      1.8
+  Istari v1 BM25              200 |   0.082 |   0.055 |   0.028 |   0.027 |      4.8
+  Istari v1 BM25              500 |   0.072 |   0.048 |   0.054 |   0.039 |     20.7
+  Istari v1 BM25             1000 |   0.071 |   0.048 |   0.109 |   0.054 |     34.3
+  ---------------------------------------------------------------------------
+  Istari v2 Semantic           10 |   0.985 |   0.970 |   0.050 |   0.076 |      4.6
+  Istari v2 Semantic           30 |   0.978 |   0.932 |   0.113 |   0.150 |     15.5
+  Istari v2 Semantic           50 |   0.972 |   0.898 |   0.154 |   0.188 |     25.8
+  Istari v2 Semantic          100 |   0.955 |   0.843 |   0.227 |   0.255 |     52.1
+  Istari v2 Semantic          200 |   0.916 |   0.768 |   0.328 |   0.346 |    106.7
+  Istari v2 Semantic          500 |   0.789 |   0.609 |   0.523 |   0.468 |    280.1
+  Istari v2 Semantic         1000 |   0.637 |   0.456 |   0.703 |   0.491 |    590.1
+  ---------------------------------------------------------------------------
+  Our MiniLM (98K)             10 |   0.935 |   0.810 |   0.023 |   0.036 |      0.5
+  Our MiniLM (98K)             30 |   0.928 |   0.768 |   0.052 |   0.077 |      2.7
+  Our MiniLM (98K)             50 |   0.925 |   0.754 |   0.078 |   0.111 |      5.7
+  Our MiniLM (98K)            100 |   0.919 |   0.731 |   0.136 |   0.181 |     17.9
+  Our MiniLM (98K)            200 |   0.904 |   0.707 |   0.241 |   0.290 |     54.8
+  Our MiniLM (98K)            500 |   0.862 |   0.658 |   0.499 |   0.487 |    243.6
+  Our MiniLM (98K)           1000 |   0.766 |   0.565 |   0.794 |   0.598 |    740.7
+  ---------------------------------------------------------------------------
+[Latency] ============================================================
+  Istari v1 BM25 (network)     : 2828ms avg  (2 × 500 per query)
+  Istari v2 Semantic (network) : 2785ms avg  (sum of real request time across 2 page(s)/query at size=1000; excludes the 1.5s inter-page sleep, which is our own rate-limit safety margin, not API latency)
+  Our MiniLM (local A100)      : 26.4ms steady-state
+[Latency] NOTE: this is latency for a full deep fetch (up to 1000 results), NOT directly
+[Latency] comparable to production's typical per-search latency -- see the benchmark below.
+[Latency] Saved to result/09b_api_v2/latency_summary.csv
+[LatencyBench] Timing 30 single-page requests at size=25 (comparable to production's typical search-route latency, not the 1000-result fetch above)...
+[LatencyBench] Done — 30/30 timed successfully
+[LatencyBench] ============================================================
+  v2 Semantic (size=25, n=30) : p50=242ms  p75=461ms  p95=707ms  avg=348ms  max=731ms
+  Production search route (n=39,039, per Manav) : p50=466ms  p75=553ms  p95=2143ms  avg=974ms  max=181012ms
+[LatencyBench] ============================================================
+[LatencyBench] Saved to result/09b_api_v2/latency_benchmark_vs_production.csv
+[Findings] ============================================================
+[Findings] KEY COMPARISON: v2 Semantic vs Our MiniLM
+[Findings] ============================================================
+
+  k=10:
+    Istari v1 BM25      NDCG=0.101
+    Istari v2 Semantic  NDCG=0.985  Recall=0.050  ← higher NDCG
+    Our MiniLM (98K)    NDCG=0.935  Recall=0.023  (-5.1% vs v2)
+
+  k=30:
+    Istari v1 BM25      NDCG=0.096
+    Istari v2 Semantic  NDCG=0.978  Recall=0.113  ← higher NDCG
+    Our MiniLM (98K)    NDCG=0.928  Recall=0.052  (-5.1% vs v2)
+
+  k=50:
+    Istari v1 BM25      NDCG=0.096
+    Istari v2 Semantic  NDCG=0.972  Recall=0.154  ← higher NDCG
+    Our MiniLM (98K)    NDCG=0.925  Recall=0.078  (-4.8% vs v2)
+
+  k=100:
+    Istari v1 BM25      NDCG=0.090
+    Istari v2 Semantic  NDCG=0.955  Recall=0.227  ← higher NDCG
+    Our MiniLM (98K)    NDCG=0.919  Recall=0.136  (-3.8% vs v2)
+
+  k=200:
+    Istari v1 BM25      NDCG=0.082
+    Istari v2 Semantic  NDCG=0.916  Recall=0.328  ← higher NDCG
+    Our MiniLM (98K)    NDCG=0.904  Recall=0.241  (-1.3% vs v2)
+
+  k=500:
+    Istari v1 BM25      NDCG=0.072
+    Istari v2 Semantic  NDCG=0.789  Recall=0.523
+    Our MiniLM (98K)    NDCG=0.862  Recall=0.499  (+9.3% vs v2)  ← higher NDCG
+
+  k=1000:
+    Istari v1 BM25      NDCG=0.071
+    Istari v2 Semantic  NDCG=0.637  Recall=0.703
+    Our MiniLM (98K)    NDCG=0.766  Recall=0.794  (+20.2% vs v2)  ← higher NDCG
+
+[Findings] ============================================================
+[Findings] RECALL GAP AT DEEPEST k
+[Findings] ============================================================
+
+  Recall@1000 — v2 Semantic (live, 20M): 0.703   MiniLM (98K, local): 0.794
+  Gap: -9.1 pp — MiniLM recalls MORE than live v2 Semantic at this depth.
+  CAVEAT: the ground truth (goi_search_results.json) is a FROZEN SNAPSHOT of production's
+  semantic results from an earlier point in time, while this run queried the LIVE v2 API today.
+  This result may reflect MiniLM agreeing more closely with that old snapshot than today's live
+  v2 system does (i.e. v2 may have drifted/changed since the snapshot), rather than MiniLM
+  strictly outperforming today's actual production quality. Confirm with Istari when the
+  ground truth snapshot was captured before treating this as a definitive quality claim.
+
+[Done] result/09b_api_v2/ — all files saved.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n568
+Job ID: 5809376
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:23
+CPU Efficiency: 0.34% of 01:53:48 core-walltime
+Job Wall-clock time: 00:09:29
+Memory Utilized: 773.71 MB
+Memory Efficiency: 0.82% of 91.80 GB (91.80 GB/node)

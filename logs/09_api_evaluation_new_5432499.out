@@ -1,0 +1,48 @@
+Ollama started with PID 3645976
+[GIN] 2026/06/29 - 21:46:35 | 200 |    5.465979ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/29 - 21:46:35 | 200 |   11.092676ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/06/29 - 21:46:35 | 200 |      24.879µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/29 - 21:46:35 | 200 |   18.693589ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    7 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    7 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device         : cuda
+[Setup] GPU            : NVIDIA A100-PCIE-40GB
+[Setup] Result folder  : result/09_api_evaluation/
+[Setup] Testing Istari API v1...
+[Setup] API ERROR      : 403 {"message":"Forbidden"}
+[Queries] Columns    : ['query_id', 'query']
+   query_id                                         query
+0         1                            software companies
+1         2                          healthcare providers
+2         3                         AI startups in Berlin
+3         4         renewable energy companies in Germany
+4         5  companies providing cloud migration services
+5         6                            B2B SaaS platforms
+
+[Queries] Using column : "query"
+[Queries] Total queries: 101
+[Queries] First 5      : ['software companies', 'healthcare providers', 'AI startups in Berlin', 'renewable energy companies in Germany', 'companies providing cloud migration services']
+[Test] Smoke test...
+    [API] ERROR offset=0: 403 {"message":"Forbidden"}
+[Test] Got 0 results in 1079ms
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 5432499
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:17
+CPU Efficiency: 1.03% of 00:27:24 core-walltime
+Job Wall-clock time: 00:02:17
+Memory Utilized: 672.79 MB
+Memory Efficiency: 0.72% of 91.80 GB (91.80 GB/node)

@@ -1,0 +1,53 @@
+Ollama started with PID 1386500
+[GIN] 2026/05/14 - 15:30:33 | 200 |    2.432097ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 15:30:33 | 200 |    3.512534ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/14 - 15:30:33 | 200 |      18.148µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 15:30:33 | 200 |   15.131374ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    4 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    4 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder  : result/04_baseline_openai_large/ — ready
+[Setup] API key found  : sk-...orrKgA
+[Setup] Model          : text-embedding-3-large
+[Setup] Embedding dims : 3072
+[Setup] Est. cost      : ~$1.95 for full corpus encoding
+[Test] Testing API connection...
+[Test] API connected in  : 3413ms
+[Test] Embedding dims    : 3072
+[Test] Model confirmed   : text-embedding-3-large
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Avg text length   : 804 chars (~201 tokens)
+[Load] Total tokens est. : 19.8M tokens
+[Load] Estimated cost    : $2.58
+[Load] Sample rich text  :
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[Encode] Starting encoding for 98,716 companies...
+[Encode] Batch size      : 500
+[Encode] Total batches   : 198
+[Encode] Model           : text-embedding-3-large
+[Encode] This may take 8-12 minutes depending on network speed...
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 4694606
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:05
+CPU Efficiency: 0.02% of 06:00:48 core-walltime
+Job Wall-clock time: 00:30:04
+Memory Utilized: 12.94 GB
+Memory Efficiency: 14.10% of 91.80 GB (91.80 GB/node)

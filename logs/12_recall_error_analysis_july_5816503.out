@@ -1,0 +1,188 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/12_recall_error_analysis/ — ready
+[Load] Loading production ground truth...
+[Load] Production rows : 101,000
+[Load] Loading queries...
+[Load] Queries : 101
+[Load] Loading corpus (for domain -> name/summary lookup)...
+[Load] Unique companies : 98,716
+[Load] Loading boilerplate-duplication audit (from trust_feature.py)...
+[Load] Flagged (duplicate_count>=5) domains : 5,000
+[FAISS] Loading cached embeddings...
+[FAISS] Embeddings shape : (98716, 384)
+[FAISS] Loading cached exact index...
+[FAISS] Vectors in index : 98,716
+[Model] Loading MiniLM (all-MiniLM-L6-v2) on cuda...
+[Model] Loaded in 3.8s
+[Retrieval] Running extended search (k=10000) for 101 queries...
+[Retrieval] 20/101 queries done
+[Retrieval] 40/101 queries done
+[Retrieval] 60/101 queries done
+[Retrieval] 80/101 queries done
+[Retrieval] 100/101 queries done
+[Retrieval] 101/101 queries done
+[Retrieval] Done in 3.1s
+[Miss] Total missed (query, domain) pairs : 26,185
+[Miss] Saved to result/12_recall_error_analysis/recall_1000_misses.csv
+[Baseline] Total ground-truth relevant labels (all queries, k<=1000) : 101,000
+[Baseline] Boilerplate rate among ALL relevant labels    : 5.0%
+[Baseline] Boilerplate rate among MISSED labels          : 3.8%
+============================================================
+MISS BREAKDOWN BY BUCKET
+============================================================
+  near_miss_1000_2000          16,157  ( 61.7%)
+  mid_miss_2000_5000            8,061  ( 30.8%)
+  far_miss_5000_10000           1,375  (  5.3%)
+  not_found_beyond_10000          592  (  2.3%)
+
+============================================================
+MISS BREAKDOWN BY PRODUCTION-RANK CONFIDENCE
+============================================================
+  rank 1-10 (high confidence)         111 misses
+  rank 11-50                          603 misses
+  rank 51-200                       2,859 misses
+  rank 201-500                      7,467 misses
+  rank 501-1000 (low confidence)   15,145 misses
+
+============================================================
+SUMMARY
+============================================================
+  Total misses                                : 26,185
+  Recoverable by widening k to 5,000          : 24,218 (92.5%)
+  Genuinely far / not found within k=10,000   : 1,967
+  Flagged as boilerplate-duplicated summary   : 996 (3.8%)
+[LLM-check] Misses overlapping with LLM-judged sample : 0 / 26185
+================================================================================
+WORST MISSES: production rank <= 50 but retrieved rank is far / not found
+================================================================================
+
+Query              : warehousing companies
+Missed company     : Elite Self Storage  (northridgeselfstorage.ca)
+Production rank    : 39   |   Retrieved rank : nan
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : Elite Self Storage appears to be a company offering self-storage solutions. The directory listing indicates a subdirectory named 'eliteselfstorage', suggesting this is the primary business focus. Further details about their services, locations, or mission are not available from this index.
+
+Query              : warehousing companies
+Missed company     : АО «ЛОТРА»  (lotra.ru)
+Production rank    : 45   |   Retrieved rank : nan
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : АО «ЛОТРА» is a company providing comprehensive warehouse and logistics services. They offer responsible storage for various goods, including automotive vehicles, on their 14-hectare site which features warm and cold storage facilities, open paved areas, and office space. The company also engages in
+
+Query              : retail technology companies
+Missed company     : Xarevision  (xarevision.pt)
+Production rank    : 13   |   Retrieved rank : nan
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : Xarevision is a technology company specializing in innovative retail solutions, including software and hardware. They develop AI-powered mobile apps, voice assistant integrations, digital signage, queue management systems, and analytics platforms. Founded in 2006, Xarevision aims to provide tailored
+
+Query              : warehousing companies
+Missed company     : Magasinering  (stadsbudsmagasin1.com)
+Production rank    : 44   |   Retrieved rank : 7685.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : Magasinering offers storage solutions for individuals and businesses, providing space for daily to long-term needs. They specialize in warehousing, including secure wooden boxes of 4 and 8 cubic meters for personal belongings and pallet storage for bulkier items. The company also assists with moving
+
+Query              : social media marketing agencies
+Missed company     : Eye Like It  (eyelikeit.nl)
+Production rank    : 41   |   Retrieved rank : 7432.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : Eye Like It offers online support services including social media management, website development, graphic design, and email campaigns. They aim to assist businesses with their digital presence and marketing efforts. The company highlights its team members and showcases a portfolio of clients.
+
+Query              : building materials suppliers
+Missed company     : GBI Groep  (gbigroep.nl)
+Production rank    : 23   |   Retrieved rank : 7160.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : GBI Groep is a Dutch organization that provides products and expert advice for projects of all sizes. With over 25 locations, they emphasize combining the right products with professional guidance. The group also highlights its commitment to quality, reliable service, and expert advice, and is activ
+
+Query              : warehousing companies
+Missed company     : Delta One Family of Companies  (dixiestorage.com)
+Production rank    : 27   |   Retrieved rank : 7043.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : The Delta One Family of Companies, originating from a glass shop in 1946, has expanded into a diversified group offering third-party logistics, warehouse storage, trucking, property development and management, self-storage, and sign shop services. They provide a range of warehousing solutions includ
+
+Query              : building materials suppliers
+Missed company     : GBI Groep  (probin.com)
+Production rank    : 25   |   Retrieved rank : 6844.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : GBI Groep is a Dutch organization that provides products and expert advice for projects of all sizes. With over 25 locations, they emphasize combining the right products with professional guidance. The group also highlights its commitment to quality, reliable service, and expert advice, and is activ
+
+Query              : software companies
+Missed company     : iTrax Solutions  (itraxsolutions.co.za)
+Production rank    : 41   |   Retrieved rank : 6692.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : iTrax Solutions is a developer and supplier of specialized software solutions with applications in manufacturing, packaging, warehousing, logistics, and asset tracking. They focus on leveraging modern technologies to deliver high-performance, user-friendly software for industries including chemical,
+
+Query              : defense contractors
+Missed company     : Karil International  (karil.com)
+Production rank    : 31   |   Retrieved rank : 6220.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : Karil International is a company with over 25 years of experience specializing in providing optimal solutions to military forces, HLS agencies, and system integrators. They act as representatives for manufacturers, helping brand leaders understand market dynamics and achieve their goals. Karil focus
+
+Query              : software companies
+Missed company     : PT. Pundi Mas Berjaya  (pmberjaya.com)
+Production rank    : 30   |   Retrieved rank : 6081.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : PT. Pundi Mas Berjaya is a global software solutions provider established in 2014, specializing in developing and implementing IT solutions for various industries including property, automotive, transportation, food delivery, and e-commerce. They offer services such as responsive websites, mobile we
+
+Query              : digital transformation consultants
+Missed company     : NoA Ignite  (kontrakter.dk)
+Production rank    : 37   |   Retrieved rank : 6021.0
+Boilerplate flag   : True  (duplicate_count=8)
+Summary            : NoA Ignite is a tech and design powerhouse that transforms complexity into effortless user journeys, unlocks data with AI, and streamlines operations. They partner with leaders across various industries, including retail, manufacturing, finance, and government, to build digital products, experiences
+
+Query              : digital transformation consultants
+Missed company     : NoA Ignite  (noaignite.com)
+Production rank    : 34   |   Retrieved rank : 5735.0
+Boilerplate flag   : True  (duplicate_count=8)
+Summary            : NoA Ignite is a tech and design powerhouse that transforms complexity into effortless user journeys, unlocks data with AI, and streamlines operations. They partner with leaders across various industries, including retail, manufacturing, finance, and government, to build digital products, experiences
+
+Query              : digital transformation consultants
+Missed company     : NoA Ignite  (noaignite.no)
+Production rank    : 33   |   Retrieved rank : 5734.0
+Boilerplate flag   : True  (duplicate_count=8)
+Summary            : NoA Ignite is a tech and design powerhouse that transforms complexity into effortless user journeys, unlocks data with AI, and streamlines operations. They partner with leaders across various industries, including retail, manufacturing, finance, and government, to build digital products, experiences
+
+Query              : software companies
+Missed company     : LARA Srl  (larasrl.net)
+Production rank    : 46   |   Retrieved rank : 5653.0
+Boilerplate flag   : False  (duplicate_count=1)
+Summary            : LARA Srl is an IT solutions provider founded at the turn of the millennium, blending the extensive experience of its senior staff in management software for commerce and industry with the latest development technologies from junior members. The company focuses on web integration, logistics, and prod
+
+[Saved] result/12_recall_error_analysis/worst_misses_sample.csv
+[Findings] ============================================================
+[Findings] RECALL@1000 ERROR ANALYSIS -- SUMMARY
+[Findings] ============================================================
+
+  Total ground-truth relevant labels (all queries) : 101,000
+  Total misses at k=1000                           : 26,185  (observed miss rate matches ~1 - 0.741 recall)
+
+  Boilerplate-duplicated summary rate:
+    Among ALL relevant labels   : 5.0%
+    Among MISSED labels         : 3.8%
+    (if the missed rate is much higher than baseline, duplicate/boilerplate summaries
+     are a real, fixable contributor to the recall ceiling -- MiniLM cannot distinguish
+     between companies that share an identical summary string)
+
+  Recoverable by widening k to 5,000                : 24,218 (92.5% of misses)
+  Genuinely far / not found within k=10,000          : 1,967 (7.5% of misses)
+
+  These far misses are candidates for genuine embedding-quality failures (vocabulary
+  mismatch, weak signal in the summary text) -- see worst_misses_sample.csv for concrete
+  examples to inspect by hand.
+
+[Findings] All output files saved to result/12_recall_error_analysis/
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5816503
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:03:56
+CPU Efficiency: 5.91% of 01:06:36 core-walltime
+Job Wall-clock time: 00:05:33
+Memory Utilized: 1.68 GB
+Memory Efficiency: 1.83% of 91.80 GB (91.80 GB/node)

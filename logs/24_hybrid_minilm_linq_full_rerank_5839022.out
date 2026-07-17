@@ -1,0 +1,86 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/24_hybrid_minilm_linq_full_rerank/ -- ready
+[Setup] Top-k per channel : 1000
+[Setup] Final k           : 1000
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading Linq-Embed-Mistral results...
+[Load] Linq rows      : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+[Load] Sanity check passed
+[Pool] Avg pool size : 1300 (matches notebook 22 oracle union computation)
+[Pool] Min pool size : 1008
+[Pool] Max pool size : 1722
+[Reranker] Loading BGE cross-encoder reranker...
+[Reranker] Loaded in 17.1s on cuda
+[Warmup] Warming up reranker with 3 dummy calls...
+[Warmup] GPU warm
+[Rerank] Scoring full union pool for 101 queries...
+------------------------------------------------------------
+[Rerank]  10/101  |  avg 7.3s/query  |  ~661s remaining
+[Rerank]  20/101  |  avg 7.2s/query  |  ~584s remaining
+[Rerank]  30/101  |  avg 7.1s/query  |  ~502s remaining
+[Rerank]  40/101  |  avg 7.0s/query  |  ~425s remaining
+[Rerank]  50/101  |  avg 6.9s/query  |  ~351s remaining
+[Rerank]  60/101  |  avg 6.9s/query  |  ~282s remaining
+[Rerank]  70/101  |  avg 6.9s/query  |  ~215s remaining
+[Rerank]  80/101  |  avg 6.9s/query  |  ~144s remaining
+[Rerank]  90/101  |  avg 6.8s/query  |  ~74s remaining
+[Rerank] 100/101  |  avg 6.8s/query  |  ~7s remaining
+[Rerank] 101/101  |  avg 6.8s/query  |  ~0s remaining
+------------------------------------------------------------
+[Rerank] Done!
+[Rerank] Avg rerank time : 6.8s/query
+[Rerank] Saved to        : result/24_hybrid_minilm_linq_full_rerank/reranked_results.csv
+[Eval] Evaluating full-pool rerank results...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] === FULL-POOL RERANK RESULTS ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.955      0.954    0.010    0.019
+  50        0.956      0.956    0.048    0.091
+  100       0.952      0.950    0.095    0.173
+  500       0.911      0.903    0.452    0.602
+  1000      0.823      0.802    0.802    0.802
+[Compare] Loading notebook 23 results for comparison...
+   k  full_pool_rerank_ndcg  rrf_top50_rerank_ndcg  full_pool_rerank_recall  rrf_top50_rerank_recall
+  10                  0.955                  0.979                    0.010                    0.010
+  50                  0.956                  0.958                    0.048                    0.048
+ 100                  0.952                  0.947                    0.095                    0.094
+ 500                  0.911                  0.898                    0.452                    0.444
+1000                  0.823                  0.805                    0.802                    0.782
+
+[Compare] Full-pool rerank Recall@1000 : 0.802
+[Compare] Oracle ceiling (notebook 22)  : 0.869
+[Compare] Remaining gap                 : 0.067
+[Compare] Avg rerank cost               : 6.8s/query (vs 0.25s/query for RRF+top-50 in notebook 23)
+
+[Compare] Saved to result/24_hybrid_minilm_linq_full_rerank/comparison_vs_rrf.csv
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n577
+Job ID: 5839022
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:13:42
+CPU Efficiency: 7.89% of 02:53:36 core-walltime
+Job Wall-clock time: 00:14:28
+Memory Utilized: 2.16 GB
+Memory Efficiency: 2.36% of 91.80 GB (91.80 GB/node)

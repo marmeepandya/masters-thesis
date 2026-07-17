@@ -1,0 +1,316 @@
+Ollama started with PID 1285646
+[GIN] 2026/07/06 - 08:32:47 | 200 |   11.290556ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 08:32:47 | 200 |   15.785631ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 08:32:47 | 200 |      27.848µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 08:32:47 | 200 |   26.840257ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/07_hybrid_rrf_reranker/ — ready
+[Setup] RRF k         : 60
+[Setup] RRF top-k     : 1000
+[Setup] Rerank top-k  : 50
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading BM25 results...
+[Load] BM25 rows      : 101,000
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+
+[Load] BM25 queries   : 101
+[Load] MiniLM queries : 101
+[Load] Sanity check passed ✅
+[RRF] Running fusion for 101 queries...
+[RRF] k=60, top_n=1000
+-------------------------------------------------------
+[RRF]  20/101  |  avg 2.27ms/query  |  ~3s remaining
+[RRF]  40/101  |  avg 2.22ms/query  |  ~1s remaining
+[RRF]  60/101  |  avg 2.20ms/query  |  ~1s remaining
+[RRF]  80/101  |  avg 2.19ms/query  |  ~0s remaining
+[RRF] 100/101  |  avg 2.18ms/query  |  ~0s remaining
+[RRF] 101/101  |  avg 2.18ms/query  |  ~0s remaining
+-------------------------------------------------------
+[RRF] Done!
+[RRF] Avg fusion time : 2.18ms/query
+[RRF] Total results   : 101,000
+[RRF] Saved to        : result/07_hybrid_rrf_reranker/rrf_results.csv
+
+[RRF] Coverage analysis:
+  BM25 unique domains   : 71,916
+  MiniLM unique domains : 77,515
+  RRF union             : 77,153
+  In BM25 only          : 11,397
+  In MiniLM only        : 16,996
+  In both               : 60,519
+[Eval1] Evaluating Stage 1 (Hybrid RRF)...
+[Eval1] 25/101 queries evaluated...
+[Eval1] 50/101 queries evaluated...
+[Eval1] 75/101 queries evaluated...
+[Eval1] 100/101 queries evaluated...
+[Eval1] === STAGE 1 RESULTS: Hybrid BM25 + MiniLM (RRF) ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.955      0.951    0.010    0.019
+  50        0.918      0.906    0.045    0.086
+  100       0.891      0.877    0.088    0.159
+  500       0.828      0.815    0.407    0.543
+  1000      0.746      0.724    0.724    0.724
+[Reranker] Loading BGE cross-encoder reranker...
+[Reranker] Loaded in 23.5s on cuda
+[Warmup] Warming up reranker with 5 dummy calls...
+[Warmup] GPU warm ✅
+[Stage2] Re-ranking top-50 for 101 queries...
+------------------------------------------------------------
+[Stage2]  20/101  |  avg 257ms  steady 257ms  |  ~24s remaining
+[Stage2]  40/101  |  avg 254ms  steady 251ms  |  ~18s remaining
+[Stage2]  60/101  |  avg 253ms  steady 251ms  |  ~12s remaining
+[Stage2]  80/101  |  avg 254ms  steady 259ms  |  ~6s remaining
+[Stage2] 100/101  |  avg 253ms  steady 245ms  |  ~0s remaining
+[Stage2] 101/101  |  avg 253ms  steady 247ms  |  ~0s remaining
+------------------------------------------------------------
+[Stage2] Done!
+[Stage2] Avg rerank time    : 253ms
+[Stage2] Steady-state time  : 247ms  (last 20 queries)
+[Stage2] Saved to           : result/07_hybrid_rrf_reranker/rrf_reranked_results.csv
+[Eval2] Evaluating Stage 2 (RRF + Reranker)...
+[Eval2] 25/101 queries evaluated...
+[Eval2] 50/101 queries evaluated...
+[Eval2] 75/101 queries evaluated...
+[Eval2] 100/101 queries evaluated...
+[Eval2] === STAGE 2 RESULTS: RRF + Reranker ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.975      0.976    0.010    0.019
+  50        0.924      0.906    0.045    0.086
+  100       0.895      0.877    0.088    0.159
+  500       0.829      0.815    0.407    0.543
+  1000      0.746      0.724    0.724    0.724
+[Latency] ============================================================
+[Latency] PIPELINE LATENCY BREAKDOWN
+[Latency] ============================================================
+
+  Note: BM25 and MiniLM can run in PARALLEL in production
+  Parallel retrieval latency = max(BM25=102.7ms, MiniLM=16.9ms)
+
+  Component                 | Stage 1 (RRF) | Stage 2 (RRF+Reranker)
+  ------------------------- | ------------- | ----------------------
+  Parallel retrieval        |    102.7ms     |    102.7ms
+  RRF fusion                |    2.18ms      |    2.18ms
+  Cross-encoder reranker    |      N/A       |    247ms
+  ------------------------- | ------------- | ----------------------
+  TOTAL                     |    104.9ms     |    352ms
+
+  MiniLM baseline (single)  :  16.9ms
+  Hybrid RRF                :  104.9ms  (+88.0ms vs MiniLM)
+  Hybrid RRF + Reranker     :  352ms  (+335ms vs MiniLM)
+
+[Latency] Saved to result/07_hybrid_rrf_reranker/latency_breakdown.csv
+[Compare] Loading all baseline evaluations...
+  ✅ BM25
+  ✅ MiniLM
+  ✅ BGE
+  ✅ Nomic
+  ✅ OpenAI-large
+
+===========================================================================
+  Method                            k |    NDCG |    Prec |  Recall |      F1
+  ===========================================================================
+  BM25                             10 |   0.854 |   0.838 |   0.008 |   0.017
+  BM25                             50 |   0.772 |   0.748 |   0.037 |   0.071
+  BM25                            100 |   0.744 |   0.723 |   0.072 |   0.131
+  BM25                            500 |   0.723 |   0.715 |   0.357 |   0.476
+  BM25                           1000 |   0.652 |   0.635 |   0.635 |   0.635
+  ---------------------------------------------------------------------------
+  MiniLM                           10 |   0.975 |   0.972 |   0.010 |   0.019
+  MiniLM                           50 |   0.955 |   0.950 |   0.047 |   0.090
+  MiniLM                          100 |   0.945 |   0.938 |   0.094 |   0.171
+  MiniLM                          500 |   0.872 |   0.858 |   0.429 |   0.572
+  MiniLM                         1000 |   0.767 |   0.741 |   0.741 |   0.741
+  ---------------------------------------------------------------------------
+  BGE                              10 |   0.942 |   0.940 |   0.009 |   0.019
+  BGE                              50 |   0.922 |   0.916 |   0.046 |   0.087
+  BGE                             100 |   0.914 |   0.908 |   0.091 |   0.165
+  BGE                             500 |   0.854 |   0.842 |   0.421 |   0.562
+  BGE                            1000 |   0.751 |   0.726 |   0.726 |   0.726
+  ---------------------------------------------------------------------------
+  Hybrid RRF                       10 |   0.955 |   0.951 |   0.010 |   0.019
+  Hybrid RRF                       50 |   0.918 |   0.906 |   0.045 |   0.086
+  Hybrid RRF                      100 |   0.891 |   0.877 |   0.088 |   0.159
+  Hybrid RRF                      500 |   0.828 |   0.815 |   0.407 |   0.543
+  Hybrid RRF                     1000 |   0.746 |   0.724 |   0.724 |   0.724
+  ---------------------------------------------------------------------------
+  Hybrid RRF + Reranker            10 |   0.975 |   0.976 |   0.010 |   0.019
+  Hybrid RRF + Reranker            50 |   0.924 |   0.906 |   0.045 |   0.086
+  Hybrid RRF + Reranker           100 |   0.895 |   0.877 |   0.088 |   0.159
+  Hybrid RRF + Reranker           500 |   0.829 |   0.815 |   0.407 |   0.543
+  Hybrid RRF + Reranker          1000 |   0.746 |   0.724 |   0.724 |   0.724
+  ---------------------------------------------------------------------------
+
+[Compare] Full table saved to result/07_hybrid_rrf_reranker/comparison_all.csv
+[Findings] ============================================================
+[Findings] KEY FINDINGS — HYBRID RRF PIPELINE
+[Findings] ============================================================
+
+[Findings] NDCG@10 progression:
+  BM25 baseline            : 0.854
+  MiniLM baseline          : 0.975
+  Hybrid RRF               : 0.955  (-2.1% vs MiniLM)
+  Hybrid RRF + Reranker    : 0.975  (+0.1% vs MiniLM)
+
+[Findings] Recall@1000:
+  MiniLM baseline          : 0.741
+  Hybrid RRF               : 0.724  (-2.3% vs MiniLM)
+
+[Findings] Latency:
+  MiniLM baseline          :  16.9ms
+  Hybrid RRF               :  104.9ms (parallel retrieval + RRF)
+  Hybrid RRF + Reranker    :  352ms
+[Findings] ============================================================
+Query: "software companies"
+Total results: 1000
+
+=== RANK 1 (highest ranked) ===
+  Domain: softwaregenesis.com
+  Name:   Software Genesis, Inc.
+  Score:  0.7662015
+
+=== RANK 500 (middle) ===
+  Domain: progettosoftware.net
+  Name:   Progetto Software
+  Score:  0.7276819
+
+=== RANK 1000 (lowest ranked) ===
+  Domain: imagicom.com
+  Name:   Imagicom Corporation
+  Score:  0.7214501
+
+Score difference rank 1 vs rank 1000: 0.044751
+Score difference rank 1 vs rank 500:  0.038520
+Total queries: 101
+
+=== SCORE RANGE PER QUERY (max - min) ===
+  Mean range   : 0.063343
+  Min range    : 0.018965
+  Max range    : 0.155769
+  Median range : 0.059784
+
+=== TOP SCORE (rank 1) ACROSS ALL QUERIES ===
+  Mean   : 0.816206
+  Min    : 0.755092
+  Max    : 0.862380
+
+=== BOTTOM SCORE (rank 1000) ACROSS ALL QUERIES ===
+  Mean   : 0.752863
+  Min    : 0.687531
+  Max    : 0.809489
+
+=== QUERY WITH LARGEST SCORE RANGE (0.155769) ===
+  Query: "remote monitoring and management (RMM) software"
+  Rank 1   : Riverbird GmbH — 0.854227
+  Rank 1000: MAIA SRL — 0.698458
+
+=== QUERY WITH SMALLEST SCORE RANGE (0.018965) ===
+  Query: "web hosting companies"
+  Rank 1   : Hosting Masters — 0.797310
+  Rank 1000: Bluehost.com — 0.778345
+=== BLUEHOST SEARCH ===
+Rows where domain contains "bluehost" : 0
+Rows where name contains "bluehost"   : 710
+Rows where summary contains "bluehost": 710
+
+=== NAME MATCHES (first 5) ===
+                  domain          name                                                                                                                                                                                                                                                                                                 summary
+72811   westendpress.org  Bluehost.com                                                 Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services, a help center, contact options, and affiliate programs. The company focuses on delivering web hosting services to individuals and businesses.
+72916        treknow.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+72920   lmhreporting.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+72927  hollywoodfit1.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+72928  mohiniexports.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+
+=== SUMMARY MATCHES (first 3) ===
+                 domain          name                                                                                                                                                                                                                                                                                                 summary
+72811  westendpress.org  Bluehost.com                                                 Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services, a help center, contact options, and affiliate programs. The company focuses on delivering web hosting services to individuals and businesses.
+72916       treknow.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+72920  lmhreporting.com  Bluehost.com  Bluehost.com provides affordable and reliable web hosting solutions. They offer various hosting services to individuals and businesses, aiming to make website creation accessible. The company also has an affiliate program and provides customer support through a help center and contact options.
+=== TOP 20 NAMES APPEARING ON MULTIPLE DOMAINS ===
+                  name  domain_count
+              OVHcloud           766
+          Bluehost.com           710
+               Shopify           470
+             WordPress           387
+            Cloudflare           366
+                尊龙凯时科技           183
+            Magasins U           136
+             Interlink           131
+        Heart Internet           122
+Coldwell Banker Realty           112
+               Unknown           102
+      Webnames.ca Inc.            88
+             Domainist            87
+         Novant Health            77
+               GoDaddy            76
+       Unknown Company            70
+             Rebel.com            61
+              EURONICS            59
+             FC2, Inc.            53
+           F5 Networks            45
+
+=== SCALE OF THE PROBLEM ===
+Total unique names                        : 84,286
+Names appearing on exactly 1 domain       : 78,293
+Names appearing on 2+ different domains   : 5,993
+Total companies affected (2+ domains)     : 20,423
+% of corpus affected                      : 20.7%
+
+=== EXAMPLES (top 5 most duplicated names, first 3 domains each) ===
+
+Name: "OVHcloud" — appears on 766 different domains
+  josman.es
+  agim.fr
+  callcare.net
+
+Name: "Bluehost.com" — appears on 710 different domains
+  westendpress.org
+  treknow.com
+  lmhreporting.com
+
+Name: "Shopify" — appears on 470 different domains
+  bestturkishfood.com
+  worldcorp.co.th
+  emvymybag.com
+
+Name: "WordPress" — appears on 387 different domains
+  tramontiditria.it
+  keepupconsulting.com
+  carehomefundingadvocates.co.uk
+
+Name: "Cloudflare" — appears on 366 different domains
+  cloudbag.net
+  michaelscheickl.com
+  lasagrada.com.ve
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n566
+Job ID: 5808846
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:02:05
+CPU Efficiency: 4.05% of 00:51:24 core-walltime
+Job Wall-clock time: 00:04:17
+Memory Utilized: 3.59 GB
+Memory Efficiency: 3.91% of 91.80 GB (91.80 GB/node)

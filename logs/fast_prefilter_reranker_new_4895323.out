@@ -1,0 +1,135 @@
+Ollama started with PID 2126476
+[GIN] 2026/06/02 - 19:32:57 | 200 |    8.693399ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/02 - 19:32:57 | 200 |    6.239766ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/06/02 - 19:32:57 | 200 |      19.749µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/02 - 19:32:57 | 200 |   17.820445ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    3 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    3 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    2 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device        : cuda
+[Setup] GPU           : NVIDIA A100-PCIE-40GB
+[Setup] VRAM          : 42.4 GB
+[Setup] Result folder : result/6_fast_prefilter/
+[Setup] BGE retrieves top-1000 | Reranker reranks top-50
+[Setup] Fallback to full corpus if filter leaves < 100 companies
+[Load] Loading corpus...
+[Load] Corpus size           : 98,716 companies
+[Load] Columns               : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Fixing summary_keywords column (string → list)...
+[Load] Parsing took          : 2444ms
+[Load] Sample keywords (idx 0): ['software development', 'consumer market', 'software company', 'product development', 'client partnerships', 'software solutions', 'innovation', 'technology', 'consumer software', 'software services']
+[Load] Type check            : <class 'list'>
+
+[Load] Field coverage:
+  country                  : 100.0% filled
+  state                    : 79.4% filled
+  municipality             : 20.7% filled
+  nace_code                : 100.0% filled
+  organization_size        : 100.0% filled
+  organization_type        : 100.0% filled
+  summary_keywords         : 100.0% filled
+
+[Load] Loading queries and production results...
+[Load] Queries               : 101
+[Load] Production rows       : 101,000
+[Index] Building inverted index on summary_keywords...
+[Index] Built in             : 6454ms
+[Index] Unique keywords      : 104,030
+[Index] Unique countries     : 151
+[Index] Unique NACE codes    : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
+[Index] Unique states        : 1,203
+[Index] Unique cities        : 7,485
+
+[Index] Test lookups:
+  "software": keywords=14,151  country=0  city=0
+  "healthcare": keywords=4,072  country=0  city=0
+  "germany": keywords=1,259  country=9,160  city=0
+  "berlin": keywords=428  country=0  city=726
+  "manufacturing": keywords=10,395  country=0  city=0
+[Filter] === FILTER TEST RESULTS ===
+Query                                           Before    After  Reduction  Filters
+----------------------------------------------------------------------------------------------------
+software companies in Germany                   98,716    1,092      98.9%  country=germany | nace=K | kw=['software', 'germany'] (1.5ms)
+healthcare providers                            98,716   98,716       0.0%  nace=Q | kw=['healthcare'] (2.7ms)
+AI startups in Berlin                           98,716      340      99.7%  city=berlin | kw=['berlin'] (1.2ms)
+manufacturing in Baden-Württemberg              98,716      325      99.7%  nace=C | kw=['manufacturing', 'baden-württemberg'] (0.5ms)
+renewable energy companies                      98,716      991      99.0%  nace=D | kw=['renewable', 'energy'] (0.4ms)
+logistics companies in the US                   98,716    5,884      94.0%  nace=H | kw=['logistics'] (0.6ms)
+B2B SaaS platforms                              98,716    3,760      96.2%  nace=K | kw=['b2b', 'saas'] (0.7ms)
+[Models] Loading BGE embedding model...
+[Models] BGE loaded in 9.7s on cuda
+[Models] Loading pre-computed BGE embeddings...
+[Models] Embeddings shape    : (98716, 1024)
+[Models] Loading cross-encoder reranker...
+[Models] Reranker loaded in 14.6s on cuda
+[Models] All models ready ✅
+[Test] Running smoke test: "software companies in Germany"
+  [Filter] Country match: "germany" → 9,160 companies
+  [Filter] NACE match: "software" → NACE K → 30,491 companies
+  [Filter] Keyword match: "software" → 14,151 companies
+  [Filter] Keyword match: "germany" → 1,259 companies
+
+[Test] Total pipeline time   : 1597ms
+[Test] Corpus after filter   : 1,092 / 98,716
+[Test] BGE retrieved         : 1000
+[Test] After reranking top-10:
+  Rank   Name                                            Reranker      BGE
+  ---------------------------------------------------------------------------
+  1      Software-Bakery GmbH                              4.2537   0.6832
+  2      TRT Software GmbH                                 3.9289   0.6765
+  3      DSG deutliche Software GmbH                       3.8285   0.7062
+  4      pcvisit Software AG                               3.8168   0.7118
+  5      AM Software Solutions GmbH                        3.7889   0.6913
+  6      BitAutor                                          3.2569   0.6889
+  7      NEULAND Software GmbH                             2.5009   0.6760
+  8      NEULAND Software GmbH                             2.5009   0.6760
+  9      openApp                                           1.8048   0.7008
+  10     heroes GmbH                                      -0.9541   0.6752
+[Test] Smoke test passed ✅
+[Run] Starting full pipeline for 101 queries...
+[Run] Filter → BGE (top-1000) → Reranker (top-50)
+------------------------------------------------------------
+[Run]  10/101  |  avg 327ms/query  |  ~30s remaining  |  last filter: 389 companies
+[Run]  20/101  |  avg 325ms/query  |  ~26s remaining  |  last filter: 1,526 companies
+[Run]  30/101  |  avg 327ms/query  |  ~23s remaining  |  last filter: 19,276 companies
+[Run]  40/101  |  avg 334ms/query  |  ~20s remaining  |  last filter: 34,337 companies
+[Run]  50/101  |  avg 333ms/query  |  ~17s remaining  |  last filter: 1,236 companies
+[Run]  60/101  |  avg 328ms/query  |  ~13s remaining  |  last filter: 4,160 companies
+[Run]  70/101  |  avg 326ms/query  |  ~10s remaining  |  last filter: 3,552 companies
+[Run]  80/101  |  avg 324ms/query  |  ~7s remaining  |  last filter: 2,773 companies
+[Run]  90/101  |  avg 332ms/query  |  ~4s remaining  |  last filter: 11,616 companies
+[Run] 100/101  |  avg 331ms/query  |  ~0s remaining  |  last filter: 1,394 companies
+[Run] 101/101  |  avg 331ms/query  |  ~0s remaining  |  last filter: 968 companies
+------------------------------------------------------------
+[Run] Done! Total: 33.4s  |  Avg: 331ms/query
+[Run] Results saved  : result/fast_prefilter/reranked_filtered.csv
+[Run] Latency saved  : result/fast_prefilter/latency_filtered.csv
+
+[Run] Filter statistics:
+  Avg corpus after filter : 13,747 companies (86.1% reduction)
+  Fallback to full corpus : 7/101 queries
+  Queries using country   : 101/101
+  Queries using city      : 101/101
+  Queries using NACE      : 101/101
+  Queries using keywords  : 101/101
+[Eval] Starting evaluation...
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n579
+Job ID: 4895323
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:32
+CPU Efficiency: 3.42% of 00:44:48 core-walltime
+Job Wall-clock time: 00:03:44
+Memory Utilized: 3.32 GB
+Memory Efficiency: 3.62% of 91.80 GB (91.80 GB/node)

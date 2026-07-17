@@ -1,0 +1,4 @@
+[NbConvertApp] Converting notebook 24_hybrid_minilm_linq_full_rerank.ipynb to script
+[NbConvertApp] Writing 12020 bytes to 24_hybrid_minilm_linq_full_rerank.py
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  30%|██▉       | 116/393 [00:00<00:00, 1159.87it/s]Loading weights:  60%|██████    | 237/393 [00:00<00:00, 1179.98it/s]Loading weights:  96%|█████████▌| 377/393 [00:00<00:00, 1237.75it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 1261.41it/s]

@@ -1,0 +1,27 @@
+Ollama started with PID 3805905
+[GIN] 2026/07/06 - 13:55:43 | 200 |   16.842792ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 13:55:43 | 200 |   14.843605ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/06 - 13:55:43 | 200 |      22.127µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/06 - 13:55:43 | 200 |   20.282288ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    8 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    8 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    3 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 5812264
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:06
+CPU Efficiency: 0.03% of 06:01:48 core-walltime
+Job Wall-clock time: 00:30:09
+Memory Utilized: 10.61 GB
+Memory Efficiency: 11.55% of 91.80 GB (91.80 GB/node)

@@ -1,0 +1,16 @@
+method,k,ndcg,precision,recall,f1
+MiniLM all fields (baseline),10,0.975,0.972,0.01,0.019
+MiniLM all fields (baseline),50,0.955,0.95,0.047,0.09
+MiniLM all fields (baseline),100,0.945,0.938,0.094,0.171
+MiniLM all fields (baseline),500,0.872,0.858,0.429,0.572
+MiniLM all fields (baseline),1000,0.767,0.741,0.741,0.741
+HyDE (N=10 avg) + MiniLM,10,0.829,0.825,0.008,0.016
+HyDE (N=10 avg) + MiniLM,50,0.814,0.808,0.04,0.077
+HyDE (N=10 avg) + MiniLM,100,0.801,0.795,0.079,0.144
+HyDE (N=10 avg) + MiniLM,500,0.721,0.706,0.353,0.47
+HyDE (N=10 avg) + MiniLM,1000,0.622,0.596,0.596,0.596
+HyDE (N=10 avg) + MiniLM + Rerank,10,0.954,0.947,0.009,0.019
+HyDE (N=10 avg) + MiniLM + Rerank,50,0.845,0.808,0.04,0.077
+HyDE (N=10 avg) + MiniLM + Rerank,100,0.82,0.795,0.079,0.144
+HyDE (N=10 avg) + MiniLM + Rerank,500,0.726,0.706,0.353,0.47
+HyDE (N=10 avg) + MiniLM + Rerank,1000,0.625,0.596,0.596,0.596

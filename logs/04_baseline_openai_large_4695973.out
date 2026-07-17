@@ -1,0 +1,112 @@
+Ollama started with PID 2330691
+[GIN] 2026/05/14 - 16:17:51 | 200 |    17.76255ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 16:17:51 | 200 |   25.403334ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/05/14 - 16:17:51 | 200 |      34.427µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/05/14 - 16:17:51 | 200 |   34.555237ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED    
+mistral:7b             6577803aa9a0    4.4 GB    4 days ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    4 days ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    7 weeks ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder  : result/04_baseline_openai_large/ — ready
+[Setup] API key found  : sk-...orrKgA
+[Setup] Model          : text-embedding-3-large
+[Setup] Embedding dims : 3072
+[Setup] Est. cost      : ~$1.95 for full corpus encoding
+[Test] Testing API connection...
+[Test] API connected in  : 2298ms
+[Test] Embedding dims    : 3072
+[Test] Model confirmed   : text-embedding-3-large
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Total rows        : 101,000
+[Load] Columns available : ['rank', 'similarity_score', 'domain', 'name', 'organization_type', 'organization_size', 'country', 'state', 'district', 'municipality', 'summary', 'summary_keywords', 'nace_code', 'query_id', 'query']
+[Load] Unique companies  : 98,716
+[Load] Queries           : 101
+[Load] Building rich text for each company...
+[Load] Avg text length   : 804 chars (~201 tokens)
+[Load] Total tokens est. : 19.8M tokens
+[Load] Estimated cost    : $2.58
+[Load] Sample rich text  :
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[Encode] Embeddings already exist — loading from disk...
+[Encode] Skipping API encoding — no cost incurred
+[Encode] Loaded shape  : (98716, 3072)
+[Encode] Dims          : 3072
+[FAISS] Loading embeddings...
+[FAISS] Embeddings shape  : (98716, 3072)
+[FAISS] Building IndexFlatIP...
+[FAISS] Index built in    : 0.48s
+[FAISS] Vectors in index  : 98,716
+[FAISS] Index type        : IndexFlatIP (cosine similarity)
+[FAISS] Vector dims       : 3072
+[FAISS] Index saved to    : result/04_baseline_openai_large/company_faiss.index
+[Run] Starting retrieval for 101 queries...
+[Run] Retrieving top-1000 per query
+[Run] Each query = 1 API call (network) + 1 FAISS search (local)
+------------------------------------------------------------
+[Run]  20/101  |  avg network=161ms  search=107ms  |  ~26s remaining
+[Run]  40/101  |  avg network=164ms  search=106ms  |  ~19s remaining
+[Run]  60/101  |  avg network=164ms  search=106ms  |  ~13s remaining
+[Run]  80/101  |  avg network=160ms  search=105ms  |  ~7s remaining
+[Run] 100/101  |  avg network=164ms  search=105ms  |  ~0s remaining
+[Run] 101/101  |  avg network=164ms  search=105ms  |  ~0s remaining
+------------------------------------------------------------
+[Run] Done!
+[Run] Total results         : 101,000
+[Run] Avg network latency   : 164.2ms  (API round-trip)
+[Run] Avg search latency    : 104.7ms   (local FAISS)
+[Run] Avg total latency     : 268.9ms
+[Run] Results saved to      : result/04_baseline_openai_large/openai_large_results.csv
+[Run] Latency saved to      : result/04_baseline_openai_large/latency_breakdown.csv
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/04_baseline_openai_large/evaluation_openai_large.csv
+[Summary] ============================================================
+[Summary] OpenAI text-embedding-3-large RESULTS
+[Summary] ============================================================
+
+[Summary] Corpus encoding time  : 0.0 minutes
+[Summary] Index build time      : 0.48s
+[Summary] Avg network latency   : 164.2ms  (API — not model speed)
+[Summary] Avg FAISS search      : 104.7ms   (local)
+[Summary] Avg total latency     : 268.9ms
+[Summary] Companies encoded     : 98,716
+[Summary] Embedding dims        : 3072
+[Summary] FAISS index type      : IndexFlatIP
+[Summary] Normalisation         : True (OpenAI returns unit vectors)
+[Summary] Queries evaluated     : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.212      0.207    0.021    0.038
+  50        0.179      0.169    0.084    0.113
+  100       0.165      0.155    0.155    0.155
+  1000      0.533      0.081    0.812    0.148
+
+[Summary] Latency breakdown (for thesis):
+  Network (API round-trip) : 164.2ms  <- not comparable to local models
+  FAISS search (local)     : 104.7ms  <- fair comparison with BGE/MiniLM
+[Summary] ============================================================
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 4695973
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:21
+CPU Efficiency: 3.97% of 00:34:00 core-walltime
+Job Wall-clock time: 00:02:50
+Memory Utilized: 2.90 GB
+Memory Efficiency: 3.16% of 91.80 GB (91.80 GB/node)

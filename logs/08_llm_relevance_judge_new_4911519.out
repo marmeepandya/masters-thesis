@@ -1,0 +1,169 @@
+Ollama started with PID 1844144
+[GIN] 2026/06/03 - 21:14:28 | 200 |      67.401µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/03 - 21:14:28 | 200 |     115.708µs |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/06/03 - 21:14:28 | 200 |      13.673µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/06/03 - 21:14:28 | 200 |   11.255871ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    3 weeks ago     
+llama3.1:8b            46e0c10c039e    4.9 GB    3 weeks ago     
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    2 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/06/03 - 21:14:37 | 200 |   10.616382ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2026/06/03 - 21:15:13 | 200 | 10.602678983s |       127.0.0.1 | POST     "/api/chat"
+[Setup] Result folder  : result/08_llm_relevance_judge/
+[Setup] Judge model    : llama3.1:8b
+[Setup] Primary metric : NDCG@100
+[Setup] Ollama running : ✅  Models: ['mistral:7b', 'llama3.1:8b', 'mistral-nemo:latest']
+[Imports] All packages loaded
+[Load] Loading all data...
+[Load] Total queries    : 101
+[Load] Total companies  : 98,716
+[Load] MiniLM results   : 101,000 rows
+
+[Load] Held-out queries : 20 (for LLM evaluation)
+[Load] Training queries : 81 (for Option B fine-tuning)
+
+[Load] Held-out query list:
+  [4] renewable energy companies in Germany
+  [5] companies providing cloud migration services
+  [12] manufacturing in Baden-Württemberg
+  [14] pharmaceutical companies
+  [15] logistics companies in the US
+  [18] financial services companies
+  [28] digital transformation consultants
+  [29] cloud computing providers
+  [30] mobile app development companies
+  [32] SEO companies
+  [36] investment banks
+  [55] aerospace companies
+  [65] inventory management software
+  [70] cybersecurity solutions providers
+  [72] managed service providers (MSPs)
+  [76] domain name registrars
+  [78] e-learning platforms
+  [82] public relations agencies
+  [87] accounting software providers
+  [95] construction equipment manufacturers
+
+[Load] Saved held-out and train splits
+[Test] Testing LLM judge...
+[Test] Query   : "software companies in Germany"
+[Test] Company : Software Genesis, Inc.
+[Test] Score   : 1/2
+[Test] Reason  : The company is a software development company located in the US, but it does match one of the query's criteria (software companies) and has an international presence.
+[Test] LLM judge working ✅
+[Judge] Loading existing judgements from disk...
+[Judge] Loaded 400 judgements
+[Inspect] === JUDGEMENT SUMMARY ===
+  Total judgements     : 400
+  Score distribution   :
+    Score 0 (Not relevant ):    7 (1.8%)
+    Score 1 (Partial      ):   13 (3.2%)
+    Score 2 (Highly relev.):  380 (95.0%)
+
+[Inspect] === LLM vs PSEUDO-RELEVANCE COMPARISON ===
+  Both LLM and pseudo agree relevant  : 108
+  LLM says relevant, pseudo says not  : 285  ← companies your system found that production missed
+  Pseudo says relevant, LLM says not  : 0  ← production ranked but LLM disagrees
+
+[Inspect] === SAMPLE JUDGEMENTS ===
+
+Query: "renewable energy companies in Germany"
+  Rank   1 | Score 2/2 | energiezukunftdeutschland.de
+         Reason: The company's website specifically focuses on renewable energy in Germany, match
+  Rank   2 | Score 2/2 | Swisspower Renewables AG
+         Reason: The company's description explicitly mentions developing and operating renewable
+  Rank   3 | Score 2/2 | WEB Windenergie Deutschland GmbH
+         Reason: The company's description explicitly mentions its focus on renewable energy and 
+  Rank   4 | Score 2/2 | SOLARWATT Germany
+         Reason: The company explicitly mentions its focus on renewable energy and specifically s
+  Rank   5 | Score 2/2 | Südwestwind GmbH
+         Reason: The company's description explicitly mentions its focus on renewable energy tech
+
+Query: "companies providing cloud migration services"
+  Rank   1 | Score 2/2 | CloudFuze, Inc.
+         Reason: CloudFuze's description directly matches the intent of providing cloud migration
+  Rank   2 | Score 2/2 | Cloud.in
+         Reason: Cloud.in's description explicitly mentions providing cloud migration services as
+  Rank   3 | Score 2/2 | The Cloud Movers
+         Reason: The company name and description directly mention cloud migration services and h
+  Rank   4 | Score 2/2 | Go Cloud IT
+         Reason: The company's description explicitly mentions providing cloud migration services
+  Rank   5 | Score 2/2 | CloudShyft
+         Reason: CloudShyft's description directly mentions cloud migration as a core service the
+
+Query: "manufacturing in Baden-Württemberg"
+  Rank   1 | Score 0/2 | Business-Magazin Baden-Württemberg
+         Reason: The company's description focuses on providing information about businesses in B
+  Rank   2 | Score 1/2 | Region Stuttgart
+         Reason: The company description mentions Baden-Württemberg but does not explicitly menti
+  Rank   3 | Score 1/2 | Bauwirtschaft Baden-Württemberg e.V.
+         Reason: The company is related to the Baden-Württemberg region and the construction sect
+  Rank   4 | Score 2/2 | Die Badische Wirtschaft Made in Baden® G
+         Reason: The company's name and description explicitly mention 'Baden' and its focus on r
+  Rank   5 | Score 0/2 | Landesinnungsverband für das Fleischerha
+         Reason: The company description does not mention manufacturing, but rather focuses on an
+[Eval] Computing metrics with LLM relevance labels...
+
+[Eval] === MiniLM — LLM RELEVANCE LABELS (True Quality) ===
+  k          NDCG  Precision   Recall
+  ------------------------------------
+  10        0.963      0.980    0.498
+  50        0.982      0.393    1.000
+  100       0.982      0.197    1.000
+  500       0.982      0.039    1.000
+  1000      0.982      0.020    1.000
+[Compare] Computing pseudo-relevance metrics on held-out queries...
+
+[Compare] =======================================================
+[Compare] PSEUDO-RELEVANCE vs LLM LABELS — MiniLM all fields
+[Compare] =======================================================
+  k       Pseudo NDCG   LLM NDCG   Difference
+  --------------------------------------------
+  10            0.964      0.963 ↓     0.001
+  50            0.947      0.982 ↑     0.035
+  100           0.939      0.982 ↑     0.042
+  500           0.868      0.982 ↑     0.113
+  1000          0.771      0.982 ↑     0.210
+
+[Compare] Primary metric NDCG@100:
+  Pseudo-relevance : 0.939
+  LLM labels       : 0.982
+  → LLM labels show 4.5% HIGHER quality
+  → Pseudo-relevance was UNDERESTIMATING your system
+
+[Compare] Saved to result/08_llm_relevance_judge/comparison_pseudo_vs_llm.csv
+[Findings] ============================================================
+[Findings] KEY FINDINGS — LLM RELEVANCE EVALUATION
+[Findings] ============================================================
+
+  MiniLM NDCG@10  (LLM labels)    : 0.963
+  MiniLM NDCG@100 (LLM labels)    : 0.982
+  MiniLM NDCG@100 (pseudo labels) : 0.939
+
+  Relevance distribution in top-20:
+    Not relevant      :    7 (1.8%)
+    Partial           :   13 (3.2%)
+    Highly relevant   :  380 (95.0%)
+
+  LLM vs pseudo agreement analysis saved to llm_judgements.json
+  → Use held_out_queries.json and train_queries.json for Option B (fine-tuning)
+[Findings] ============================================================
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 4911519
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:33
+CPU Efficiency: 3.48% of 00:15:48 core-walltime
+Job Wall-clock time: 00:01:19
+Memory Utilized: 838.09 MB
+Memory Efficiency: 0.89% of 91.80 GB (91.80 GB/node)

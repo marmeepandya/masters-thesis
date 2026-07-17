@@ -44,7 +44,10 @@
       "Skill(humanizer:humanizer)",
       "Bash(awk ' *)",
       "Bash(rm -f seminar.aux seminar.bbl seminar.blg seminar.log seminar.out seminar.pdf)",
-      "Bash(echo \"compile exit: $?\")"
+      "Bash(echo \"compile exit: $?\")",
+      "Bash(git add *)",
+      "Bash(xargs -I{} du -b \"{}\")",
+      "Bash(awk '$1 > 90000000 {print}')"
     ]
   }
 }

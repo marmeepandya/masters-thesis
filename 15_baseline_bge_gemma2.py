@@ -36,7 +36,7 @@ print('[Imports] All packages loaded successfully')
 
 # ## 1. Load dataset & build all-fields rich text
 
-# In[ ]:
+# In[3]:
 
 
 print('[Load] Loading production results...')
@@ -79,7 +79,7 @@ print(f'  {rich_texts[0][:300]}...')
 
 # ## 2. GPU check
 
-# In[ ]:
+# In[4]:
 
 
 import torch
@@ -108,7 +108,7 @@ from transformers import AutoTokenizer, AutoModel
 
 TASK_INSTRUCTION = 'Given a search query describing a type of company, retrieve relevant company profiles'
 MAX_LENGTH = 512
-TIME_BUDGET_MINUTES = 27  # job wall-time is 30 min -- model loading alone can take 20-27 min on this cluster's storage, so the budget must be measured generously to leave any encoding time at all; margin is just enough to save a checkpoint before the hard kill
+TIME_BUDGET_MINUTES = 1380  # job wall-time is now 24h on gpu_a100_il -- budget leaves a 1h buffer before the hard kill so a checkpoint always gets saved
 
 CHECKPOINT_PATH   = RESULT_DIR / 'company_embeddings_checkpoint.npy'
 FINAL_PATH        = RESULT_DIR / 'company_embeddings.npy'
@@ -149,18 +149,22 @@ def encode_batch(texts, start=0, batch_size=16, prefix_embs=None, checkpoint=Fal
         embs = F.normalize(embs, p=2, dim=1)
         all_embs.append(embs.cpu().float().numpy())
         if checkpoint and (i // batch_size + 1) % 50 == 0:
-            print(f'[Encode]   {i + len(batch):,}/{len(texts):,} companies encoded...')
+            done_so_far = i + len(batch)
+            pct = done_so_far / len(texts) * 100
+            print(f'[Encode]   {done_so_far:,}/{len(texts):,} companies encoded ({pct:.1f}%)...')
         if checkpoint and (i // batch_size + 1) % 200 == 0:
             np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
         if checkpoint and (time.time() - SCRIPT_START) / 60 > TIME_BUDGET_MINUTES:
             np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
             TIME_LOG_PATH.write_text(str(prior_encode_secs + time.time() - encode_t0))
-            print(f'[Encode] Time budget ({TIME_BUDGET_MINUTES} min) reached at {i + len(batch):,}/{len(texts):,} -- checkpoint saved, resubmit run.sh to continue')
+            done_so_far = i + len(batch)
+            pct = done_so_far / len(texts) * 100
+            print(f'[Encode] Time budget ({TIME_BUDGET_MINUTES} min) reached at {done_so_far:,}/{len(texts):,} ({pct:.1f}%) -- NOT fully encoded, file stays named "checkpoint". Rerun this same script/notebook (any device, batch or interactive) to resume and add more progress.')
             sys.exit(0)
     return np.concatenate(all_embs, axis=0)
 
 if FINAL_PATH.exists() and np.load(FINAL_PATH, mmap_mode='r').shape[0] == len(rich_texts):
-    print('[Encode] Final embeddings already on disk -- skipping corpus encoding')
+    print(f'[Encode] {len(rich_texts):,}/{len(rich_texts):,} (100%) already embedded -- final file on disk, skipping corpus encoding')
     embeddings = np.load(FINAL_PATH).astype('float32')
     ENCODE_TIME = prior_encode_secs
     if CHECKPOINT_PATH.exists():
@@ -169,7 +173,8 @@ else:
     if CHECKPOINT_PATH.exists():
         done_embs = np.load(CHECKPOINT_PATH)
         start_idx = done_embs.shape[0]
-        print(f'[Encode] Resuming from checkpoint -- {start_idx:,}/{len(rich_texts):,} companies already encoded ({prior_encode_secs/60:.1f} min spent so far)')
+        pct = start_idx / len(rich_texts) * 100
+        print(f'[Encode] Resuming from checkpoint -- {start_idx:,}/{len(rich_texts):,} ({pct:.1f}%) companies already encoded ({prior_encode_secs/60:.1f} min spent so far). File is named "checkpoint" because encoding is not yet 100% complete -- this is based purely on companies-encoded count, not on how the previous run was launched or how it exited.')
     else:
         done_embs = None
         start_idx = 0
@@ -179,7 +184,7 @@ else:
     embeddings = encode_batch(rich_texts, start=start_idx, batch_size=16, prefix_embs=done_embs, checkpoint=True)
     ENCODE_TIME = prior_encode_secs + (time.time() - encode_t0)
     print(f'[Encode] Done in {ENCODE_TIME/60:.1f} minutes total (across all resumed runs)')
-    print(f'[Encode] Embeddings shape : {embeddings.shape}')
+    print(f'[Encode] Embeddings shape : {embeddings.shape} -- all {len(rich_texts):,} companies now embedded, writing final file (no "checkpoint" in the name)')
     np.save(FINAL_PATH, embeddings)
     TIME_LOG_PATH.write_text(str(ENCODE_TIME))
     if CHECKPOINT_PATH.exists():

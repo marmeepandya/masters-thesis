@@ -1,0 +1,102 @@
+query_id,query,network_ms,search_ms,total_ms
+1,software companies,202.0,109.8,311.8
+2,healthcare providers,154.6,99.1,253.7
+3,AI startups in Berlin,180.6,96.7,277.3
+4,renewable energy companies in Germany,147.1,99.1,246.1
+5,companies providing cloud migration services,308.8,99.3,408.1
+6,B2B SaaS platforms,194.6,99.2,293.8
+7,machine learning companies,175.7,96.7,272.3
+8,IoT solution providers,168.4,96.8,265.2
+9,enterprise software vendors,175.4,98.0,273.4
+10,small consulting firms,185.8,96.7,282.5
+11,tech companies in Munich,159.4,98.8,258.1
+12,manufacturing in Baden-Württemberg,186.6,96.5,283.1
+13,e-commerce platforms,199.7,96.5,296.2
+14,pharmaceutical companies,174.9,98.3,273.2
+15,logistics companies in the US,192.3,97.4,289.7
+16,data analytics companies,177.8,99.6,277.4
+17,cybersecurity firms,175.3,98.5,273.8
+18,financial services companies,167.1,100.4,267.5
+19,retail chains in Europe,166.1,98.7,264.8
+20,construction companies,206.4,96.5,302.9
+21,marketing agencies,164.6,98.3,262.9
+22,human resources software,161.3,97.8,259.1
+23,supply chain management companies,153.0,96.5,249.6
+24,solar panel manufacturers,172.1,98.9,271.0
+25,agricultural technology companies,176.9,98.7,275.7
+26,electric vehicle manufacturers,209.9,97.9,307.8
+27,biotech companies,153.3,96.8,250.1
+28,digital transformation consultants,157.2,99.5,256.7
+29,cloud computing providers,147.4,98.3,245.7
+30,mobile app development companies,187.7,97.4,285.2
+31,web design agencies,170.3,99.7,270.0
+32,SEO companies,201.8,96.6,298.4
+33,social media marketing agencies,188.5,98.8,287.3
+34,venture capital firms,314.3,98.8,413.1
+35,private equity firms,181.6,98.9,280.6
+36,investment banks,149.7,96.7,246.5
+37,insurance companies,167.7,98.1,265.9
+38,real estate developers,172.4,98.9,271.3
+39,property management companies,148.7,96.6,245.3
+40,hospital management companies,169.0,99.5,268.5
+41,medical device manufacturers,140.9,96.6,237.5
+42,telecommunications companies,162.0,96.6,258.6
+43,internet service providers,178.4,100.1,278.5
+44,manufacturing automation companies,181.7,96.6,278.3
+45,robotics companies,220.2,96.5,316.7
+46,3D printing companies,170.0,98.7,268.7
+47,packaging companies,131.1,96.6,227.8
+48,food processing companies,149.7,99.4,249.1
+49,beverage companies,185.7,96.7,282.5
+50,mining companies,161.3,99.0,260.2
+51,oil and gas companies,170.7,98.6,269.3
+52,energy storage companies,171.9,96.5,268.4
+53,waste management companies,184.9,98.7,283.6
+54,water treatment companies,161.3,96.7,258.0
+55,aerospace companies,204.5,96.6,301.1
+56,defense contractors,168.4,98.3,266.6
+57,transportation companies,215.8,97.0,312.8
+58,shipping companies,181.6,99.2,280.8
+59,trucking companies,171.1,97.0,268.1
+60,freight forwarding companies,154.3,99.2,253.5
+61,warehousing companies,156.2,98.7,254.9
+62,cold storage companies,130.3,96.6,226.9
+63,retail technology companies,171.5,99.9,271.4
+64,point of sale systems providers,153.7,96.6,250.3
+65,inventory management software,155.9,96.6,252.5
+66,customer relationship management (CRM) software,168.9,98.9,267.8
+67,enterprise resource planning (ERP) systems,171.3,96.5,267.8
+68,business intelligence (BI) companies,168.3,99.4,267.6
+69,IT consulting firms,158.0,96.8,254.8
+70,cybersecurity solutions providers,169.8,99.0,268.7
+71,cloud security providers,181.3,98.1,279.3
+72,managed service providers (MSPs),193.2,96.7,289.9
+73,remote monitoring and management (RMM) software,217.0,100.1,317.1
+74,data center providers,180.8,96.6,277.4
+75,web hosting companies,147.9,96.7,244.6
+76,domain name registrars,156.9,98.1,255.0
+77,content management systems (CMS),186.6,96.6,283.1
+78,e-learning platforms,192.3,99.7,292.0
+79,online marketing agencies,170.0,96.7,266.7
+80,lead generation companies,175.2,99.7,274.9
+81,market research firms,259.4,98.8,358.1
+82,public relations agencies,205.8,98.3,304.1
+83,graphic design studios,215.3,98.9,314.2
+84,video production companies,139.6,96.6,236.2
+85,translation services,186.0,100.0,286.0
+86,legal technology companies,170.7,96.8,267.5
+87,accounting software providers,151.0,97.4,248.4
+88,tax preparation services,177.1,98.9,276.0
+89,payroll processing companies,164.7,97.3,262.0
+90,financial planning services,165.1,99.9,265.0
+91,investment management firms,154.5,96.7,251.2
+92,wealth management firms,164.4,96.7,261.1
+93,commercial real estate brokers,169.5,99.0,268.5
+94,residential real estate brokers,169.0,97.6,266.6
+95,construction equipment manufacturers,199.8,99.6,299.4
+96,building materials suppliers,181.7,97.6,279.3
+97,renewable energy project developers,206.8,99.0,305.8
+98,sustainable agriculture companies,187.8,96.7,284.4
+99,vertical farming companies,168.7,96.5,265.2
+100,precision agriculture technology providers,129.1,99.4,228.5
+101,alternative protein manufacturers,168.6,96.9,265.5

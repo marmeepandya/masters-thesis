@@ -1,0 +1,102 @@
+query,n_relevant_total,n_relevant_junk,pct_junk
+web hosting companies,1000,854,85.4
+cloud computing providers,1000,731,73.1
+e-commerce platforms,1000,531,53.1
+content management systems (CMS),1000,332,33.2
+internet service providers,1000,182,18.2
+web design agencies,1000,117,11.7
+waste management companies,1000,92,9.2
+pharmaceutical companies,1000,72,7.2
+data center providers,403,28,6.9
+aerospace companies,233,15,6.4
+managed service providers (MSPs),260,16,6.2
+financial services companies,1000,53,5.3
+digital transformation consultants,1000,47,4.7
+beverage companies,295,13,4.4
+enterprise software vendors,1000,44,4.4
+SEO companies,1000,41,4.1
+residential real estate brokers,1000,39,3.9
+medical device manufacturers,1000,38,3.8
+cloud security providers,164,6,3.7
+food processing companies,1000,36,3.6
+building materials suppliers,1000,31,3.1
+data analytics companies,1000,30,3.0
+enterprise resource planning (ERP) systems,1000,29,2.9
+legal technology companies,1000,25,2.5
+lead generation companies,590,15,2.5
+online marketing agencies,1000,24,2.4
+packaging companies,1000,23,2.3
+retail technology companies,485,11,2.3
+energy storage companies,538,12,2.2
+cybersecurity solutions providers,1000,21,2.1
+telecommunications companies,602,12,2.0
+customer relationship management (CRM) software,843,16,1.9
+wealth management firms,1000,17,1.7
+commercial real estate brokers,1000,15,1.5
+water treatment companies,1000,14,1.4
+market research firms,1000,14,1.4
+cybersecurity firms,1000,13,1.3
+3D printing companies,1000,13,1.3
+IT consulting firms,1000,12,1.2
+point of sale systems providers,1000,11,1.1
+investment management firms,1000,11,1.1
+accounting software providers,780,7,0.9
+public relations agencies,1000,9,0.9
+renewable energy companies in Germany,687,6,0.9
+e-learning platforms,1000,9,0.9
+cold storage companies,1000,8,0.8
+oil and gas companies,668,5,0.7
+property management companies,1000,6,0.6
+IoT solution providers,1000,6,0.6
+tax preparation services,1000,6,0.6
+manufacturing automation companies,1000,6,0.6
+translation services,1000,5,0.5
+renewable energy project developers,1000,5,0.5
+electric vehicle manufacturers,1000,5,0.5
+real estate developers,1000,5,0.5
+marketing agencies,1000,5,0.5
+business intelligence (BI) companies,804,2,0.2
+software companies,22,0,0.0
+healthcare providers,39,0,0.0
+AI startups in Berlin,41,0,0.0
+companies providing cloud migration services,319,0,0.0
+tech companies in Munich,40,0,0.0
+small consulting firms,42,0,0.0
+manufacturing in Baden-Württemberg,55,0,0.0
+B2B SaaS platforms,295,0,0.0
+machine learning companies,5,0,0.0
+logistics companies in the US,679,0,0.0
+retail chains in Europe,59,0,0.0
+construction companies,1000,0,0.0
+insurance companies,1000,0,0.0
+investment banks,382,0,0.0
+private equity firms,1000,0,0.0
+venture capital firms,1000,0,0.0
+social media marketing agencies,1000,0,0.0
+mobile app development companies,1000,0,0.0
+supply chain management companies,437,0,0.0
+biotech companies,418,0,0.0
+human resources software,1000,0,0.0
+agricultural technology companies,834,0,0.0
+solar panel manufacturers,1000,0,0.0
+hospital management companies,23,0,0.0
+robotics companies,147,0,0.0
+warehousing companies,590,0,0.0
+freight forwarding companies,1000,0,0.0
+mining companies,78,0,0.0
+inventory management software,1000,0,0.0
+trucking companies,1000,0,0.0
+defense contractors,32,0,0.0
+transportation companies,825,0,0.0
+shipping companies,1000,0,0.0
+graphic design studios,1000,0,0.0
+remote monitoring and management (RMM) software,61,0,0.0
+domain name registrars,85,0,0.0
+video production companies,1000,0,0.0
+payroll processing companies,1000,0,0.0
+financial planning services,1000,0,0.0
+construction equipment manufacturers,1000,0,0.0
+sustainable agriculture companies,62,0,0.0
+vertical farming companies,100,0,0.0
+precision agriculture technology providers,494,0,0.0
+alternative protein manufacturers,41,0,0.0
