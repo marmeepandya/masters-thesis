@@ -1,0 +1,106 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/27_baseline_colbert/ -- ready
+[Imports] All packages loaded successfully
+[Load] Loading production results...
+[Load] Unique companies : 98,716
+[Load] Queries : 101
+[Load] Building all-fields rich text for each company...
+[Load] Sample rich text (first company):
+  Company: Software Genesis, Inc. | Country: United States | State: Illinois | Type: Company | Size: Micro (0-9) | Industry: NACE K: Telecommunication, computer programming, consulting, computing infrastructure and other information service activities | Software Genesis is a software development compa...
+[GPU] CUDA available : True
+[GPU] Device         : NVIDIA A100-PCIE-40GB
+[GPU] VRAM           : 42.4 GB
+[Load] Loading ColBERTv2 tokenizer + BertModel backbone...
+[Load] Loading token-projection linear layer from checkpoint...
+[Load] Done in 3.8s on cuda -- linear projection shape (128, 768)
+[Encode] Encoding 98,716 companies (max_length=192)...
+[Encode] Resuming from checkpoint -- 10,000/98,716 (10.1%) companies already encoded
+[Encode]   15,000/98,716 companies encoded (15.2%)... checkpoint saved
+[Encode]   20,000/98,716 companies encoded (20.3%)... checkpoint saved
+[Encode]   25,000/98,716 companies encoded (25.3%)... checkpoint saved
+[Encode]   30,000/98,716 companies encoded (30.4%)... checkpoint saved
+[Encode]   35,000/98,716 companies encoded (35.5%)... checkpoint saved
+[Encode]   40,000/98,716 companies encoded (40.5%)... checkpoint saved
+[Encode]   45,000/98,716 companies encoded (45.6%)... checkpoint saved
+[Encode]   50,000/98,716 companies encoded (50.7%)... checkpoint saved
+[Encode]   55,000/98,716 companies encoded (55.7%)... checkpoint saved
+[Encode]   60,000/98,716 companies encoded (60.8%)... checkpoint saved
+[Encode]   65,000/98,716 companies encoded (65.8%)... checkpoint saved
+[Encode]   70,000/98,716 companies encoded (70.9%)... checkpoint saved
+[Encode]   75,000/98,716 companies encoded (76.0%)... checkpoint saved
+[Encode]   80,000/98,716 companies encoded (81.0%)... checkpoint saved
+[Encode]   85,000/98,716 companies encoded (86.1%)... checkpoint saved
+[Encode]   90,000/98,716 companies encoded (91.2%)... checkpoint saved
+[Encode]   95,000/98,716 companies encoded (96.2%)... checkpoint saved
+[Encode]   98,716/98,716 companies encoded (100.0%)... checkpoint saved
+[Encode] Done in 4.7 minutes (this session)
+[Encode] doc_embs shape : (98716, 192, 128)  (4.85 GB)
+[Encode] Moved to cuda for scoring
+[Search] MaxSim search function ready
+[Run] Starting ColBERT MaxSim retrieval for 101 queries...
+[Run]  10/101  |  avg 61ms/query (this session)
+[Run]  20/101  |  avg 48ms/query (this session)
+[Run]  30/101  |  avg 43ms/query (this session)
+[Run]  40/101  |  avg 40ms/query (this session)
+[Run]  50/101  |  avg 39ms/query (this session)
+[Run]  60/101  |  avg 38ms/query (this session)
+[Run]  70/101  |  avg 38ms/query (this session)
+[Run]  80/101  |  avg 37ms/query (this session)
+[Run]  90/101  |  avg 37ms/query (this session)
+[Run] 100/101  |  avg 37ms/query (this session)
+[Run] 101/101  |  avg 37ms/query (this session)
+[Run] Done! Avg latency (this session): 37ms
+[Eval] Loading production labels...
+[Eval] Computing metrics for all queries...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] Saved to result/27_baseline_colbert/evaluation_colbert.csv
+[Summary] ============================================================
+[Summary] ColBERTv2 (MaxSim, brute-force) RESULTS
+
+[Summary] Avg query latency : 37ms
+[Summary] Companies encoded : 98,716
+[Summary] Token embedding dim: 128
+[Summary] Queries evaluated : 101
+
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.937      0.936    0.009    0.019
+  50        0.932      0.930    0.047    0.089
+  100       0.928      0.925    0.093    0.168
+  300       0.905      0.899    0.270    0.415
+  500       0.880      0.870    0.435    0.580
+  1000      0.794      0.773    0.773    0.773
+
+[Summary] Comparison against models already tested (Recall@1000):
+  E5-Mistral        : 0.274
+  BM25              : 0.635
+  Nomic             : 0.684
+  BGE-M3            : 0.704
+  BGE summary-only  : 0.707  (prefix-fixed)
+  BGE all-fields    : 0.727  (prefix-fixed)
+  OpenAI large      : 0.728
+  MiniLM            : 0.741
+  SFR-Mistral       : 0.746
+  Linq-Mistral      : 0.749
+  GTE-large         : 0.768  (best solo so far)
+  ColBERTv2 (MaxSim): 0.773
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 5869670
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:06:53
+CPU Efficiency: 7.77% of 01:28:36 core-walltime
+Job Wall-clock time: 00:07:23
+Memory Utilized: 6.40 GB
+Memory Efficiency: 6.97% of 91.80 GB (91.80 GB/node)
