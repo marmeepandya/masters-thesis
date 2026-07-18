@@ -1,0 +1,3 @@
+[NbConvertApp] Converting notebook 28_hybrid_quad_full_rerank.ipynb to script
+[NbConvertApp] Writing 15561 bytes to 28_hybrid_quad_full_rerank.py
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 125/393 [00:00<00:00, 1248.92it/s]Loading weights:  65%|██████▍   | 255/393 [00:00<00:00, 1267.19it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 1319.63it/s]

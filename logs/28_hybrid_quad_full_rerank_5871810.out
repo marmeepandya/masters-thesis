@@ -1,0 +1,91 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/28_hybrid_quad_full_rerank/ -- ready
+[Setup] Top-k per channel : 1000
+[Setup] Final k           : 1000
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading Linq-Embed-Mistral results...
+[Load] Linq rows      : 101,000
+[Load] Loading GTE-large results...
+[Load] GTE-large rows : 101,000
+[Load] Loading OpenAI-large results...
+[Load] OpenAI-large rows : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+[Load] Sanity check passed
+[Pool] Avg pool size : 1526
+[Pool] Min pool size : 1014
+[Pool] Max pool size : 2387
+[Oracle] 4-way union oracle Recall@1000 : 0.916
+[Oracle] (3-way MiniLM+Linq+GTE ceiling from notebook 25 was 0.903, for comparison)
+[Reranker] Loading BGE cross-encoder reranker...
+[Reranker] Loaded in 15.9s on cuda
+[Warmup] Warming up reranker with 3 dummy calls...
+[Warmup] GPU warm
+[Rerank] Scoring full union pool for 101 queries...
+[Rerank] Resuming -- 1/101 queries already reranked
+[Rerank]  11/101  |  avg 8.9s/query (this session)
+[Rerank]  21/101  |  avg 8.6s/query (this session)
+[Rerank]  31/101  |  avg 8.3s/query (this session)
+[Rerank]  41/101  |  avg 8.2s/query (this session)
+[Rerank]  51/101  |  avg 8.0s/query (this session)
+[Rerank]  61/101  |  avg 8.1s/query (this session)
+[Rerank]  71/101  |  avg 8.2s/query (this session)
+[Rerank]  81/101  |  avg 8.0s/query (this session)
+[Rerank]  91/101  |  avg 7.9s/query (this session)
+[Rerank] 101/101  |  avg 7.9s/query (this session)
+[Rerank] Done!
+[Rerank] Avg rerank time (this session) : 7.9s/query
+[Rerank] Saved to        : result/28_hybrid_quad_full_rerank/reranked_results.csv
+[Eval] Evaluating 4-way full-pool rerank results...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] === 4-WAY FULL-POOL RERANK RESULTS ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.955      0.955    0.010    0.019
+  50        0.955      0.955    0.048    0.091
+  100       0.951      0.950    0.095    0.173
+  300       0.931      0.926    0.278    0.428
+  500       0.908      0.900    0.450    0.600
+  1000      0.822      0.802    0.802    0.802
+[Compare] Loading notebook 25 results for comparison...
+   k  quad_ndcg  quad_recall  triple_ndcg  triple_recall
+  10      0.955        0.010        0.955          0.010
+  50      0.955        0.048        0.955          0.048
+ 100      0.951        0.095        0.951          0.095
+ 300      0.931        0.278        0.932          0.278
+ 500      0.908        0.450        0.909          0.450
+1000      0.822        0.802        0.824          0.804
+
+[Compare] 4-way full-pool rerank Recall@1000 : 0.802
+[Compare] 4-way oracle ceiling                : 0.916
+[Compare] Remaining gap                       : 0.114
+
+[Compare] Saved to result/28_hybrid_quad_full_rerank/comparison_vs_prior.csv
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 5871810
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:15:33
+CPU Efficiency: 8.15% of 03:10:48 core-walltime
+Job Wall-clock time: 00:15:54
+Memory Utilized: 2.35 GB
+Memory Efficiency: 2.56% of 91.80 GB (91.80 GB/node)

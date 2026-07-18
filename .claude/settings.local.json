@@ -47,7 +47,26 @@
       "Bash(echo \"compile exit: $?\")",
       "Bash(git add *)",
       "Bash(xargs -I{} du -b \"{}\")",
-      "Bash(awk '$1 > 90000000 {print}')"
+      "Bash(awk '$1 > 90000000 {print}')",
+      "Bash(git commit -m ' *)",
+      "Bash(git gc *)",
+      "Bash(git count-objects *)",
+      "Bash(lfs quota *)",
+      "Bash(git fsck *)",
+      "Bash(cd *)",
+      "Bash(git rev-list *)",
+      "Bash(module avail *)",
+      "Bash(rclone version *)",
+      "Bash(rclone lsd *)",
+      "Bash(rclone about *)",
+      "Bash(rclone sync *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(echo \"dataset sync EXIT: $?\")",
+      "Bash(crontab -l)",
+      "Bash(squeue -u ma_mpandya)",
+      "Bash(chmod +x /home/ma/ma_ma/ma_mpandya/Thesis/sync_to_drive.sh)",
+      "Bash(/home/ma/ma_ma/ma_mpandya/Thesis/sync_to_drive.sh)",
+      "Bash(xargs ls -lh)"
     ]
   }
 }
