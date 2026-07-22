@@ -1,0 +1,86 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/29_hybrid_altreranker/ -- ready
+[Setup] Top-k per channel : 1000
+[Setup] Final k           : 1000
+[Imports] Device      : cuda
+[Imports] GPU         : NVIDIA A100-PCIE-40GB
+[Imports] All packages loaded successfully
+[Load] Loading MiniLM results...
+[Load] MiniLM rows    : 101,000
+[Load] Loading Linq-Embed-Mistral results...
+[Load] Linq rows      : 101,000
+[Load] Loading GTE-large results...
+[Load] GTE-large rows : 101,000
+[Load] Loading production labels...
+[Load] Production rows: 101,000
+[Load] Loading corpus...
+[Load] Corpus size    : 98,716
+[Load] Loading queries...
+[Load] Queries        : 101
+[Load] Sanity check passed
+[Pool] Avg pool size : 1424 (should match notebook 25 -- ~1,424)
+[Reranker] Loading mxbai-rerank-large-v1...
+[Reranker] Loaded in 19.1s on cuda
+[Warmup] Warming up reranker with 3 dummy calls...
+[Warmup] GPU warm
+[Rerank] Scoring full union pool for 101 queries...
+[Rerank]  10/101  |  avg 2.2s/query (this session)
+[Rerank]  20/101  |  avg 2.1s/query (this session)
+[Rerank]  30/101  |  avg 2.0s/query (this session)
+[Rerank]  40/101  |  avg 2.0s/query (this session)
+[Rerank]  50/101  |  avg 1.9s/query (this session)
+[Rerank]  60/101  |  avg 1.9s/query (this session)
+[Rerank]  70/101  |  avg 1.9s/query (this session)
+[Rerank]  80/101  |  avg 1.9s/query (this session)
+[Rerank]  90/101  |  avg 1.9s/query (this session)
+[Rerank] 100/101  |  avg 1.9s/query (this session)
+[Rerank] 101/101  |  avg 1.9s/query (this session)
+[Rerank] Done!
+[Rerank] Avg rerank time (this session) : 1.9s/query
+[Rerank] Saved to        : result/29_hybrid_altreranker/reranked_results.csv
+[Eval] Evaluating alt-reranker results...
+[Eval] 25/101 queries evaluated...
+[Eval] 50/101 queries evaluated...
+[Eval] 75/101 queries evaluated...
+[Eval] 100/101 queries evaluated...
+[Eval] === MXBAI-RERANK-LARGE-V1 RESULTS (same 3-way pool as notebook 25) ===
+  k          NDCG  Precision   Recall       F1
+  ----------------------------------------------
+  10        0.971      0.968    0.010    0.019
+  50        0.954      0.949    0.047    0.090
+  100       0.946      0.940    0.094    0.171
+  300       0.927      0.921    0.276    0.425
+  500       0.907      0.899    0.449    0.599
+  1000      0.823      0.804    0.804    0.804
+[Compare] Loading notebook 25 results (same pool, different reranker)...
+   k  mxbai_ndcg  mxbai_recall  bge_v2m3_ndcg  bge_v2m3_recall
+  10       0.971         0.010          0.955            0.010
+  50       0.954         0.047          0.955            0.048
+ 100       0.946         0.094          0.951            0.095
+ 300       0.927         0.276          0.932            0.278
+ 500       0.907         0.449          0.909            0.450
+1000       0.823         0.804          0.824            0.804
+
+[Compare] mxbai-rerank-large-v1  : Recall@1000=0.804  NDCG@10=0.971
+[Compare] bge-reranker-v2-m3     : Recall@1000=0.804  NDCG@10=0.955
+[Compare] Delta                  : Recall@1000=-0.001  NDCG@10=+0.016
+
+[Compare] Interpretation: meaningfully different results -- reranker choice DOES matter here.
+[Compare] Worth investigating further (e.g. trying additional rerankers, or the reranker input format).
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n565
+Job ID: 5964646
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:05:28
+CPU Efficiency: 7.74% of 01:10:36 core-walltime
+Job Wall-clock time: 00:05:53
+Memory Utilized: 2.15 GB
+Memory Efficiency: 2.34% of 91.80 GB (91.80 GB/node)
