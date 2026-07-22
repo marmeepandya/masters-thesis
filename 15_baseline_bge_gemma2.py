@@ -101,19 +101,37 @@ else:
 # In[ ]:
 
 
-import sys
+import sys, os
 import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 
 TASK_INSTRUCTION = 'Given a search query describing a type of company, retrieve relevant company profiles'
 MAX_LENGTH = 512
-TIME_BUDGET_MINUTES = 1380  # job wall-time is now 24h on gpu_a100_il -- budget leaves a 1h buffer before the hard kill so a checkpoint always gets saved
+TIME_BUDGET_MINUTES = 26  # switched back to gpu_a100_short (30-min wall time) -- gpu_a100_il had 0 available nodes for 3+ days straight
 
 CHECKPOINT_PATH   = RESULT_DIR / 'company_embeddings_checkpoint.npy'
 FINAL_PATH        = RESULT_DIR / 'company_embeddings.npy'
 TIME_LOG_PATH     = RESULT_DIR / 'encode_time_seconds.txt'
 prior_encode_secs = float(TIME_LOG_PATH.read_text()) if TIME_LOG_PATH.exists() else 0.0
+
+def robust_save(save_fn, path, retries=3, delay_seconds=5):
+    """Writes to a temp file then atomically renames -- avoids leaving a corrupted checkpoint if the write is interrupted (seen: Lustre iostream errors truncating writes mid-stream). Retries transient I/O failures. Keeps the original suffix on the temp name since np.save auto-appends .npy to any path that doesn't already end with it."""
+    p = Path(path)
+    tmp_path = str(p.with_suffix('.tmp' + p.suffix))
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            save_fn(tmp_path)
+            os.replace(tmp_path, path)
+            return
+        except Exception as e:
+            last_err = e
+            print(f'[Checkpoint] Save attempt {attempt}/{retries} to {path} failed: {e} -- retrying in {delay_seconds}s...')
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+            time.sleep(delay_seconds)
+    raise last_err
 
 def last_token_pool(last_hidden_states, attention_mask):
     left_padding = (attention_mask[:, -1].sum() == attention_mask.shape[0])
@@ -153,9 +171,9 @@ def encode_batch(texts, start=0, batch_size=16, prefix_embs=None, checkpoint=Fal
             pct = done_so_far / len(texts) * 100
             print(f'[Encode]   {done_so_far:,}/{len(texts):,} companies encoded ({pct:.1f}%)...')
         if checkpoint and (i // batch_size + 1) % 200 == 0:
-            np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
+            robust_save(lambda p: np.save(p, np.concatenate(all_embs, axis=0)), CHECKPOINT_PATH)
         if checkpoint and (time.time() - SCRIPT_START) / 60 > TIME_BUDGET_MINUTES:
-            np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
+            robust_save(lambda p: np.save(p, np.concatenate(all_embs, axis=0)), CHECKPOINT_PATH)
             TIME_LOG_PATH.write_text(str(prior_encode_secs + time.time() - encode_t0))
             done_so_far = i + len(batch)
             pct = done_so_far / len(texts) * 100
@@ -185,7 +203,7 @@ else:
     ENCODE_TIME = prior_encode_secs + (time.time() - encode_t0)
     print(f'[Encode] Done in {ENCODE_TIME/60:.1f} minutes total (across all resumed runs)')
     print(f'[Encode] Embeddings shape : {embeddings.shape} -- all {len(rich_texts):,} companies now embedded, writing final file (no "checkpoint" in the name)')
-    np.save(FINAL_PATH, embeddings)
+    robust_save(lambda p: np.save(p, embeddings), FINAL_PATH)
     TIME_LOG_PATH.write_text(str(ENCODE_TIME))
     if CHECKPOINT_PATH.exists():
         CHECKPOINT_PATH.unlink()
