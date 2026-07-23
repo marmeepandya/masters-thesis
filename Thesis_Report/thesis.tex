@@ -16,11 +16,11 @@
 \renewcommand{\algorithmiccomment}[1]{\hfill\textit{// #1}}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[colorlinks,citecolor=Green]{hyperref} % you may change/remove the colors
-% lipsum package removed -- not available on this cluster's TeX install and only used by template placeholder text below
+% lipsum package removed: not available on this cluster's TeX install and only used by template placeholder text below
 
 % chicago citation style
 \usepackage{natbib}
-\bibliographystyle{plainnat} % chicagoa.bst is unavailable on this cluster's TeX install; plainnat ships with natbib and works with the authoryear \setcitestyle below -- switch back to chicagoa if your submission environment has it
+\bibliographystyle{plainnat} % chicagoa.bst is unavailable on this cluster's TeX install; plainnat ships with natbib and works with the authoryear \setcitestyle below; switch back to chicagoa if your submission environment has it
 \setcitestyle{authoryear,round,semicolon,aysep={},yysep={,}} \let\cite\citep
 
 % example enviroments (add more as needed)
@@ -245,6 +245,175 @@ Testing retrieval quality at the full 20-million-company scale was not pursued i
 \chapter{Literature}
 \label{ch:related_literature}
 
+This chapter reviews the retrieval paradigms, indexing techniques, and
+evaluation practices that this thesis builds on and compares against.
+Section~\ref{sec:lit_sparse_dense} covers sparse and dense retrieval,
+the two foundational paradigms for the baselines in
+Chapter~\ref{ch:experiments}. Section~\ref{sec:lit_ann} covers
+approximate nearest neighbour search, the technique that makes dense
+retrieval practical at scale. Section~\ref{sec:lit_late_interaction}
+covers late-interaction retrieval and retrieval-specific pretraining,
+the two alternative paradigms evaluated in
+Sections~\ref{sec:simlm}--\ref{sec:colbert}.
+Section~\ref{sec:lit_hybrid} covers hybrid retrieval, cross-encoder
+reranking, and learning to rank, the techniques underlying the hybrid
+pipelines in Sections~\ref{sec:hybrid_fullpool}--\ref{sec:learned_fusion}.
+Section~\ref{sec:lit_evaluation} covers evaluation practice in
+information retrieval when human relevance judgements are unavailable,
+directly motivating the pseudo-relevance protocol used throughout this
+thesis (Section~\ref{subsec:eval_protocol}).
+
+% ────────────────────────────────────────────────────────────
+\section{Sparse and Dense Retrieval}
+\label{sec:lit_sparse_dense}
+% ────────────────────────────────────────────────────────────
+
+Text retrieval systems fall into two broad families. \textbf{Sparse}
+retrieval represents queries and documents as high-dimensional vectors
+of term weights and scores matches by term overlap. The dominant sparse
+method is BM25 \citep{robertson2009probabilistic}, a probabilistic
+scoring function that weighs each query term by its frequency in a
+document and its rarity across the whole collection. BM25 is fast,
+requires no training, and remains a strong baseline decades after its
+introduction, but it cannot match a query and a document that describe
+the same concept using different words: this is the vocabulary mismatch
+problem, directly observed for this thesis's task in
+Section~\ref{subsec:bm25_qual}.
+
+\textbf{Dense} retrieval instead represents queries and documents as
+fixed-size vectors learned by a neural encoder, and scores matches by
+vector similarity rather than literal term overlap. Dense Passage
+Retrieval (DPR) \citep{karpukhin2020dense} established the now-standard
+bi-encoder architecture for open-domain retrieval: a query encoder and a
+document (or, in this thesis, company) encoder, trained so that relevant
+pairs are close in vector space, encoding each side independently so
+that documents can be embedded once, offline, and reused across every
+future query. Sentence-BERT \citep{reimers2019sentence} showed that the
+same bi-encoder idea, applied to general-purpose sentence embeddings
+rather than a retrieval-specific training objective, produces embeddings
+useful for semantic similarity and retrieval tasks broadly, and underlies
+the general-purpose sentence-transformer models (including MiniLM,
+Section~\ref{subsec:minilm}) used throughout this thesis. More recent
+embedding models, such as the BGE family \citep{chen2024bge}, combine
+this bi-encoder architecture with large-scale contrastive pretraining and
+hard-negative mining, and represent the current state of the art for
+general-purpose dense retrieval, forming the basis of several baselines
+evaluated in Sections~\ref{subsec:bge} and~\ref{sec:extended_baselines}.
+
+% ────────────────────────────────────────────────────────────
+\section{Approximate Nearest Neighbour Search}
+\label{sec:lit_ann}
+% ────────────────────────────────────────────────────────────
+
+Dense retrieval requires finding the nearest vectors to a query vector
+among the full document collection. Exact search costs time linear in
+the number of documents, which becomes impractical at the scale of
+millions of documents relevant to this thesis's target deployment
+(Section~\ref{ch:istariAndData}). FAISS \citep{johnson2017billion}
+provides GPU-accelerated implementations of both exact and approximate
+search, including inverted-file indexes (IVF), which cluster the
+embedding space and search only the clusters nearest the query, trading
+a small amount of recall for a large reduction in query time. Hierarchical
+Navigable Small World graphs (HNSW) \citep{malkov2020efficient} take a
+different approach: they build a multi-layer proximity graph over the
+document vectors and greedily traverse it at query time, again trading
+exactness for speed. Both IVF and HNSW are evaluated directly in this
+thesis's ANN scaling experiment (Section~\ref{sec:ann_scaling}), which
+tests whether the accuracy--speed trade-off these methods make remains
+favourable at simulated production scale.
+
+% ────────────────────────────────────────────────────────────
+\section{Late Interaction and Retrieval-Specific Pretraining}
+\label{sec:lit_late_interaction}
+% ────────────────────────────────────────────────────────────
+
+A bi-encoder compresses an entire document into one fixed-size vector,
+which can discard fine-grained information relevant to a specific query.
+ColBERT \citep{khattab2020colbert} addresses this with \emph{late
+interaction}: query and document are each represented as a set of
+per-token vectors, and relevance is scored by summing, for every query
+token, the maximum similarity to any document token (MaxSim), so no
+single vector has to summarise the whole document in advance. This adds
+compute and storage cost relative to a single-vector bi-encoder, since
+retrieval now requires comparing token sets rather than single vectors.
+ColBERTv2 \citep{santhanam2022colbertv2} introduces residual compression
+of the per-token vectors and the PLAID engine for efficient late-interaction
+search at scale, substantially reducing this cost; this thesis instead
+implements MaxSim scoring directly (Section~\ref{sec:colbert}), trading
+the PLAID engine's efficiency for an exact, dependency-light
+implementation suited to the scale of the evaluation corpus used here.
+
+A separate line of work improves dense retrieval not through
+architecture but through pretraining. SimLM \citep{wang2022simlm}
+pretrains a bi-encoder with a representation-bottleneck objective before
+any retrieval-specific fine-tuning, explicitly designed to produce
+embeddings well suited to downstream passage retrieval. This thesis
+evaluates whether that retrieval-specific pretraining transfers to a
+domain (company profiles) quite different from the passage-retrieval
+benchmarks it was designed for (Section~\ref{sec:simlm}).
+
+% ────────────────────────────────────────────────────────────
+\section{Hybrid Retrieval, Reranking, and Learning to Rank}
+\label{sec:lit_hybrid}
+% ────────────────────────────────────────────────────────────
+
+Sparse and dense retrieval, and different dense models, make different
+errors: a hybrid system that combines multiple retrieval signals can
+recover from a single method's individual weaknesses. Reciprocal Rank
+Fusion (RRF) \citep{cormack2009reciprocal} is a simple, training-free way
+to combine several ranked lists: each document's fused score is the sum
+of $1/(k + \mathrm{rank})$ across the lists it appears in, requiring only
+that a document be ranked, not that its raw scores be comparable across
+methods. RRF underlies the hybrid baseline in Section~\ref{sec:rrf}.
+
+A complementary technique is \emph{reranking}: a first-stage retriever
+returns a candidate set cheaply, and a more expensive model reorders it.
+Cross-encoder rerankers, such as the \texttt{bge-reranker-v2-m3}
+\citep{baaireranker2024} and \texttt{mxbai-rerank-large-v1}
+\citep{mixedbread2024mxbai} models used in
+Sections~\ref{sec:hybrid_fullpool} and~\ref{sec:reranker_ablation}, feed
+the query and each candidate into the same transformer jointly, rather
+than encoding them independently as a bi-encoder does. This lets the
+model attend directly between query and candidate tokens, typically
+producing more accurate relevance scores than a bi-encoder, at the cost
+of requiring a full forward pass per candidate rather than a single fast
+vector comparison, so cross-encoders are used to rerank a small candidate
+set rather than to search a full collection.
+
+More generally, combining multiple retrieval signals into a single
+relevance score can be framed as \emph{learning to rank}
+\citep{liu2009learning}: instead of a fixed, hand-designed combination
+rule such as RRF, a model is trained directly on labelled query-document
+pairs to learn how to weight and combine whatever features are available
+(similarity scores, ranks, or other signals) into a final ranking. This
+is the approach taken by the learned fusion ranker in
+Section~\ref{sec:learned_fusion}, implemented with the logistic
+regression and gradient-boosted tree models provided by scikit-learn
+\citep{pedregosa2011scikit}.
+
+% ────────────────────────────────────────────────────────────
+\section{Evaluation Without Human Relevance Judgements}
+\label{sec:lit_evaluation}
+% ────────────────────────────────────────────────────────────
+
+Standard information retrieval evaluation compares each system's
+ranking against a set of human relevance judgements for a fixed query
+set, historically constructed through pooling: the top results from
+several systems are merged and judged by human assessors, as established
+by the TREC evaluation methodology \citep{voorhees1999trec}. No such
+human-annotated relevance judgements exist for the company search task
+addressed in this thesis. In their absence, this thesis instead adopts a
+\emph{pseudo-relevance} protocol (Section~\ref{subsec:eval_protocol}):
+a company is treated as relevant if it appears in the existing production
+system's own results for that query. This is a common practice when
+human judgements are unavailable, and the BEIR benchmark
+\citep{thakur2021beir} similarly demonstrates that retrieval methods can
+be compared consistently across many tasks and domains without
+task-specific human annotation, provided the resulting scores are
+interpreted as agreement with a reference system rather than as absolute
+measures of relevance, a limitation this thesis states explicitly
+wherever pseudo-relevance labels are used.
+
 % ============================================================
 \chapter{Experiments}
 \label{ch:experiments}
@@ -270,7 +439,7 @@ paradigms (a retrieval-pretrained encoder and late-interaction retrieval).
 Sections~\ref{sec:hybrid_fullpool}--\ref{sec:learned_fusion} develop a
 full-pool reranking pipeline, isolate the reranker as a bottleneck, and
 close part of the remaining gap with a learned fusion ranker trained on
-this task's own data -- the best-performing method in this thesis.
+this task's own data, the best-performing method in this thesis.
 
 % ────────────────────────────────────────────────────────────
 \section{Experimental Setup}
@@ -507,43 +676,26 @@ in 16.6\,ms.
 \subsection{Retrieval Quality}
 \label{subsec:quality}
 
-Table~\ref{tab:main_results} presents the full evaluation results
-for all four methods across all metrics and cut-offs.
+Recall is the primary metric reported in this thesis, following the
+priority set by Istari for this task: coverage of relevant companies
+matters more than precise ranking of the first page of results.
+Table~\ref{tab:main_results} presents Recall@$k$ for all four methods;
+NDCG and Precision are discussed alongside it in the paragraphs below,
+where individual values are relevant, rather than tabulated in full.
 
 \begin{table}[ht]
 \centering
-\caption{Retrieval quality of all four baseline systems averaged
-         over 101 queries. Bold indicates the best value in each column.
-         BGE and OpenAI are statistically indistinguishable across all metrics.}
+\caption{Recall@$k$ of all four baseline systems averaged over
+         101 queries. Bold indicates the best value in each column.}
 \label{tab:main_results}
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{lcccccccccccc}
+\begin{tabular}{lcccc}
 \toprule
-& \multicolumn{4}{c}{\textbf{NDCG@$k$}}
-& \multicolumn{4}{c}{\textbf{Precision@$k$}}
-& \multicolumn{4}{c}{\textbf{Recall@$k$}} \\
-\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}
-\textbf{Method}
-& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
-& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
-& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} \\
+\textbf{Method} & \textbf{Recall@10} & \textbf{Recall@50} & \textbf{Recall@100} & \textbf{Recall@1000} \\
 \midrule
-BM25
-& 0.166 & 0.144 & 0.134 & 0.446
-& 0.156 & 0.136 & 0.128 & 0.068
-& 0.016 & 0.068 & 0.128 & 0.682 \\
-MiniLM
-& 0.192 & 0.150 & 0.133 & 0.432
-& 0.186 & 0.138 & 0.122 & 0.065
-& 0.019 & 0.069 & 0.122 & 0.653 \\
-BGE
-& \textbf{0.227} & \textbf{0.187} & \textbf{0.170} & \textbf{0.527}
-& 0.216 & \textbf{0.173} & \textbf{0.159} & \textbf{0.080}
-& \textbf{0.022} & \textbf{0.087} & \textbf{0.159} & 0.796 \\
-OpenAI
-& \textbf{0.227} & 0.174 & 0.161 & 0.526
-& \textbf{0.224} & 0.160 & 0.149 & \textbf{0.080}
-& \textbf{0.022} & 0.080 & 0.149 & \textbf{0.803} \\
+BM25   & 0.016 & 0.068 & 0.128 & 0.682 \\
+MiniLM & 0.019 & 0.069 & 0.122 & 0.653 \\
+BGE    & \textbf{0.022} & \textbf{0.087} & \textbf{0.159} & 0.796 \\
+OpenAI & \textbf{0.022} & 0.080 & 0.149 & \textbf{0.803} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -767,42 +919,36 @@ evaluation set described in Section~\ref{subsec:dataset}:
 
 \begin{table}[ht]
 \centering
-\caption{Extended baseline results under the relaxed (top-1\,000)
+\caption{Extended baseline Recall@$k$ under the relaxed (top-1\,000)
          pseudo-relevance protocol (Section~\ref{sec:protocol_note}).
          Bold indicates the best value in each column.}
 \label{tab:extended_baselines}
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{lcccccccc}
+\begin{tabular}{lcccc}
 \toprule
-& \multicolumn{4}{c}{\textbf{NDCG@$k$}}
-& \multicolumn{4}{c}{\textbf{Recall@$k$}} \\
-\cmidrule(lr){2-5}\cmidrule(lr){6-9}
-\textbf{Method}
-& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000}
-& \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} \\
+\textbf{Method} & \textbf{Recall@10} & \textbf{Recall@50} & \textbf{Recall@100} & \textbf{Recall@1000} \\
 \midrule
-BGE-M3        & 0.935 & 0.921 & 0.911 & 0.732 & 0.009 & 0.046 & 0.091 & 0.704 \\
-GTE-large     & \textbf{0.946} & \textbf{0.937} & \textbf{0.929} & \textbf{0.790} & 0.010 & 0.047 & 0.093 & \textbf{0.768} \\
-E5-Mistral-7B & 0.631 & 0.587 & 0.544 & 0.303 & 0.006 & 0.029 & 0.052 & 0.274 \\
-Linq-Mistral  & 0.936 & 0.925 & 0.918 & 0.772 & 0.009 & 0.046 & 0.091 & 0.749 \\
-SFR-Mistral   & 0.938 & 0.926 & 0.919 & 0.770 & 0.009 & \textbf{0.046} & \textbf{0.092} & 0.746 \\
+BGE-M3        & 0.009 & 0.046 & 0.091 & 0.704 \\
+GTE-large     & 0.010 & 0.047 & 0.093 & \textbf{0.768} \\
+E5-Mistral-7B & 0.006 & 0.029 & 0.052 & 0.274 \\
+Linq-Mistral  & 0.009 & 0.046 & 0.091 & 0.749 \\
+SFR-Mistral   & 0.009 & \textbf{0.046} & \textbf{0.092} & 0.746 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Findings.}
 GTE-large is the strongest of the five additional models
-(NDCG@10~=~0.946, Recall@1000~=~0.790), ahead of SFR-Mistral
-(0.938 / 0.770), Linq-Mistral (0.936 / 0.772), and BGE-M3
-(0.935 / 0.732). These four sit close together and clearly ahead of
+(Recall@1000~=~0.768, NDCG@10~=~0.946), ahead of Linq-Mistral
+(0.749 / 0.936), SFR-Mistral (0.746 / 0.938), and BGE-M3
+(0.704 / 0.935). These four sit close together and clearly ahead of
 E5-Mistral-7B-Instruct, which substantially underperforms
-(NDCG@10~=~0.631, Recall@1000~=~0.303) despite sharing the same base
-architecture and parameter count as Linq-Mistral and SFR-Mistral --
-indicating that fine-tuning data and strategy, not model size, are the
-dominant factor for this retrieval task. Notably, the two much smaller
-1\,024-dimensional models (BGE-M3, GTE-large) are competitive with or
-better than the 7B-parameter models, at a fraction of the encoding
-cost.
+(Recall@1000~=~0.274, NDCG@10~=~0.631) despite sharing the same base
+architecture and parameter count as Linq-Mistral and SFR-Mistral.
+This indicates that fine-tuning data and strategy, not model size, are
+the dominant factor for this retrieval task. Notably, the two much
+smaller 1\,024-dimensional models (BGE-M3, GTE-large) are competitive
+with or better than the 7B-parameter models, at a fraction of the
+encoding cost.
 
 \paragraph{Encoding cost.}
 The three 7B-parameter models required substantially more compute to
@@ -868,8 +1014,8 @@ Recall@1000 improved negligibly (+0.001 for all-fields, +0.007 for
 summary-only), while NDCG@10 slightly \emph{decreased} in both variants.
 Both effects are small enough to plausibly be within query-level noise.
 This suggests that, for this company-retrieval task, BGE-large's query
-prefix convention -- tuned primarily for open-domain passage retrieval
-benchmarks -- does not transfer into a measurable improvement, and the
+prefix convention, tuned primarily for open-domain passage retrieval
+benchmarks, does not transfer into a measurable improvement, and the
 model's underlying limitation observed in Section~\ref{subsec:bge}
 (underperforming MiniLM on Recall@1000) is not explained by the missing
 prefix.
@@ -948,7 +1094,7 @@ Stage 2: RRF + Reranker          & 0.975 & 0.724 & 352.0 \\
 Unlike HyDE, RRF fusion of BM25 and MiniLM adds negligible latency
 (the fusion step itself takes 2.2\,ms) and, after reranking, matches
 the plain MiniLM baseline's NDCG@10 (0.975) while Recall@1000 remains
-slightly below MiniLM alone (0.724 vs 0.741) -- BM25's keyword matches
+slightly below MiniLM alone (0.724 vs 0.741): BM25's keyword matches
 do not add companies beyond what MiniLM already retrieves for this
 query set, so fusion mostly re-confirms rather than extends MiniLM's
 candidate pool. RRF is a much cheaper and more effective way to
@@ -1015,7 +1161,7 @@ The first round compared Istari's v1 (BM25-based) production API
 against local MiniLM, both queried against the same 101 queries.
 Istari v1 BM25 NDCG@10 was 0.101 and Recall@1000 was 0.109 (network
 latency 2\,828\,ms/query), against local MiniLM's NDCG@10 of 0.935 and
-Recall@1000 of 0.766 (local GPU latency 26.6\,ms/query) -- confirming
+Recall@1000 of 0.766 (local GPU latency 26.6\,ms/query), confirming
 that the production keyword API is a much weaker retrieval signal than
 even the simplest local dense baseline.
 
@@ -1036,7 +1182,7 @@ could improve on v2's native ranking without changing which companies
 are retrieved. This made results \emph{worse}: NDCG@10 fell from 0.985
 (v2 native ranking) to 0.855 (MiniLM-reranked). Istari's v2 semantic
 ranking is not simply a MiniLM-style dense embedding search under the
-hood -- it outperforms MiniLM's own ranking of the same candidates.
+hood: it outperforms MiniLM's own ranking of the same candidates.
 
 % ────────────────────────────────────────────────────────────
 \section{ANN Index Scaling to 2 Million Vectors}
@@ -1148,8 +1294,8 @@ channel: at 100 candidates/channel the union only reaches 0.150 recall,
 rising to 0.581 at 500, and 0.856 at the full 1\,000.
 
 \paragraph{Interpretation.}
-Because the six-channel union clears 0.936 -- well above any individual
-channel -- the different retrieval methods are largely making
+Because the six-channel union clears 0.936, well above any individual
+channel, the different retrieval methods are largely making
 \emph{complementary}, not correlated, errors: a reranker operating over
 a modestly sized union pool (rather than a single channel) is likely
 sufficient to approach this ceiling, and a full fine-tuning pipeline is
@@ -1183,17 +1329,17 @@ encoded without any prefix, following the same model card.
 
 \begin{table}[ht]
 \centering
-\caption{SimLM results (relaxed top-1\,000 protocol) alongside the
+\caption{SimLM Recall@1000 (relaxed top-1\,000 protocol) alongside the
          strongest baselines evaluated so far, for reference.}
 \label{tab:simlm}
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} \\
+\textbf{Method} & \textbf{Recall@1000} \\
 \midrule
-BM25 (lexical baseline, Section~\ref{sec:baseline_sparse}) & 0.854 & 0.635 \\
-SimLM                                                       & 0.923 & 0.609 \\
-MiniLM (Section~\ref{subsec:minilm})                        & 0.975 & 0.741 \\
-GTE-large (Section~\ref{sec:extended_baselines})            & 0.946 & 0.768 \\
+BM25 (lexical baseline, Section~\ref{sec:baseline_sparse}) & 0.635 \\
+SimLM                                                       & 0.609 \\
+MiniLM (Section~\ref{subsec:minilm})                        & 0.741 \\
+GTE-large (Section~\ref{sec:extended_baselines})            & 0.768 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1201,14 +1347,17 @@ GTE-large (Section~\ref{sec:extended_baselines})            & 0.946 & 0.768 \\
 \paragraph{Finding.}
 SimLM underperforms every dense baseline evaluated in this thesis, and its
 Recall@1000 (0.609) falls even below the lexical BM25 baseline (0.635),
-despite SimLM being purpose-pretrained for passage retrieval. A likely
+despite SimLM being purpose-pretrained for passage retrieval. (NDCG@10 tells
+a less clear-cut story here: SimLM's 0.923 sits above BM25's 0.854, since
+NDCG rewards ranking quality among whichever companies are retrieved, not
+coverage of the full relevant set.) A likely
 explanation is a domain mismatch between SimLM's pre-training convention
 and this task: SimLM was pre-trained and fine-tuned on MS~MARCO, a
 corpus of short, single-topic passages, using a title/body sentence-pair
 format that assumes the title is a concise topical label. Company names
-are not topical labels in the same sense -- ``Sweet Software'' or
+are not topical labels in the same sense: ``Sweet Software'' or
 ``Springcoast Capital Partners'' convey little about what the paired body
-text describes -- so the sentence-pair convention that helps SimLM on
+text describes, so the sentence-pair convention that helps SimLM on
 MS~MARCO-style data may provide a weaker signal here than simply
 concatenating all fields into one string, as the other baselines do.
 This result is a useful negative finding: retrieval-specific pre-training
@@ -1245,16 +1394,16 @@ approximate, and is tractable at this corpus size.
 
 \begin{table}[ht]
 \centering
-\caption{ColBERT (brute-force MaxSim) results (relaxed top-1\,000
+\caption{ColBERT (brute-force MaxSim) Recall@1000 (relaxed top-1\,000
          protocol) alongside the strongest single-vector baselines.}
 \label{tab:colbert}
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} \\
+\textbf{Method} & \textbf{Recall@1000} \\
 \midrule
-MiniLM (Section~\ref{subsec:minilm})             & 0.975 & 0.741 \\
-GTE-large (Section~\ref{sec:extended_baselines}) & 0.946 & 0.768 \\
-ColBERT (MaxSim)                                 & 0.937 & 0.773 \\
+MiniLM (Section~\ref{subsec:minilm})             & 0.741 \\
+GTE-large (Section~\ref{sec:extended_baselines}) & 0.768 \\
+ColBERT (MaxSim)                                 & 0.773 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1304,19 +1453,18 @@ time:
 
 \begin{table}[ht]
 \centering
-\caption{Full-pool reranking results (relaxed top-1\,000 protocol),
+\caption{Full-pool reranking Recall@1000 (relaxed top-1\,000 protocol),
          compared against the shallow RRF~+~top-50-rerank baseline from
-         Section~\ref{sec:rrf}. Bold indicates the best value in each
-         column.}
+         Section~\ref{sec:rrf}. Bold indicates the best value.}
 \label{tab:hybrid_fullpool}
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} & \textbf{Avg.\ pool size} \\
+\textbf{Method} & \textbf{Recall@1000} & \textbf{Avg.\ pool size} \\
 \midrule
-RRF~+~top-50 rerank (Section~\ref{sec:rrf})    & 0.979 & 0.782 & 50 (fixed) \\
-Full-pool, 2-way (MiniLM~+~Linq)               & 0.955 & 0.802 & $\approx$1\,300 \\
-Full-pool, 3-way (+~GTE-large)                 & 0.955 & \textbf{0.804} & $\approx$1\,424 \\
-Full-pool, 4-way (+~OpenAI-large)              & \textbf{0.955} & 0.802 & $\approx$1\,600 \\
+RRF~+~top-50 rerank (Section~\ref{sec:rrf})    & 0.782 & 50 (fixed) \\
+Full-pool, 2-way (MiniLM~+~Linq)               & 0.802 & $\approx$1\,300 \\
+Full-pool, 3-way (+~GTE-large)                 & \textbf{0.804} & $\approx$1\,424 \\
+Full-pool, 4-way (+~OpenAI-large)              & 0.802 & $\approx$1\,600 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1324,7 +1472,7 @@ Full-pool, 4-way (+~OpenAI-large)              & \textbf{0.955} & 0.802 & $\appr
 \paragraph{Finding.}
 Reranking the full union pool instead of a fixed top-50 slice raises
 Recall@1000 substantially (0.782~$\to$~0.802, 2-way), at the cost of a
-small drop in NDCG@10 (0.979~$\to$~0.955) -- the reranker now has many
+small drop in NDCG@10 (0.979~$\to$~0.955): the reranker now has many
 more genuinely difficult candidates to rank, so its ordering of the very
 top results is slightly less precise, even though it recovers more of the
 true relevant set overall. Adding a third channel (GTE-large) improves
@@ -1340,7 +1488,7 @@ that combining \emph{more} candidate-generating channels reliably raises
 the oracle recall ceiling; here, adding a fourth channel to an already
 capable 3-way pool does not translate into a better final result. This
 suggests that candidate coverage is no longer the limiting factor for this
-pipeline -- the union pool already contains the relevant companies needed
+pipeline: the union pool already contains the relevant companies needed
 to reach a substantially higher recall than 0.804 (recall
 Section~\ref{sec:oracle_union}'s six-channel oracle ceiling of 0.936) --
 and the reranker itself is now the bottleneck preventing the pipeline from
@@ -1363,7 +1511,7 @@ candidate pool is fixed.
 \paragraph{Implementation.}
 \texttt{BAAI/bge-reranker-v2-m3} (built on an XLM-RoBERTa backbone) is
 replaced with \texttt{mixedbread-ai/mxbai-rerank-large-v1}
-\citep{mixedbread2024mxbai} (built on a DeBERTa-v2 backbone -- an
+\citep{mixedbread2024mxbai} (built on a DeBERTa-v2 backbone, an
 architecturally distinct, comparably-sized cross-encoder), applied to the
 \emph{exact same} 3-way union pool from Section~\ref{sec:hybrid_fullpool}.
 Only the reranker model changes; the candidate pool, corpus, and queries
@@ -1371,22 +1519,22 @@ are identical.
 
 \begin{table}[ht]
 \centering
-\caption{Reranker ablation: identical 3-way candidate pool, two different
-         reranker models (relaxed top-1\,000 protocol).}
+\caption{Reranker ablation Recall@1000: identical 3-way candidate pool,
+         two different reranker models (relaxed top-1\,000 protocol).}
 \label{tab:reranker_ablation}
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-\textbf{Reranker} & \textbf{NDCG@10} & \textbf{Recall@1000} \\
+\textbf{Reranker} & \textbf{Recall@1000} \\
 \midrule
-BAAI/bge-reranker-v2-m3 (Section~\ref{sec:hybrid_fullpool})  & 0.955 & 0.8042 \\
-mixedbread-ai/mxbai-rerank-large-v1                          & \textbf{0.971} & 0.8035 \\
+BAAI/bge-reranker-v2-m3 (Section~\ref{sec:hybrid_fullpool})  & \textbf{0.8042} \\
+mixedbread-ai/mxbai-rerank-large-v1                          & 0.8035 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Finding.}
 Recall@1000 is essentially unchanged between the two rerankers (0.8042
-vs.\ 0.8035, a difference of 0.0007 -- well within query-level noise).
+vs.\ 0.8035, a difference of 0.0007, well within query-level noise).
 NDCG@10 does improve modestly with the alternative reranker (0.955~$\to$~0.971),
 indicating that \texttt{mxbai-rerank-large-v1} orders the very top
 results somewhat better, without changing which companies land in the
@@ -1394,7 +1542,7 @@ top-1\,000 overall. The conclusion is that reranker \emph{model choice} is
 not the bottleneck identified in Section~\ref{sec:hybrid_fullpool}: the
 remaining gap to the oracle ceiling is not a matter of picking a better
 off-the-shelf cross-encoder. This points towards a more fundamental
-limitation -- either genuinely hard, vocabulary-mismatched cases that no
+limitation: either genuinely hard, vocabulary-mismatched cases that no
 cross-encoder scoring the \texttt{summary} field alone can resolve, or a
 fusion mechanism (simple set union plus independent reranking) that is
 itself insufficiently expressive, motivating the learned approach in
@@ -1407,8 +1555,8 @@ Section~\ref{sec:learned_fusion}.
 
 Every hybrid pipeline so far combines \emph{frozen}, independently
 pretrained components: candidate lists are pooled by simple union, and a
-pretrained cross-encoder -- never fit to this task's own queries or
-labels -- reranks the result. This section instead treats fusion as a
+pretrained cross-encoder, never fit to this task's own queries or
+labels, reranks the result. This section instead treats fusion as a
 supervised learning-to-rank problem \citep{liu2009learning}: a model is
 trained directly on this thesis's own 101 queries and their pseudo-relevance
 labels to learn how to combine multiple retrieval signals, rather than
@@ -1435,18 +1583,18 @@ complete, leakage-free evaluation over all 101 queries.
 
 \begin{table}[ht]
 \centering
-\caption{Learned fusion ranker results (held-out, cross-validated
+\caption{Learned fusion ranker Recall@1000 (held-out, cross-validated
          predictions; relaxed top-1\,000 protocol), compared against the
          best pretrained-component pipeline from Section~\ref{sec:hybrid_fullpool}.
-         Bold indicates the best value in each column.}
+         Bold indicates the best value.}
 \label{tab:learned_fusion}
-\begin{tabular}{lcc}
+\begin{tabular}{lc}
 \toprule
-\textbf{Method} & \textbf{NDCG@10} & \textbf{Recall@1000} \\
+\textbf{Method} & \textbf{Recall@1000} \\
 \midrule
-Full-pool, 3-way + BGE reranker (Section~\ref{sec:hybrid_fullpool}) & 0.955 & 0.804 \\
-Learned fusion, logistic regression                                 & 0.973 & 0.821 \\
-Learned fusion, gradient-boosted trees                               & \textbf{0.979} & \textbf{0.823} \\
+Full-pool, 3-way + BGE reranker (Section~\ref{sec:hybrid_fullpool}) & 0.804 \\
+Learned fusion, logistic regression                                 & 0.821 \\
+Learned fusion, gradient-boosted trees                               & \textbf{0.823} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1456,7 +1604,7 @@ The gradient-boosted learned fusion ranker reaches Recall@1000~=~0.823,
 the best result obtained anywhere in this thesis, improving on the best
 pretrained-component pipeline (0.804) by $+0.019$. For scale, this gain is
 roughly 27 times larger than the 0.0007 movement observed when merely
-swapping reranker models in Section~\ref{sec:reranker_ablation} -- this is
+swapping reranker models in Section~\ref{sec:reranker_ablation}; this is
 a substantive improvement attributable to training on the task's own
 data, not noise. NDCG@10 also improves (0.955~$\to$~0.979).
 
@@ -1467,7 +1615,7 @@ rank} has by far the largest coefficient magnitude (+5.01), exceeding
 every raw similarity score \emph{and} the pretrained reranker's own score
 (+0.16). In other words, where a candidate is ranked by MiniLM is a more
 informative signal for final relevance than the pretrained cross-encoder's
-score -- a concrete, non-obvious finding that would not be visible from
+score: a concrete, non-obvious finding that would not be visible from
 simply combining components by hand. This supports the conclusion drawn
 in Section~\ref{sec:reranker_ablation}: the pretrained reranker was not
 extracting the maximum available signal from the candidate pool, and a
