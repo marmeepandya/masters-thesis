@@ -1,0 +1,16 @@
+The evaluation dataset is how good/bad? 
+The 1000 are relevant or not
+Subset of the tool that are relevant that should be caught by the system.
+
+Still something that I could do: 
+
+Ranking is perfect??? Similarity score?? 
+
+How do they evaluate their own system? 
+
+Together with them to evaluate
+
+
+
+
+Duplicating the companies or synthetic companies and then how 

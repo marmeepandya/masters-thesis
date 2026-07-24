@@ -1,0 +1,61 @@
+BEST APPROACH: Learned Fusion Ranker (gradient-boosted trees)
+
+WHAT IT IS
+A supervised learning-to-rank model trained directly on this thesis's own 101 queries and their pseudo-relevance labels. Instead of combining multiple retrieval channels with a fixed, hand-designed rule (like Reciprocal Rank Fusion or a plain pretrained reranker), a model is trained to learn how much to trust and weight each signal.
+
+METHODOLOGY
+1. Candidate pool: union of the top-1000 results from three dense retrieval channels (MiniLM, Linq-Embed-Mistral, GTE-large), plus BM25 as a fourth, lexical signal. Average pool size per query is roughly 1600 candidates.
+2. Features (10 total, computed per query-candidate pair):
+   - Raw similarity score from each of the 4 channels (MiniLM, Linq-Embed-Mistral, GTE-large, BM25)
+   - Inverse rank (1/rank) from each of the same 4 channels
+   - The BAAI/bge-reranker-v2-m3 cross-encoder score (used as ONE input feature, not the final decision rule)
+   - A count of how many channels retrieved the candidate at all
+3. Model: gradient-boosted decision trees (scikit-learn HistGradientBoostingClassifier). A logistic regression variant was also trained for comparison and interpretability.
+4. Validation: 5-fold cross-validation grouped by query_id. Each fold trains on 80% of queries and scores the held-out 20%, so no query is ever scored by a model that has seen its own label during training. Final metrics are computed by concatenating the held-out predictions from all five folds, giving a complete, leakage-free evaluation over all 101 queries.
+
+THE NUMBERS (gradient-boosted trees, held-out cross-validated predictions)
+Recall@1000    = 0.823   <- headline result, best in the whole thesis
+Precision@1000 = 0.823   (identical to Recall@1000, since k=1000 equals the relevant-set size)
+Precision@10   = 0.977
+Precision@50   = 0.962
+Precision@100  = 0.955
+Precision@300  = 0.935
+Precision@500  = 0.913
+NDCG@10        = 0.979
+
+COMPARISON TO PREVIOUS BEST (pretrained components only, no training)
+Full-pool 3-way hybrid rerank (MiniLM + Linq + GTE-large, BGE reranker): Recall@1000 = 0.804
+Improvement from the learned fusion ranker: +0.019
+
+For scale: an earlier ablation that only swapped the reranker MODEL (BAAI/bge-reranker-v2-m3 -> mxbai-rerank-large-v1) on the identical candidate pool moved Recall@1000 by just 0.0007. The learned fusion ranker's +0.019 gain is about 27x larger, meaning this is a genuine, substantive improvement from training on the task's own data, not noise.
+
+KEY INTERPRETIVE FINDING
+The logistic regression variant's learned coefficients show MiniLM's inverse rank has by far the largest weight (+5.01), exceeding every raw similarity score AND the pretrained cross-encoder reranker's own score (+0.16). In other words, where a candidate is ranked by MiniLM turned out to be a more informative signal for final relevance than the pretrained reranker's score, a concrete, non-obvious finding that would not be visible from simply combining components by hand.
+
+WHY THIS IS THE "BEST" APPROACH (not just the highest number)
+- It is not just swapping which pretrained model gets called (the reranker ablation already showed that barely matters, 0.0007 difference).
+- It is genuinely trained on this thesis's own data, via a properly leakage-free cross-validation setup, rather than combining frozen off-the-shelf components.
+- It produces an interpretable result (the feature weights) that reveals something new about which signals actually matter for this task.
+
+
+
+ColBERT: Recall, Precision, NDCG at every k
+
+┌──────┬──────────┬─────────────┬────────┐
+│  k   │ Recall@k │ Precision@k │ NDCG@k │
+├──────┼──────────┼─────────────┼────────┤
+│ 10   │ 0.0094   │ 0.9356      │ 0.9373 │
+├──────┼──────────┼─────────────┼────────┤
+│ 50   │ 0.0465   │ 0.9305      │ 0.9325 │
+├──────┼──────────┼─────────────┼────────┤
+│ 100  │ 0.0925   │ 0.9254      │ 0.9279 │
+├──────┼──────────┼─────────────┼────────┤
+│ 300  │ 0.2698   │ 0.8992      │ 0.9050 │
+├──────┼──────────┼─────────────┼────────┤
+│ 500  │ 0.4351   │ 0.8703      │ 0.8795 │
+├──────┼──────────┼─────────────┼────────┤
+│ 1000 │ 0.7734   │ 0.7734      │ 0.7939 │
+└──────┴──────────┴─────────────┴────────┘
+
+Query latency: 37ms average per query
+Latency Baseline: 974 ms average
