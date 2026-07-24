@@ -193,7 +193,7 @@ J & Publishing, broadcasting \& content              &   554{,}985 &  3.23 \\
 
 \subsection{Organisation Size Classification}
 
-Organisation size in the GOI is derived from employee and revenue signals and bucketed into four categories following EU SME definitions, as shown in Table~\ref{tab:size_dist}.
+Organisation size in the GOI is derived from employee and revenue signals and bucketed into four categories following the European Union's definitions of small and medium-sized enterprises (SME), as shown in Table~\ref{tab:size_dist}.
 
 \begin{table}[h]
 \centering
@@ -294,7 +294,7 @@ rather than a retrieval-specific training objective, produces embeddings
 useful for semantic similarity and retrieval tasks broadly, and underlies
 the general-purpose sentence-transformer models (including MiniLM,
 Section~\ref{subsec:minilm}) used throughout this thesis. More recent
-embedding models, such as the BGE family \citep{chen2024bge}, combine
+embedding models, such as the BGE family \citep{xiao2024cpack,chen2024bge}, combine
 this bi-encoder architecture with large-scale contrastive pretraining and
 hard-negative mining, and represent the current state of the art for
 general-purpose dense retrieval, forming the basis of several baselines
@@ -309,7 +309,10 @@ Dense retrieval requires finding the nearest vectors to a query vector
 among the full document collection. Exact search costs time linear in
 the number of documents, which becomes impractical at the scale of
 millions of documents relevant to this thesis's target deployment
-(Section~\ref{ch:istariAndData}). FAISS \citep{johnson2017billion}
+(Section~\ref{ch:istariAndData}). Approximate nearest neighbour (ANN)
+search trades a small amount of accuracy for a large reduction in query
+time by searching only a carefully chosen subset of the collection
+instead of comparing the query against every document. FAISS \citep{johnson2017billion}
 provides GPU-accelerated implementations of both exact and approximate
 search, including inverted-file indexes (IVF), which cluster the
 embedding space and search only the clusters nearest the query, trading
@@ -400,7 +403,8 @@ Standard information retrieval evaluation compares each system's
 ranking against a set of human relevance judgements for a fixed query
 set, historically constructed through pooling: the top results from
 several systems are merged and judged by human assessors, as established
-by the TREC evaluation methodology \citep{voorhees1999trec}. No such
+by the methodology of the Text REtrieval Conference (TREC)
+\citep{voorhees1999trec}. No such
 human-annotated relevance judgements exist for the company search task
 addressed in this thesis. In their absence, this thesis instead adopts a
 \emph{pseudo-relevance} protocol (Section~\ref{subsec:eval_protocol}):
@@ -431,9 +435,12 @@ Section~\ref{sec:protocol_note} documents a change in evaluation protocol
 adopted for all subsequent experiments.
 Sections~\ref{sec:extended_baselines}--\ref{sec:oracle_union} extend the
 baseline comparison, explore query expansion and hybrid fusion, validate
-the pseudo-relevance labels against an LLM judge, compare against Istari's
-production APIs, evaluate approximate nearest-neighbour search at scale,
-and analyse the sources of retrieval error.
+the pseudo-relevance labels against a large language model (LLM) judge,
+compare against Istari's production application programming interfaces
+(APIs), evaluate approximate nearest neighbour search at scale, analyse
+the sources of retrieval error, and document a corpus-level data-quality
+limitation affecting the AI-generated company summaries used throughout
+this thesis.
 Sections~\ref{sec:simlm}--\ref{sec:colbert} evaluate two further retrieval
 paradigms (a retrieval-pretrained encoder and late-interaction retrieval).
 Sections~\ref{sec:hybrid_fullpool}--\ref{sec:learned_fusion} develop a
@@ -529,10 +536,12 @@ so that the precision--recall trade-off at each depth is visible.
 \subsection{Computational Environment}
 \label{subsec:compute}
 
-All experiments are conducted on the University of Mannheim HPC cluster.
-Dense model encoding is performed on an NVIDIA A100 GPU with 80\,GB
-HBM2 memory.
-BM25 retrieval runs on CPU.
+All experiments are conducted on the University of Mannheim's
+high-performance computing (HPC) cluster.
+Dense model encoding is performed on an NVIDIA A100 graphics processing
+unit (GPU) with 80\,GB HBM2 memory.
+BM25 retrieval runs on the central processing unit (CPU) instead, since
+it does not involve any neural network computation.
 Query latency measurements are performed on the same hardware and reported
 as the mean over 20 benchmark queries to obtain stable estimates.
 Latency is decomposed into three components (local query encoding,
@@ -550,8 +559,9 @@ API-based methods are compared on equal terms.
 The BM25 baseline is implemented using the \texttt{rank\_bm25} Python
 library~\citep{robertson2009probabilistic}, which provides the Okapi
 BM25 variant with default hyperparameters $k_1 = 1.5$ and $b = 0.75$.
-All 98\,716 company summaries are tokenised using the NLTK punkt
-tokeniser~\citep{nltk} with lower-casing applied, and the resulting
+All 98\,716 company summaries are tokenised using the punkt tokeniser
+from the Natural Language Toolkit (NLTK)~\citep{nltk} with lower-casing
+applied, and the resulting
 token lists are used to construct the BM25 inverted index.
 At query time, each query is tokenised identically and scored against
 the index.
@@ -616,7 +626,7 @@ outperform BM25.
 
 \texttt{BAAI/bge-large-en-v1.5} is a 335-million parameter BERT-large
 model developed by the Beijing Academy of Artificial
-Intelligence~\citep{chen2024bge}, producing 1\,024-dimensional embeddings.
+Intelligence~\citep{xiao2024cpack}, producing 1\,024-dimensional embeddings.
 It is specifically optimised for dense retrieval through hard negative
 mining during fine-tuning, a training strategy in which the model
 is exposed to query--document pairs that are superficially similar
@@ -832,7 +842,8 @@ encoding latency.
 \paragraph{OpenAI's latency is dominated by network time.}
 Of OpenAI's total 254.6\,ms, only 42.9\,ms is FAISS index search;
 comparable to BGE's 27.8\,ms search time.
-The remaining 211.7\,ms is the HTTP round-trip to OpenAI's servers.
+The remaining 211.7\,ms is the round-trip time of the Hypertext Transfer
+Protocol (HTTP) request to OpenAI's servers.
 This latency is not a property of the embedding model; it reflects
 internet connectivity between the university cluster and OpenAI's
 infrastructure, and would vary across deployment environments.
@@ -1053,12 +1064,40 @@ prefix produced only a marginal and mixed effect on this dataset:
 Recall@1000 improved negligibly (+0.001 for all-fields, +0.007 for
 summary-only), while NDCG@10 slightly \emph{decreased} in both variants.
 Both effects are small enough to plausibly be within query-level noise.
-This suggests that, for this company-retrieval task, BGE-large's query
-prefix convention, tuned primarily for open-domain passage retrieval
-benchmarks, does not transfer into a measurable improvement, and the
-model's underlying limitation observed in Section~\ref{subsec:bge}
-(underperforming MiniLM on Recall@1000) is not explained by the missing
-prefix.
+This rules out the missing prefix as the explanation for a broader
+pattern seen throughout this chapter: under the relaxed protocol, BGE
+(0.726 all-fields, 0.700 to 0.707 summary-only) and the related BGE-M3
+model (0.704, Section~\ref{sec:extended_baselines}) both reach a lower
+Recall@1000 than the much smaller, general-purpose MiniLM model (0.741,
+Table~\ref{tab:hyde}), despite BGE's larger parameter count and its
+retrieval-specific fine-tuning.
+
+\paragraph{Why a specialised, larger model can still be a worse fit.}
+A plausible explanation lies in what each model was optimised for during
+training, rather than in how it is queried at inference time. BGE-large
+and BGE-M3 are fine-tuned through hard negative mining
+(Section~\ref{subsec:bge}) on benchmark data dominated by short,
+single-topic passages retrieved for open-domain question answering, an
+objective that sharpens the model's embedding space around the specific
+pattern of a question matched against a topically focused prose passage.
+MiniLM, by contrast, is trained as a general-purpose sentence-similarity
+model on a broad mixture of paraphrase and natural language inference
+data \citep{reimers2019sentence}, an objective that rewards recognising
+that two pieces of text mean similar things across a wide range of
+domains and writing styles, rather than one narrow retrieval pattern.
+The company records retrieved in this thesis are not passages: each one
+concatenates heterogeneous, only loosely prose-like fields (organisation
+name, country, state, city, organisation type and size, industry code)
+with a short free-text summary. This structure is closer to the varied,
+mixed-format text that MiniLM's training was designed to generalise
+across than to the passage-retrieval benchmarks that shaped BGE's
+embedding space. Fine-tuning a model tightly around one task and one
+kind of text is well documented to improve performance on that specific
+benchmark while sometimes reducing robustness on text the model was not
+tuned for \citep{thakur2021beir}, and the results in this chapter are
+consistent with that trade-off: BGE's retrieval-specific specialisation
+does not transfer as cleanly to this heterogeneous company-record format
+as MiniLM's broader, less specialised training does.
 
 % ────────────────────────────────────────────────────────────
 \section{Query Expansion: HyDE Pipeline}
@@ -1308,6 +1347,82 @@ text-embedding model and can never be individually retrieved correctly.
 This is a concrete data-quality artifact rather than a retrieval-model
 limitation, and sets a hard ceiling on achievable recall for any
 embedding-based method operating on the \texttt{summary} field alone.
+
+% ────────────────────────────────────────────────────────────
+\section{Corpus Quality: Platform Boilerplate in the AI-Generated Summary}
+\label{sec:trust_filter}
+% ────────────────────────────────────────────────────────────
+
+The duplicated ``Bluehost.com'' description found in
+Section~\ref{sec:error_analysis} is one instance of a broader,
+previously unquantified data-quality issue affecting the
+\texttt{summary} field that every retrieval method in this thesis
+depends on. For a meaningful share of companies in the corpus, the
+AI-generated summary describes the website hosting provider or
+website-building platform that the company's domain happens to run on,
+rather than the company's own business. This happens because many small
+businesses have a thin, template-driven web presence, so the process
+that generates each company's summary from its web content sometimes
+picks up generic platform language (for example, marketing copy for a
+web hosting provider or an e-commerce storefront builder) instead of any
+information specific to the company itself. A company using such a
+platform is then, in effect, indistinguishable in its summary text from
+every other company using the same platform, which is precisely the
+mechanism behind the large-scale description duplication already
+observed in Section~\ref{sec:error_analysis}.
+
+\paragraph{How much of the corpus is affected.}
+This contamination is not spread evenly across query topics. An audit of
+the pseudo-relevance labels for all 101 queries found that, for the
+query \textit{``web hosting companies''}, 85.4\% of the 1\,000
+ground-truth relevant companies have a boilerplate rather than a
+company-specific summary; for \textit{``cloud computing providers''} the
+figure is 73.1\%, and for \textit{``e-commerce platforms''} it is
+53.1\%. By contrast, most other query topics in the evaluation set
+(among them \textit{``software companies''}, \textit{``healthcare
+providers''}, and \textit{``construction companies''}) show no measurable
+contamination at all. This pattern is intuitive once the underlying
+mechanism is understood: boilerplate summaries describe hosting,
+domain, and e-commerce infrastructure, so they are only likely to be
+retrieved, and only likely to be judged relevant by the production
+system's own ranking, for queries whose intent is itself adjacent to
+that infrastructure. A query about software companies is unlikely to
+surface a domain registrar's boilerplate text, but a query about web
+hosting companies is exactly the case in which that boilerplate text
+looks, on the surface, like a plausible match.
+
+\paragraph{An attempt to detect it automatically.}
+A classifier was built to flag boilerplate summaries automatically,
+using embedding similarity between each company's summary and a small,
+fixed reference set of around 300 known boilerplate templates, an
+approach chosen so that classifying any single company costs one
+embedding comparison against a fixed-size reference set, regardless of
+whether the underlying corpus is the 98\,716-company evaluation set
+used in this thesis or the full multi-million-company GOI. This
+classifier was validated against 300 companies independently judged by
+an LLM as having a trustworthy or untrustworthy summary. At its
+best-performing similarity threshold, the classifier reaches an F1
+score of 0.59, with a precision of 0.52 and a recall of 0.69 for
+detecting untrustworthy summaries.
+
+\paragraph{Why this limitation was not corrected in the reported results.}
+A precision of 0.52 means that of every two summaries the classifier
+flags as boilerplate, roughly one is, in fact, a genuine, company-specific
+summary. Removing or down-weighting every flagged company from the
+retrieval pipeline would therefore discard a large number of companies
+that are not actually contaminated, trading one source of error for
+another rather than removing it. For this reason, no correction for
+boilerplate contamination was applied to any of the results reported in
+this thesis, and all recall and precision figures should be read with
+this limitation in mind, particularly for the small set of query topics
+identified above as heavily affected. This is reported here as an
+explicitly known and quantified, but unaddressed, limitation of the
+underlying corpus rather than as a solved problem: a natural direction
+for future work is to use the boilerplate-similarity score not as a hard
+filter but as an additional input feature to a trained model, such as
+the learned fusion ranker introduced in Section~\ref{sec:learned_fusion},
+which is able to learn how much to trust an imperfect signal rather than
+requiring it to be reliable enough for a fixed decision rule.
 
 % ────────────────────────────────────────────────────────────
 \section{Oracle Union Recall Ceiling}
