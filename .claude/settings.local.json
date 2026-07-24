@@ -87,7 +87,26 @@
       "Bash(command -v npm)",
       "Bash(npm list *)",
       "Bash(env)",
-      "Bash(awk '{print}')"
+      "Bash(awk '{print}')",
+      "Read(//usr/share/Modules/**)",
+      "Read(//etc/profile.d/**)",
+      "Bash(bash -c \"source /etc/profile.d/modules.sh && module load devel/cuda/12.8 && echo MODULE_LOAD_OK\" 2>&1)",
+      "Bash(bash -c \"source /etc/profile.d/KITE/lmod.sh && module load devel/cuda/12.8 && echo MODULE_LOAD_OK && python3 -c 'print\\(1\\)'\")",
+      "Bash(squeue -p gpu_a100_il)",
+      "Bash(sbatch --test-only --partition=gpu_a100_il --gres=gpu:1 --time=01:00:00 --wrap=\"echo test\")",
+      "Bash(scontrol show *)",
+      "Bash(bash -n run8_short.sh)",
+      "Bash(sbatch run8_short.sh)",
+      "Skill(claude-scientific-writer:citation-management)",
+      "Bash(awk -F: '{print $1}')",
+      "Bash(awk 'NR==1073,NR==1445' thesis.tex)",
+      "Bash(pdflatex -interaction=nonstopmode thesis.tex)",
+      "Bash(bibtex thesis *)",
+      "Skill(claude-scientific-writer:scientific-writing)",
+      "WebSearch",
+      "Bash(sort -t_ -k1 -n)",
+      "Bash(ollama list *)",
+      "Bash(netstat -tlnp)"
     ]
   }
 }

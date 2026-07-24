@@ -1,19 +1,19 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[{BAAI}(2024)]{baaireranker2024}
+{BAAI}.
+\newblock bge-reranker-v2-m3.
+\newblock \url{https://huggingface.co/BAAI/bge-reranker-v2-m3}, 2024.
+\newblock Model card.
+
 \bibitem[Bird et~al.(2009)Bird, Klein, and Loper]{nltk}
 Steven Bird, Ewan Klein, and Edward Loper.
 \newblock {NLTK}: the natural language toolkit, 2009.
-
-\bibitem[Brown(2022)]{brown2022techreport}
-Emily Brown.
-\newblock A technical report on novel proofs for {X}.
-\newblock Technical Report TR-2022-09, Hypothetical Research Institute, Eureka,
-  2022.
 
 \bibitem[Chen et~al.(2024)Chen, Xiao, Zhang, Luo, Lian, and Liu]{chen2024bge}
 Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu.
@@ -27,12 +27,6 @@ Gordon~V. Cormack, Charles L.~A. Clarke, and Stefan B{\"u}ttcher.
   learning methods.
 \newblock In \emph{Proceedings of the 32nd International ACM SIGIR Conference
   on Research and Development in Information Retrieval}, pages 758--759, 2009.
-
-\bibitem[Doe(2024)]{doe2024proof}
-Jane Doe.
-\newblock \emph{The Comprehensive Guide to Proving {X}}, volume~3.
-\newblock Fictional Academic Press, Springfield, 2nd edition, 2024.
-\newblock ISBN 123-4567890123.
 
 \bibitem[Johnson et~al.(2019)Johnson, Douze, and J{\'e}gou]{johnson2017billion}
 Jeff Johnson, Matthijs Douze, and Herv{\'e} J{\'e}gou.
@@ -48,12 +42,47 @@ Vladimir Karpukhin, Barlas O{\u{g}}uz, Sewon Min, Patrick Lewis, Ledell Wu,
 \newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
   Natural Language Processing (EMNLP)}, pages 6769--6781, 2020.
 
-\bibitem[Lee and Green(2023)]{lee2023journal}
-Michael Lee and Sarah Green.
-\newblock A comprehensive study on the validity of {X}.
-\newblock \emph{Journal of Hypothetical Studies}, 15\penalty0 (4):\penalty0
-  123--145, July 2023.
-\newblock \doi{10.5678/jhs.2023.154.123}.
+\bibitem[Khattab and Zaharia(2020)]{khattab2020colbert}
+Omar Khattab and Matei Zaharia.
+\newblock Colbert: Efficient and effective passage search via contextualized
+  late interaction over bert.
+\newblock In \emph{Proceedings of the 43rd International ACM SIGIR Conference
+  on Research and Development in Information Retrieval}, pages 39--48. ACM,
+  2020.
+\newblock \doi{10.1145/3397271.3401075}.
+
+\bibitem[Liu(2009)]{liu2009learning}
+Tie-Yan Liu.
+\newblock Learning to rank for information retrieval.
+\newblock \emph{Foundations and Trends{\textregistered} in Information
+  Retrieval}, 3\penalty0 (3):\penalty0 225--331, 2009.
+\newblock \doi{10.1561/1500000016}.
+
+\bibitem[Malkov and Yashunin(2020)]{malkov2020efficient}
+Yu~A. Malkov and D.~A. Yashunin.
+\newblock Efficient and robust approximate nearest neighbor search using
+  hierarchical navigable small world graphs.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 42\penalty0 (4):\penalty0 824--836, 2020.
+\newblock \doi{10.1109/TPAMI.2018.2889473}.
+
+\bibitem[{Mixedbread AI}(2024)]{mixedbread2024mxbai}
+{Mixedbread AI}.
+\newblock mxbai-rerank-large-v1.
+\newblock \url{https://huggingface.co/mixedbread-ai/mxbai-rerank-large-v1},
+  2024.
+\newblock Model card.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
+  Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, and Duchesnay]{pedregosa2011scikit}
+Fabian Pedregosa, Ga{\"e}l Varoquaux, Alexandre Gramfort, Vincent Michel,
+  Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron
+  Weiss, Vincent Dubourg, Jake Vanderplas, Alexandre Passos, David Cournapeau,
+  Matthieu Brucher, Matthieu Perrot, and {\'E}douard Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock \emph{Journal of Machine Learning Research}, 12:\penalty0 2825--2830,
+  2011.
 
 \bibitem[Reimers and Gurevych(2019)]{reimers2019sentence}
 Nils Reimers and Iryna Gurevych.
@@ -68,12 +97,17 @@ Stephen Robertson and Hugo Zaragoza.
   (4):\penalty0 333--389, 2009.
 \newblock \doi{10.1561/1500000019}.
 
-\bibitem[Smith and Johnson(2023)]{smith2023conference}
-John Smith and Alice Johnson.
-\newblock Proof techniques for {X}.
-\newblock In \emph{Proceedings of the International Symposium on Incorrect
-  Proofs}, pages 45--58, Atlantis, 2023. Symposium Publications.
-\newblock \doi{10.1234/symp2023.45}.
+\bibitem[Santhanam et~al.(2022)Santhanam, Khattab, Saad-Falcon, Potts, and
+  Zaharia]{santhanam2022colbertv2}
+Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
+  Zaharia.
+\newblock Colbertv2: Effective and efficient retrieval via lightweight late
+  interaction.
+\newblock In \emph{Proceedings of the 2022 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 3715--3734. Association for Computational Linguistics,
+  2022.
+\newblock \doi{10.18653/v1/2022.naacl-main.272}.
 
 \bibitem[Thakur et~al.(2021)Thakur, Reimers, R{\"u}ckl{\'e}, Srivastava, and
   Gurevych]{thakur2021beir}
@@ -88,6 +122,23 @@ Nandan Thakur, Nils Reimers, Andreas R{\"u}ckl{\'e}, Abhishek Srivastava, and
 Ellen~M Voorhees.
 \newblock The trec-8 question answering track report.
 \newblock In \emph{Proceedings of TREC}, 1999.
+
+\bibitem[Wang et~al.(2022)Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and
+  Wei]{wang2022simlm}
+Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang,
+  Rangan Majumder, and Furu Wei.
+\newblock Simlm: Pre-training with representation bottleneck for dense passage
+  retrieval, 2022.
+
+\bibitem[Xiao et~al.(2024)Xiao, Liu, Zhang, Muennighoff, Lian, and
+  Nie]{xiao2024cpack}
+Shitao Xiao, Zheng Liu, Peitian Zhang, Niklas Muennighoff, Defu Lian, and
+  Jian-Yun Nie.
+\newblock C-pack: Packed resources for general chinese embeddings.
+\newblock In \emph{Proceedings of the 47th International ACM SIGIR Conference
+  on Research and Development in Information Retrieval}, pages 641--649. ACM,
+  2024.
+\newblock \doi{10.1145/3626772.3657878}.
 
 \bibitem[Zobel(2004)]{zobel2004}
 Justin Zobel.

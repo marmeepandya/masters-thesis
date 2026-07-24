@@ -1,0 +1,126 @@
+Thu Jul 23 07:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5994916
+Thu Jul 23 08:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995021
+Thu Jul 23 08:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995123
+Thu Jul 23 09:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995324
+Thu Jul 23 09:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995392
+Thu Jul 23 10:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995559
+Thu Jul 23 10:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5995768
+Thu Jul 23 11:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5996163
+Thu Jul 23 11:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5997144
+Thu Jul 23 12:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5997375
+Thu Jul 23 12:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+Submitted batch job 5998468
+Thu Jul 23 10:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Thu Jul 23 11:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Thu Jul 23 11:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 12:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 12:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 01:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 01:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 02:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 02:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 03:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 03:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 04:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 04:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 05:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 05:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 06:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 06:30:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 07:00:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 07:30:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 08:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 08:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 09:00:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 09:30:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 10:00:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 10:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 11:00:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 11:30:01 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 12:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 12:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 01:00:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 01:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 02:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 02:30:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 03:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 03:30:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 04:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 04:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 05:00:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 05:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 06:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 06:30:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 07:00:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 07:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 08:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 08:30:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 09:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 09:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 10:00:02 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 10:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 11:00:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Fri Jul 24 11:30:01 PM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
+Sat Jul 25 12:00:02 AM CEST 2026: no BGE-Gemma2 job running/queued and not finished -- resubmitting
+sbatch: error: Unable to open file run8_short.sh
