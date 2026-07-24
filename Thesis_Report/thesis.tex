@@ -38,7 +38,7 @@
 \author{Marmee Pandya\\
   (matriculation number 1963521)} \date{\today}
 \publishers{{\small Submitted to}\\
-  Chair of Information Systems\\
+  Chair of Enterprise Data Analysis\\
    Dr.\ Ralph Peeters\\
   University of Mannheim\\}
 \maketitle
@@ -500,20 +500,26 @@ $k \in \{10, 50, 100, 1000\}$:
 \begin{itemize}
     \item \textbf{Precision@$k$}: the fraction of the top-$k$ retrieved
     companies that are relevant.
-    This measures user-facing quality — what a user sees on the first
+    This measures user-facing quality: what a user sees on the first
     page of results.
 
     \item \textbf{Recall@$k$}: the fraction of all relevant companies
     that appear in the top-$k$ results.
-    This measures coverage — important for downstream re-ranking
+    This measures coverage, important for downstream re-ranking
     pipelines that operate on a retrieved candidate set.
+    \textbf{Recall is the primary metric in this thesis}, following the
+    priority set by Istari for this task: whether the system finds the
+    relevant companies matters more than the exact order they are
+    ranked in. Section~\ref{sec:protocol_note} explains how Precision@$k$
+    and Recall@$k$ relate to one another and should be read together.
 
     \item \textbf{NDCG@$k$} (Normalised Discounted Cumulative Gain):
     a ranking-aware metric that rewards systems for placing relevant
-    companies higher in the list, using a logarithmic discount.
-    NDCG@$k$ is the primary quality metric in this thesis, as it
-    directly reflects the experience of a user who interacts primarily
-    with the top results.
+    companies higher in the list, using a logarithmic discount. NDCG@$k$
+    is reported as a secondary, supporting metric: it reflects the
+    experience of a user who interacts primarily with the top results,
+    which is a reasonable concern in practice even though it is not the
+    priority metric for this thesis.
 \end{itemize}
 
 All metrics are averaged across all 101 queries.
@@ -529,8 +535,8 @@ HBM2 memory.
 BM25 retrieval runs on CPU.
 Query latency measurements are performed on the same hardware and reported
 as the mean over 20 benchmark queries to obtain stable estimates.
-Latency is decomposed into three components — local query encoding,
-FAISS index search, and external network time — so that self-hosted and
+Latency is decomposed into three components (local query encoding,
+FAISS index search, and external network time) so that self-hosted and
 API-based methods are compared on equal terms.
 
 % ────────────────────────────────────────────────────────────
@@ -566,7 +572,7 @@ The top BM25 results are predominantly investment banks and venture
 capital firms whose summaries frequently mention the word \textit{software}
 in the context of describing their investment portfolio
 (e.g.\ \textit{``we invest in software, fintech, and SaaS businesses''}).
-These companies are not software companies — they fund them.
+These companies are not software companies: they fund them.
 BM25 cannot distinguish between a company \textit{operating} in a
 domain and a company \textit{discussing} that domain.
 This limitation provides a clear and concrete motivation for
@@ -612,7 +618,7 @@ outperform BM25.
 model developed by the Beijing Academy of Artificial
 Intelligence~\citep{chen2024bge}, producing 1\,024-dimensional embeddings.
 It is specifically optimised for dense retrieval through hard negative
-mining during fine-tuning — a training strategy in which the model
+mining during fine-tuning, a training strategy in which the model
 is exposed to query--document pairs that are superficially similar
 but semantically distinct, forcing it to learn fine-grained semantic
 distinctions.
@@ -657,9 +663,9 @@ open-source alternatives.
 Query latency for the OpenAI baseline comprises two components:
 a network round-trip to the OpenAI API servers (211.7\,ms, measured
 over 20 queries) and a local FAISS search (42.9\,ms).
-The network component is not a property of the model itself —
+The network component is not a property of the model itself;
 it reflects internet latency between the University of Mannheim cluster
-and OpenAI's infrastructure — and should not be interpreted as a
+and OpenAI's infrastructure, and should not be interpreted as a
 measure of model speed.
 For a fair comparison, the local FAISS search time (42.9\,ms)
 is comparable to BGE's search time (27.8\,ms), confirming that
@@ -704,7 +710,7 @@ OpenAI & \textbf{0.022} & 0.080 & 0.149 & \textbf{0.803} \\
 All three dense methods outperform BM25 at low cut-offs.
 At $k=10$, BGE and OpenAI achieve an NDCG of 0.227, representing a
 \textbf{37\% improvement} over BM25's 0.166.
-Precision@10 improves from 0.156 (BM25) to 0.216 (BGE) — a 38\%
+Precision@10 improves from 0.156 (BM25) to 0.216 (BGE), a 38\%
 relative gain.
 This confirms the hypothesis that semantic retrieval better captures
 the intent of natural-language company search queries, particularly
@@ -743,7 +749,7 @@ choice.
 Absolute precision values are low across all methods
 (Precision@10 ranging from 0.156 to 0.224).
 This is expected: relevant companies represent at most 100 out of
-98\,716 corpus entries — approximately 0.1\% of the corpus.
+98\,716 corpus entries, approximately 0.1\% of the corpus.
 In such a low-prevalence setting, even a perfect retrieval system
 would show low absolute precision at large $k$.
 What matters is the relative improvement between methods: BGE and
@@ -757,7 +763,7 @@ to $k=100$ before rising sharply at $k=1000$ for all methods.
 This occurs because the pseudo-relevance labels are defined as the
 production top-100.
 At exactly $k=100$, NDCG measures whether all 100 relevant companies
-are ranked perfectly within the top-100 retrieved results — a maximally
+are ranked perfectly within the top-100 retrieved results, a maximally
 strict condition.
 At $k=1000$, there is substantially more room to accommodate the relevant
 set, and the metric rises accordingly.
@@ -800,7 +806,7 @@ OpenAI & \textit{server} &  42.9 & 211.7 & 254.6 & No \\
 \end{table}
 
 \paragraph{BGE is the fastest method overall.}
-BGE achieves a total query latency of 44.4\,ms — faster than BM25
+BGE achieves a total query latency of 44.4\,ms, faster than BM25
 (104.1\,ms), MiniLM (80.9\,ms), and OpenAI (254.6\,ms).
 This result is initially counterintuitive: BGE is a 335-million
 parameter neural network, whereas BM25 is a simple keyword scoring
@@ -824,7 +830,7 @@ Hardware assignment dominates over model size for single-query
 encoding latency.
 
 \paragraph{OpenAI's latency is dominated by network time.}
-Of OpenAI's total 254.6\,ms, only 42.9\,ms is FAISS index search —
+Of OpenAI's total 254.6\,ms, only 42.9\,ms is FAISS index search;
 comparable to BGE's 27.8\,ms search time.
 The remaining 211.7\,ms is the HTTP round-trip to OpenAI's servers.
 This latency is not a property of the embedding model; it reflects
@@ -890,6 +896,38 @@ numerical scale than Table~\ref{tab:main_results}, and
 All comparisons in the following sections should be read only
 relative to one another, within the same section.
 
+\paragraph{Reading Precision and Recall together.}
+Under this relaxed protocol, every one of the 101 queries has exactly
+1\,000 relevant companies. This has a direct consequence for how
+Precision@$k$ and Recall@$k$ relate to one another at any cut-off
+$k \le 1\,000$: since both metrics are computed from the same count
+(how many of the top-$k$ retrieved companies are relevant), just divided
+by a different denominator,
+\[
+  \text{Recall@}k = \text{Precision@}k \times \frac{k}{1\,000},
+\]
+so the two metrics are exactly proportional to one another at every
+cut-off, and neither is redundant on its own: Precision@$k$ answers
+``of what the system returned, how much was correct'', while Recall@$k$
+answers ``of everything that is correct, how much did the system
+return'', and the two only coincide once $k = 1\,000$, where the
+denominators become equal.
+A practical consequence is that Recall@$k$ for small $k$ can look
+misleadingly low in isolation. For example, a system that returns 10
+companies of which 8 are genuinely relevant has an excellent
+Precision@10 of 0.80, but the corresponding Recall@10 is only
+$0.80 \times 10/1\,000 = 0.008$, not because the 10 companies returned
+are poor, but because 10 items can never cover more than 1\% of a
+1\,000-company relevant set. For this reason, the tables in this
+chapter report Precision@$k$ at the shallow cut-offs
+($k \in \{10, 50, 100, 300, 500\}$), where it is the more directly
+interpretable number, and report both Precision@1\,000 and Recall@1\,000
+together, since $k = 1\,000$ is the one cut-off at which Recall stops
+being a rescaled copy of Precision and becomes a genuinely independent
+measure: total coverage of the full relevant set. Recall@1\,000 is
+treated as the headline metric throughout this thesis for exactly this
+reason.
+
 % ────────────────────────────────────────────────────────────
 \section{Extended Baseline Comparison: Additional Embedding Models}
 \label{sec:extended_baselines}
@@ -923,15 +961,17 @@ evaluation set described in Section~\ref{subsec:dataset}:
          pseudo-relevance protocol (Section~\ref{sec:protocol_note}).
          Bold indicates the best value in each column.}
 \label{tab:extended_baselines}
-\begin{tabular}{lcccc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Method} & \textbf{Recall@10} & \textbf{Recall@50} & \textbf{Recall@100} & \textbf{Recall@1000} \\
+& \multicolumn{4}{c}{\textbf{Precision@$k$}} & \textbf{Recall@1000} \\
+\cmidrule(lr){2-5}
+\textbf{Method} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} & \\
 \midrule
-BGE-M3        & 0.009 & 0.046 & 0.091 & 0.704 \\
-GTE-large     & 0.010 & 0.047 & 0.093 & \textbf{0.768} \\
-E5-Mistral-7B & 0.006 & 0.029 & 0.052 & 0.274 \\
-Linq-Mistral  & 0.009 & 0.046 & 0.091 & 0.749 \\
-SFR-Mistral   & 0.009 & \textbf{0.046} & \textbf{0.092} & 0.746 \\
+BGE-M3        & 0.927 & 0.916 & 0.905 & 0.704          & 0.704 \\
+GTE-large     & 0.946 & 0.936 & 0.925 & \textbf{0.768} & \textbf{0.768} \\
+E5-Mistral-7B & 0.629 & 0.572 & 0.523 & 0.274          & 0.274 \\
+Linq-Mistral  & 0.934 & 0.921 & 0.915 & 0.749          & 0.749 \\
+SFR-Mistral   & 0.933 & 0.922 & 0.915 & 0.746          & 0.746 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1332,14 +1372,16 @@ encoded without any prefix, following the same model card.
 \caption{SimLM Recall@1000 (relaxed top-1\,000 protocol) alongside the
          strongest baselines evaluated so far, for reference.}
 \label{tab:simlm}
-\begin{tabular}{lc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Method} & \textbf{Recall@1000} \\
+& \multicolumn{4}{c}{\textbf{Precision@$k$}} & \textbf{Recall@1000} \\
+\cmidrule(lr){2-5}
+\textbf{Method} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} & \\
 \midrule
-BM25 (lexical baseline, Section~\ref{sec:baseline_sparse}) & 0.635 \\
-SimLM                                                       & 0.609 \\
-MiniLM (Section~\ref{subsec:minilm})                        & 0.741 \\
-GTE-large (Section~\ref{sec:extended_baselines})            & 0.768 \\
+BM25 (Section~\ref{sec:baseline_sparse})         & 0.838 & 0.748 & 0.723 & 0.635 & 0.635 \\
+SimLM                                            & 0.920 & 0.881 & 0.861 & 0.609 & 0.609 \\
+MiniLM (Section~\ref{subsec:minilm})             & 0.972 & 0.950 & 0.938 & 0.741 & 0.741 \\
+GTE-large (Section~\ref{sec:extended_baselines}) & 0.946 & 0.936 & 0.925 & \textbf{0.768} & \textbf{0.768} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1397,13 +1439,15 @@ approximate, and is tractable at this corpus size.
 \caption{ColBERT (brute-force MaxSim) Recall@1000 (relaxed top-1\,000
          protocol) alongside the strongest single-vector baselines.}
 \label{tab:colbert}
-\begin{tabular}{lc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Method} & \textbf{Recall@1000} \\
+& \multicolumn{4}{c}{\textbf{Precision@$k$}} & \textbf{Recall@1000} \\
+\cmidrule(lr){2-5}
+\textbf{Method} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{1000} & \\
 \midrule
-MiniLM (Section~\ref{subsec:minilm})             & 0.741 \\
-GTE-large (Section~\ref{sec:extended_baselines}) & 0.768 \\
-ColBERT (MaxSim)                                 & 0.773 \\
+MiniLM (Section~\ref{subsec:minilm})             & 0.972 & 0.950 & 0.938 & 0.741 & 0.741 \\
+GTE-large (Section~\ref{sec:extended_baselines}) & 0.946 & 0.936 & 0.925 & 0.768 & 0.768 \\
+ColBERT (MaxSim)                                 & 0.936 & 0.931 & 0.925 & \textbf{0.773} & \textbf{0.773} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1453,20 +1497,23 @@ time:
 
 \begin{table}[ht]
 \centering
-\caption{Full-pool reranking Recall@1000 (relaxed top-1\,000 protocol),
-         compared against the shallow RRF~+~top-50-rerank baseline from
+\caption{Full-pool reranking (relaxed top-1\,000 protocol), compared
+         against the shallow RRF~+~top-50-rerank baseline from
          Section~\ref{sec:rrf}. Bold indicates the best value.}
 \label{tab:hybrid_fullpool}
-\begin{tabular}{lcc}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Method} & \textbf{Recall@1000} & \textbf{Avg.\ pool size} \\
+\textbf{Method} & \textbf{P@10} & \textbf{P@100} & \textbf{P@1000} & \textbf{R@1000} & \textbf{Pool} \\
 \midrule
-RRF~+~top-50 rerank (Section~\ref{sec:rrf})    & 0.782 & 50 (fixed) \\
-Full-pool, 2-way (MiniLM~+~Linq)               & 0.802 & $\approx$1\,300 \\
-Full-pool, 3-way (+~GTE-large)                 & \textbf{0.804} & $\approx$1\,424 \\
-Full-pool, 4-way (+~OpenAI-large)              & 0.802 & $\approx$1\,600 \\
+RRF + top-50 (\S\ref{sec:rrf})   & 0.980 & 0.940 & 0.782          & 0.782          & 50 \\
+2-way (MiniLM+Linq)              & 0.955 & 0.950 & 0.802          & 0.802          & 1\,300 \\
+3-way (+GTE-large)               & 0.955 & 0.950 & \textbf{0.804} & \textbf{0.804} & 1\,424 \\
+4-way (+OpenAI-large)            & 0.955 & 0.950 & 0.802          & 0.802          & 1\,600 \\
 \bottomrule
 \end{tabular}
+\normalsize
 \end{table}
 
 \paragraph{Finding.}
@@ -1522,14 +1569,17 @@ are identical.
 \caption{Reranker ablation Recall@1000: identical 3-way candidate pool,
          two different reranker models (relaxed top-1\,000 protocol).}
 \label{tab:reranker_ablation}
-\begin{tabular}{lc}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Reranker} & \textbf{Recall@1000} \\
+\textbf{Reranker} & \textbf{P@10} & \textbf{P@100} & \textbf{P@1000} & \textbf{R@1000} \\
 \midrule
-BAAI/bge-reranker-v2-m3 (Section~\ref{sec:hybrid_fullpool})  & \textbf{0.8042} \\
-mixedbread-ai/mxbai-rerank-large-v1                          & 0.8035 \\
+BAAI/bge-reranker-v2-m3 (\S\ref{sec:hybrid_fullpool}) & 0.955 & 0.950 & \textbf{0.8042} & \textbf{0.8042} \\
+mxbai-rerank-large-v1                                 & 0.968 & 0.940 & 0.8035          & 0.8035 \\
 \bottomrule
 \end{tabular}
+\normalsize
 \end{table}
 
 \paragraph{Finding.}
@@ -1588,15 +1638,18 @@ complete, leakage-free evaluation over all 101 queries.
          best pretrained-component pipeline from Section~\ref{sec:hybrid_fullpool}.
          Bold indicates the best value.}
 \label{tab:learned_fusion}
-\begin{tabular}{lc}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Method} & \textbf{Recall@1000} \\
+\textbf{Method} & \textbf{P@10} & \textbf{P@100} & \textbf{P@1000} & \textbf{R@1000} \\
 \midrule
-Full-pool, 3-way + BGE reranker (Section~\ref{sec:hybrid_fullpool}) & 0.804 \\
-Learned fusion, logistic regression                                 & 0.821 \\
-Learned fusion, gradient-boosted trees                               & \textbf{0.823} \\
+3-way + BGE reranker (\S\ref{sec:hybrid_fullpool}) & 0.955 & 0.950 & 0.804          & 0.804          \\
+Learned fusion, logistic regression                  & 0.968 & 0.953 & 0.821          & 0.821          \\
+Learned fusion, gradient-boosted trees                & \textbf{0.977} & \textbf{0.955} & \textbf{0.823} & \textbf{0.823} \\
 \bottomrule
 \end{tabular}
+\normalsize
 \end{table}
 
 \paragraph{Finding.}
