@@ -89,20 +89,20 @@ during your studies. He writes the following about the abstract:
 \mainmatter
 % here the original content of my thesis starts 
 
-\chapter{Project Overview}
-\label{ch:projectOverview}
+\chapter{Introduction}
+\label{ch:introduction}
 
-\texttt{Thesis Goal:} Build and evaluate an efficient embedding-based semantic retrieval system for large-scale company data that outperforms the current production search system.
+Modern company intelligence platforms maintain datasets containing tens of millions of organisation profiles, covering everything from small local businesses to large multinational enterprises. Despite the availability of this data, finding the companies that are actually relevant to a given search intent remains difficult in practice. Existing workflows typically rely on manually configured keyword filters, which require the user to guess the exact vocabulary a relevant company happens to use in its own description, and which need multiple rounds of trial and error before returning a satisfactory set of results. This is a version of a well-known limitation of classical keyword-based retrieval: two texts can describe the same underlying concept using entirely different words, so a company that is a strong match for a query may never be surfaced simply because it does not happen to repeat the query's own terminology.
 
-\noindent\texttt{Core Question:} Can embedding-based semantic retrieval combined with approximate nearest neighbor search efficiently generate accurate top-k candidate company sets from large-scale datasets while maintaining low query latency? \newline
+At the same time, any system intended to operate on a company database of this size must satisfy strict constraints on efficiency and scalability. Retrieval has to remain accurate while operating over a large-scale, high-cardinality dataset, and it has to return results quickly enough to support an interactive search experience, not just a slow, offline batch process.
 
-\noindent\textbf{Current Todo List:}
-- Literature Review
+This thesis investigates whether embedding-based semantic retrieval, where both queries and companies are represented as dense vectors and matched by meaning rather than by literal word overlap, can address this gap. Concretely, the thesis asks: can embedding-based semantic retrieval, combined with approximate nearest-neighbour search, efficiently generate accurate top-$k$ candidate company sets from a large-scale company dataset, while maintaining low query latency, and how does it compare to the keyword-based production system currently in use?
 
-% TODO (when writing the Introduction chapter): this Project Overview can
-% become the basis for the Introduction. Its final paragraph should be a
-% roadmap paragraph explaining what each subsequent chapter covers
-% (Chapter 2 covers X, Chapter 3 covers Y, and so on).
+This work is conducted in collaboration with ISTARI.AI, a data intelligence company whose core product is a curated, organisation-level dataset covering companies worldwide. The collaboration grounds the thesis in a real operational setting: the queries evaluated throughout this thesis are real search intents drawn from Istari's own usage, and the production system this thesis compares against is the system Istari's users interact with today, rather than a synthetic or purely academic benchmark.
+
+\paragraph{Contributions.} This thesis makes the following contributions. First, it presents a systematic, large-scale comparison of retrieval approaches for company search, spanning classical lexical retrieval, more than ten dense embedding models of varying size and training objective, a late-interaction retrieval architecture, and a retrieval-specific pre-trained encoder, all evaluated on the same corpus, query set, and metrics, so that results are directly comparable across methods. Second, it develops and evaluates a series of hybrid retrieval pipelines, culminating in a learned fusion ranker that is trained directly on this task's own queries and outperforms every pipeline built purely from frozen, pretrained components, while also yielding an interpretable account of which retrieval signals actually drive relevance. Third, it evaluates the accuracy-efficiency trade-off of approximate nearest-neighbour search at simulated production scale, and provides a decomposed latency analysis that separates local computation from network overhead for API-based methods. Fourth, it identifies, quantifies, and discusses a previously unquantified data-quality issue in the underlying corpus, in which a meaningful share of AI-generated company summaries describe a website hosting or platform provider rather than the company itself, and shows both how much this affects retrieval and why it was not corrected in the results reported here. Finally, because no human-annotated relevance judgements exist for this task, the thesis is explicit throughout about the limitations of the pseudo-relevance evaluation protocol it adopts instead, and includes an independent validation of that protocol against large language model-based relevance judgements.
+
+\paragraph{Thesis structure.} Chapter~\ref{ch:istariAndData} introduces Istari's Global Organisation Index, the dataset underlying every experiment in this thesis, describing how it is constructed, its schema, and the evaluation corpus derived from it. Chapter~\ref{ch:related_literature} reviews the retrieval paradigms, indexing techniques, and evaluation practices that this thesis builds on and compares against, including sparse and dense retrieval, approximate nearest-neighbour search, late-interaction retrieval, hybrid retrieval and learning to rank, and evaluation practice in the absence of human relevance judgements. Chapter~\ref{ch:experiments} presents the experimental work itself: the baseline retrieval systems and evaluation protocol, an extended comparison across many additional embedding models, several hybrid and query-expansion strategies, an evaluation-methodology check against large language model-based judgements, a comparison against Istari's own production search APIs, an approximate nearest-neighbour scaling experiment, a detailed error analysis, the corpus data-quality finding concerning AI-generated summaries, and finally the learned fusion ranker that achieves the best result obtained anywhere in this thesis.
 
 \chapter{ISTARI.AI and its Data}
 \label{ch:istariAndData}
@@ -1789,6 +1789,93 @@ in Section~\ref{sec:reranker_ablation}: the pretrained reranker was not
 extracting the maximum available signal from the candidate pool, and a
 lightweight model trained on this task's own data closes a meaningful part
 of the remaining gap to the oracle ceiling from Section~\ref{sec:oracle_union}.
+
+% ────────────────────────────────────────────────────────────
+\section{Validating the Learned Fusion Ranker Against a Non-Circular Gold Standard}
+\label{sec:pooled_validation}
+% ────────────────────────────────────────────────────────────
+
+The pseudo-relevance protocol used throughout this thesis (Section~\ref{subsec:eval_protocol}) treats a company as relevant if and only if it appears in production's own results for a query. This is a reasonable practice when no human-annotated relevance judgements exist (Section~\ref{sec:lit_evaluation}), but it carries a specific risk for the learned fusion ranker (Section~\ref{sec:learned_fusion}): a model trained directly on labels derived from production's own output may partly be learning to reproduce whatever idiosyncrasies that particular system has, rather than genuine relevance. This section reports a small-scale attempt to check whether the learned fusion ranker's key interpretive finding, that MiniLM's inverse rank is the most informative feature, survives replacing that circular ground truth with an independently constructed one.
+
+\subsection{Building a Pooled, Independently Judged Gold Standard}
+\label{subsec:pooled_gold_standard}
+
+\paragraph{Pooling.} Following the pooling methodology established for the Text REtrieval Conference \citep{voorhees1999trec, zobel1998reliable}, the top-20 candidates per query were taken from six sources: the frozen production ground truth, a freshly fetched sample from Istari's live v2 search API, BM25, GTE-large, ColBERT, and the learned fusion ranker's own output, then unioned and deduplicated by domain. Applied across all 101 queries, this yields 8\,309 pooled candidates, an average of 82.3 unique candidates per query, a substantially smaller and more tractable set than the original 1\,000-per-query pool.
+
+\paragraph{Trust filtering.} Before any relevance judging, every pooled candidate's summary was checked against the boilerplate detector from Section~\ref{sec:trust_filter}, reusing its already-cached reference templates. This flagged 487 of 8\,309 candidates (5.9\%) as untrustworthy, which were excluded from judging entirely, so that a summary describing the wrong entity could not poison a relevance label built on top of it.
+
+\paragraph{Multi-judge relevance labelling.} Each remaining, trustworthy candidate was independently judged by two large language models (OpenAI's \texttt{gpt-4o-mini} and Anthropic's Claude Haiku), on a three-level scale (0~=~not relevant, 1~=~partially relevant, 2~=~highly relevant), following the LLM-as-judge approach validated at scale by \citet{thomas2024llmjudge}. Where the two judges agreed, that label was accepted directly; where they disagreed, the case was resolved by manual review.
+
+\paragraph{Blind calibration of the judges.} Resolving disagreements by reading both judges' stated reasoning risks anchoring the human reviewer toward whichever judge's framing is read first. To check this, a separate blind sample of 20 candidates that neither judge had yet seen was labelled by the author with no access to either judge's output, then scored independently by both judges. OpenAI matched the blind label 75\% of the time and Claude 80\%, close enough that neither judge should be treated as categorically more reliable than the other on this task.
+
+\paragraph{Scope of this pilot.} Labelling all 101 queries with two paid LLM judges was not pursued in the time available; instead, a 5-query pilot was completed first. Of 430 candidates judged, 360 (83.7\%) received unanimous agreement between the two judges. Of the remaining 70 disagreements, 59 were resolved by manual review and 11 were excluded outright for insufficient evidence (for example, unreachable domains or placeholder websites with no verifiable content), rather than being forced into a label the available information could not support. This yields \textbf{419 gold-labelled candidates} across 5 queries, distributed as 8 not relevant, 119 partially relevant, and 292 highly relevant.
+
+\subsection{Retraining Against the New Gold Standard}
+\label{subsec:refit_fusion_ranker}
+
+The exact architecture from Section~\ref{sec:learned_fusion} (the same ten features, the same 5-fold cross-validation grouped by \texttt{query\_id}, here equivalent to leave-one-query-out since exactly five queries are covered) was retrained using the 417 of 419 gold-labelled candidates that matched an existing feature row from the original candidate pool. The binary classification target used the strict threshold \texttt{gold\_label} = 2 (highly relevant only, 291 positive vs.\ 126 negative examples); the more permissive threshold \texttt{gold\_label} $\geq$ 1 leaves only 8 negative examples across the whole pilot, too few for cross-validated coefficients to be estimated reliably.
+
+\begin{table}[ht]
+\centering
+\caption{NDCG@$k$ against the new gold standard: the retrained model
+         compared against the original learned fusion ranker's held-out
+         scores, both evaluated on the same 417 candidates.}
+\label{tab:pooled_ndcg}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{NDCG@5} & \textbf{NDCG@10} & \textbf{NDCG@20} \\
+\midrule
+Original model's scores (\S\ref{sec:learned_fusion}) & 0.915 & 0.930 & 0.940 \\
+Retrained on new gold standard        & \textbf{0.934} & \textbf{0.952} & \textbf{0.947} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Cross-validated logistic regression feature weights, original
+         (circular) ground truth vs.\ the new pooled gold standard.}
+\label{tab:pooled_weights}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Feature} & \textbf{Original weight} & \textbf{New weight} \\
+\midrule
+invrank\_minilm  & $+5.014$ & $-0.909$ \\
+score\_linq      & $+1.097$ & $+1.965$ \\
+invrank\_gte     & $+0.958$ & $+0.323$ \\
+score\_gte       & $+0.921$ & $+0.791$ \\
+invrank\_linq    & $+0.867$ & $+0.416$ \\
+score\_minilm    & $+0.749$ & $-0.146$ \\
+n\_channels      & $+0.459$ & $-0.289$ \\
+invrank\_bm25    & $-0.258$ & $-1.252$ \\
+reranker\_score  & $+0.164$ & $+0.319$ \\
+score\_bm25      & $+0.054$ & $-0.134$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.} Retraining on the pooled, independently judged gold standard modestly improves ranking quality over simply reusing the original model's scores (NDCG@5: 0.915~$\to$~0.934; NDCG@10: 0.930~$\to$~0.952), confirming that the new labels carry a genuine, learnable signal rather than just noise. More importantly, the original interpretive finding from Section~\ref{sec:learned_fusion} does not replicate: \texttt{invrank\_minilm}, previously the dominant feature by a wide margin ($+5.014$, more than double the next-largest coefficient), collapses not merely toward zero but to a small \emph{negative} coefficient ($-0.909$). The most plausible explanation is that MiniLM's ranking correlated strongly with production's own circular output specifically, rather than with relevance itself, a correlation that a model trained and evaluated against that same circular output could not distinguish from a genuine relevance signal. \texttt{score\_linq} (Linq-Embed-Mistral's raw similarity score) is the new dominant feature ($+1.965$), and \texttt{invrank\_bm25} is now strongly negative ($-1.252$): being ranked highly by BM25 is associated with \emph{lower} true relevance in this sample. This corroborates, independently and statistically, the qualitative BM25 failure mode already documented in Section~\ref{subsec:bm25_qual}, where investment firms and venture capital companies are ranked highly by BM25 for the query ``software companies'' because they mention the word in passing while describing their investment portfolio, without themselves being software companies.
+
+\paragraph{Limitations.} This result covers 5 of 101 queries and 417 candidates, a genuine pilot rather than a full replication, and the specific numerical coefficients should be read with that scale in mind. However, the magnitude of the reversal on what was previously the single dominant feature is unlikely to be an artefact of sample size alone, and is treated here as a preliminary but suggestive finding: the interpretive claims drawn from a model trained on circular pseudo-relevance labels should not be taken as descriptions of genuine relevance without independent validation. Scaling this pooled, multi-judge gold standard to the full 101-query set is a direction for future work.
+
+% ────────────────────────────────────────────────────────────
+\section{Scaling Beyond the Gold Standard: Silver Labels via Model Distillation}
+\label{sec:silver_labels}
+% ────────────────────────────────────────────────────────────
+
+\textit{Note: this section documents in-progress work and will be trimmed or restructured once results are finalised.}
+
+Extending independent LLM judging to every candidate the retrieval systems in this thesis actually produce is not affordable. The original fusion ranker's own candidate pool (Section~\ref{sec:learned_fusion}) covers 173\,262 (query, candidate) pairs across all 101 queries; judging every one of those with two LLM judges, at the per-candidate cost observed in Section~\ref{subsec:pooled_gold_standard}, would cost approximately \$22 at the current pooling depth, or as much as \$28\,000 if every one of the 98\,716 corpus companies were judged against every one of the 101 queries. The latter figure is not just expensive but methodologically wasteful: the overwhelming majority of those pairs are companies that no retrieval channel ever considered plausible for that query, judging them would mean paying to confirm the obvious.
+
+\paragraph{Approach.} Instead, the 419 gold-labelled candidates from Section~\ref{subsec:pooled_gold_standard} are used to train a final classifier (the same architecture and feature set as Section~\ref{sec:learned_fusion}, fit on all 419 labels rather than held out via cross-validation, since this model is intended for deployment rather than evaluation). This classifier is then applied to all 173\,262 existing candidate rows, which already have the required ten features computed, at no additional retrieval or labelling cost. This produces two explicitly distinct label tiers, following standard practice in weak and distant supervision: a small \textbf{gold} tier (419 candidates, LLM-judged and human-adjudicated) and a much larger \textbf{silver} tier (the remaining candidates, model-predicted rather than independently judged). The two tiers are not merged or treated as equally reliable anywhere in this pipeline.
+
+\paragraph{Validating the silver tier.} To estimate how trustworthy the silver labels actually are, a random sample of 150 silver-labelled candidates is independently judged by two more capable models, \texttt{claude-sonnet-5} and \texttt{gpt-5.4} (an upgrade from the \texttt{claude-haiku-4-5}/\texttt{gpt-4o-mini} pair used for the original gold standard, chosen after confirming via the blind calibration check in Section~\ref{subsec:pooled_gold_standard} that the cheaper pair was not itself the limiting factor). Only candidates where both stronger judges unanimously agree are counted, disagreements are excluded from the spot-check rather than guessed at, the same principle used throughout Section~\ref{subsec:pooled_gold_standard}. This validation costs under \$1, compared to the \$22\,000+ a full re-judging pass would require.
+
+\paragraph{Status.} The silver-labelling classifier has been trained and applied to all 173\,262 candidates. Of the 150 spot-checked silver candidates, 132 (88\%) received unanimous agreement between \texttt{gpt-5.4} and \texttt{claude-sonnet-5}; against that unanimous subset, the silver labels achieved 65.9\% accuracy (precision on the relevant class 65.3\%, recall 85.3\%). A naive baseline that always predicts the majority class on this same 132-candidate sample would score 56.8\%, so the silver labels carry a real, learnable signal, but a modest one: the classifier over-predicts relevance (34 false positives against 11 false negatives out of 132), consistent with the 75.4\% overall relevant-rate it assigns across the full silver tier.
+
+The most likely explanation for the gap between this figure and the substantially higher NDCG improvement reported in Section~\ref{subsec:refit_fusion_ranker} is a training-distribution mismatch rather than a flaw in the distillation approach itself: only 8 of the 132 unanimously-judged spot-check candidates (6\%) fall under one of the 5 queries the underlying gold standard was built from, the remaining 124 (94\%) come from query topics the classifier never saw a single labelled example of during training. Generalising from 5 narrow query topics to the other 96 is a substantially harder test than the leave-one-query-out cross-validation in Section~\ref{subsec:refit_fusion_ranker}, which only ever held out one of those same 5 topics at a time. This points toward a concrete, affordable fix rather than abandoning the approach: expanding the gold standard to a larger, more topically diverse subset of the 101 queries (at the roughly \$22 cost estimated above for full-depth pooling) before the resulting silver labels are relied on broadly, rather than distilling from 5 queries alone.
 
 % here the original content of my thesis ends
 

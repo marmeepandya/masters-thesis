@@ -1,0 +1,357 @@
+2026/07/28 12:00:39 NOTICE: logs/07_hybrid_rrf_reranker_4716633.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/09b_api_evaluation_v2_july_5809616.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/10_llm_summary_trustworthiness_judge_5786538.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/10_minilm_api_rerank_july-old_5810412.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/10_minilm_api_rerank_july_5811190.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/12_recall_error_analysis_july_5816503.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/12_recall_error_analysis_july_5816503.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/13_bge_prefix_july_5818953.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/13_bge_prefix_july_5819064.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/13_bge_prefix_july_5819064.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/13_bge_prefix_summary_july_5818800.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/13_bge_prefix_summary_july_5818800.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/16_baseline_bgem3_july_5820312.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/16_baseline_bgem3_july_5820312.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/17_baseline_gte_large_july_5820928.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/17_baseline_gte_large_july_5820928.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/18_baseline_e5_mistral_july_5821692.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/18_baseline_e5_mistral_july_5821692.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/20_baseline_linq_mistral_july_5824538.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/20_baseline_linq_mistral_july_5824538.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/20_baseline_linq_mistral_july_5828151.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/20_baseline_linq_mistral_july_5828151.out: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/21_baseline_sfr_mistral_july_5824562.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: logs/24_hybrid_minilm_linq_full_rerank_5839022.err: Duplicate object found in destination - ignoring
+2026/07/28 12:00:39 NOTICE: .claude/skills/aeon: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/usfiscaldata: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/opentrons-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pufferlib: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/consciousness-council: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pyhealth: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/phylogenetics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/xlsx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/esm: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/experimental-design: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/arboreto: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scanpy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/modal: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pdf: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/polars-bio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/statistical-power: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/clinical-decision-support: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/markitdown: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/autoskill: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pathml: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/literature-review: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/arbor: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/labarchive-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scikit-bio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/networkx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/tiledbvcf: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/timesfm-forecasting: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/bids: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/citation-management: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pytdc: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/geniml: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/diffdock: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pydicom: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/biopython: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/statsmodels: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scvi-tools: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/stable-baselines3: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/cellxgene-census: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/geopandas: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/latex-posters: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/glycoengineering: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/histolab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/nextflow: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/rdkit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/gget: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/clinical-reports: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/exploratory-data-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scholar-evaluation: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scvelo: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/hypothesis-generation: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/bgpt-paper-search: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-schematics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/dask: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-visualization: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/latchbio-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/primekg: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/fluidsim: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/open-notebook: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/torch-geometric: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/paperzilla: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/infographics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pytorch-lightning: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/umap-learn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-brainstorming: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/bioservices: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pacsomatic: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/matlab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/ginkgo-cloud-lab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/qiskit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/hypogenic: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/treatment-plans: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/gtars: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/seaborn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/medchem: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pi-agent: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/zarr-python: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/tamarind: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-slides: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/hugging-science: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/omero-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/qutip: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/benchling-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/vaex: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pptx-posters: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-writing: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/dnanexus-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/depmap: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/research-grants: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/astropy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/statistical-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/imaging-data-commons: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/polars: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/onekgpd: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/docx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/deepchem: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/torchdrug: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/paper-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/neurokit2: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/transformers: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scikit-survival: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/liteparse: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pymoo: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/generate-image: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/neuropixels-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pymatgen: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/flowio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/protocolsio-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/parallel-web: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pennylane: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/matchms: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/sympy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pydeseq2: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pptx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/peer-review: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/exa-search: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pathway-enrichment: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/shap: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/what-if-oracle: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/cobrapy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scientific-critical-thinking: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/iso-13485-certification: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pymc: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/bulk-rnaseq: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/optimize-for-gpu: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/database-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/deeptools: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/market-research-reports: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/etetoolkit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/get-available-resources: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pyopenms: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/venue-templates: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/molecular-dynamics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pysam: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/dhdna-profiler: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/adaptyv: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/geomaster: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/lamindb: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/scikit-learn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/datamol: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/matplotlib: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/markdown-mermaid-writing: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/rowan: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/simpy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pyzotero: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/pylabrobot: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/anndata: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/research-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/molfeat: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 NOTICE: .claude/skills/cirq: Can't follow symlink without -L/--copy-links
+2026/07/28 12:00:39 ERROR : logs/rclone_sync_20260728_120001.log: Failed to copy: Post "https://www.googleapis.com/upload/drive/v3/files?alt=json&fields=id%2Cname%2Csize%2Cmd5Checksum%2Csha1Checksum%2Csha256Checksum%2Ctrashed%2CexplicitlyTrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%2CshortcutDetails%2CexportLinks%2CresourceKey&keepRevisionForever=false&prettyPrint=false&supportsAllDrives=true&uploadType=multipart": googleapi: Copy failed: can't copy - source file is being updated (size changed from 2933 to 18060)
+2026/07/28 12:00:40 NOTICE: result/28_hybrid_quad_full_rerank/comparison_vs_prior.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:00:40 NOTICE: result/28_hybrid_quad_full_rerank/evaluation.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:00:40 NOTICE: result/28_hybrid_quad_full_rerank/reranked_results.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:02:37 ERROR : Google drive root 'Thesis-Backup': not deleting files as there were IO errors
+2026/07/28 12:02:37 ERROR : Google drive root 'Thesis-Backup': not deleting directories as there were IO errors
+2026/07/28 12:02:37 ERROR : Attempt 1/3 failed with 1 errors and: Post "https://www.googleapis.com/upload/drive/v3/files?alt=json&fields=id%2Cname%2Csize%2Cmd5Checksum%2Csha1Checksum%2Csha256Checksum%2Ctrashed%2CexplicitlyTrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%2CshortcutDetails%2CexportLinks%2CresourceKey&keepRevisionForever=false&prettyPrint=false&supportsAllDrives=true&uploadType=multipart": googleapi: Copy failed: can't copy - source file is being updated (size changed from 2933 to 18060)
+2026/07/28 12:02:38 NOTICE: .claude/skills/aeon: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/usfiscaldata: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/opentrons-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pufferlib: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/consciousness-council: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pyhealth: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/phylogenetics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/xlsx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/esm: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/experimental-design: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/arboreto: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scanpy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/modal: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pdf: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/polars-bio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/statistical-power: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/clinical-decision-support: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/markitdown: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/autoskill: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pathml: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/literature-review: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/arbor: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/labarchive-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scikit-bio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/networkx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/tiledbvcf: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/timesfm-forecasting: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/bids: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/citation-management: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pytdc: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/geniml: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/diffdock: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pydicom: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/biopython: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/statsmodels: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scvi-tools: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/stable-baselines3: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/cellxgene-census: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/geopandas: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/latex-posters: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/glycoengineering: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/histolab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/nextflow: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/rdkit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/gget: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/clinical-reports: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/exploratory-data-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scholar-evaluation: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scvelo: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/hypothesis-generation: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/bgpt-paper-search: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-schematics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/dask: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-visualization: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/latchbio-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/primekg: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/fluidsim: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/open-notebook: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/torch-geometric: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/paperzilla: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/infographics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pytorch-lightning: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/umap-learn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-brainstorming: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/bioservices: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pacsomatic: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/matlab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/ginkgo-cloud-lab: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/qiskit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/hypogenic: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/treatment-plans: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/gtars: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/seaborn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/medchem: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pi-agent: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/zarr-python: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/tamarind: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-slides: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/hugging-science: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/omero-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/qutip: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/benchling-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/vaex: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pptx-posters: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-writing: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/dnanexus-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/depmap: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/research-grants: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/astropy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/statistical-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/imaging-data-commons: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/polars: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/onekgpd: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/docx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/deepchem: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/torchdrug: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/paper-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/neurokit2: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/transformers: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scikit-survival: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/liteparse: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pymoo: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/generate-image: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/neuropixels-analysis: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pymatgen: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/flowio: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/protocolsio-integration: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/parallel-web: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pennylane: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/matchms: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/sympy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pydeseq2: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pptx: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/peer-review: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/exa-search: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pathway-enrichment: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/shap: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/what-if-oracle: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/cobrapy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scientific-critical-thinking: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/iso-13485-certification: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pymc: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/bulk-rnaseq: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/optimize-for-gpu: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/database-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/deeptools: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/market-research-reports: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/etetoolkit: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/get-available-resources: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pyopenms: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/venue-templates: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/molecular-dynamics: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pysam: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/dhdna-profiler: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/adaptyv: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/geomaster: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/lamindb: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/scikit-learn: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/datamol: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/matplotlib: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/markdown-mermaid-writing: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/rowan: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/simpy: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pyzotero: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/pylabrobot: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/anndata: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/research-lookup: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/molfeat: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: .claude/skills/cirq: Can't follow symlink without -L/--copy-links
+2026/07/28 12:02:38 NOTICE: logs/07_hybrid_rrf_reranker_4716633.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/09b_api_evaluation_v2_july_5809616.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/10_llm_summary_trustworthiness_judge_5786538.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/10_minilm_api_rerank_july-old_5810412.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/10_minilm_api_rerank_july_5811190.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/12_recall_error_analysis_july_5816503.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/12_recall_error_analysis_july_5816503.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/13_bge_prefix_july_5818953.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/13_bge_prefix_july_5819064.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/13_bge_prefix_july_5819064.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/13_bge_prefix_summary_july_5818800.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/13_bge_prefix_summary_july_5818800.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/16_baseline_bgem3_july_5820312.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/16_baseline_bgem3_july_5820312.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/17_baseline_gte_large_july_5820928.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/17_baseline_gte_large_july_5820928.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/18_baseline_e5_mistral_july_5821692.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/18_baseline_e5_mistral_july_5821692.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/20_baseline_linq_mistral_july_5824538.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/20_baseline_linq_mistral_july_5824538.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/20_baseline_linq_mistral_july_5828151.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/20_baseline_linq_mistral_july_5828151.out: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/21_baseline_sfr_mistral_july_5824562.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:38 NOTICE: logs/24_hybrid_minilm_linq_full_rerank_5839022.err: Duplicate object found in destination - ignoring
+2026/07/28 12:02:40 NOTICE: result/28_hybrid_quad_full_rerank/comparison_vs_prior.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:02:40 NOTICE: result/28_hybrid_quad_full_rerank/evaluation.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:02:40 NOTICE: result/28_hybrid_quad_full_rerank/reranked_results.csv: Duplicate object found in destination - ignoring
+2026/07/28 12:03:40 ERROR : Attempt 2/3 succeeded
