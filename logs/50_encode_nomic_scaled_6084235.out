@@ -1,0 +1,12 @@
+Ollama started with PID 1950493
+[GIN] 2026/07/28 - 21:21:51 | 200 |    11.64631ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 21:21:51 | 200 |   12.775942ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 21:21:51 | 200 |      26.104µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 21:21:51 | 200 |   22.658022ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB

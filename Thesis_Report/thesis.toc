@@ -100,11 +100,29 @@
 \contentsline {paragraph}{\nonumberline Scope of this pilot.}{32}{paragraph*.102}%
 \contentsline {subsection}{\numberline {4.22.2}Retraining Against the New Gold Standard}{32}{subsection.4.22.2}%
 \contentsline {paragraph}{\nonumberline Finding.}{32}{paragraph*.104}%
-\contentsline {paragraph}{\nonumberline Limitations.}{33}{paragraph*.106}%
+\contentsline {paragraph}{\nonumberline Confirmation at full scale.}{33}{paragraph*.106}%
+\contentsline {paragraph}{\nonumberline Limitations.}{34}{paragraph*.108}%
 \contentsline {section}{\numberline {4.23}Scaling Beyond the Gold Standard: Silver Labels via Model Distillation}{34}{section.4.23}%
-\contentsline {paragraph}{\nonumberline Approach.}{34}{paragraph*.108}%
-\contentsline {paragraph}{\nonumberline Validating the silver tier.}{34}{paragraph*.110}%
-\contentsline {paragraph}{\nonumberline Status.}{35}{paragraph*.112}%
-\contentsline {chapter}{\nonumberline Bibliography}{36}{chapter*.113}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{38}{chapter*.114}%
+\contentsline {paragraph}{\nonumberline Approach.}{34}{paragraph*.110}%
+\contentsline {paragraph}{\nonumberline Validating the silver tier.}{35}{paragraph*.112}%
+\contentsline {paragraph}{\nonumberline Status.}{35}{paragraph*.114}%
+\contentsline {subsection}{\numberline {4.23.1}Expanding the Gold Standard via Active Learning}{35}{subsection.4.23.1}%
+\contentsline {paragraph}{\nonumberline Result.}{36}{paragraph*.116}%
+\contentsline {paragraph}{\nonumberline Result.}{37}{paragraph*.118}%
+\contentsline {paragraph}{\nonumberline A further possible extension (not yet implemented).}{37}{paragraph*.120}%
+\contentsline {subsection}{\numberline {4.23.2}Deepening a Headline Query Subset via Round-Based Active Learning}{37}{subsection.4.23.2}%
+\contentsline {paragraph}{\nonumberline Stopping.}{38}{paragraph*.122}%
+\contentsline {paragraph}{\nonumberline Result.}{38}{paragraph*.124}%
+\contentsline {paragraph}{\nonumberline Refreshing the silver tier at no additional cost.}{38}{paragraph*.126}%
+\contentsline {subsection}{\numberline {4.23.3}Quantifying How Far Production's Own Ranking Diverges from the Independent Gold/Silver Set}{39}{subsection.4.23.3}%
+\contentsline {paragraph}{\nonumberline Finding.}{39}{paragraph*.128}%
+\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{39}{section.4.24}%
+\contentsline {paragraph}{\nonumberline A fully random sample.}{39}{paragraph*.130}%
+\contentsline {paragraph}{\nonumberline Data quality.}{40}{paragraph*.132}%
+\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{41}{paragraph*.134}%
+\contentsline {paragraph}{\nonumberline Encoding.}{41}{paragraph*.136}%
+\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{41}{paragraph*.138}%
+\contentsline {paragraph}{\nonumberline Status.}{42}{paragraph*.140}%
+\contentsline {chapter}{\nonumberline Bibliography}{43}{chapter*.141}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{46}{chapter*.142}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

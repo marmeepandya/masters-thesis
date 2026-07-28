@@ -1,0 +1,31 @@
+Ollama started with PID 819986
+[GIN] 2026/07/28 - 19:24:58 | 200 |   13.219517ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 19:24:58 | 200 |   17.013275ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 19:24:58 | 200 |      50.793µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 19:24:58 | 200 |   21.200858ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Encode] Loading BGE-large (BAAI/bge-large-en-v1.5)...
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n566
+Job ID: 6082416
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:09
+CPU Efficiency: 0.04% of 06:08:48 core-walltime
+Job Wall-clock time: 00:30:44
+Memory Utilized: 3.04 GB
+Memory Efficiency: 3.31% of 91.80 GB (91.80 GB/node)

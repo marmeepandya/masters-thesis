@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=20_baseline_linq_mistral_july
+#SBATCH --job-name=47_encode_linq_mistral_scaled
 #SBATCH --partition=gpu_a100_short
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --time=00:30:00
-#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/20_baseline_linq_mistral_july_%j.out
-#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/20_baseline_linq_mistral_july_%j.err
+#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/47_encode_linq_mistral_scaled_%j.out
+#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/47_encode_linq_mistral_scaled_%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=marmeep23@gmail.com
 
@@ -45,10 +45,10 @@ echo "OLLAMA_BASE_URL=http://127.0.0.1:11435" >> .env
 # This notebook's metadata is missing language_info.file_extension, so
 # nbconvert falls back to writing .txt here (unlike the other notebooks,
 # which write .py directly) -- rename before running
-jupyter nbconvert --to script 20_baseline_linq_mistral.ipynb
-mv 20_baseline_linq_mistral.txt 20_baseline_linq_mistral.py
+jupyter nbconvert --to script 47_encode_linq_mistral_scaled.ipynb
+mv 47_encode_linq_mistral_scaled.txt 47_encode_linq_mistral_scaled.py
 
-python 20_baseline_linq_mistral.py
+python 47_encode_linq_mistral_scaled.py
 
 # Cleanup 
 # Remove the OLLAMA_BASE_URL line we added to .env (keep .env clean)

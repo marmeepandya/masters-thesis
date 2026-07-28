@@ -1,0 +1,14 @@
+Ollama started with PID 1339590
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/47_encode_linq_mistral_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[GPU] VRAM   : 42.4 GB
+[Encode] Loading Linq-Embed-Mistral (fp16)...

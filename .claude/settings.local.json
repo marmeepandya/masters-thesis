@@ -158,7 +158,17 @@
       "Bash(echo \"EXIT:$?\")",
       "Bash(pdfinfo thesis.pdf)",
       "Bash(cp \"result/40_active_learning_labeling_queue/review_queue.csv\" \"result/40_active_learning_labeling_queue/review_queue.csv.backup_$\\(date +%Y%m%d_%H%M%S\\)\")",
-      "Bash(ls -la result/40_active_learning_labeling_queue/*.backup_*)"
+      "Bash(ls -la result/40_active_learning_labeling_queue/*.backup_*)",
+      "Read(//opt/**)",
+      "Bash(dpkg -l)",
+      "Bash(ls result/42_headline_query_deepening/*round*)",
+      "Bash(cat result/20_baseline_linq_mistral/encode_time_seconds.txt)",
+      "Bash(ls -la result/20_baseline_linq_mistral/)",
+      "Bash(cat result/17_baseline_gte_large/encode_time_seconds.txt)",
+      "Bash(ls result/17_baseline_gte_large/*.npy)",
+      "Bash(ls result/03_baseline_minilm/*.npy)",
+      "Bash(ls result/02_baseline_bge/ result/13_bge_prefix/ result/16_baseline_bgem3/)",
+      "Bash(ls result/03_baseline_minilm/)"
     ]
   }
 }

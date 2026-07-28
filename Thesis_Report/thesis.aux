@@ -306,45 +306,89 @@
 \@writefile{toc}{\contentsline {paragraph}{\nonumberline Finding.}{32}{paragraph*.104}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4.16}{\ignorespaces NDCG@$k$ against the new gold standard: the retrained model compared against the original learned fusion ranker's held-out scores, both evaluated on the same 417 candidates.}}{33}{table.4.16}\protected@file@percent }
 \newlabel{tab:pooled_ndcg}{{4.16}{33}{NDCG@$k$ against the new gold standard: the retrained model compared against the original learned fusion ranker's held-out scores, both evaluated on the same 417 candidates}{table.4.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.17}{\ignorespaces Cross-validated logistic regression feature weights, original (circular) ground truth vs.\ the new pooled gold standard.}}{33}{table.4.17}\protected@file@percent }
-\newlabel{tab:pooled_weights}{{4.17}{33}{Cross-validated logistic regression feature weights, original (circular) ground truth vs.\ the new pooled gold standard}{table.4.17}{}}
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Limitations.}{33}{paragraph*.106}\protected@file@percent }
-\BKM@entry{id=52,dest={73656374696F6E2E342E3233},srcline={1864}}{5C3337365C3337375C303030535C303030635C303030615C3030306C5C303030695C3030306E5C303030675C3030305C3034305C303030425C303030655C303030795C3030306F5C3030306E5C303030645C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030475C3030306F5C3030306C5C303030645C3030305C3034305C303030535C303030745C303030615C3030306E5C303030645C303030615C303030725C303030645C3030303A5C3030305C3034305C303030535C303030695C3030306C5C303030765C303030655C303030725C3030305C3034305C3030304C5C303030615C303030625C303030655C3030306C5C303030735C3030305C3034305C303030765C303030695C303030615C3030305C3034305C3030304D5C3030306F5C303030645C303030655C3030306C5C3030305C3034305C303030445C303030695C303030735C303030745C303030695C3030306C5C3030306C5C303030615C303030745C303030695C3030306F5C3030306E}
+\@writefile{lot}{\contentsline {table}{\numberline {4.17}{\ignorespaces Logistic regression feature weights across three training sets: the original (circular) ground truth, the 5-query pilot pooled gold standard, and the expanded gold standard covering all 101 queries (Section\nobreakspace  {}\ref  {subsec:active_learning}).}}{33}{table.4.17}\protected@file@percent }
+\newlabel{tab:pooled_weights}{{4.17}{33}{Logistic regression feature weights across three training sets: the original (circular) ground truth, the 5-query pilot pooled gold standard, and the expanded gold standard covering all 101 queries (Section~\ref {subsec:active_learning})}{table.4.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Confirmation at full scale.}{33}{paragraph*.106}\protected@file@percent }
+\BKM@entry{id=52,dest={73656374696F6E2E342E3233},srcline={1868}}{5C3337365C3337375C303030535C303030635C303030615C3030306C5C303030695C3030306E5C303030675C3030305C3034305C303030425C303030655C303030795C3030306F5C3030306E5C303030645C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030475C3030306F5C3030306C5C303030645C3030305C3034305C303030535C303030745C303030615C3030306E5C303030645C303030615C303030725C303030645C3030303A5C3030305C3034305C303030535C303030695C3030306C5C303030765C303030655C303030725C3030305C3034305C3030304C5C303030615C303030625C303030655C3030306C5C303030735C3030305C3034305C303030765C303030695C303030615C3030305C3034305C3030304D5C3030306F5C303030645C303030655C3030306C5C3030305C3034305C303030445C303030695C303030735C303030745C303030695C3030306C5C3030306C5C303030615C303030745C303030695C3030306F5C3030306E}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Limitations.}{34}{paragraph*.108}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.23}Scaling Beyond the Gold Standard: Silver Labels via Model Distillation}{34}{section.4.23}\protected@file@percent }
 \newlabel{sec:silver_labels}{{4.23}{34}{Scaling Beyond the Gold Standard: Silver Labels via Model Distillation}{section.4.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Approach.}{34}{paragraph*.108}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Validating the silver tier.}{34}{paragraph*.110}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Approach.}{34}{paragraph*.110}\protected@file@percent }
+\BKM@entry{id=53,dest={73756273656374696F6E2E342E32332E31},srcline={1884}}{5C3337365C3337375C303030455C303030785C303030705C303030615C3030306E5C303030645C303030695C3030306E5C303030675C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030475C3030306F5C3030306C5C303030645C3030305C3034305C303030535C303030745C303030615C3030306E5C303030645C303030615C303030725C303030645C3030305C3034305C303030765C303030695C303030615C3030305C3034305C303030415C303030635C303030745C303030695C303030765C303030655C3030305C3034305C3030304C5C303030655C303030615C303030725C3030306E5C303030695C3030306E5C30303067}
+\citation{settles2009active}
+\citation{takehi2024llmassisted}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Validating the silver tier.}{35}{paragraph*.112}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Status.}{35}{paragraph*.114}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.23.1}Expanding the Gold Standard via Active Learning}{35}{subsection.4.23.1}\protected@file@percent }
+\newlabel{subsec:active_learning}{{4.23.1}{35}{Expanding the Gold Standard via Active Learning}{subsection.4.23.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The gold and silver standard construction pipeline: pooling from six sources, multi-judge LLM labelling with human tie-breaking, distillation into silver labels at full scale, the spot-check that revealed poor out-of-distribution generalisation, and the active-learning step that expands gold-standard query coverage in response.}}{36}{figure.4.1}\protected@file@percent }
+\newlabel{fig:gold_silver_pipeline}{{4.1}{36}{The gold and silver standard construction pipeline: pooling from six sources, multi-judge LLM labelling with human tie-breaking, distillation into silver labels at full scale, the spot-check that revealed poor out-of-distribution generalisation, and the active-learning step that expands gold-standard query coverage in response}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Result.}{36}{paragraph*.116}\protected@file@percent }
+\citation{zhu2002labelpropagation}
+\BKM@entry{id=54,dest={73756273656374696F6E2E342E32332E32},srcline={1910}}{5C3337365C3337375C303030445C303030655C303030655C303030705C303030655C3030306E5C303030695C3030306E5C303030675C3030305C3034305C303030615C3030305C3034305C303030485C303030655C303030615C303030645C3030306C5C303030695C3030306E5C303030655C3030305C3034305C303030515C303030755C303030655C303030725C303030795C3030305C3034305C303030535C303030755C303030625C303030735C303030655C303030745C3030305C3034305C303030765C303030695C303030615C3030305C3034305C303030525C3030306F5C303030755C3030306E5C303030645C3030302D5C303030425C303030615C303030735C303030655C303030645C3030305C3034305C303030415C303030635C303030745C303030695C303030765C303030655C3030305C3034305C3030304C5C303030655C303030615C303030725C3030306E5C303030695C3030306E5C30303067}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Result.}{37}{paragraph*.118}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline A further possible extension (not yet implemented).}{37}{paragraph*.120}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.23.2}Deepening a Headline Query Subset via Round-Based Active Learning}{37}{subsection.4.23.2}\protected@file@percent }
+\newlabel{subsec:headline_deepening}{{4.23.2}{37}{Deepening a Headline Query Subset via Round-Based Active Learning}{subsection.4.23.2}{}}
+\citation{settles2009active}
+\@writefile{lot}{\contentsline {table}{\numberline {4.18}{\ignorespaces Round-based active learning trajectory for the 14 headline queries: cumulative new gold labels and classifier accuracy against the fixed validation set after each round.}}{38}{table.4.18}\protected@file@percent }
+\newlabel{tab:headline_rounds}{{4.18}{38}{Round-based active learning trajectory for the 14 headline queries: cumulative new gold labels and classifier accuracy against the fixed validation set after each round}{table.4.18}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Stopping.}{38}{paragraph*.122}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Result.}{38}{paragraph*.124}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Refreshing the silver tier at no additional cost.}{38}{paragraph*.126}\protected@file@percent }
+\BKM@entry{id=55,dest={73756273656374696F6E2E342E32332E33},srcline={1938}}{5C3337365C3337375C303030515C303030755C303030615C3030306E5C303030745C303030695C303030665C303030795C303030695C3030306E5C303030675C3030305C3034305C303030485C3030306F5C303030775C3030305C3034305C303030465C303030615C303030725C3030305C3034305C303030505C303030725C3030306F5C303030645C303030755C303030635C303030745C303030695C3030306F5C3030306E5C303030275C303030735C3030305C3034305C3030304F5C303030775C3030306E5C3030305C3034305C303030525C303030615C3030306E5C3030306B5C303030695C3030306E5C303030675C3030305C3034305C303030445C303030695C303030765C303030655C303030725C303030675C303030655C303030735C3030305C3034305C303030665C303030725C3030306F5C3030306D5C3030305C3034305C303030745C303030685C303030655C3030305C3034305C303030495C3030306E5C303030645C303030655C303030705C303030655C3030306E5C303030645C303030655C3030306E5C303030745C3030305C3034305C303030475C3030306F5C3030306C5C303030645C3030302F5C303030535C303030695C3030306C5C303030765C303030655C303030725C3030305C3034305C303030535C303030655C30303074}
+\BKM@entry{id=56,dest={73656374696F6E2E342E3234},srcline={1962}}{5C3337365C3337375C303030535C303030635C303030615C3030306C5C303030695C3030306E5C303030675C3030305C3034305C303030745C3030306F5C3030305C3034305C303030615C3030305C3034305C3030304C5C303030615C303030725C303030675C303030655C303030725C3030305C3034305C303030435C3030306F5C303030725C303030705C303030755C303030735C3030303A5C3030305C3034305C303030615C3030305C3034305C303030525C303030615C3030306E5C303030645C3030306F5C3030306D5C3030305C3034305C303030535C303030615C3030306D5C303030705C3030306C5C303030655C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C3030304E5C303030655C303030735C303030745C303030655C303030645C3030305C3034305C303030435C3030306F5C303030725C303030705C303030755C303030735C3030305C3034305C303030545C303030695C303030655C303030725C30303073}
+\citation{baryossef2008random}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.23.3}Quantifying How Far Production's Own Ranking Diverges from the Independent Gold/Silver Set}{39}{subsection.4.23.3}\protected@file@percent }
+\newlabel{subsec:production_divergence}{{4.23.3}{39}{Quantifying How Far Production's Own Ranking Diverges from the Independent Gold/Silver Set}{subsection.4.23.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Finding.}{39}{paragraph*.128}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{39}{section.4.24}\protected@file@percent }
+\newlabel{sec:scaling_corpus}{{4.24}{39}{Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{section.4.24}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline A fully random sample.}{39}{paragraph*.130}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.19}{\ignorespaces Four checks comparing production's own top-1,000-per-query ranking against the independent gold/silver set.}}{40}{table.4.19}\protected@file@percent }
+\newlabel{tab:production_divergence}{{4.19}{40}{Four checks comparing production's own top-1,000-per-query ranking against the independent gold/silver set}{table.4.19}{}}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Data quality.}{40}{paragraph*.132}\protected@file@percent }
+\citation{lu2016effect}
+\citation{baryossef2008random}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{41}{paragraph*.134}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Encoding.}{41}{paragraph*.136}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{41}{paragraph*.138}\protected@file@percent }
 \bibdata{references}
-\@writefile{toc}{\contentsline {paragraph}{\nonumberline Status.}{35}{paragraph*.112}\protected@file@percent }
-\BKM@entry{id=53,dest={636861707465722A2E313133},srcline={1}}{5C3337365C3337375C303030425C303030695C303030625C3030306C5C303030695C3030306F5C303030675C303030725C303030615C303030705C303030685C30303079}
+\@writefile{toc}{\contentsline {paragraph}{\nonumberline Status.}{42}{paragraph*.140}\protected@file@percent }
+\BKM@entry{id=57,dest={636861707465722A2E313431},srcline={1}}{5C3337365C3337375C303030425C303030695C303030625C3030306C5C303030695C3030306F5C303030675C303030725C303030615C303030705C303030685C30303079}
 \bibcite{baaireranker2024}{{1}{2024}{{BAAI}}{{}}}
-\bibcite{nltk}{{2}{2009}{{Bird et~al.}}{{Bird, Klein, and Loper}}}
-\bibcite{chen2024bge}{{3}{2024}{{Chen et~al.}}{{Chen, Xiao, Zhang, Luo, Lian, and Liu}}}
-\bibcite{cormack2009reciprocal}{{4}{2009}{{Cormack et~al.}}{{Cormack, Clarke, and B{\"u}ttcher}}}
-\bibcite{johnson2017billion}{{5}{2019}{{Johnson et~al.}}{{Johnson, Douze, and J{\'e}gou}}}
-\bibcite{karpukhin2020dense}{{6}{2020}{{Karpukhin et~al.}}{{Karpukhin, O{\u {g}}uz, Min, Lewis, Wu, Edunov, Chen, and Yih}}}
-\bibcite{khattab2020colbert}{{7}{2020}{{Khattab and Zaharia}}{{}}}
-\bibcite{liu2009learning}{{8}{2009}{{Liu}}{{}}}
-\bibcite{malkov2020efficient}{{9}{2020}{{Malkov and Yashunin}}{{}}}
-\bibcite{mixedbread2024mxbai}{{10}{2024}{{Mixedbread AI}}{{}}}
-\bibcite{pedregosa2011scikit}{{11}{2011}{{Pedregosa et~al.}}{{Pedregosa, Varoquaux, Gramfort, Michel, Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos, Cournapeau, Brucher, Perrot, and Duchesnay}}}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{36}{chapter*.113}\protected@file@percent }
+\bibcite{baryossef2008random}{{2}{2008}{{Bar-Yossef and Gurevich}}{{}}}
+\bibcite{nltk}{{3}{2009}{{Bird et~al.}}{{Bird, Klein, and Loper}}}
+\bibcite{chen2024bge}{{4}{2024}{{Chen et~al.}}{{Chen, Xiao, Zhang, Luo, Lian, and Liu}}}
+\bibcite{cormack2009reciprocal}{{5}{2009}{{Cormack et~al.}}{{Cormack, Clarke, and B{\"u}ttcher}}}
+\bibcite{johnson2017billion}{{6}{2019}{{Johnson et~al.}}{{Johnson, Douze, and J{\'e}gou}}}
+\bibcite{karpukhin2020dense}{{7}{2020}{{Karpukhin et~al.}}{{Karpukhin, O{\u {g}}uz, Min, Lewis, Wu, Edunov, Chen, and Yih}}}
+\bibcite{khattab2020colbert}{{8}{2020}{{Khattab and Zaharia}}{{}}}
+\bibcite{liu2009learning}{{9}{2009}{{Liu}}{{}}}
+\bibcite{lu2016effect}{{10}{2016}{{Lu et~al.}}{{Lu, Moffat, and Culpepper}}}
+\bibcite{malkov2020efficient}{{11}{2020}{{Malkov and Yashunin}}{{}}}
+\bibcite{mixedbread2024mxbai}{{12}{2024}{{Mixedbread AI}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{43}{chapter*.141}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\bibcite{reimers2019sentence}{{12}{2019}{{Reimers and Gurevych}}{{}}}
-\bibcite{robertson2009probabilistic}{{13}{2009}{{Robertson and Zaragoza}}{{}}}
-\bibcite{santhanam2022colbertv2}{{14}{2022}{{Santhanam et~al.}}{{Santhanam, Khattab, Saad-Falcon, Potts, and Zaharia}}}
-\bibcite{thakur2021beir}{{15}{2021}{{Thakur et~al.}}{{Thakur, Reimers, R{\"u}ckl{\'e}, Srivastava, and Gurevych}}}
-\bibcite{thomas2024llmjudge}{{16}{2024}{{Thomas et~al.}}{{Thomas, Spielman, Craswell, and Mitra}}}
-\bibcite{voorhees1999trec}{{17}{1999}{{Voorhees}}{{}}}
-\bibcite{wang2022simlm}{{18}{2022}{{Wang et~al.}}{{Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and Wei}}}
-\bibcite{xiao2024cpack}{{19}{2024}{{Xiao et~al.}}{{Xiao, Liu, Zhang, Muennighoff, Lian, and Nie}}}
-\bibcite{zobel1998reliable}{{20}{1998}{{Zobel}}{{}}}
-\bibcite{zobel2004}{{21}{2004}{{Zobel}}{{}}}
-\bibcite{zobel2014}{{22}{2014}{{Zobel}}{{}}}
-\BKM@entry{id=54,dest={636861707465722A2E313134},srcline={1886}}{5C3337365C3337375C303030455C303030685C303030725C303030655C3030306E5C303030775C3030305C3336365C303030725C303030745C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030455C303030725C3030306B5C3030306C5C3030305C3334345C303030725C303030755C3030306E5C30303067}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{38}{chapter*.114}\protected@file@percent }
+\bibcite{pedregosa2011scikit}{{13}{2011}{{Pedregosa et~al.}}{{Pedregosa, Varoquaux, Gramfort, Michel, Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos, Cournapeau, Brucher, Perrot, and Duchesnay}}}
+\bibcite{reimers2019sentence}{{14}{2019}{{Reimers and Gurevych}}{{}}}
+\bibcite{robertson2009probabilistic}{{15}{2009}{{Robertson and Zaragoza}}{{}}}
+\bibcite{santhanam2022colbertv2}{{16}{2022}{{Santhanam et~al.}}{{Santhanam, Khattab, Saad-Falcon, Potts, and Zaharia}}}
+\bibcite{settles2009active}{{17}{2009}{{Settles}}{{}}}
+\bibcite{takehi2024llmassisted}{{18}{2024}{{Takehi et~al.}}{{Takehi, Voorhees, Sakai, and Soboroff}}}
+\bibcite{thakur2021beir}{{19}{2021}{{Thakur et~al.}}{{Thakur, Reimers, R{\"u}ckl{\'e}, Srivastava, and Gurevych}}}
+\bibcite{thomas2024llmjudge}{{20}{2024}{{Thomas et~al.}}{{Thomas, Spielman, Craswell, and Mitra}}}
+\bibcite{voorhees1999trec}{{21}{1999}{{Voorhees}}{{}}}
+\bibcite{wang2022simlm}{{22}{2022}{{Wang et~al.}}{{Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and Wei}}}
+\bibcite{xiao2024cpack}{{23}{2024}{{Xiao et~al.}}{{Xiao, Liu, Zhang, Muennighoff, Lian, and Nie}}}
+\bibcite{zhu2002labelpropagation}{{24}{2002}{{Zhu and Ghahramani}}{{}}}
+\bibcite{zobel1998reliable}{{25}{1998}{{Zobel}}{{}}}
+\bibcite{zobel2004}{{26}{2004}{{Zobel}}{{}}}
+\bibcite{zobel2014}{{27}{2014}{{Zobel}}{{}}}
+\BKM@entry{id=58,dest={636861707465722A2E313432},srcline={1990}}{5C3337365C3337375C303030455C303030685C303030725C303030655C3030306E5C303030775C3030305C3336365C303030725C303030745C3030306C5C303030695C303030635C303030685C303030655C3030305C3034305C303030455C303030725C3030306B5C3030306C5C3030305C3334345C303030725C303030755C3030306E5C30303067}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{46}{chapter*.142}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
@@ -352,4 +396,4 @@
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{23.84663pt}
 \global\@namedef{scr@dte@subsection@lastmaxnumwidth}{32.36331pt}
 \@writefile{toc}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
-\gdef \@abspage@last{42}
+\gdef \@abspage@last{50}

@@ -1833,30 +1833,34 @@ Retrained on new gold standard        & \textbf{0.934} & \textbf{0.952} & \textb
 
 \begin{table}[ht]
 \centering
-\caption{Cross-validated logistic regression feature weights, original
-         (circular) ground truth vs.\ the new pooled gold standard.}
+\caption{Logistic regression feature weights across three training sets: the
+         original (circular) ground truth, the 5-query pilot pooled gold
+         standard, and the expanded gold standard covering all 101 queries
+         (Section~\ref{subsec:active_learning}).}
 \label{tab:pooled_weights}
 \small
 \setlength{\tabcolsep}{6pt}
-\begin{tabular}{lrr}
+\begin{tabular}{lrrr}
 \toprule
-\textbf{Feature} & \textbf{Original weight} & \textbf{New weight} \\
+\textbf{Feature} & \textbf{Original} & \textbf{Pilot (5 queries)} & \textbf{Expanded (101 queries)} \\
 \midrule
-invrank\_minilm  & $+5.014$ & $-0.909$ \\
-score\_linq      & $+1.097$ & $+1.965$ \\
-invrank\_gte     & $+0.958$ & $+0.323$ \\
-score\_gte       & $+0.921$ & $+0.791$ \\
-invrank\_linq    & $+0.867$ & $+0.416$ \\
-score\_minilm    & $+0.749$ & $-0.146$ \\
-n\_channels      & $+0.459$ & $-0.289$ \\
-invrank\_bm25    & $-0.258$ & $-1.252$ \\
-reranker\_score  & $+0.164$ & $+0.319$ \\
-score\_bm25      & $+0.054$ & $-0.134$ \\
+invrank\_minilm  & $+5.014$ & $-0.909$ & $-1.095$ \\
+score\_linq      & $+1.097$ & $+1.965$ & $+1.381$ \\
+invrank\_gte     & $+0.958$ & $+0.323$ & $+0.072$ \\
+score\_gte       & $+0.921$ & $+0.791$ & $-0.701$ \\
+invrank\_linq    & $+0.867$ & $+0.416$ & $+0.172$ \\
+score\_minilm    & $+0.749$ & $-0.146$ & $-0.703$ \\
+n\_channels      & $+0.459$ & $-0.289$ & $+0.394$ \\
+invrank\_bm25    & $-0.258$ & $-1.252$ & $-2.246$ \\
+reranker\_score  & $+0.164$ & $+0.319$ & $+0.146$ \\
+score\_bm25      & $+0.054$ & $-0.134$ & $-0.069$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Finding.} Retraining on the pooled, independently judged gold standard modestly improves ranking quality over simply reusing the original model's scores (NDCG@5: 0.915~$\to$~0.934; NDCG@10: 0.930~$\to$~0.952), confirming that the new labels carry a genuine, learnable signal rather than just noise. More importantly, the original interpretive finding from Section~\ref{sec:learned_fusion} does not replicate: \texttt{invrank\_minilm}, previously the dominant feature by a wide margin ($+5.014$, more than double the next-largest coefficient), collapses not merely toward zero but to a small \emph{negative} coefficient ($-0.909$). The most plausible explanation is that MiniLM's ranking correlated strongly with production's own circular output specifically, rather than with relevance itself, a correlation that a model trained and evaluated against that same circular output could not distinguish from a genuine relevance signal. \texttt{score\_linq} (Linq-Embed-Mistral's raw similarity score) is the new dominant feature ($+1.965$), and \texttt{invrank\_bm25} is now strongly negative ($-1.252$): being ranked highly by BM25 is associated with \emph{lower} true relevance in this sample. This corroborates, independently and statistically, the qualitative BM25 failure mode already documented in Section~\ref{subsec:bm25_qual}, where investment firms and venture capital companies are ranked highly by BM25 for the query ``software companies'' because they mention the word in passing while describing their investment portfolio, without themselves being software companies.
+
+\paragraph{Confirmation at full scale.} The Limitations paragraph below originally flagged this as a 5-query pilot whose specific coefficients should be read cautiously. Section~\ref{subsec:active_learning}'s expanded gold standard (1{,}429 candidates across all 101 queries) makes it possible to check this directly: retraining the same architecture on the full 101-query gold standard (rightmost column of Table~\ref{tab:pooled_weights}) does not weaken the finding, if anything it sharpens it. \texttt{invrank\_minilm} remains negative ($-1.095$, was $-0.909$ at 5 queries), and \texttt{invrank\_bm25} becomes even more strongly negative ($-2.246$, was $-1.252$), now the single largest-magnitude coefficient in the model. \texttt{score\_linq} remains the dominant positive feature throughout all three columns. The BM25 vocabulary-mismatch failure mode is therefore not an artefact of the ``software companies'' pilot query specifically, it holds consistently once every one of the 101 query topics contributes labelled examples.
 
 \paragraph{Limitations.} This result covers 5 of 101 queries and 417 candidates, a genuine pilot rather than a full replication, and the specific numerical coefficients should be read with that scale in mind. However, the magnitude of the reversal on what was previously the single dominant feature is unlikely to be an artefact of sample size alone, and is treated here as a preliminary but suggestive finding: the interpretive claims drawn from a model trained on circular pseudo-relevance labels should not be taken as descriptions of genuine relevance without independent validation. Scaling this pooled, multi-judge gold standard to the full 101-query set is a direction for future work.
 
@@ -1876,6 +1880,106 @@ Extending independent LLM judging to every candidate the retrieval systems in th
 \paragraph{Status.} The silver-labelling classifier has been trained and applied to all 173\,262 candidates. Of the 150 spot-checked silver candidates, 132 (88\%) received unanimous agreement between \texttt{gpt-5.4} and \texttt{claude-sonnet-5}; against that unanimous subset, the silver labels achieved 65.9\% accuracy (precision on the relevant class 65.3\%, recall 85.3\%). A naive baseline that always predicts the majority class on this same 132-candidate sample would score 56.8\%, so the silver labels carry a real, learnable signal, but a modest one: the classifier over-predicts relevance (34 false positives against 11 false negatives out of 132), consistent with the 75.4\% overall relevant-rate it assigns across the full silver tier.
 
 The most likely explanation for the gap between this figure and the substantially higher NDCG improvement reported in Section~\ref{subsec:refit_fusion_ranker} is a training-distribution mismatch rather than a flaw in the distillation approach itself: only 8 of the 132 unanimously-judged spot-check candidates (6\%) fall under one of the 5 queries the underlying gold standard was built from, the remaining 124 (94\%) come from query topics the classifier never saw a single labelled example of during training. Generalising from 5 narrow query topics to the other 96 is a substantially harder test than the leave-one-query-out cross-validation in Section~\ref{subsec:refit_fusion_ranker}, which only ever held out one of those same 5 topics at a time. This points toward a concrete, affordable fix rather than abandoning the approach: expanding the gold standard to a larger, more topically diverse subset of the 101 queries (at the roughly \$22 cost estimated above for full-depth pooling) before the resulting silver labels are relied on broadly, rather than distilling from 5 queries alone.
+
+\subsection{Expanding the Gold Standard via Active Learning}
+\label{subsec:active_learning}
+
+\textit{Note: this subsection also documents in-progress work.}
+
+Rather than judging a random or exhaustive sample of the remaining 96 uncovered queries, the gold standard is expanded using \emph{uncertainty sampling}: the distillation classifier's own predicted probability is used to find, for every one of the 101 queries, the ten candidates it is least confident about (predicted probability closest to 0.5), and only those are sent for judging. This targets exactly the candidates most likely to teach the classifier something it does not already know, rather than spending judging budget on cases it already calls correctly. The judging prompt is enriched at the same time with company metadata that was previously collected but never shown to the judges: \texttt{organization\_type}, \texttt{organization\_size}, \texttt{state}, \texttt{district}, \texttt{municipality}, and \texttt{nace\_code}, alongside the original name, country, and summary fields, giving the LLM judges more grounding for cases a summary alone leaves ambiguous. This active-learning approach is well established in the machine learning literature \citep{settles2009active}, and combining LLM-based and human-provided relevance judgments to build a test collection under a limited labelling budget mirrors the approach of \citet{takehi2024llmassisted}, who propose a similar strategy for balancing manual and LLM annotation effort in IR test collection construction.
+
+Figure~\ref{fig:gold_silver_pipeline} summarises the full pipeline described across this section: pooling, multi-judge labelling, human tie-breaking, distillation into silver labels, the spot-check that revealed the out-of-distribution problem, and the active-learning step that expands the gold standard in response.
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/gold_silver_pipeline.png}{%
+  \includegraphics[width=0.95\textwidth]{figures/gold_silver_pipeline.png}%
+}{%
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{1em}Figure not yet exported: save \texttt{figures/gold\_silver\_pipeline.png} (from \texttt{figures/gold\_silver\_pipeline.drawio}) to display this diagram.\vspace{1em}}}%
+}
+\caption{The gold and silver standard construction pipeline: pooling from six sources, multi-judge LLM labelling with human tie-breaking, distillation into silver labels at full scale, the spot-check that revealed poor out-of-distribution generalisation, and the active-learning step that expands gold-standard query coverage in response.}
+\label{fig:gold_silver_pipeline}
+\end{figure}
+
+\paragraph{Result.} This active-learning pass covers all 101 queries (versus the original 5) and adds 1{,}010 newly judged candidates, 852 (84.4\%) agreed unanimously between the two judges, 158 needed human tie-breaking, a disagreement rate close to the original pilot's 16\% once an initial data-merging bug that had corrupted roughly 40\% of the first labelling pass with a missing query field was found and fixed. Combined with the original 419, the expanded gold standard now contains \textbf{1{,}429 candidates spanning all 101 queries} (label distribution: 63 not relevant, 381 partially relevant, 985 highly relevant), a nearly 3.5$\times$ increase in size and full query coverage instead of a 5\% sample of it.
+
+\paragraph{Result.} The distillation classifier was retrained on the full 1{,}427 gold-labelled candidates matched to features (spanning all 101 queries) and re-applied to all 173\,262 candidates. A fresh 150-candidate spot-check was drawn (a different random sample than the first, so as not to reuse previously-checked candidates) and judged with the same stronger pair, \texttt{gpt-5.4} and \texttt{claude-sonnet-5}. Of these, 140 (93.3\%) received unanimous agreement, slightly higher than the first spot-check's 88\%. Against that unanimous subset, silver-label accuracy rose from \textbf{65.9\% to 80.7\%}. The naive majority-class baseline also shifted with the new sample (56.8\% $\to$ 64.3\%), so the more informative comparison is the \emph{margin} over that baseline: it nearly doubled, from 9.1 percentage points to 16.4. The earlier bias toward over-predicting relevance is substantially reduced: false positives fell from 34/132 (25.8\%) to 11/140 (7.9\%), precision on the relevant class rose from 65.3\% to 87.1\%, and recall held roughly steady (85.3\% $\to$ 82.2\%), for an overall F1 improvement from 0.740 to 0.846. Consistent with a less relevance-biased model, the predicted-relevant rate across the full silver tier dropped from 75.4\% to 61.2\%. Finally, and most directly confirming the original diagnosis: 140 of 140 (100\%) of the unanimously-judged spot-check candidates this time fell under a query the classifier had been trained on, compared to only 8 of 132 (6\%) previously. The out-of-distribution generalisation gap identified in the first spot-check was not a flaw in the distillation approach itself, it was a direct consequence of training on 5 of 101 query topics, and expanding query coverage resolved it.
+
+\paragraph{A further possible extension (not yet implemented).} A complementary, cheaper way to grow labelled data further, without spending additional judging budget at all, would be to propagate labels from already-judged candidates to their nearest neighbours in embedding space: since every candidate already has multiple similarity scores computed against its query (Section~\ref{sec:learned_fusion}), an unjudged candidate that is highly similar to a known highly-relevant gold-labelled company for the same query could plausibly inherit a provisional label, following the classic label propagation approach of \citet{zhu2002labelpropagation}. This is distinct from the distillation classifier already in use here, which learns a general relevance function from retrieval features, rather than propagating labels from specific labelled neighbours, and the two could in principle be combined or compared. This is left as a direction for future work rather than implemented in this thesis.
+
+\subsection{Deepening a Headline Query Subset via Round-Based Active Learning}
+\label{subsec:headline_deepening}
+
+The shallow, roughly uniform depth left by Section~\ref{subsec:active_learning}'s expansion (10-14 gold-labelled candidates per query) fixes out-of-distribution generalisation but is too thin to report reliable per-query Recall@$k$/NDCG@$k$ as an evaluation benchmark, deeper judged pools reduce the variance of such metrics (Section~\ref{sec:scaling_corpus} discusses this further). Rather than deepening all 101 queries, a set of 14 queries was selected for methodological diversity beyond simple topic variety: three testing geography not covered by the original pilot, one directly probing the BM25 vocabulary-mismatch failure mode (``venture capital firms''), four forming two adjacent-category disambiguation pairs (pharmaceutical/biotech, investment/wealth management), two acronym-heavy queries, two niche or emerging industries, and two further sector-diversity queries.
+
+Unlike the one-shot batch in Section~\ref{subsec:active_learning}, this used genuinely iterative active learning: label a round, retrain the classifier on everything labelled so far, re-rank the \emph{remaining} candidates with the \emph{updated} classifier, and repeat, since uncertainty estimates go stale as soon as new labels are added. A small fixed validation set (100 candidates, judged once with the stronger judge pair and reused for free across every round) tracked whether each additional round was still worth its cost.
+
+\begin{table}[ht]
+\centering
+\caption{Round-based active learning trajectory for the 14 headline queries: cumulative new gold labels and classifier accuracy against the fixed validation set after each round.}
+\label{tab:headline_rounds}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Round} & \textbf{New labels this round} & \textbf{Cumulative labels} & \textbf{Validation accuracy} \\
+\midrule
+1 & 280 & 280 & 79\% \\
+2 & 280 & 560 & 83\% ($+4$pp) \\
+3 & 280 & 840 & 83\% ($+0$pp) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Stopping.} Round 3 produced no further improvement over round 2, a clean plateau after two rounds of genuine gain, which is exactly the stopping signal the method was designed to detect (Section~\ref{subsec:headline_deepening}'s round-based design follows the general active-learning stopping-criterion principle of monitoring diminishing returns \citep{settles2009active}). Further rounds were not run. One caveat: the validation set is only 100 candidates, so its standard error on a proportion near 80\% is itself roughly 4 percentage points, meaning the round-2 gain sits close to the edge of what is statistically distinguishable from noise on its own; the plateau at round 3 (an exact repeat, not a smaller but still-positive gain) is the more convincing part of the signal.
+
+\paragraph{Result.} The 14 headline queries now hold 840 newly gold-labelled candidates on top of the 140 already present (10 per query from Section~\ref{subsec:active_learning}), roughly \textbf{70 gold-labelled candidates per headline query}, short of the 100-300 per query considered ideal for a fully reliable per-query evaluation benchmark (Section~\ref{sec:scaling_corpus}), but a deliberate, cost-justified depth rather than an arbitrarily chosen one.
+
+\paragraph{Refreshing the silver tier at no additional cost.} The combined 2{,}269-candidate gold standard (1{,}429 from Section~\ref{subsec:active_learning} plus 840 from this section) was used to retrain the distillation classifier from Section~\ref{sec:silver_labels} once more, and applied to the existing candidate pool to produce up to 1{,}000 silver-labelled candidates per query, capped rather than kept at the full pool size, and with every gold-verified candidate guaranteed a place regardless of its predicted probability rank. This required no new retrieval, encoding, or judging: every one of the 101 queries already has at least 1{,}022 candidates with retrieval features computed (median 1{,}661), so the only new work is classifier inference. All 101 queries now have exactly 1{,}000 candidates each (101{,}000 rows total, 2{,}267 of them gold-verified), the deepest per-query coverage produced so far in this thesis, though still silver-tier and bounded by the classifier's demonstrated accuracy (Section~\ref{subsec:headline_deepening}) rather than independently verified.
+
+\subsection{Quantifying How Far Production's Own Ranking Diverges from the Independent Gold/Silver Set}
+\label{subsec:production_divergence}
+
+\texttt{dataset/production\_results.xlsx}, production's own top-1{,}000-per-query ranking, has exactly the same shape as the refreshed silver set above (101{,}000 rows, 1{,}000 per query, identical \texttt{query\_id}/\texttt{domain} keys), making a direct, row-level comparison possible with no new judging or encoding cost. Four checks quantify what has, until this point, mostly been argued qualitatively in this thesis: how much production's own output actually diverges from an independently verified standard.
+
+\begin{table}[ht]
+\centering
+\caption{Four checks comparing production's own top-1,000-per-query ranking against the independent gold/silver set.}
+\label{tab:production_divergence}
+\begin{tabular}{lp{9.5cm}}
+\toprule
+\textbf{Check} & \textbf{Result} \\
+\midrule
+1. Overlap & Mean 77.2\% overlap between production's top-1{,}000 and the independent top-1{,}000 per query (median 81.0\%), but with real spread: query 1 (``software companies'', the query used throughout Section~\ref{sec:learned_fusion}'s qualitative BM25 discussion) overlaps only 34.9\%. \\
+2. Are production's own picks accurate? & Of production's top-1{,}000 picks that happen to already have an independent gold label (1{,}434 candidates), 76.0\% are confirmed highly relevant, 22.2\% only partially relevant, and 1.8\% not relevant at all. \\
+3. Coverage gap & Of 1{,}499 gold-verified highly relevant candidates, \textbf{27.3\% (409) are entirely absent from production's own top-1{,}000 ranking}, not ranked lower, simply never surfaced. Worst-affected queries: ``wealth management firms'' (45 missed), ``investment management firms'' (40), ``software companies'' (27). \\
+4. Rank agreement & For the 77{,}993 candidates present in both rankings (spanning all 101 queries), the mean per-query Spearman correlation between production's rank and the independently-trained classifier's predicted probability is \textbf{$-0.056$}, essentially no relationship, far from the strongly negative correlation (rank and predicted relevance moving in opposite, i.e. agreeing, directions) that would indicate the two rankings agree. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.} These four checks quantify, rather than merely argue, the circularity concern raised at the start of this thesis (Chapter~\ref{ch:introduction}): production's own ranking is right more often than not when judged against the independent gold standard (Check 2), but it misses over a quarter of genuinely relevant companies outright (Check 3), and even among candidates both systems agree are worth considering, production's internal ranking carries almost no relationship to independently-verified relevance (Check 4, $-0.056$). Benchmarking this thesis's retrieval pipeline against production as a strong baseline (as recommended by Istari's own engineering team, Section~\ref{ch:introduction}) remains the right framing, but these results make explicit exactly how much headroom that baseline leaves, both in what it fails to surface at all and in how loosely its internal ranking tracks true relevance among what it does surface.
+
+% ────────────────────────────────────────────────────────────
+\section{Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}
+\label{sec:scaling_corpus}
+% ────────────────────────────────────────────────────────────
+
+\textit{Note: this section documents in-progress work.}
+
+The 98\,716-company corpus used throughout this thesis is not just query-gatekept (Chapter~\ref{ch:introduction}), it is also small relative to Istari's real production dataset. The thesis title's ``at scale'' claim needs a genuine scalability test, does the retrieval pipeline's quality and latency hold up as the pool of companies to search grows substantially larger, not just a claim resting on the existing corpus size.
+
+\paragraph{A fully random sample.} A collaborator at Istari (Kerem Cerit) provided a fully random, query-independent sample of 300\,000 companies drawn from the underlying database, deliberately not filtered or weighted toward any of the 101 queries used elsewhere in this thesis. Randomness here matters methodologically: using this sample to check whether a retrieval system's index or corpus omits genuinely relevant material, rather than to build more query-specific training data, follows the same logic as random-sampling approaches used to estimate search engine index coverage \citep{baryossef2008random}, applied here to check whether the retrieval pipeline still finds known-relevant companies once far more distractor companies are added, rather than to estimate absolute index coverage as in that work.
+
+\paragraph{Data quality.} The sample was profiled and lightly cleaned (data profiling script, not included as a numbered notebook section here for brevity). Of note: only 0.56\% (1\,691 companies) overlapped with the existing 98\,716-company corpus, confirming the sample is genuinely independent rather than a re-draw of existing data. No duplicate domains, no empty summaries, and no literal-string placeholder values were found. State/district/municipality fields were missing 15.7\%/60.4\%/75.4\% of the time respectively, expected sparsity given inconsistent administrative-division reporting across countries, not a data quality defect. A small fraction of rows (1.03\%) shared an exact-duplicate summary with another row, flagged rather than dropped, since a shared summary does not necessarily indicate an invalid company record.
+
+\paragraph{Nested corpus tiers.} Rather than four independently drawn samples of increasing size, the scaling corpus is built as four \emph{nested} tiers: 100\,000, 200\,000, 300\,000, and $\sim$397\,000 (all available) companies, each strictly containing the previous tier plus additional randomly drawn companies from one fixed shuffle. The existing 98\,716-company corpus, which holds all gold-labelled data used for evaluation, is included in every tier without exception, so that a change in a retrieval metric between tiers can be attributed to the added distractor companies, not to gold-labelled companies being dropped from the search pool. This nested design keeps the four tiers directly comparable to one another, following the same logic that motivates careful control of pooling depth in retrieval evaluation more broadly \citep{lu2016effect}.
+
+\paragraph{Encoding.} Every company in the combined pool ($\sim$397\,025 companies) is encoded exactly once with each embedding model, rather than re-encoded separately per tier: an embedding is a fixed, corpus-independent property of a single company's text, so encoding once and subsetting afterward is both correct and avoids redundant computation. BM25 is a deliberate exception, being a corpus-level statistical model rather than a per-document encoding (a term's weight depends on its frequency across the whole indexed collection), its index must be rebuilt separately for each of the four tiers once the scaling evaluation itself is run. The pretrained reranker (\texttt{bge-reranker-v2-m3}) is not part of this encoding step at all, it scores (query, candidate) pairs at retrieval time only, applied to whichever candidates survive first-stage retrieval, regardless of corpus size.
+
+\paragraph{Scope: beyond the three fusion-ranker features.} The scaled encoding was not limited to the three models already inside the trained fusion ranker (MiniLM, GTE-large, Linq-Embed-Mistral). Every embedding model evaluated as a baseline earlier in this thesis (BGE-large, BGE-M3, Nomic, E5-Mistral, SFR-Mistral, SimLM) and ColBERTv2 is also being encoded at the new scale. The motivation is the same circularity concern raised in Section~\ref{subsec:refit_fusion_ranker}: the original baseline comparison chapter, including the finding that BGE underperforms MiniLM, was evaluated entirely against the circular \texttt{goi\_search\_results.json} ground truth, before the independent, pooled gold standard existed, and has never been rechecked against it, unlike the fusion ranker's own feature-importance finding, which was rechecked and found to partially reverse (Section~\ref{subsec:refit_fusion_ranker}). Re-scoring every baseline model's already-computed top-1000 rankings against the current non-circular, 1{,}429-candidate gold standard, at zero additional API or GPU cost, is planned as a follow-up to check whether the reported model ranking (MiniLM best, BGE and BGE-M3 below it) survives independent verification the same way the fusion ranker's finding was checked, consistent with the general principle that pooling depth and evaluation-set independence, not just raw retrieval scores, determine how trustworthy a reported ranking of methods actually is \citep{baryossef2008random}.
+
+ColBERT is architecturally distinct from every other model here: it stores one embedding per token rather than one vector per company (`doc\_embs.pt`, shape $[N, 192, 128]$, roughly 19.5\,GB at this scale versus 4.85\,GB for the original 98,716-company run), so it cannot simply be subset into corpus-size tiers the same way a single dense vector per company can; it is included nonetheless, for completeness against every method previously evaluated.
+
+\paragraph{Status.} The combined pool and nested tier membership have been constructed. The three SentenceTransformer-based fast models (MiniLM, GTE-large, BGE-large, BGE-M3, Nomic) are comparatively quick to encode at this scale; the four large, AutoModel-based encoders (Linq-Embed-Mistral, E5-Mistral, SFR-Mistral, all 7B parameters fp16, plus ColBERTv2's per-token encoding) are markedly slower, the original 98\,716-company Linq-Embed-Mistral run took approximately 34 minutes of GPU time, spread across several resubmitted jobs due to this cluster's per-job wall-time limit and lengthy model-loading time. At roughly 4$\times$ the scale, each of these slower encoders is expected to take on the order of 2-2.5 hours of cumulative GPU time. The resulting embeddings, together with per-tier BM25 indexes and an evaluation notebook, are intended to answer two separate questions: (1) does Recall@$k$/NDCG@$k$ and query latency hold up as the corpus grows from roughly 100K to 400K companies, using the queries with the deepest and most reliable gold-standard coverage (the original 5-query pilot and the headline queries from Section~\ref{subsec:active_learning}) so that the resulting metrics are not read from an unreliably shallow label set; and (2) does the original baseline-model ranking (Section on baseline comparisons) survive re-evaluation against the non-circular gold standard. These results will be reported here once available.
 
 % here the original content of my thesis ends
 

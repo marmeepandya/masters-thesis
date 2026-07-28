@@ -1,0 +1,56 @@
+Ollama started with PID 1813535
+[GIN] 2026/07/28 - 19:08:52 | 200 |    9.906636ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 19:08:52 | 200 |   18.610825ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 19:08:52 | 200 |      21.547µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 19:08:52 | 200 |   22.920136ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Encode] Loading GTE-large (thenlper/gte-large)...
+[Encode] Model loaded in 7.6s on cuda:0
+[Encode] Batch size : 128
+[Encode] 20,000/397,025 encoded (0.4 min elapsed)
+[Encode] 40,000/397,025 encoded (0.8 min elapsed)
+[Encode] 60,000/397,025 encoded (1.2 min elapsed)
+[Encode] 80,000/397,025 encoded (1.6 min elapsed)
+[Encode] 100,000/397,025 encoded (2.0 min elapsed)
+[Encode] 120,000/397,025 encoded (2.5 min elapsed)
+[Encode] 140,000/397,025 encoded (3.0 min elapsed)
+[Encode] 160,000/397,025 encoded (3.5 min elapsed)
+[Encode] 180,000/397,025 encoded (4.0 min elapsed)
+[Encode] 200,000/397,025 encoded (4.5 min elapsed)
+[Encode] 220,000/397,025 encoded (4.9 min elapsed)
+[Encode] 240,000/397,025 encoded (5.4 min elapsed)
+[Encode] 260,000/397,025 encoded (5.9 min elapsed)
+[Encode] 280,000/397,025 encoded (6.4 min elapsed)
+[Encode] 300,000/397,025 encoded (6.9 min elapsed)
+[Encode] 320,000/397,025 encoded (7.4 min elapsed)
+[Encode] 340,000/397,025 encoded (7.9 min elapsed)
+[Encode] 360,000/397,025 encoded (8.4 min elapsed)
+[Encode] 380,000/397,025 encoded (8.9 min elapsed)
+[Encode] 397,025/397,025 encoded (9.3 min elapsed)
+[Encode] Done. Embeddings shape: (397025, 1024)
+[Encode] Saved -> result/46_encode_gte_scaled/company_embeddings.npy
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6081605
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:13:52
+CPU Efficiency: 9.85% of 02:20:48 core-walltime
+Job Wall-clock time: 00:11:44
+Memory Utilized: 4.11 GB
+Memory Efficiency: 4.47% of 91.80 GB (91.80 GB/node)

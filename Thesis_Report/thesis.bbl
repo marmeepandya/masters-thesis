@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,12 @@
 \newblock bge-reranker-v2-m3.
 \newblock \url{https://huggingface.co/BAAI/bge-reranker-v2-m3}, 2024.
 \newblock Model card.
+
+\bibitem[Bar-Yossef and Gurevich(2008)]{baryossef2008random}
+Ziv Bar-Yossef and Maxim Gurevich.
+\newblock Random sampling from a search engine's index.
+\newblock \emph{Journal of the ACM}, 55\penalty0 (5), 2008.
+\newblock \doi{10.1145/1411509.1411514}.
 
 \bibitem[Bird et~al.(2009)Bird, Klein, and Loper]{nltk}
 Steven Bird, Ewan Klein, and Edward Loper.
@@ -57,6 +63,12 @@ Tie-Yan Liu.
 \newblock \emph{Foundations and Trends{\textregistered} in Information
   Retrieval}, 3\penalty0 (3):\penalty0 225--331, 2009.
 \newblock \doi{10.1561/1500000016}.
+
+\bibitem[Lu et~al.(2016)Lu, Moffat, and Culpepper]{lu2016effect}
+Xiaolu Lu, Alistair Moffat, and J.~Shane Culpepper.
+\newblock The effect of pooling and evaluation depth on {IR} metrics.
+\newblock \emph{Information Retrieval}, 2016.
+\newblock \doi{10.1007/s10791-016-9282-6}.
 
 \bibitem[Malkov and Yashunin(2020)]{malkov2020efficient}
 Yu~A. Malkov and D.~A. Yashunin.
@@ -109,6 +121,18 @@ Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
   2022.
 \newblock \doi{10.18653/v1/2022.naacl-main.272}.
 
+\bibitem[Settles(2009)]{settles2009active}
+Burr Settles.
+\newblock Active learning literature survey.
+\newblock Technical Report Computer Sciences Technical Report 1648, University
+  of Wisconsin-Madison, 2009.
+
+\bibitem[Takehi et~al.(2024)Takehi, Voorhees, Sakai, and
+  Soboroff]{takehi2024llmassisted}
+Rikiya Takehi, Ellen~M. Voorhees, Tetsuya Sakai, and Ian Soboroff.
+\newblock {LLM}-assisted relevance assessments: When should we ask {LLM}s for
+  help?, 2024.
+
 \bibitem[Thakur et~al.(2021)Thakur, Reimers, R{\"u}ckl{\'e}, Srivastava, and
   Gurevych]{thakur2021beir}
 Nandan Thakur, Nils Reimers, Andreas R{\"u}ckl{\'e}, Abhishek Srivastava, and
@@ -145,6 +169,12 @@ Shitao Xiao, Zheng Liu, Peitian Zhang, Niklas Muennighoff, Defu Lian, and
   on Research and Development in Information Retrieval}, pages 641--649. ACM,
   2024.
 \newblock \doi{10.1145/3626772.3657878}.
+
+\bibitem[Zhu and Ghahramani(2002)]{zhu2002labelpropagation}
+Xiaojin Zhu and Zoubin Ghahramani.
+\newblock Learning from labeled and unlabeled data with label propagation.
+\newblock Technical Report CMU-CALD-02-107, Carnegie Mellon University,
+  Pittsburgh, PA, 2002.
 
 \bibitem[Zobel(1998)]{zobel1998reliable}
 Justin Zobel.

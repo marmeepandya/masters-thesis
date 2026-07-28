@@ -1,0 +1,36 @@
+Ollama started with PID 1317476
+[GIN] 2026/07/28 - 20:45:57 | 200 |   15.662222ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 20:45:57 | 200 |    9.273987ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 20:45:57 | 200 |      25.309µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 20:45:57 | 200 |   17.493467ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/07/28 - 20:46:55 | 200 |      32.569µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 20:46:55 | 200 |      13.883µs |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/28 - 20:46:55 | 200 |      21.578µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 20:46:55 | 200 |    9.421903ms |       127.0.0.1 | GET      "/api/tags"
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Encode] Loading Nomic (nomic-ai/nomic-embed-text-v1.5)...
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n562
+Job ID: 6083856
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:18
+CPU Efficiency: 1.23% of 00:24:24 core-walltime
+Job Wall-clock time: 00:02:02
+Memory Utilized: 624.63 MB
+Memory Efficiency: 0.66% of 91.80 GB (91.80 GB/node)
