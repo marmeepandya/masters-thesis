@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -118,6 +118,12 @@ Nandan Thakur, Nils Reimers, Andreas R{\"u}ckl{\'e}, Abhishek Srivastava, and
 \newblock In \emph{Proceedings of the Neural Information Processing Systems
   Track on Datasets and Benchmarks}, 2021.
 
+\bibitem[Thomas et~al.(2024)Thomas, Spielman, Craswell, and
+  Mitra]{thomas2024llmjudge}
+Paul Thomas, Seth Spielman, Nick Craswell, and Bhaskar Mitra.
+\newblock Large language models can accurately predict searcher preferences,
+  2024.
+
 \bibitem[Voorhees(1999)]{voorhees1999trec}
 Ellen~M Voorhees.
 \newblock The trec-8 question answering track report.
@@ -139,6 +145,15 @@ Shitao Xiao, Zheng Liu, Peitian Zhang, Niklas Muennighoff, Defu Lian, and
   on Research and Development in Information Retrieval}, pages 641--649. ACM,
   2024.
 \newblock \doi{10.1145/3626772.3657878}.
+
+\bibitem[Zobel(1998)]{zobel1998reliable}
+Justin Zobel.
+\newblock How reliable are the results of large-scale information retrieval
+  experiments?
+\newblock In \emph{Proceedings of the 21st Annual International ACM SIGIR
+  Conference on Research and Development in Information Retrieval}, pages
+  307--314. ACM, 1998.
+\newblock \doi{10.1145/290941.291014}.
 
 \bibitem[Zobel(2004)]{zobel2004}
 Justin Zobel.

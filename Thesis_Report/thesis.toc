@@ -1,94 +1,110 @@
 \contentsline {chapter}{\nonumberline Abstract}{ii}{chapter*.1}%
-\contentsline {chapter}{\numberline {1}Project Overview}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}ISTARI.AI and its Data}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}About ISTARI.AI}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The Global Organisation Index (GOI)}{2}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Data Pipeline and Methodology}{2}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Schema and Key Fields}{3}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Industry Classification: NACE Codes}{4}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Organisation Size Classification}{4}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Geographic Coverage}{5}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Evaluation Dataset}{5}{subsection.2.3.5}%
-\contentsline {chapter}{\numberline {3}Literature}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Sparse and Dense Retrieval}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Approximate Nearest Neighbour Search}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Late Interaction and Retrieval-Specific Pretraining}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Hybrid Retrieval, Reranking, and Learning to Rank}{7}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Evaluation Without Human Relevance Judgements}{8}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Experiments}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Experimental Setup}{9}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Dataset}{9}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Evaluation Protocol}{10}{subsection.4.1.2}%
-\contentsline {paragraph}{\nonumberline Pseudo-relevance labels.}{10}{paragraph*.4}%
-\contentsline {paragraph}{\nonumberline Metrics.}{10}{paragraph*.6}%
-\contentsline {subsection}{\numberline {4.1.3}Computational Environment}{10}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Sparse Retrieval Baseline: BM25}{11}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Implementation}{11}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Qualitative Analysis}{11}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Dense Retrieval Baselines}{11}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}all-MiniLM-L6-v2 (MiniLM)}{12}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}BGE-large-en-v1.5 (BGE)}{12}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}OpenAI text-embedding-3-small (OpenAI)}{12}{subsection.4.3.3}%
-\contentsline {paragraph}{\nonumberline Latency note.}{12}{paragraph*.8}%
-\contentsline {section}{\numberline {4.4}Results}{13}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Retrieval Quality}{13}{subsection.4.4.1}%
-\contentsline {paragraph}{\nonumberline BM25 vs dense retrieval.}{13}{paragraph*.10}%
-\contentsline {paragraph}{\nonumberline BGE vs OpenAI.}{13}{paragraph*.12}%
-\contentsline {paragraph}{\nonumberline MiniLM.}{14}{paragraph*.14}%
-\contentsline {paragraph}{\nonumberline Precision and the low-prevalence setting.}{14}{paragraph*.16}%
-\contentsline {paragraph}{\nonumberline The NDCG dip at $k = 100$.}{14}{paragraph*.18}%
-\contentsline {section}{\numberline {4.5}Runtime Analysis}{14}{section.4.5}%
-\contentsline {paragraph}{\nonumberline BGE is the fastest method overall.}{14}{paragraph*.20}%
-\contentsline {paragraph}{\nonumberline MiniLM encodes slowly despite being a small model.}{15}{paragraph*.22}%
-\contentsline {paragraph}{\nonumberline OpenAI's latency is dominated by network time.}{15}{paragraph*.24}%
-\contentsline {paragraph}{\nonumberline Summary.}{15}{paragraph*.26}%
-\contentsline {section}{\numberline {4.6}Evaluation Protocol Change for Follow-Up Experiments}{16}{section.4.6}%
-\contentsline {paragraph}{\nonumberline Reading Precision and Recall together.}{16}{paragraph*.28}%
-\contentsline {section}{\numberline {4.7}Extended Baseline Comparison: Additional Embedding Models}{16}{section.4.7}%
-\contentsline {paragraph}{\nonumberline Findings.}{17}{paragraph*.30}%
-\contentsline {paragraph}{\nonumberline Encoding cost.}{17}{paragraph*.32}%
-\contentsline {paragraph}{\nonumberline Incomplete and abandoned models.}{18}{paragraph*.34}%
-\contentsline {section}{\numberline {4.8}BGE Instruction-Prefix Correction}{18}{section.4.8}%
-\contentsline {paragraph}{\nonumberline Finding.}{18}{paragraph*.36}%
-\contentsline {paragraph}{\nonumberline Why a specialised, larger model can still be a worse fit.}{18}{paragraph*.38}%
-\contentsline {section}{\numberline {4.9}Query Expansion: HyDE Pipeline}{19}{section.4.9}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {paragraph}{\nonumberline Contributions.}{1}{paragraph*.4}%
+\contentsline {paragraph}{\nonumberline Thesis structure.}{2}{paragraph*.6}%
+\contentsline {chapter}{\numberline {2}ISTARI.AI and its Data}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}About ISTARI.AI}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Global Organisation Index (GOI)}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Data Pipeline and Methodology}{3}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Schema and Key Fields}{4}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Industry Classification: NACE Codes}{5}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Organisation Size Classification}{5}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Geographic Coverage}{6}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Evaluation Dataset}{6}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Literature}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Sparse and Dense Retrieval}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Approximate Nearest Neighbour Search}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Late Interaction and Retrieval-Specific Pretraining}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Hybrid Retrieval, Reranking, and Learning to Rank}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Evaluation Without Human Relevance Judgements}{9}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Experiments}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Experimental Setup}{10}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Dataset}{10}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Evaluation Protocol}{11}{subsection.4.1.2}%
+\contentsline {paragraph}{\nonumberline Pseudo-relevance labels.}{11}{paragraph*.8}%
+\contentsline {paragraph}{\nonumberline Metrics.}{11}{paragraph*.10}%
+\contentsline {subsection}{\numberline {4.1.3}Computational Environment}{11}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Sparse Retrieval Baseline: BM25}{12}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Implementation}{12}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Qualitative Analysis}{12}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Dense Retrieval Baselines}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}all-MiniLM-L6-v2 (MiniLM)}{13}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}BGE-large-en-v1.5 (BGE)}{13}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}OpenAI text-embedding-3-small (OpenAI)}{13}{subsection.4.3.3}%
+\contentsline {paragraph}{\nonumberline Latency note.}{13}{paragraph*.12}%
+\contentsline {section}{\numberline {4.4}Results}{14}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Retrieval Quality}{14}{subsection.4.4.1}%
+\contentsline {paragraph}{\nonumberline BM25 vs dense retrieval.}{14}{paragraph*.14}%
+\contentsline {paragraph}{\nonumberline BGE vs OpenAI.}{14}{paragraph*.16}%
+\contentsline {paragraph}{\nonumberline MiniLM.}{15}{paragraph*.18}%
+\contentsline {paragraph}{\nonumberline Precision and the low-prevalence setting.}{15}{paragraph*.20}%
+\contentsline {paragraph}{\nonumberline The NDCG dip at $k = 100$.}{15}{paragraph*.22}%
+\contentsline {section}{\numberline {4.5}Runtime Analysis}{15}{section.4.5}%
+\contentsline {paragraph}{\nonumberline BGE is the fastest method overall.}{15}{paragraph*.24}%
+\contentsline {paragraph}{\nonumberline MiniLM encodes slowly despite being a small model.}{16}{paragraph*.26}%
+\contentsline {paragraph}{\nonumberline OpenAI's latency is dominated by network time.}{16}{paragraph*.28}%
+\contentsline {paragraph}{\nonumberline Summary.}{16}{paragraph*.30}%
+\contentsline {section}{\numberline {4.6}Evaluation Protocol Change for Follow-Up Experiments}{17}{section.4.6}%
+\contentsline {paragraph}{\nonumberline Reading Precision and Recall together.}{17}{paragraph*.32}%
+\contentsline {section}{\numberline {4.7}Extended Baseline Comparison: Additional Embedding Models}{17}{section.4.7}%
+\contentsline {paragraph}{\nonumberline Findings.}{18}{paragraph*.34}%
+\contentsline {paragraph}{\nonumberline Encoding cost.}{18}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Incomplete and abandoned models.}{19}{paragraph*.38}%
+\contentsline {section}{\numberline {4.8}BGE Instruction-Prefix Correction}{19}{section.4.8}%
 \contentsline {paragraph}{\nonumberline Finding.}{19}{paragraph*.40}%
-\contentsline {section}{\numberline {4.10}Hybrid Retrieval: Reciprocal Rank Fusion}{20}{section.4.10}%
-\contentsline {paragraph}{\nonumberline Finding.}{20}{paragraph*.42}%
-\contentsline {section}{\numberline {4.11}LLM-as-Judge Relevance Validation}{20}{section.4.11}%
+\contentsline {paragraph}{\nonumberline Why a specialised, larger model can still be a worse fit.}{19}{paragraph*.42}%
+\contentsline {section}{\numberline {4.9}Query Expansion: HyDE Pipeline}{20}{section.4.9}%
 \contentsline {paragraph}{\nonumberline Finding.}{20}{paragraph*.44}%
-\contentsline {section}{\numberline {4.12}Production API Evaluation and MiniLM Rerank}{21}{section.4.12}%
-\contentsline {paragraph}{\nonumberline v1: keyword API.}{21}{paragraph*.46}%
-\contentsline {paragraph}{\nonumberline v2: semantic API.}{21}{paragraph*.48}%
-\contentsline {paragraph}{\nonumberline Reranking v2's own candidates with MiniLM.}{21}{paragraph*.50}%
-\contentsline {section}{\numberline {4.13}ANN Index Scaling to 2 Million Vectors}{22}{section.4.13}%
-\contentsline {paragraph}{\nonumberline Finding.}{22}{paragraph*.52}%
-\contentsline {section}{\numberline {4.14}Recall@1000 Error Analysis}{22}{section.4.14}%
-\contentsline {paragraph}{\nonumberline Finding.}{23}{paragraph*.54}%
-\contentsline {section}{\numberline {4.15}Corpus Quality: Platform Boilerplate in the AI-Generated Summary}{23}{section.4.15}%
-\contentsline {paragraph}{\nonumberline How much of the corpus is affected.}{23}{paragraph*.56}%
-\contentsline {paragraph}{\nonumberline An attempt to detect it automatically.}{24}{paragraph*.58}%
-\contentsline {paragraph}{\nonumberline Why this limitation was not corrected in the reported results.}{24}{paragraph*.60}%
-\contentsline {section}{\numberline {4.16}Oracle Union Recall Ceiling}{24}{section.4.16}%
-\contentsline {paragraph}{\nonumberline Findings.}{24}{paragraph*.62}%
-\contentsline {paragraph}{\nonumberline Interpretation.}{25}{paragraph*.64}%
-\contentsline {section}{\numberline {4.17}SimLM: A Purpose-Built Retrieval Pre-training Baseline}{25}{section.4.17}%
-\contentsline {paragraph}{\nonumberline Implementation.}{25}{paragraph*.66}%
-\contentsline {paragraph}{\nonumberline Finding.}{25}{paragraph*.68}%
-\contentsline {section}{\numberline {4.18}ColBERT: Late-Interaction Retrieval from Scratch}{26}{section.4.18}%
+\contentsline {section}{\numberline {4.10}Hybrid Retrieval: Reciprocal Rank Fusion}{21}{section.4.10}%
+\contentsline {paragraph}{\nonumberline Finding.}{21}{paragraph*.46}%
+\contentsline {section}{\numberline {4.11}LLM-as-Judge Relevance Validation}{21}{section.4.11}%
+\contentsline {paragraph}{\nonumberline Finding.}{21}{paragraph*.48}%
+\contentsline {section}{\numberline {4.12}Production API Evaluation and MiniLM Rerank}{22}{section.4.12}%
+\contentsline {paragraph}{\nonumberline v1: keyword API.}{22}{paragraph*.50}%
+\contentsline {paragraph}{\nonumberline v2: semantic API.}{22}{paragraph*.52}%
+\contentsline {paragraph}{\nonumberline Reranking v2's own candidates with MiniLM.}{22}{paragraph*.54}%
+\contentsline {section}{\numberline {4.13}ANN Index Scaling to 2 Million Vectors}{23}{section.4.13}%
+\contentsline {paragraph}{\nonumberline Finding.}{23}{paragraph*.56}%
+\contentsline {section}{\numberline {4.14}Recall@1000 Error Analysis}{23}{section.4.14}%
+\contentsline {paragraph}{\nonumberline Finding.}{24}{paragraph*.58}%
+\contentsline {section}{\numberline {4.15}Corpus Quality: Platform Boilerplate in the AI-Generated Summary}{24}{section.4.15}%
+\contentsline {paragraph}{\nonumberline How much of the corpus is affected.}{24}{paragraph*.60}%
+\contentsline {paragraph}{\nonumberline An attempt to detect it automatically.}{25}{paragraph*.62}%
+\contentsline {paragraph}{\nonumberline Why this limitation was not corrected in the reported results.}{25}{paragraph*.64}%
+\contentsline {section}{\numberline {4.16}Oracle Union Recall Ceiling}{25}{section.4.16}%
+\contentsline {paragraph}{\nonumberline Findings.}{25}{paragraph*.66}%
+\contentsline {paragraph}{\nonumberline Interpretation.}{26}{paragraph*.68}%
+\contentsline {section}{\numberline {4.17}SimLM: A Purpose-Built Retrieval Pre-training Baseline}{26}{section.4.17}%
 \contentsline {paragraph}{\nonumberline Implementation.}{26}{paragraph*.70}%
 \contentsline {paragraph}{\nonumberline Finding.}{26}{paragraph*.72}%
-\contentsline {section}{\numberline {4.19}Hybrid Full-Pool Reranking}{27}{section.4.19}%
+\contentsline {section}{\numberline {4.18}ColBERT: Late-Interaction Retrieval from Scratch}{27}{section.4.18}%
 \contentsline {paragraph}{\nonumberline Implementation.}{27}{paragraph*.74}%
-\contentsline {paragraph}{\nonumberline Finding.}{28}{paragraph*.76}%
-\contentsline {paragraph}{\nonumberline Interpretation: channel saturation.}{28}{paragraph*.78}%
-\contentsline {section}{\numberline {4.20}Reranker Ablation: Isolating the Bottleneck}{28}{section.4.20}%
-\contentsline {paragraph}{\nonumberline Implementation.}{28}{paragraph*.80}%
-\contentsline {paragraph}{\nonumberline Finding.}{29}{paragraph*.82}%
-\contentsline {section}{\numberline {4.21}Learned Fusion Ranker}{29}{section.4.21}%
+\contentsline {paragraph}{\nonumberline Finding.}{27}{paragraph*.76}%
+\contentsline {section}{\numberline {4.19}Hybrid Full-Pool Reranking}{28}{section.4.19}%
+\contentsline {paragraph}{\nonumberline Implementation.}{28}{paragraph*.78}%
+\contentsline {paragraph}{\nonumberline Finding.}{29}{paragraph*.80}%
+\contentsline {paragraph}{\nonumberline Interpretation: channel saturation.}{29}{paragraph*.82}%
+\contentsline {section}{\numberline {4.20}Reranker Ablation: Isolating the Bottleneck}{29}{section.4.20}%
 \contentsline {paragraph}{\nonumberline Implementation.}{29}{paragraph*.84}%
-\contentsline {paragraph}{\nonumberline Finding.}{29}{paragraph*.86}%
-\contentsline {paragraph}{\nonumberline Interpretation: what the model learned.}{30}{paragraph*.88}%
-\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.89}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{33}{chapter*.90}%
+\contentsline {paragraph}{\nonumberline Finding.}{30}{paragraph*.86}%
+\contentsline {section}{\numberline {4.21}Learned Fusion Ranker}{30}{section.4.21}%
+\contentsline {paragraph}{\nonumberline Implementation.}{30}{paragraph*.88}%
+\contentsline {paragraph}{\nonumberline Finding.}{30}{paragraph*.90}%
+\contentsline {paragraph}{\nonumberline Interpretation: what the model learned.}{31}{paragraph*.92}%
+\contentsline {section}{\numberline {4.22}Validating the Learned Fusion Ranker Against a Non-Circular Gold Standard}{31}{section.4.22}%
+\contentsline {subsection}{\numberline {4.22.1}Building a Pooled, Independently Judged Gold Standard}{31}{subsection.4.22.1}%
+\contentsline {paragraph}{\nonumberline Pooling.}{31}{paragraph*.94}%
+\contentsline {paragraph}{\nonumberline Trust filtering.}{32}{paragraph*.96}%
+\contentsline {paragraph}{\nonumberline Multi-judge relevance labelling.}{32}{paragraph*.98}%
+\contentsline {paragraph}{\nonumberline Blind calibration of the judges.}{32}{paragraph*.100}%
+\contentsline {paragraph}{\nonumberline Scope of this pilot.}{32}{paragraph*.102}%
+\contentsline {subsection}{\numberline {4.22.2}Retraining Against the New Gold Standard}{32}{subsection.4.22.2}%
+\contentsline {paragraph}{\nonumberline Finding.}{32}{paragraph*.104}%
+\contentsline {paragraph}{\nonumberline Limitations.}{33}{paragraph*.106}%
+\contentsline {section}{\numberline {4.23}Scaling Beyond the Gold Standard: Silver Labels via Model Distillation}{34}{section.4.23}%
+\contentsline {paragraph}{\nonumberline Approach.}{34}{paragraph*.108}%
+\contentsline {paragraph}{\nonumberline Validating the silver tier.}{34}{paragraph*.110}%
+\contentsline {paragraph}{\nonumberline Status.}{35}{paragraph*.112}%
+\contentsline {chapter}{\nonumberline Bibliography}{36}{chapter*.113}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{38}{chapter*.114}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
