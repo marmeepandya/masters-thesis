@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=60_scaling_evaluation
+#SBATCH --job-name=64_neural_fusion_ranker
 #SBATCH --partition=gpu_a100_short
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --time=00:30:00
-#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/60_scaling_evaluation_%j.out
-#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/60_scaling_evaluation_%j.err
+#SBATCH --output=/home/ma/ma_ma/ma_mpandya/Thesis/logs/64_neural_fusion_ranker_%j.out
+#SBATCH --error=/home/ma/ma_ma/ma_mpandya/Thesis/logs/64_neural_fusion_ranker_%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=marmeep23@gmail.com
 
@@ -28,9 +28,9 @@ print('GPU:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'N
 # Convert notebook to script and run
 # This notebook's metadata may be missing language_info.file_extension, in which
 # case nbconvert falls back to writing .txt instead of .py -- rename if needed
-jupyter nbconvert --to script 60_scaling_evaluation.ipynb
-[ -f 60_scaling_evaluation.txt ] && mv 60_scaling_evaluation.txt 60_scaling_evaluation.py
+jupyter nbconvert --to script 64_neural_fusion_ranker.ipynb
+[ -f 64_neural_fusion_ranker.txt ] && mv 64_neural_fusion_ranker.txt 64_neural_fusion_ranker.py
 
-python 60_scaling_evaluation.py
+python 64_neural_fusion_ranker.py
 
 echo "Job complete!"

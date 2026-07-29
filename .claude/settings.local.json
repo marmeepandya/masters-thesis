@@ -182,7 +182,10 @@
       "Bash(tail -30 logs/54_encode_colbert_scaled_6086938.out)",
       "Bash(ls -la logs/54_encode_colbert_scaled_*.out)",
       "Bash(sacct -u ma_mpandya --starttime=2026-07-29 --format=JobID,JobName,Start,End,State -X)",
-      "Bash(awk -F: '$1 >= 1600 && $1 <= 2140')"
+      "Bash(awk -F: '$1 >= 1600 && $1 <= 2140')",
+      "Bash(awk -F: '$1 >= 2100 && $1 <= 2200')",
+      "Bash(awk -F'lines ' '{print $2}')",
+      "Bash(awk -F'-' '{print $1}')"
     ]
   }
 }

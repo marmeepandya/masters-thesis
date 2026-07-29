@@ -1,0 +1,107 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device: cuda
+Gold labels for cross-validation: 2267 across 101 queries
+Held-out deep queries (never touched during search): 19
+Tuning-only queries (used for search): 82
+Search train/val split: 66 train queries, 16 validation queries
+[Search] 0/20 combinations already evaluated -- resuming
+  [1/20] NDCG@1000=0.1709  Recall@1000=0.7594  params={'hidden_dims': (128, 64, 32), 'dropout': 0.0, 'learning_rate': 0.0001, 'weight_decay': 0.001}
+  [2/20] NDCG@1000=0.1505  Recall@1000=0.6649  params={'hidden_dims': (32,), 'dropout': 0.1, 'learning_rate': 0.0005, 'weight_decay': 0.0}
+  [3/20] NDCG@1000=0.1569  Recall@1000=0.7120  params={'hidden_dims': (128, 64, 32), 'dropout': 0.0, 'learning_rate': 0.005, 'weight_decay': 0.0}
+  [4/20] NDCG@1000=0.1805  Recall@1000=0.7889  params={'hidden_dims': (16,), 'dropout': 0.0, 'learning_rate': 0.0005, 'weight_decay': 0.0001}
+  [5/20] NDCG@1000=0.1541  Recall@1000=0.6921  params={'hidden_dims': (64, 32), 'dropout': 0.0, 'learning_rate': 0.0005, 'weight_decay': 0.01}
+  [6/20] NDCG@1000=0.1668  Recall@1000=0.7244  params={'hidden_dims': (32,), 'dropout': 0.5, 'learning_rate': 0.001, 'weight_decay': 0.0}
+  [7/20] NDCG@1000=0.1603  Recall@1000=0.7101  params={'hidden_dims': (32,), 'dropout': 0.5, 'learning_rate': 0.001, 'weight_decay': 0.001}
+  [8/20] NDCG@1000=0.1681  Recall@1000=0.7449  params={'hidden_dims': (32,), 'dropout': 0.1, 'learning_rate': 0.001, 'weight_decay': 0.0}
+  [9/20] NDCG@1000=0.1946  Recall@1000=0.8598  params={'hidden_dims': (16,), 'dropout': 0.5, 'learning_rate': 0.0001, 'weight_decay': 0.001}
+  [10/20] NDCG@1000=0.1924  Recall@1000=0.8366  params={'hidden_dims': (64,), 'dropout': 0.3, 'learning_rate': 0.0001, 'weight_decay': 0.01}
+  [11/20] NDCG@1000=0.1561  Recall@1000=0.7024  params={'hidden_dims': (64, 32), 'dropout': 0.0, 'learning_rate': 0.005, 'weight_decay': 0.0}
+  [12/20] NDCG@1000=0.1521  Recall@1000=0.6868  params={'hidden_dims': (64, 32), 'dropout': 0.3, 'learning_rate': 0.001, 'weight_decay': 0.0001}
+  [13/20] NDCG@1000=0.1554  Recall@1000=0.6849  params={'hidden_dims': (128, 64, 32), 'dropout': 0.0, 'learning_rate': 0.0001, 'weight_decay': 0.0001}
+  [14/20] NDCG@1000=0.1649  Recall@1000=0.7221  params={'hidden_dims': (64,), 'dropout': 0.0, 'learning_rate': 0.0005, 'weight_decay': 0.0}
+  [15/20] NDCG@1000=0.1450  Recall@1000=0.6527  params={'hidden_dims': (32, 16), 'dropout': 0.3, 'learning_rate': 0.005, 'weight_decay': 0.001}
+  [16/20] NDCG@1000=0.1486  Recall@1000=0.6603  params={'hidden_dims': (32,), 'dropout': 0.3, 'learning_rate': 0.001, 'weight_decay': 0.0001}
+  [17/20] NDCG@1000=0.1648  Recall@1000=0.7463  params={'hidden_dims': (128, 64, 32), 'dropout': 0.3, 'learning_rate': 0.0001, 'weight_decay': 0.0001}
+  [18/20] NDCG@1000=0.1589  Recall@1000=0.7084  params={'hidden_dims': (64, 32), 'dropout': 0.1, 'learning_rate': 0.0005, 'weight_decay': 0.01}
+  [19/20] NDCG@1000=0.1491  Recall@1000=0.6670  params={'hidden_dims': (32, 16), 'dropout': 0.3, 'learning_rate': 0.0005, 'weight_decay': 0.001}
+  [20/20] NDCG@1000=0.2309  Recall@1000=0.8440  params={'hidden_dims': (16,), 'dropout': 0.1, 'learning_rate': 0.0001, 'weight_decay': 0.001}
+[Search] Done in 0.6 min
+Top 10 hyperparameter combinations by NDCG@1000 (on the search-validation queries):
+ combo_id   hidden_dims  dropout  learning_rate  weight_decay  recall_at_1000  ndcg_at_1000
+       19          [16]      0.1         0.0001        0.0010        0.844021      0.230945
+        8          [16]      0.5         0.0001        0.0010        0.859762      0.194556
+        9          [64]      0.3         0.0001        0.0100        0.836614      0.192396
+        3          [16]      0.0         0.0005        0.0001        0.788942      0.180458
+        0 [128, 64, 32]      0.0         0.0001        0.0010        0.759418      0.170877
+        7          [32]      0.1         0.0010        0.0000        0.744894      0.168055
+        5          [32]      0.5         0.0010        0.0000        0.724392      0.166761
+       13          [64]      0.0         0.0005        0.0000        0.722063      0.164867
+       16 [128, 64, 32]      0.3         0.0001        0.0001        0.746296      0.164765
+        6          [32]      0.5         0.0010        0.0010        0.710132      0.160284
+
+Best hyperparameters: {'hidden_dims': (16,), 'dropout': 0.1, 'learning_rate': 0.0001, 'weight_decay': 0.001}
+[Final] Running full LeaveOneGroupOut CV over all 101 queries with: {'hidden_dims': (16,), 'dropout': 0.1, 'learning_rate': 0.0001, 'weight_decay': 0.001}
+  25/101 queries cross-validated (1.2 min elapsed)
+  50/101 queries cross-validated (2.5 min elapsed)
+  75/101 queries cross-validated (3.7 min elapsed)
+  100/101 queries cross-validated (5.0 min elapsed)
+  101/101 queries cross-validated (5.0 min elapsed)
+[Final] Done in 5.0 min
+                model    query_subset    k  precision   recall     ndcg
+gbdt_baseline_untuned all_101_queries   10   0.006931 0.002261 0.006524
+gbdt_baseline_untuned all_101_queries   50   0.006337 0.012385 0.009183
+gbdt_baseline_untuned all_101_queries  100   0.005446 0.018333 0.010991
+gbdt_baseline_untuned all_101_queries  300   0.005611 0.066238 0.027703
+gbdt_baseline_untuned all_101_queries  500   0.006396 0.180010 0.055721
+gbdt_baseline_untuned all_101_queries 1000   0.009356 0.659311 0.165923
+gbdt_baseline_untuned 19_deep_queries   10   0.036842 0.011663 0.033648
+gbdt_baseline_untuned 19_deep_queries   50   0.030526 0.042263 0.039255
+gbdt_baseline_untuned 19_deep_queries  100   0.027368 0.072945 0.048577
+gbdt_baseline_untuned 19_deep_queries  300   0.026316 0.183380 0.100695
+gbdt_baseline_untuned 19_deep_queries  500   0.026842 0.324715 0.156472
+gbdt_baseline_untuned 19_deep_queries 1000   0.029579 0.654081 0.285966
+           gbdt_tuned all_101_queries   10   0.003960 0.001897 0.002904
+           gbdt_tuned all_101_queries   50   0.004554 0.013782 0.007948
+           gbdt_tuned all_101_queries  100   0.004950 0.022400 0.011180
+           gbdt_tuned all_101_queries  300   0.006865 0.113687 0.039305
+           gbdt_tuned all_101_queries  500   0.007723 0.242843 0.072864
+           gbdt_tuned all_101_queries 1000   0.009644 0.677474 0.173332
+           gbdt_tuned 19_deep_queries   10   0.021053 0.009783 0.014978
+           gbdt_tuned 19_deep_queries   50   0.021053 0.050786 0.033445
+           gbdt_tuned 19_deep_queries  100   0.023684 0.070172 0.043991
+           gbdt_tuned 19_deep_queries  300   0.028070 0.206371 0.107657
+           gbdt_tuned 19_deep_queries  500   0.028842 0.360455 0.168435
+           gbdt_tuned 19_deep_queries 1000   0.030421 0.677985 0.294566
+           neural_net all_101_queries   10   0.017822 0.008264 0.017578
+           neural_net all_101_queries   50   0.010297 0.026053 0.018813
+           neural_net all_101_queries  100   0.009703 0.040873 0.024245
+           neural_net all_101_queries  300   0.009274 0.142019 0.055385
+           neural_net all_101_queries  500   0.009426 0.266910 0.088899
+           neural_net all_101_queries 1000   0.011040 0.759343 0.202772
+           neural_net 19_deep_queries   10   0.089474 0.035108 0.086312
+           neural_net 19_deep_queries   50   0.049474 0.086761 0.078699
+           neural_net 19_deep_queries  100   0.045789 0.123536 0.093759
+           neural_net 19_deep_queries  300   0.039474 0.262154 0.165003
+           neural_net 19_deep_queries  500   0.036316 0.396599 0.221934
+           neural_net 19_deep_queries 1000   0.035105 0.745769 0.359696
+
+19_deep_queries is the leakage-free comparison for the neural net (those queries never
+contributed to the architecture/hyperparameter search); all_101_queries reported for
+comparability but the GBDT-tuned row there is not leakage-free either (Section on GBDT tuning).
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6093399
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:05:31
+CPU Efficiency: 7.05% of 01:18:12 core-walltime
+Job Wall-clock time: 00:06:31
+Memory Utilized: 1.16 GB
+Memory Efficiency: 1.26% of 91.80 GB (91.80 GB/node)

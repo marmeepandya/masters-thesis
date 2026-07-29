@@ -1,0 +1,146 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Load] Combined pool: 397,025 companies, GTE embeddings shape: (397025, 1024)
+[Encode] Query embeddings: (19, 1024)
+[Tier 100k] Building HNSW index over 100,000 companies (M=16, ef_construction=40)...
+[Tier 100k] Index built in 16.7s
+  ef_search=10: avg latency 0.54ms
+  ef_search=50: avg latency 0.33ms
+  ef_search=100: avg latency 0.46ms
+  ef_search=200: avg latency 0.71ms
+  ef_search=500: avg latency 1.13ms
+  ef_search=1000: avg latency 1.80ms
+[Tier 100k] Building HNSW index over 100,000 companies (M=32, ef_construction=200)...
+[Tier 100k] Index built in 93.6s
+  ef_search=10: avg latency 0.25ms
+  ef_search=50: avg latency 0.52ms
+  ef_search=100: avg latency 0.75ms
+  ef_search=200: avg latency 1.19ms
+  ef_search=500: avg latency 2.11ms
+  ef_search=1000: avg latency 3.35ms
+[Tier 200k] Building HNSW index over 200,000 companies (M=16, ef_construction=40)...
+[Tier 200k] Index built in 40.0s
+  ef_search=10: avg latency 0.20ms
+  ef_search=50: avg latency 0.34ms
+  ef_search=100: avg latency 0.49ms
+  ef_search=200: avg latency 0.74ms
+  ef_search=500: avg latency 1.27ms
+  ef_search=1000: avg latency 2.06ms
+[Tier 200k] Building HNSW index over 200,000 companies (M=32, ef_construction=200)...
+[Tier 200k] Index built in 242.2s
+  ef_search=10: avg latency 0.28ms
+  ef_search=50: avg latency 0.56ms
+  ef_search=100: avg latency 0.83ms
+  ef_search=200: avg latency 1.25ms
+  ef_search=500: avg latency 2.18ms
+  ef_search=1000: avg latency 3.60ms
+[Tier 300k] Building HNSW index over 300,000 companies (M=16, ef_construction=40)...
+[Tier 300k] Index built in 65.0s
+  ef_search=10: avg latency 0.20ms
+  ef_search=50: avg latency 0.36ms
+  ef_search=100: avg latency 0.51ms
+  ef_search=200: avg latency 0.78ms
+  ef_search=500: avg latency 1.36ms
+  ef_search=1000: avg latency 2.22ms
+[Tier 300k] Building HNSW index over 300,000 companies (M=32, ef_construction=200)...
+[Tier 300k] Index built in 402.0s
+  ef_search=10: avg latency 1.10ms
+  ef_search=50: avg latency 0.59ms
+  ef_search=100: avg latency 0.89ms
+  ef_search=200: avg latency 1.34ms
+  ef_search=500: avg latency 2.36ms
+  ef_search=1000: avg latency 3.92ms
+[Tier 400k] Building HNSW index over 397,025 companies (M=16, ef_construction=40)...
+[Tier 400k] Index built in 88.8s
+  ef_search=10: avg latency 0.21ms
+  ef_search=50: avg latency 0.38ms
+  ef_search=100: avg latency 0.55ms
+  ef_search=200: avg latency 0.81ms
+  ef_search=500: avg latency 1.44ms
+  ef_search=1000: avg latency 2.32ms
+[Tier 400k] Building HNSW index over 397,025 companies (M=32, ef_construction=200)...
+[Tier 400k] Index built in 556.5s
+  ef_search=10: avg latency 2.30ms
+  ef_search=50: avg latency 0.67ms
+  ef_search=100: avg latency 0.92ms
+  ef_search=200: avg latency 1.40ms
+  ef_search=500: avg latency 2.49ms
+  ef_search=1000: avg latency 4.15ms
+[Done] 5,472 rows
+=== Recall@1000 and NDCG@1000: exact search vs. ANN (best ef_search per tier/build-combo) ===
+
+Tier 100k -- exact search: recall=0.750  ndcg=0.410
+ M  ef_construction  ef_search   recall     ndcg  query_latency_ms
+32              200        500 0.753288 0.411300          2.111303
+32              200       1000 0.749660 0.409764          3.351240
+16               40       1000 0.744003 0.408107          1.797023
+16               40        500 0.734952 0.405204          1.126355
+32              200        200 0.730708 0.403679          1.194962
+32              200        100 0.646604 0.370719          0.752356
+16               40        200 0.644306 0.368988          0.706487
+32              200         50 0.518584 0.319693          0.518338
+16               40        100 0.516798 0.317854          0.456523
+16               40         50 0.372348 0.257315          0.328630
+32              200         10 0.267135 0.200951          0.253390
+16               40         10 0.213906 0.175979          0.538354
+
+Tier 200k -- exact search: recall=0.702  ndcg=0.390
+ M  ef_construction  ef_search   recall     ndcg  query_latency_ms
+32              200        200 0.705433 0.390581          1.250444
+16               40       1000 0.705058 0.391255          2.059922
+32              200       1000 0.703161 0.390719          3.602431
+32              200        500 0.702338 0.389963          2.183873
+16               40        500 0.684361 0.383066          1.272572
+16               40        200 0.641291 0.365002          0.736416
+32              200        100 0.639551 0.364655          0.834783
+32              200         50 0.516907 0.314954          0.564762
+16               40        100 0.494400 0.306054          0.488967
+16               40         50 0.351452 0.243659          0.344157
+32              200         10 0.282175 0.206507          0.277330
+16               40         10 0.191968 0.157666          0.197381
+
+Tier 300k -- exact search: recall=0.663  ndcg=0.373
+ M  ef_construction  ef_search   recall     ndcg  query_latency_ms
+32              200       1000 0.667721 0.374956          3.921191
+32              200        500 0.666425 0.374905          2.361853
+16               40       1000 0.661144 0.373125          2.217147
+32              200        200 0.660157 0.372084          1.335658
+16               40        500 0.656384 0.371232          1.364141
+32              200        100 0.602606 0.349127          0.891489
+16               40        200 0.598011 0.345680          0.780745
+32              200         50 0.489619 0.301660          0.592804
+16               40        100 0.468117 0.292409          0.506239
+16               40         50 0.360193 0.245157          0.363148
+32              200         10 0.236091 0.184951          1.099027
+16               40         10 0.181081 0.155548          0.203132
+
+Tier 400k -- exact search: recall=0.638  ndcg=0.361
+ M  ef_construction  ef_search   recall     ndcg  query_latency_ms
+32              200        200 0.643947 0.364088          1.398968
+32              200        500 0.640509 0.363010          2.493832
+32              200       1000 0.639348 0.361948          4.145294
+16               40       1000 0.637471 0.360689          2.324702
+16               40        500 0.634681 0.359427          1.442186
+32              200        100 0.583190 0.339543          0.919019
+16               40        200 0.573781 0.333516          0.813378
+32              200         50 0.486808 0.298108          0.671321
+16               40        100 0.477643 0.293263          0.549417
+16               40         50 0.359794 0.243735          0.378085
+32              200         10 0.232978 0.176238          2.296850
+16               40         10 0.162510 0.140552          0.209380
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n564
+Job ID: 6093288
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:25:48
+CPU Efficiency: 7.77% of 05:32:00 core-walltime
+Job Wall-clock time: 00:27:40
+Memory Utilized: 6.66 GB
+Memory Efficiency: 7.25% of 91.80 GB (91.80 GB/node)

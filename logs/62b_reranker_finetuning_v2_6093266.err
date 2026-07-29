@@ -1,0 +1,4 @@
+[NbConvertApp] Converting notebook 62b_reranker_finetuning_v2.ipynb to script
+[NbConvertApp] Writing 11478 bytes to 62b_reranker_finetuning_v2.py
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  29%|██▉       | 113/393 [00:00<00:00, 1128.06it/s]Loading weights:  61%|██████    | 238/393 [00:00<00:00, 1168.49it/s]Loading weights:  97%|█████████▋| 380/393 [00:00<00:00, 1272.30it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 1254.58it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.78s/it]Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.78s/it]

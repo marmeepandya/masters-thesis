@@ -1,0 +1,72 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device: cuda
+Held-out deep queries (never touched during fine-tuning): 19
+Tuning-only queries (used for fine-tuning): 82
+Training pairs: 1,782 from 79 queries
+(v1 comparison: 820 individual examples, only 19 of them negative; here every pair has an explicit negative)
+[Load] Loading BAAI/bge-reranker-v2-m3...
+[Load] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Load] Model loaded in 15.2s on cuda
+[Train] Fine-tuning for 4 epochs, batch size 16 pairs, lr 2e-05, margin 1.0
+[Train] Epoch 1/4  mean margin loss=0.6470  (1.0 min elapsed)
+[Train] Epoch 2/4  mean margin loss=0.1443  (2.0 min elapsed)
+[Train] Epoch 3/4  mean margin loss=0.0556  (3.0 min elapsed)
+[Train] Epoch 4/4  mean margin loss=0.0548  (4.0 min elapsed)
+[Train] Done. Saved -> result/62b_reranker_finetuning_v2/finetuned_model
+[Fine-tuned v2] Evaluating the pairwise-trained reranker on the 19 held-out queries...
+  [finetuned_v2] 1/19 queries scored (0.3 min elapsed)
+  [finetuned_v2] 2/19 queries scored (0.4 min elapsed)
+  [finetuned_v2] 3/19 queries scored (0.6 min elapsed)
+  [finetuned_v2] 4/19 queries scored (0.7 min elapsed)
+  [finetuned_v2] 5/19 queries scored (0.9 min elapsed)
+  [finetuned_v2] 6/19 queries scored (1.0 min elapsed)
+  [finetuned_v2] 7/19 queries scored (1.2 min elapsed)
+  [finetuned_v2] 8/19 queries scored (1.5 min elapsed)
+  [finetuned_v2] 9/19 queries scored (1.6 min elapsed)
+  [finetuned_v2] 10/19 queries scored (1.8 min elapsed)
+  [finetuned_v2] 11/19 queries scored (2.0 min elapsed)
+  [finetuned_v2] 12/19 queries scored (2.1 min elapsed)
+  [finetuned_v2] 13/19 queries scored (2.3 min elapsed)
+  [finetuned_v2] 14/19 queries scored (2.5 min elapsed)
+  [finetuned_v2] 15/19 queries scored (2.7 min elapsed)
+  [finetuned_v2] 16/19 queries scored (2.8 min elapsed)
+  [finetuned_v2] 17/19 queries scored (2.9 min elapsed)
+  [finetuned_v2] 18/19 queries scored (3.1 min elapsed)
+  [finetuned_v2] 19/19 queries scored (3.3 min elapsed)
+                       precision  recall    ndcg
+model            k                              
+finetuned_v1_mse 10       0.0895  0.0272  0.0780
+                 50       0.0674  0.0889  0.0869
+                 100      0.0563  0.1317  0.0980
+                 300      0.0428  0.2760  0.1701
+                 500      0.0348  0.3628  0.2092
+                 1000     0.0326  0.6805  0.3342
+finetuned_v2     10       0.0684  0.0242  0.0704
+                 50       0.0547  0.0897  0.0781
+                 100      0.0495  0.1420  0.1015
+                 300      0.0409  0.2890  0.1750
+                 500      0.0398  0.4345  0.2404
+                 1000     0.0351  0.7436  0.3625
+pretrained       10       0.1211  0.0439  0.1368
+                 50       0.0705  0.1002  0.1101
+                 100      0.0563  0.1340  0.1152
+                 300      0.0433  0.2760  0.1874
+                 500      0.0353  0.3648  0.2271
+                 1000     0.0326  0.6808  0.3503
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6093266
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:08:06
+CPU Efficiency: 7.30% of 01:51:00 core-walltime
+Job Wall-clock time: 00:09:15
+Memory Utilized: 4.05 GB
+Memory Efficiency: 4.41% of 91.80 GB (91.80 GB/node)

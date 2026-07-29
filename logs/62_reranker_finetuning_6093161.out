@@ -1,0 +1,88 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device: cuda
+Combined gold standard: 2,269 candidates across 101 queries
+Held-out deep queries (never touched during fine-tuning): 19
+Tuning-only queries (used for fine-tuning): 82
+Training examples: 820 pairs from 82 queries
+Target score distribution: {0.0: 19, 0.5: 207, 1.0: 594}
+[Load] Loading BAAI/bge-reranker-v2-m3...
+[Load] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Load] Model loaded in 15.6s on cuda
+[Train] Fine-tuning for 4 epochs, batch size 32, lr 2e-05
+[Train] Small dataset (~1,000 examples) for a large model -- real overfitting risk, watch the held-out evaluation below
+[Train] Epoch 1/4  mean MSE loss=0.6461  (0.3 min elapsed)
+[Train] Epoch 2/4  mean MSE loss=0.0810  (0.5 min elapsed)
+[Train] Epoch 3/4  mean MSE loss=0.0628  (0.7 min elapsed)
+[Train] Epoch 4/4  mean MSE loss=0.0547  (0.9 min elapsed)
+[Train] Done. Saved -> result/62_reranker_finetuning/finetuned_model
+[Pretrained] Evaluating the original, un-fine-tuned reranker on the 19 held-out queries...
+  [pretrained] 1/19 queries scored (0.2 min elapsed)
+  [pretrained] 2/19 queries scored (0.4 min elapsed)
+  [pretrained] 3/19 queries scored (0.6 min elapsed)
+  [pretrained] 4/19 queries scored (0.7 min elapsed)
+  [pretrained] 5/19 queries scored (0.9 min elapsed)
+  [pretrained] 6/19 queries scored (1.0 min elapsed)
+  [pretrained] 7/19 queries scored (1.2 min elapsed)
+  [pretrained] 8/19 queries scored (1.5 min elapsed)
+  [pretrained] 9/19 queries scored (1.6 min elapsed)
+  [pretrained] 10/19 queries scored (1.8 min elapsed)
+  [pretrained] 11/19 queries scored (1.9 min elapsed)
+  [pretrained] 12/19 queries scored (2.1 min elapsed)
+  [pretrained] 13/19 queries scored (2.3 min elapsed)
+  [pretrained] 14/19 queries scored (2.4 min elapsed)
+  [pretrained] 15/19 queries scored (2.6 min elapsed)
+  [pretrained] 16/19 queries scored (2.8 min elapsed)
+  [pretrained] 17/19 queries scored (2.9 min elapsed)
+  [pretrained] 18/19 queries scored (3.1 min elapsed)
+  [pretrained] 19/19 queries scored (3.3 min elapsed)
+[Fine-tuned] Evaluating the fine-tuned reranker on the 19 held-out queries...
+  [finetuned] 1/19 queries scored (0.2 min elapsed)
+  [finetuned] 2/19 queries scored (0.4 min elapsed)
+  [finetuned] 3/19 queries scored (0.6 min elapsed)
+  [finetuned] 4/19 queries scored (0.7 min elapsed)
+  [finetuned] 5/19 queries scored (0.9 min elapsed)
+  [finetuned] 6/19 queries scored (1.0 min elapsed)
+  [finetuned] 7/19 queries scored (1.2 min elapsed)
+  [finetuned] 8/19 queries scored (1.5 min elapsed)
+  [finetuned] 9/19 queries scored (1.6 min elapsed)
+  [finetuned] 10/19 queries scored (1.8 min elapsed)
+  [finetuned] 11/19 queries scored (2.0 min elapsed)
+  [finetuned] 12/19 queries scored (2.1 min elapsed)
+  [finetuned] 13/19 queries scored (2.3 min elapsed)
+  [finetuned] 14/19 queries scored (2.5 min elapsed)
+  [finetuned] 15/19 queries scored (2.7 min elapsed)
+  [finetuned] 16/19 queries scored (2.8 min elapsed)
+  [finetuned] 17/19 queries scored (2.9 min elapsed)
+  [finetuned] 18/19 queries scored (3.1 min elapsed)
+  [finetuned] 19/19 queries scored (3.3 min elapsed)
+                 precision  recall    ndcg
+model      k                              
+finetuned  10       0.0895  0.0272  0.0780
+           50       0.0674  0.0889  0.0869
+           100      0.0563  0.1317  0.0980
+           300      0.0428  0.2760  0.1701
+           500      0.0348  0.3628  0.2092
+           1000     0.0326  0.6805  0.3342
+pretrained 10       0.1211  0.0439  0.1368
+           50       0.0705  0.1002  0.1101
+           100      0.0563  0.1340  0.1152
+           300      0.0433  0.2760  0.1874
+           500      0.0353  0.3648  0.2271
+           1000     0.0326  0.6808  0.3503
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n571
+Job ID: 6093161
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:08:36
+CPU Efficiency: 7.54% of 01:54:00 core-walltime
+Job Wall-clock time: 00:09:30
+Memory Utilized: 4.35 GB
+Memory Efficiency: 4.74% of 91.80 GB (91.80 GB/node)
