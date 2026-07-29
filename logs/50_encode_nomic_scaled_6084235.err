@@ -9,3 +9,4 @@ time=2026-07-28T21:21:32.907+02:00 level=INFO source=types.go:130 msg="inference
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 <All keys matched successfully>
 [transformers] Detected the usage of `get_extended_attention_mask`: This function is deprecated and will be removed in v5.12.0. Please use the new API in `transformers.masking_utils`
+[2026-07-28T21:51:42.005] error: *** JOB 6084235 ON uc2n561 CANCELLED AT 2026-07-28T21:51:42 DUE TO TIME LIMIT ***

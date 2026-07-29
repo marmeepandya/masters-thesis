@@ -1,9 +1,13 @@
+import os
 import time
 import numpy as np
 import pandas as pd
 import torch
 from pathlib import Path
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
+
+load_dotenv()
 
 RESULT_DIR = Path("result/50_encode_nomic_scaled")
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
@@ -23,7 +27,19 @@ if torch.cuda.is_available():
 
 print("[Encode] Loading Nomic (nomic-ai/nomic-embed-text-v1.5)...")
 t0 = time.time()
-model = SentenceTransformer("nomic-ai/nomic-embed-text-v1.5", device=DEVICE, trust_remote_code=True)
+# Try local cache first with HF_HUB_OFFLINE=1 -- without this, sentence-transformers still makes a
+# network call to verify the cache is current even when the model is fully cached, and on this
+# cluster that unauthenticated call can hang long enough to burn the entire 30-min job with zero
+# encoding progress (this is exactly what happened here previously). Fall back to network only if
+# the cache turns out to be incomplete.
+os.environ["HF_HUB_OFFLINE"] = "1"
+try:
+    model = SentenceTransformer("nomic-ai/nomic-embed-text-v1.5", device=DEVICE, trust_remote_code=True)
+    print("[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls")
+except Exception as e:
+    print(f"[Encode] Not fully cached locally yet ({type(e).__name__}) -- retrying with network access (this will be slower)")
+    os.environ.pop("HF_HUB_OFFLINE", None)
+    model = SentenceTransformer("nomic-ai/nomic-embed-text-v1.5", device=DEVICE, trust_remote_code=True)
 print(f"[Encode] Model loaded in {time.time()-t0:.1f}s on {model.device}")
 batch_size = 256 if DEVICE == "cuda" else 64
 print(f"[Encode] Batch size : {batch_size}")

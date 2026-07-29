@@ -1,0 +1,44 @@
+2026/07/29 07:54:36 routes.go:1186: INFO server config env="map[CUDA_VISIBLE_DEVICES:0 GPU_DEVICE_ORDINAL:0 HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_DEBUG:false OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11435 OLLAMA_INTEL_GPU:false OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/home/ma/ma_ma/ma_mpandya/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NUM_PARALLEL:0 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://*] OLLAMA_SCHED_SPREAD:false ROCR_VISIBLE_DEVICES:0 http_proxy: https_proxy: no_proxy:]"
+time=2026-07-29T07:54:36.978+02:00 level=INFO source=images.go:432 msg="total blobs: 13"
+time=2026-07-29T07:54:36.986+02:00 level=INFO source=images.go:439 msg="total unused blobs removed: 0"
+time=2026-07-29T07:54:37.000+02:00 level=INFO source=routes.go:1237 msg="Listening on 127.0.0.1:11435 (version 0.5.11)"
+time=2026-07-29T07:54:37.007+02:00 level=INFO source=gpu.go:217 msg="looking for compatible GPUs"
+time=2026-07-29T07:54:37.409+02:00 level=INFO source=types.go:130 msg="inference compute" id=GPU-f17481bf-581e-1ce9-0424-91f5959bdce8 library=cuda variant=v12 compute=8.0 driver=13.2 name="NVIDIA A100-PCIE-40GB" total="39.5 GiB" available="39.1 GiB"
+[NbConvertApp] Converting notebook 54_encode_colbert_scaled.ipynb to script
+[NbConvertApp] Writing 7987 bytes to 54_encode_colbert_scaled.py
+mv: cannot stat '54_encode_colbert_scaled.txt': No such file or directory
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights:  48%|████▊     | 94/197 [00:00<00:00, 927.06it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 1028.53it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: colbert-ir/colbertv2.0
+Key                      | Status     |  | 
+-------------------------+------------+--+-
+bert.pooler.dense.weight | UNEXPECTED |  | 
+bert.pooler.dense.bias   | UNEXPECTED |  | 
+linear.weight            | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Traceback (most recent call last):
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/torch/serialization.py", line 1004, in save
+    _save(
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/torch/serialization.py", line 1313, in _save
+    zip_file.write_record(name, storage, num_bytes)
+RuntimeError: basic_ios::clear: iostream error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/54_encode_colbert_scaled.py", line 148, in <module>
+    robust_save(lambda p: torch.save(doc_embs, p), CHECKPOINT_EMBS_PATH)
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/54_encode_colbert_scaled.py", line 51, in robust_save
+    raise last_err
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/54_encode_colbert_scaled.py", line 42, in robust_save
+    save_fn(tmp_path)
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/54_encode_colbert_scaled.py", line 148, in <lambda>
+    robust_save(lambda p: torch.save(doc_embs, p), CHECKPOINT_EMBS_PATH)
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/torch/serialization.py", line 1003, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis/thesis/lib64/python3.12/site-packages/torch/serialization.py", line 835, in __exit__
+    self.file_like.write_end_of_file()
+RuntimeError: [enforce fail at inline_container.cc:672] . unexpected pos 768 vs 662

@@ -1,0 +1,44 @@
+Ollama started with PID 1990713
+[GIN] 2026/07/28 - 22:15:57 | 200 |    10.77544ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:15:57 | 200 |   10.754484ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:15:57 | 200 |   10.666775ms |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/28 - 22:15:57 | 200 |   10.685322ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 22:15:57 | 200 |      17.638µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:15:57 | 200 |      13.628µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:15:57 | 200 |    17.38548ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2026/07/28 - 22:15:57 | 200 |    21.22841ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Encode] Loading Nomic (nomic-ai/nomic-embed-text-v1.5)...
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Model loaded in 7.6s on cuda:0
+[Encode] Batch size : 256
+[Encode] Resuming from checkpoint -- 360,000/397,025 already encoded
+[Encode] 380,000/397,025 encoded (1.6 min elapsed)
+[Encode] 397,025/397,025 encoded (2.9 min elapsed)
+[Encode] Done. Embeddings shape: (397025, 768)
+[Encode] Saved -> result/50_encode_nomic_scaled/company_embeddings.npy
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6084457
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:03:39
+CPU Efficiency: 6.06% of 01:00:12 core-walltime
+Job Wall-clock time: 00:05:01
+Memory Utilized: 4.06 GB
+Memory Efficiency: 4.42% of 91.80 GB (91.80 GB/node)

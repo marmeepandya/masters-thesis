@@ -1,0 +1,96 @@
+Ollama started with PID 3170893
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/54_encode_colbert_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Load] Loading ColBERTv2 tokenizer + BertModel backbone...
+[Load] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Load] Loading token-projection linear layer from checkpoint...
+[Load] Done in 3.7s on cuda -- linear projection shape (128, 768)
+[Encode] Encoding 397,025 companies (max_length=192)...
+[Encode] Resuming from checkpoint -- 5,000/397,025 (1.3%) companies already encoded
+[Encode]   10,000/397,025 companies encoded (2.5%)... checkpoint saved
+[Encode]   15,000/397,025 companies encoded (3.8%)... checkpoint saved
+[Encode]   20,000/397,025 companies encoded (5.0%)... checkpoint saved
+[Encode]   25,000/397,025 companies encoded (6.3%)... checkpoint saved
+[Encode]   30,000/397,025 companies encoded (7.6%)... checkpoint saved
+[Encode]   35,000/397,025 companies encoded (8.8%)... checkpoint saved
+[Encode]   40,000/397,025 companies encoded (10.1%)... checkpoint saved
+[Encode]   45,000/397,025 companies encoded (11.3%)... checkpoint saved
+[Encode]   50,000/397,025 companies encoded (12.6%)... checkpoint saved
+[Encode]   55,000/397,025 companies encoded (13.9%)... checkpoint saved
+[Encode]   60,000/397,025 companies encoded (15.1%)... checkpoint saved
+[Encode]   65,000/397,025 companies encoded (16.4%)... checkpoint saved
+[Encode]   70,000/397,025 companies encoded (17.6%)... checkpoint saved
+[Encode]   75,000/397,025 companies encoded (18.9%)... checkpoint saved
+[Encode]   80,000/397,025 companies encoded (20.1%)... checkpoint saved
+[Encode]   85,000/397,025 companies encoded (21.4%)... checkpoint saved
+[Encode]   90,000/397,025 companies encoded (22.7%)... checkpoint saved
+[Encode]   95,000/397,025 companies encoded (23.9%)... checkpoint saved
+[Encode]   100,000/397,025 companies encoded (25.2%)... checkpoint saved
+[Encode]   105,000/397,025 companies encoded (26.4%)... checkpoint saved
+[Encode]   110,000/397,025 companies encoded (27.7%)... checkpoint saved
+[Encode]   115,000/397,025 companies encoded (29.0%)... checkpoint saved
+[Encode]   120,000/397,025 companies encoded (30.2%)... checkpoint saved
+[Encode]   125,000/397,025 companies encoded (31.5%)... checkpoint saved
+[Encode]   130,000/397,025 companies encoded (32.7%)... checkpoint saved
+[Encode]   135,000/397,025 companies encoded (34.0%)... checkpoint saved
+[Encode]   140,000/397,025 companies encoded (35.3%)... checkpoint saved
+[Encode]   145,000/397,025 companies encoded (36.5%)... checkpoint saved
+[Encode]   150,000/397,025 companies encoded (37.8%)... checkpoint saved
+[Encode]   155,000/397,025 companies encoded (39.0%)... checkpoint saved
+[Encode]   160,000/397,025 companies encoded (40.3%)... checkpoint saved
+[Encode]   165,000/397,025 companies encoded (41.6%)... checkpoint saved
+[Encode]   170,000/397,025 companies encoded (42.8%)... checkpoint saved
+[Encode]   175,000/397,025 companies encoded (44.1%)... checkpoint saved
+[Encode]   180,000/397,025 companies encoded (45.3%)... checkpoint saved
+[Encode]   185,000/397,025 companies encoded (46.6%)... checkpoint saved
+[Encode]   190,000/397,025 companies encoded (47.9%)... checkpoint saved
+[Encode]   195,000/397,025 companies encoded (49.1%)... checkpoint saved
+[Encode]   200,000/397,025 companies encoded (50.4%)... checkpoint saved
+[Encode]   205,000/397,025 companies encoded (51.6%)... checkpoint saved
+[Encode]   210,000/397,025 companies encoded (52.9%)... checkpoint saved
+[Encode]   215,000/397,025 companies encoded (54.2%)... checkpoint saved
+[Encode]   220,000/397,025 companies encoded (55.4%)... checkpoint saved
+[Encode]   225,000/397,025 companies encoded (56.7%)... checkpoint saved
+[Encode]   230,000/397,025 companies encoded (57.9%)... checkpoint saved
+[Encode]   235,000/397,025 companies encoded (59.2%)... checkpoint saved
+[Encode]   240,000/397,025 companies encoded (60.4%)... checkpoint saved
+[Encode]   245,000/397,025 companies encoded (61.7%)... checkpoint saved
+[Encode]   250,000/397,025 companies encoded (63.0%)... checkpoint saved
+[Encode]   255,000/397,025 companies encoded (64.2%)... checkpoint saved
+[Encode]   260,000/397,025 companies encoded (65.5%)... checkpoint saved
+[Encode]   265,000/397,025 companies encoded (66.7%)... checkpoint saved
+[Encode]   270,000/397,025 companies encoded (68.0%)... checkpoint saved
+[Encode]   275,000/397,025 companies encoded (69.3%)... checkpoint saved
+[Encode]   280,000/397,025 companies encoded (70.5%)... checkpoint saved
+[Encode]   285,000/397,025 companies encoded (71.8%)... checkpoint saved
+[Encode]   290,000/397,025 companies encoded (73.0%)... checkpoint saved
+[Encode]   295,000/397,025 companies encoded (74.3%)... checkpoint saved
+[Encode]   300,000/397,025 companies encoded (75.6%)... checkpoint saved
+[Checkpoint] Save attempt 1/3 to result/54_encode_colbert_scaled/doc_embs_checkpoint.pt failed: [enforce fail at inline_container.cc:672] . unexpected pos 768 vs 662 -- retrying in 5s...
+[Checkpoint] Save attempt 2/3 to result/54_encode_colbert_scaled/doc_embs_checkpoint.pt failed: [enforce fail at inline_container.cc:672] . unexpected pos 768 vs 662 -- retrying in 5s...
+[Checkpoint] Save attempt 3/3 to result/54_encode_colbert_scaled/doc_embs_checkpoint.pt failed: [enforce fail at inline_container.cc:672] . unexpected pos 768 vs 662 -- retrying in 5s...
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n573
+Job ID: 6086829
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:24:27
+CPU Efficiency: 8.37% of 04:52:00 core-walltime
+Job Wall-clock time: 00:24:20
+Memory Utilized: 30.32 GB
+Memory Efficiency: 33.03% of 91.80 GB (91.80 GB/node)

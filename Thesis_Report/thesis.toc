@@ -116,13 +116,18 @@
 \contentsline {paragraph}{\nonumberline Refreshing the silver tier at no additional cost.}{38}{paragraph*.126}%
 \contentsline {subsection}{\numberline {4.23.3}Quantifying How Far Production's Own Ranking Diverges from the Independent Gold/Silver Set}{39}{subsection.4.23.3}%
 \contentsline {paragraph}{\nonumberline Finding.}{39}{paragraph*.128}%
-\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{39}{section.4.24}%
-\contentsline {paragraph}{\nonumberline A fully random sample.}{39}{paragraph*.130}%
-\contentsline {paragraph}{\nonumberline Data quality.}{40}{paragraph*.132}%
-\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{41}{paragraph*.134}%
-\contentsline {paragraph}{\nonumberline Encoding.}{41}{paragraph*.136}%
-\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{41}{paragraph*.138}%
-\contentsline {paragraph}{\nonumberline Status.}{42}{paragraph*.140}%
-\contentsline {chapter}{\nonumberline Bibliography}{43}{chapter*.141}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{46}{chapter*.142}%
+\contentsline {subsection}{\numberline {4.23.4}A Direct Ranking Comparison: Production vs. an Independently Cross-Validated Ranker}{39}{subsection.4.23.4}%
+\contentsline {paragraph}{\nonumberline Finding, stated honestly.}{40}{paragraph*.130}%
+\contentsline {subsection}{\numberline {4.23.5}Is the Classifier's Confidence Honest? A Calibration Check}{41}{subsection.4.23.5}%
+\contentsline {paragraph}{\nonumberline Finding.}{41}{paragraph*.132}%
+\contentsline {subsection}{\numberline {4.23.6}Honest Synthesis: Is the Gold/Silver Standard Better Than GOI's Own Output?}{42}{subsection.4.23.6}%
+\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{43}{section.4.24}%
+\contentsline {paragraph}{\nonumberline A fully random sample.}{43}{paragraph*.134}%
+\contentsline {paragraph}{\nonumberline Data quality.}{43}{paragraph*.136}%
+\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{43}{paragraph*.138}%
+\contentsline {paragraph}{\nonumberline Encoding.}{44}{paragraph*.140}%
+\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{44}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Status.}{45}{paragraph*.144}%
+\contentsline {chapter}{\nonumberline Bibliography}{46}{chapter*.145}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{49}{chapter*.146}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

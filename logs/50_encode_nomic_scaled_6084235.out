@@ -10,3 +10,22 @@ llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago
 mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
 CUDA available: True
 GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/07/28 - 21:35:57 | 200 |   18.729789ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 21:35:57 | 200 |    7.429435ms |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/28 - 21:35:57 | 200 |      33.693µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 21:35:57 | 200 |   45.560533ms |       127.0.0.1 | GET      "/api/tags"
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6084235
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:04
+CPU Efficiency: 0.02% of 06:05:00 core-walltime
+Job Wall-clock time: 00:30:25
+Memory Utilized: 3.91 GB
+Memory Efficiency: 4.26% of 91.80 GB (91.80 GB/node)

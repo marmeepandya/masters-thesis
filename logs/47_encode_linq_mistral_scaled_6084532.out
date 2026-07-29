@@ -1,0 +1,60 @@
+Ollama started with PID 1387382
+[GIN] 2026/07/28 - 22:26:57 | 200 |    9.974014ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:26:57 | 200 |    8.408579ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/28 - 22:26:57 | 200 |       14.77µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:26:57 | 200 |   17.941759ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/47_encode_linq_mistral_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[GPU] VRAM   : 42.4 GB
+[Encode] Loading Linq-Embed-Mistral (fp16)...
+[GIN] 2026/07/28 - 22:30:34 | 200 |      35.458µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:30:34 | 200 |       17.42µs |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/28 - 22:30:34 | 200 |      26.199µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/28 - 22:30:34 | 200 |   52.096835ms |       127.0.0.1 | GET      "/api/tags"
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Model loaded in 0.6 minutes
+[Encode] Resuming from checkpoint -- 384,144/397,025 companies already encoded (153.5 min spent so far)
+[Encode] Encoding all companies (no instruction prefix on document side)...
+[Encode]   384,800/397,025 companies encoded...
+[Encode]   385,600/397,025 companies encoded...
+[Encode]   386,400/397,025 companies encoded...
+[Encode]   387,200/397,025 companies encoded...
+[Encode]   388,000/397,025 companies encoded...
+[Encode]   388,800/397,025 companies encoded...
+[Encode]   389,600/397,025 companies encoded...
+[Encode]   390,400/397,025 companies encoded...
+[Encode]   391,200/397,025 companies encoded...
+[Encode]   392,000/397,025 companies encoded...
+[Encode]   392,800/397,025 companies encoded...
+[Encode]   393,600/397,025 companies encoded...
+[Encode]   394,400/397,025 companies encoded...
+[Encode]   395,200/397,025 companies encoded...
+[Encode]   396,000/397,025 companies encoded...
+[Encode]   396,800/397,025 companies encoded...
+[Encode] Done in 159.0 minutes total (across all resumed runs)
+[Encode] Embeddings shape : (397025, 4096)
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n562
+Job ID: 6084532
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:06:13
+CPU Efficiency: 6.32% of 01:38:24 core-walltime
+Job Wall-clock time: 00:08:12
+Memory Utilized: 14.89 GB
+Memory Efficiency: 16.22% of 91.80 GB (91.80 GB/node)

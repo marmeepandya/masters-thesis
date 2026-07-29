@@ -1,0 +1,40 @@
+Ollama started with PID 1729777
+[GIN] 2026/07/29 - 07:22:45 | 200 |    9.285431ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 07:22:45 | 200 |    7.597835ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/29 - 07:22:45 | 200 |      27.519µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 07:22:45 | 200 |    19.42039ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/07/29 - 07:23:08 | 200 |      24.931µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 07:23:08 | 200 |       11.54µs |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/29 - 07:23:08 | 200 |      27.838µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 07:23:08 | 200 |     9.93236ms |       127.0.0.1 | GET      "/api/tags"
+[Setup] Result folder : result/51_encode_e5_mistral_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[GPU] VRAM   : 42.4 GB
+[Encode] Loading E5-Mistral (fp16)...
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Model loaded in 0.6 minutes
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n562
+Job ID: 6086864
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:29
+CPU Efficiency: 1.69% of 00:28:36 core-walltime
+Job Wall-clock time: 00:02:23
+Memory Utilized: 12.58 GB
+Memory Efficiency: 13.70% of 91.80 GB (91.80 GB/node)

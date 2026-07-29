@@ -1,0 +1,61 @@
+Ollama started with PID 3168695
+[GIN] 2026/07/29 - 06:54:56 | 200 |     1.30273ms |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 06:54:56 | 200 |    3.289257ms |       127.0.0.1 | GET      "/api/ps"
+NAME    ID    SIZE    PROCESSOR    UNTIL 
+[GIN] 2026/07/29 - 06:54:56 | 200 |      25.295µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 06:54:56 | 200 |   13.568955ms |       127.0.0.1 | GET      "/api/tags"
+NAME                   ID              SIZE      MODIFIED     
+mistral:7b             6577803aa9a0    4.4 GB    2 months ago    
+llama3.1:8b            46e0c10c039e    4.9 GB    2 months ago    
+mistral-nemo:latest    e7e06d107c6c    7.1 GB    4 months ago    
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[GIN] 2026/07/29 - 06:56:07 | 200 |      28.005µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 06:56:07 | 200 |      14.258µs |       127.0.0.1 | GET      "/api/ps"
+[GIN] 2026/07/29 - 06:56:07 | 200 |       18.78µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/07/29 - 06:56:07 | 200 |    9.954775ms |       127.0.0.1 | GET      "/api/tags"
+[Load] Building title + body fields for each company...
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Encode] Loading SimLM (intfloat/simlm-base-msmarco-finetuned)...
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Model loaded in 31.4s on cuda
+[Encode] 20,000/397,025 encoded (0.2 min elapsed)
+[Encode] 40,000/397,025 encoded (0.3 min elapsed)
+[Encode] 60,000/397,025 encoded (0.4 min elapsed)
+[Encode] 80,000/397,025 encoded (0.6 min elapsed)
+[Encode] 100,000/397,025 encoded (0.7 min elapsed)
+[Encode] 120,000/397,025 encoded (0.9 min elapsed)
+[Encode] 140,000/397,025 encoded (1.0 min elapsed)
+[Encode] 160,000/397,025 encoded (1.2 min elapsed)
+[Encode] 180,000/397,025 encoded (1.3 min elapsed)
+[Encode] 200,000/397,025 encoded (1.5 min elapsed)
+[Encode] 220,000/397,025 encoded (1.6 min elapsed)
+[Encode] 240,000/397,025 encoded (1.8 min elapsed)
+[Encode] 260,000/397,025 encoded (1.9 min elapsed)
+[Encode] 280,000/397,025 encoded (2.1 min elapsed)
+[Encode] 300,000/397,025 encoded (2.2 min elapsed)
+[Encode] 320,000/397,025 encoded (2.4 min elapsed)
+[Encode] 340,000/397,025 encoded (2.5 min elapsed)
+[Encode] 360,000/397,025 encoded (2.7 min elapsed)
+[Encode] 380,000/397,025 encoded (2.9 min elapsed)
+[Encode] 397,025/397,025 encoded (3.0 min elapsed)
+[Encode] Done. Embeddings shape: (397025, 768)
+[Encode] Saved -> result/53_encode_simlm_scaled/company_embeddings.npy
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n573
+Job ID: 6086828
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:08:17
+CPU Efficiency: 11.44% of 01:12:24 core-walltime
+Job Wall-clock time: 00:06:02
+Memory Utilized: 4.59 GB
+Memory Efficiency: 5.00% of 91.80 GB (91.80 GB/node)

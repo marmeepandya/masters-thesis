@@ -7,7 +7,10 @@ import pandas as pd
 import torch
 import torch.nn.functional as F
 from pathlib import Path
+from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModel
+
+load_dotenv()  # loads HF_TOKEN, used if the fallback (non-cached, network) path below is needed
 
 RESULT_DIR = Path("result/51_encode_e5_mistral_scaled")
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
@@ -26,6 +29,8 @@ else:
     print("[GPU] WARNING: No GPU -- this model needs a GPU to be practical")
     DEVICE = "cpu"
 
+import os
+
 MAX_LENGTH = 512
 TIME_BUDGET_MINUTES = 27
 
@@ -33,6 +38,17 @@ CHECKPOINT_PATH = RESULT_DIR / "company_embeddings_checkpoint.npy"
 FINAL_PATH = RESULT_DIR / "company_embeddings.npy"
 TIME_LOG_PATH = RESULT_DIR / "encode_time_seconds.txt"
 prior_encode_secs = float(TIME_LOG_PATH.read_text()) if TIME_LOG_PATH.exists() else 0.0
+
+
+def atomic_save_npy(arr, path):
+    """Write to a temp file then atomically rename -- a plain np.save() left a truncated,
+    corrupted checkpoint here once when the job was killed mid-write (only 169,459 of 300,800 rows
+    were recoverable afterward). Same principle as notebook 54's robust_save."""
+    p = Path(path)
+    tmp_path = p.with_suffix(".tmp" + p.suffix)
+    np.save(tmp_path, arr)
+    os.replace(tmp_path, path)
+
 
 def last_token_pool(last_hidden_states, attention_mask):
     left_padding = (attention_mask[:, -1].sum() == attention_mask.shape[0])
@@ -71,9 +87,9 @@ def encode_batch(texts, start=0, batch_size=16, prefix_embs=None, checkpoint=Fal
         if checkpoint and (i // batch_size + 1) % 50 == 0:
             print(f"[Encode]   {i + len(batch):,}/{len(texts):,} companies encoded...")
         if checkpoint and (i // batch_size + 1) % 200 == 0:
-            np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
+            atomic_save_npy(np.concatenate(all_embs, axis=0), CHECKPOINT_PATH)
         if checkpoint and (time.time() - SCRIPT_START) / 60 > TIME_BUDGET_MINUTES:
-            np.save(CHECKPOINT_PATH, np.concatenate(all_embs, axis=0))
+            atomic_save_npy(np.concatenate(all_embs, axis=0), CHECKPOINT_PATH)
             TIME_LOG_PATH.write_text(str(prior_encode_secs + time.time() - encode_t0))
             print(f"[Encode] Time budget ({TIME_BUDGET_MINUTES} min) reached at {i + len(batch):,}/{len(texts):,} -- checkpoint saved, resubmit run.sh to continue")
             sys.exit(0)
@@ -101,7 +117,7 @@ else:
     ENCODE_TIME = prior_encode_secs + (time.time() - encode_t0)
     print(f"[Encode] Done in {ENCODE_TIME/60:.1f} minutes total (across all resumed runs)")
     print(f"[Encode] Embeddings shape : {embeddings.shape}")
-    np.save(FINAL_PATH, embeddings)
+    atomic_save_npy(embeddings, FINAL_PATH)
     TIME_LOG_PATH.write_text(str(ENCODE_TIME))
     if CHECKPOINT_PATH.exists():
         CHECKPOINT_PATH.unlink()

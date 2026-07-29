@@ -1,9 +1,13 @@
+import os
 import time
 import numpy as np
 import pandas as pd
 import torch
 from pathlib import Path
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
+
+load_dotenv()
 
 RESULT_DIR = Path("result/48_encode_bge_large_scaled")
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
@@ -23,7 +27,19 @@ if torch.cuda.is_available():
 
 print("[Encode] Loading BGE-large (BAAI/bge-large-en-v1.5)...")
 t0 = time.time()
-model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=DEVICE)
+# Try local cache first with HF_HUB_OFFLINE=1 -- without this, sentence-transformers still makes a
+# network call to verify the cache is current even when the model is fully cached, and on this
+# cluster that unauthenticated call can hang long enough to burn the entire 30-min job with zero
+# encoding progress (observed: notebooks 48/50 timed out this way). Fall back to network only if
+# the cache turns out to be incomplete.
+os.environ["HF_HUB_OFFLINE"] = "1"
+try:
+    model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=DEVICE)
+    print("[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls")
+except Exception as e:
+    print(f"[Encode] Not fully cached locally yet ({type(e).__name__}) -- retrying with network access (this will be slower)")
+    os.environ.pop("HF_HUB_OFFLINE", None)
+    model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=DEVICE)
 print(f"[Encode] Model loaded in {time.time()-t0:.1f}s on {model.device}")
 batch_size = 256
 print(f"[Encode] Batch size : {batch_size}")

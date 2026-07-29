@@ -1958,6 +1958,77 @@ Unlike the one-shot batch in Section~\ref{subsec:active_learning}, this used gen
 
 \paragraph{Finding.} These four checks quantify, rather than merely argue, the circularity concern raised at the start of this thesis (Chapter~\ref{ch:introduction}): production's own ranking is right more often than not when judged against the independent gold standard (Check 2), but it misses over a quarter of genuinely relevant companies outright (Check 3), and even among candidates both systems agree are worth considering, production's internal ranking carries almost no relationship to independently-verified relevance (Check 4, $-0.056$). Benchmarking this thesis's retrieval pipeline against production as a strong baseline (as recommended by Istari's own engineering team, Section~\ref{ch:introduction}) remains the right framing, but these results make explicit exactly how much headroom that baseline leaves, both in what it fails to surface at all and in how loosely its internal ranking tracks true relevance among what it does surface.
 
+\subsection{A Direct Ranking Comparison: Production vs. an Independently Cross-Validated Ranker}
+\label{subsec:goi_vs_ours_ranking}
+
+Section~\ref{subsec:production_divergence} shows production's ranking \emph{differs} from the independent gold/silver set; this section asks whether it is actually \emph{worse} at finding truly relevant companies, a stronger and more specific claim. Production's own top-1{,}000-per-query ranking is compared against a ranking produced by the fusion-ranker classifier trained with leave-one-query-out cross-validation (the same principle as Section~\ref{subsec:refit_fusion_ranker}, extended from 5 to all 101 queries: for every query, the classifier is trained on every \emph{other} query's gold labels only, so no ranking is ever produced by a model that saw that query's own labels). All 101 folds train in under 15 seconds, so this adds no meaningful cost. Both rankings are scored against the same gold-verified relevant set (\texttt{gold\_label} $=2$) using Recall@$k$/Precision@$k$/NDCG@$k$ at $k \in \{10, 50, 100, 300, 500, 1000\}$.
+
+\begin{table}[ht]
+\centering
+\caption{Recall@$k$: production's own ranking vs. the independently cross-validated ranking, against the same gold-verified relevant set.}
+\label{tab:goi_vs_ours}
+\begin{tabular}{lrrrrrr}
+\toprule
+& \multicolumn{6}{c}{\textbf{Recall@$k$}} \\
+\textbf{System} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{300} & \textbf{500} & \textbf{1000} \\
+\midrule
+\multicolumn{7}{l}{\emph{All 101 queries}} \\
+Production (GOI)               & 0.011 & 0.048 & 0.088 & 0.225 & 0.366 & 0.720 \\
+Ours (cross-validated)         & 0.002 & 0.012 & 0.018 & 0.066 & 0.180 & 0.659 \\
+\midrule
+\multicolumn{7}{l}{\emph{19 deeply-labelled queries only (5 pilot + 14 headline, Sections~\ref{subsec:pooled_gold_standard}, \ref{subsec:headline_deepening})}} \\
+Production (GOI)               & 0.050 & 0.118 & 0.165 & 0.332 & 0.459 & 0.746 \\
+Ours (cross-validated)         & 0.012 & 0.042 & 0.073 & 0.183 & 0.325 & 0.654 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding, stated honestly.} Production's own ranking outperforms the independently cross-validated ranking at \emph{every} $k$ value tested, on both the full 101-query set and the 19 deeply-labelled queries. This is not the result this thesis's other findings would predict, and it is reported here without qualification rather than omitted. The most plausible explanation lies in the composition of the gold-standard candidate pool itself, not in the correctness of the labels: the pooling methodology (Section~\ref{sec:pooled_validation}) drew candidates from six sources, one of which was production's own frozen output, and Section~\ref{subsec:production_divergence}'s Check 2 already showed that 72.7\% of gold-verified relevant companies were already present in production's own top-1{,}000. Production therefore receives a structural advantage on this specific comparison: a large share of what later became a confirmed-relevant label was, by construction, a company production itself had already surfaced. This does not undermine the label-correctness evidence elsewhere in this thesis (the labels themselves are independently judged, Section~\ref{subsec:pooled_gold_standard}), but it does mean this particular head-to-head ranking comparison cannot yet support a claim that this thesis's ranking algorithm retrieves relevant companies more effectively than production does. Testing that claim fairly requires a gold-verified relevant set drawn from a candidate pool production had no part in constructing, which is exactly what the random 300{,}000-company sample (Section~\ref{sec:scaling_corpus}) is for; that comparison is left for future work pending the scaled encoding described there.
+
+\subsection{Is the Classifier's Confidence Honest? A Calibration Check}
+\label{subsec:calibration_check}
+
+The accuracy figures reported throughout Sections~\ref{sec:silver_labels}--\ref{subsec:headline_deepening} measure whether the classifier's predicted label (relevant/not, at the 0.5 cutoff) is correct. A separate question is whether its predicted \emph{probability} is honest, when it reports 90\% confidence, is it right about 90\% of the time. This matters because the overwhelming majority of the silver tier was never individually spot-checked; trusting the classifier's confidence at face value depends on it being well calibrated, not just accurate at one threshold. Using the same leave-one-query-out cross-validated predictions as Section~\ref{subsec:goi_vs_ours_ranking}, predicted probabilities for all 2{,}267 gold-labelled candidates were binned into deciles and compared against the actual relevant rate within each bin.
+
+\begin{table}[ht]
+\centering
+\caption{Calibration: mean predicted probability vs. actual relevant rate, per decile (cross-validated).}
+\label{tab:calibration}
+\small
+\begin{tabular}{rrrr}
+\toprule
+\textbf{Predicted probability bin} & \textbf{n} & \textbf{Mean predicted} & \textbf{Actual relevant rate} \\
+\midrule
+0.0--0.1 & 50  & 0.070 & 0.220 \\
+0.1--0.2 & 161 & 0.149 & 0.360 \\
+0.2--0.3 & 230 & 0.253 & 0.539 \\
+0.3--0.4 & 314 & 0.352 & 0.589 \\
+0.4--0.5 & 266 & 0.446 & 0.545 \\
+0.5--0.6 & 203 & 0.553 & 0.675 \\
+0.6--0.7 & 212 & 0.647 & 0.708 \\
+0.7--0.8 & 187 & 0.750 & 0.695 \\
+0.8--0.9 & 238 & 0.856 & 0.815 \\
+0.9--1.0 & 406 & 0.960 & 0.899 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.} The overall Brier score is 0.220 (0 = perfect, 0.25 = no better than always predicting 0.5), a real but modest improvement over chance, consistent with the modest classifier accuracy reported elsewhere. The calibration curve is asymmetric: in the high-confidence range (0.7--1.0) the classifier is close to well-calibrated, only mildly overconfident. In the low-to-middle range (0.2--0.5), it is substantially \emph{underconfident}: candidates the model scores around 0.25 turn out relevant 53.9\% of the time, more than double the model's own stated probability. Practically, this means the simple 0.5 cutoff used throughout this thesis to define ``predicted relevant'' is likely under-counting true positives that happen to fall in this band, offering a plausible partial explanation for part of the coverage gap documented in Section~\ref{subsec:production_divergence}, and a concrete direction for future work (probability recalibration, e.g. Platt scaling or isotonic regression, before applying a hard threshold).
+
+\subsection{Honest Synthesis: Is the Gold/Silver Standard Better Than GOI's Own Output?}
+\label{subsec:honest_synthesis}
+
+Pulling together every check in Sections~\ref{sec:silver_labels}--\ref{subsec:calibration_check}, the answer is not a single yes or no, it depends on which specific claim is being made, and the evidence does not point the same way for each:
+
+\begin{itemize}
+\item \textbf{Is the labelling methodology more defensible than trusting production's own output as ground truth?} Yes. Production's ranking cannot validate itself; it is circular by construction (Chapter~\ref{ch:introduction}). This thesis's gold standard uses independent multi-judge LLM labelling, blind calibration (Section~\ref{subsec:pooled_gold_standard}), and human tie-breaking, none of which production's own ranking has any equivalent of.
+\item \textbf{Does this thesis's methodology find relevant companies production's own system misses entirely?} Yes, demonstrated: 27.3\% of gold-verified highly relevant companies are entirely absent from production's top-1{,}000 (Section~\ref{subsec:production_divergence}, Check 3).
+\item \textbf{Does this thesis's ranking algorithm outperform production's ranking at retrieving relevant companies, head-to-head?} Not yet shown, and the one direct test conducted (Section~\ref{subsec:goi_vs_ours_ranking}) found the opposite, likely attributable to residual candidate-pool bias rather than a genuine quality reversal, but this has not been independently confirmed.
+\item \textbf{Is the classifier itself highly accurate and well-calibrated?} Only moderately. Brier score 0.220, with a real, systematic calibration gap in the low-to-middle confidence range (Section~\ref{subsec:calibration_check}).
+\end{itemize}
+
+The defensible claim this thesis supports is therefore narrower than ``the new labels are better'': \emph{the independent gold standard is methodologically sounder for evaluation purposes and demonstrates concrete, measurable blind spots in production's own ranking, but this thesis has not yet shown that its own ranking algorithm retrieves relevant companies more effectively than production does.} Confirming or refuting that stronger claim requires evaluating against a gold-verified relevant set drawn from candidates production had no part in surfacing, which motivates the random-sample-based evaluation described next.
+
 % ────────────────────────────────────────────────────────────
 \section{Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}
 \label{sec:scaling_corpus}
