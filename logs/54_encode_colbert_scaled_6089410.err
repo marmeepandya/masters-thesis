@@ -1,0 +1,12 @@
+[NbConvertApp] Converting notebook 54_encode_colbert_scaled.ipynb to script
+[NbConvertApp] Writing 9292 bytes to 54_encode_colbert_scaled.py
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 93/197 [00:00<00:00, 894.72it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 1017.31it/s]
+[transformers] [1mBertModel LOAD REPORT[0m from: colbert-ir/colbertv2.0
+Key                      | Status     |  | 
+-------------------------+------------+--+-
+linear.weight            | UNEXPECTED |  | 
+bert.pooler.dense.weight | UNEXPECTED |  | 
+bert.pooler.dense.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.

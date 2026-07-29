@@ -168,7 +168,21 @@
       "Bash(ls result/17_baseline_gte_large/*.npy)",
       "Bash(ls result/03_baseline_minilm/*.npy)",
       "Bash(ls result/02_baseline_bge/ result/13_bge_prefix/ result/16_baseline_bgem3/)",
-      "Bash(ls result/03_baseline_minilm/)"
+      "Bash(ls result/03_baseline_minilm/)",
+      "Bash(ws_list)",
+      "Bash(echo \"exit code: $?\")",
+      "Bash(quota -s)",
+      "Bash(rm -rf /home/ma/ma_ma/ma_mpandya/.cache/huggingface/hub/models--BAAI--bge-multilingual-gemma2)",
+      "Bash(rm -rf /home/ma/ma_ma/ma_mpandya/.cache/huggingface/hub/models--nvidia--NV-Embed-v2)",
+      "Bash(rm -rf /home/ma/ma_ma/ma_mpandya/.cache/huggingface/hub/models--dunzhang--stella_en_1.5B_v5)",
+      "Read(//pfs/data6/home/ma/ma_ma/ma_mpandya/.cache/huggingface/hub/**)",
+      "Bash(crontab /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/crontab_edit.txt)",
+      "Bash(squeue -u ma_mpandya -n 15_baseline_bge_gemma2_short)",
+      "Bash(sort -k9)",
+      "Bash(tail -30 logs/54_encode_colbert_scaled_6086938.out)",
+      "Bash(ls -la logs/54_encode_colbert_scaled_*.out)",
+      "Bash(sacct -u ma_mpandya --starttime=2026-07-29 --format=JobID,JobName,Start,End,State -X)",
+      "Bash(awk -F: '$1 >= 1600 && $1 <= 2140')"
     ]
   }
 }

@@ -1,0 +1,4 @@
+[NbConvertApp] Converting notebook 49_encode_bgem3_scaled.ipynb to script
+[NbConvertApp] Writing 4749 bytes to 49_encode_bgem3_scaled.txt
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 39695.33it/s]
+[2026-07-29T13:59:49.252] error: *** JOB 6089651 ON uc2n562 CANCELLED AT 2026-07-29T13:59:49 DUE TO TIME LIMIT ***

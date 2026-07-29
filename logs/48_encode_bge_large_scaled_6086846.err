@@ -1,5 +1,0 @@
-Error: listen tcp 127.0.0.1:11435: bind: address already in use
-[NbConvertApp] Converting notebook 48_encode_bge_large_scaled.ipynb to script
-[NbConvertApp] Writing 3418 bytes to 48_encode_bge_large_scaled.txt
-Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  34%|███▍      | 133/391 [00:00<00:00, 1315.53it/s]Loading weights:  68%|██████▊   | 265/391 [00:00<00:00, 1293.15it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 1338.08it/s]
-[2026-07-29T07:35:17.974] error: *** JOB 6086846 ON uc2n562 CANCELLED AT 2026-07-29T07:35:17 DUE TO TIME LIMIT ***

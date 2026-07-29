@@ -121,13 +121,25 @@
 \contentsline {subsection}{\numberline {4.23.5}Is the Classifier's Confidence Honest? A Calibration Check}{41}{subsection.4.23.5}%
 \contentsline {paragraph}{\nonumberline Finding.}{41}{paragraph*.132}%
 \contentsline {subsection}{\numberline {4.23.6}Honest Synthesis: Is the Gold/Silver Standard Better Than GOI's Own Output?}{42}{subsection.4.23.6}%
-\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{43}{section.4.24}%
-\contentsline {paragraph}{\nonumberline A fully random sample.}{43}{paragraph*.134}%
-\contentsline {paragraph}{\nonumberline Data quality.}{43}{paragraph*.136}%
-\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{43}{paragraph*.138}%
-\contentsline {paragraph}{\nonumberline Encoding.}{44}{paragraph*.140}%
-\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{44}{paragraph*.142}%
-\contentsline {paragraph}{\nonumberline Status.}{45}{paragraph*.144}%
-\contentsline {chapter}{\nonumberline Bibliography}{46}{chapter*.145}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{49}{chapter*.146}%
+\contentsline {paragraph}{\nonumberline Limitation: precision is a lower bound, not an exact figure.}{43}{paragraph*.134}%
+\contentsline {paragraph}{\nonumberline Future work: tightening this bound with more exhaustive LLM ranking.}{43}{paragraph*.136}%
+\contentsline {subsection}{\numberline {4.23.7}Preparing an External Review: Where Existing Gold Coverage Actually Sits in the Ranking}{43}{subsection.4.23.7}%
+\contentsline {paragraph}{\nonumberline Two representative queries.}{44}{paragraph*.138}%
+\contentsline {paragraph}{\nonumberline Method.}{44}{paragraph*.140}%
+\contentsline {paragraph}{\nonumberline Finding.}{44}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Implication for the external review.}{45}{paragraph*.144}%
+\contentsline {subsection}{\numberline {4.23.8}Hyperparameter Tuning the Fusion Ranker}{45}{subsection.4.23.8}%
+\contentsline {paragraph}{\nonumberline Method.}{45}{paragraph*.146}%
+\contentsline {paragraph}{\nonumberline Avoiding leakage in model selection.}{45}{paragraph*.148}%
+\contentsline {paragraph}{\nonumberline Results.}{45}{paragraph*.150}%
+\contentsline {paragraph}{\nonumberline Finding, stated honestly.}{46}{paragraph*.152}%
+\contentsline {section}{\numberline {4.24}Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}{46}{section.4.24}%
+\contentsline {paragraph}{\nonumberline A fully random sample.}{47}{paragraph*.154}%
+\contentsline {paragraph}{\nonumberline Data quality.}{47}{paragraph*.156}%
+\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{47}{paragraph*.158}%
+\contentsline {paragraph}{\nonumberline Encoding.}{47}{paragraph*.160}%
+\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{48}{paragraph*.162}%
+\contentsline {paragraph}{\nonumberline Status.}{48}{paragraph*.164}%
+\contentsline {chapter}{\nonumberline Bibliography}{50}{chapter*.165}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{53}{chapter*.166}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

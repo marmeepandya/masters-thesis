@@ -1,0 +1,112 @@
+Gold labels for cross-validation: 2267 across 101 queries
+Held-out deep queries (never touched during search): 19
+Tuning-only queries (used for hyperparameter search): 82
+[Baseline] Running the current, untuned hyperparameters (max_iter=150, max_depth=4) on all 101 queries...
+[Baseline] Done in 15.2s
+[Baseline] All-101-queries  Recall@1000=0.659  NDCG@1000=0.166
+[Baseline] 19-deep-queries  Recall@1000=0.654  NDCG@1000=0.286
+[Search] Scoring every combination on the 82 tuning-only queries -- the 19 deep queries are never touched here
+[Search] 0/40 combinations already evaluated -- resuming
+  [1/40] NDCG@1000=0.1557  Recall@1000=0.6367  params={'max_depth': 8, 'max_iter': 50, 'learning_rate': 0.03, 'min_samples_leaf': 20, 'l2_regularization': 0.1}
+  [2/40] NDCG@1000=0.1514  Recall@1000=0.6686  params={'max_depth': 3, 'max_iter': 100, 'learning_rate': 0.3, 'min_samples_leaf': 5, 'l2_regularization': 2.0}
+  [3/40] NDCG@1000=0.1516  Recall@1000=0.6916  params={'max_depth': 2, 'max_iter': 300, 'learning_rate': 0.15, 'min_samples_leaf': 5, 'l2_regularization': 0.0}
+  [4/40] NDCG@1000=0.1615  Recall@1000=0.7172  params={'max_depth': 2, 'max_iter': 100, 'learning_rate': 0.05, 'min_samples_leaf': 5, 'l2_regularization': 2.0}
+  [5/40] NDCG@1000=0.1480  Recall@1000=0.6527  params={'max_depth': 3, 'max_iter': 300, 'learning_rate': 0.15, 'min_samples_leaf': 10, 'l2_regularization': 1.0}
+  [6/40] NDCG@1000=0.1519  Recall@1000=0.6465  params={'max_depth': 6, 'max_iter': 150, 'learning_rate': 0.03, 'min_samples_leaf': 10, 'l2_regularization': 1.0}
+  [7/40] NDCG@1000=0.1509  Recall@1000=0.6740  params={'max_depth': 4, 'max_iter': 150, 'learning_rate': 0.05, 'min_samples_leaf': 10, 'l2_regularization': 0.5}
+  [8/40] NDCG@1000=0.1599  Recall@1000=0.7199  params={'max_depth': 2, 'max_iter': 50, 'learning_rate': 0.15, 'min_samples_leaf': 5, 'l2_regularization': 0.5}
+  [9/40] NDCG@1000=0.1431  Recall@1000=0.6163  params={'max_depth': None, 'max_iter': 150, 'learning_rate': 0.2, 'min_samples_leaf': 20, 'l2_regularization': 0.0}
+  [10/40] NDCG@1000=0.1650  Recall@1000=0.6602  params={'max_depth': 8, 'max_iter': 200, 'learning_rate': 0.2, 'min_samples_leaf': 5, 'l2_regularization': 1.0}
+  [11/40] NDCG@1000=0.1502  Recall@1000=0.6825  params={'max_depth': 2, 'max_iter': 300, 'learning_rate': 0.1, 'min_samples_leaf': 20, 'l2_regularization': 2.0}
+  [12/40] NDCG@1000=0.1660  Recall@1000=0.7022  params={'max_depth': 3, 'max_iter': 50, 'learning_rate': 0.03, 'min_samples_leaf': 10, 'l2_regularization': 0.5}
+  [13/40] NDCG@1000=0.1644  Recall@1000=0.7014  params={'max_depth': 2, 'max_iter': 100, 'learning_rate': 0.03, 'min_samples_leaf': 30, 'l2_regularization': 0.5}
+  [14/40] NDCG@1000=0.1463  Recall@1000=0.6499  params={'max_depth': 5, 'max_iter': 150, 'learning_rate': 0.05, 'min_samples_leaf': 20, 'l2_regularization': 0.5}
+  [15/40] NDCG@1000=0.1494  Recall@1000=0.6584  params={'max_depth': 3, 'max_iter': 150, 'learning_rate': 0.3, 'min_samples_leaf': 5, 'l2_regularization': 2.0}
+  [16/40] NDCG@1000=0.1546  Recall@1000=0.6599  params={'max_depth': 8, 'max_iter': 100, 'learning_rate': 0.2, 'min_samples_leaf': 10, 'l2_regularization': 0.1}
+  [17/40] NDCG@1000=0.1564  Recall@1000=0.6836  params={'max_depth': 5, 'max_iter': 200, 'learning_rate': 0.1, 'min_samples_leaf': 10, 'l2_regularization': 0.5}
+  [18/40] NDCG@1000=0.1581  Recall@1000=0.6580  params={'max_depth': None, 'max_iter': 50, 'learning_rate': 0.05, 'min_samples_leaf': 5, 'l2_regularization': 0.5}
+  [19/40] NDCG@1000=0.1555  Recall@1000=0.6581  params={'max_depth': 5, 'max_iter': 150, 'learning_rate': 0.03, 'min_samples_leaf': 10, 'l2_regularization': 2.0}
+  [20/40] NDCG@1000=0.1425  Recall@1000=0.6232  params={'max_depth': 8, 'max_iter': 150, 'learning_rate': 0.05, 'min_samples_leaf': 30, 'l2_regularization': 1.0}
+  [21/40] NDCG@1000=0.1481  Recall@1000=0.6408  params={'max_depth': 8, 'max_iter': 200, 'learning_rate': 0.05, 'min_samples_leaf': 20, 'l2_regularization': 0.1}
+  [22/40] NDCG@1000=0.1428  Recall@1000=0.6395  params={'max_depth': 3, 'max_iter': 300, 'learning_rate': 0.2, 'min_samples_leaf': 20, 'l2_regularization': 2.0}
+  [23/40] NDCG@1000=0.1431  Recall@1000=0.6309  params={'max_depth': 5, 'max_iter': 300, 'learning_rate': 0.15, 'min_samples_leaf': 20, 'l2_regularization': 0.1}
+  [24/40] NDCG@1000=0.1444  Recall@1000=0.6453  params={'max_depth': 3, 'max_iter': 300, 'learning_rate': 0.15, 'min_samples_leaf': 5, 'l2_regularization': 0.0}
+  [25/40] NDCG@1000=0.1634  Recall@1000=0.6516  params={'max_depth': None, 'max_iter': 50, 'learning_rate': 0.05, 'min_samples_leaf': 10, 'l2_regularization': 1.0}
+  [26/40] NDCG@1000=0.1501  Recall@1000=0.6605  params={'max_depth': 6, 'max_iter': 50, 'learning_rate': 0.15, 'min_samples_leaf': 30, 'l2_regularization': 2.0}
+  [27/40] NDCG@1000=0.1509  Recall@1000=0.6651  params={'max_depth': 5, 'max_iter': 300, 'learning_rate': 0.1, 'min_samples_leaf': 5, 'l2_regularization': 0.0}
+  [28/40] NDCG@1000=0.1434  Recall@1000=0.6291  params={'max_depth': 8, 'max_iter': 300, 'learning_rate': 0.1, 'min_samples_leaf': 20, 'l2_regularization': 0.0}
+  [29/40] NDCG@1000=0.1444  Recall@1000=0.6468  params={'max_depth': 4, 'max_iter': 200, 'learning_rate': 0.05, 'min_samples_leaf': 30, 'l2_regularization': 0.0}
+  [30/40] NDCG@1000=0.1529  Recall@1000=0.6219  params={'max_depth': 8, 'max_iter': 150, 'learning_rate': 0.2, 'min_samples_leaf': 10, 'l2_regularization': 2.0}
+  [31/40] NDCG@1000=0.1487  Recall@1000=0.6786  params={'max_depth': 2, 'max_iter': 150, 'learning_rate': 0.3, 'min_samples_leaf': 10, 'l2_regularization': 0.1}
+  [32/40] NDCG@1000=0.1525  Recall@1000=0.6546  params={'max_depth': 4, 'max_iter': 100, 'learning_rate': 0.2, 'min_samples_leaf': 5, 'l2_regularization': 2.0}
+  [33/40] NDCG@1000=0.1493  Recall@1000=0.6735  params={'max_depth': 4, 'max_iter': 200, 'learning_rate': 0.03, 'min_samples_leaf': 5, 'l2_regularization': 0.5}
+  [34/40] NDCG@1000=0.1543  Recall@1000=0.6471  params={'max_depth': None, 'max_iter': 150, 'learning_rate': 0.05, 'min_samples_leaf': 5, 'l2_regularization': 0.1}
+  [35/40] NDCG@1000=0.1589  Recall@1000=0.6839  params={'max_depth': 6, 'max_iter': 50, 'learning_rate': 0.03, 'min_samples_leaf': 30, 'l2_regularization': 0.0}
+  [36/40] NDCG@1000=0.1468  Recall@1000=0.6090  params={'max_depth': None, 'max_iter': 300, 'learning_rate': 0.05, 'min_samples_leaf': 10, 'l2_regularization': 1.0}
+  [37/40] NDCG@1000=0.1445  Recall@1000=0.6340  params={'max_depth': 6, 'max_iter': 100, 'learning_rate': 0.1, 'min_samples_leaf': 30, 'l2_regularization': 0.1}
+  [38/40] NDCG@1000=0.1428  Recall@1000=0.6134  params={'max_depth': 6, 'max_iter': 100, 'learning_rate': 0.3, 'min_samples_leaf': 20, 'l2_regularization': 1.0}
+  [39/40] NDCG@1000=0.1386  Recall@1000=0.6034  params={'max_depth': 8, 'max_iter': 150, 'learning_rate': 0.15, 'min_samples_leaf': 30, 'l2_regularization': 0.0}
+  [40/40] NDCG@1000=0.1544  Recall@1000=0.6921  params={'max_depth': 3, 'max_iter': 100, 'learning_rate': 0.03, 'min_samples_leaf': 20, 'l2_regularization': 0.0}
+[Search] Done in 9.6 min
+Top 10 hyperparameter combinations by NDCG@1000:
+ combo_id  max_depth  max_iter  learning_rate  min_samples_leaf  l2_regularization  recall_at_1000  ndcg_at_1000  ndcg_at_10
+       11        3.0        50           0.03                10                0.5        0.702215      0.165967    0.004825
+        9        8.0       200           0.20                 5                1.0        0.660197      0.165040    0.010947
+       12        2.0       100           0.03                30                0.5        0.701406      0.164364    0.005647
+       24        NaN        50           0.05                10                1.0        0.651638      0.163410    0.012928
+        3        2.0       100           0.05                 5                2.0        0.717189      0.161476    0.002619
+        7        2.0        50           0.15                 5                0.5        0.719866      0.159931    0.002632
+       34        6.0        50           0.03                30                0.0        0.683861      0.158946    0.002505
+       17        NaN        50           0.05                 5                0.5        0.657967      0.158135    0.006757
+       16        5.0       200           0.10                10                0.5        0.683630      0.156355    0.001160
+        0        8.0        50           0.03                20                0.1        0.636749      0.155727    0.006383
+
+Best hyperparameters: {'max_depth': 3, 'max_iter': 50, 'learning_rate': np.float64(0.03), 'min_samples_leaf': 10, 'l2_regularization': np.float64(0.5)}
+[Tuned] Running the best hyperparameters found on all 101 queries: {'max_depth': 3, 'max_iter': 50, 'learning_rate': np.float64(0.03), 'min_samples_leaf': 10, 'l2_regularization': np.float64(0.5)}
+[Tuned] Done in 4.7s
+             model    query_subset    k  precision   recall     ndcg
+baseline (untuned) all_101_queries   10   0.006931 0.002261 0.006524
+baseline (untuned) all_101_queries   50   0.006337 0.012385 0.009183
+baseline (untuned) all_101_queries  100   0.005446 0.018333 0.010991
+baseline (untuned) all_101_queries  300   0.005611 0.066238 0.027703
+baseline (untuned) all_101_queries  500   0.006396 0.180010 0.055721
+baseline (untuned) all_101_queries 1000   0.009356 0.659311 0.165923
+baseline (untuned) 19_deep_queries   10   0.036842 0.011663 0.033648
+baseline (untuned) 19_deep_queries   50   0.030526 0.042263 0.039255
+baseline (untuned) 19_deep_queries  100   0.027368 0.072945 0.048577
+baseline (untuned) 19_deep_queries  300   0.026316 0.183380 0.100695
+baseline (untuned) 19_deep_queries  500   0.026842 0.324715 0.156472
+baseline (untuned) 19_deep_queries 1000   0.029579 0.654081 0.285966
+             tuned all_101_queries   10   0.003960 0.001897 0.002904
+             tuned all_101_queries   50   0.004554 0.013782 0.007948
+             tuned all_101_queries  100   0.004950 0.022400 0.011180
+             tuned all_101_queries  300   0.006865 0.113687 0.039305
+             tuned all_101_queries  500   0.007723 0.242843 0.072864
+             tuned all_101_queries 1000   0.009644 0.677474 0.173332
+             tuned 19_deep_queries   10   0.021053 0.009783 0.014978
+             tuned 19_deep_queries   50   0.021053 0.050786 0.033445
+             tuned 19_deep_queries  100   0.023684 0.070172 0.043991
+             tuned 19_deep_queries  300   0.028070 0.206371 0.107657
+             tuned 19_deep_queries  500   0.028842 0.360455 0.168435
+             tuned 19_deep_queries 1000   0.030421 0.677985 0.294566
+
+Read "tuned / 19_deep_queries" as the genuinely leakage-free comparison -- those 19 queries
+never contributed to the hyperparameter search. "tuned / all_101_queries" is still useful for
+comparability with earlier sections, but 82 of those 101 queries did influence which
+hyperparameters were picked, so treat it as directional rather than strictly unbiased.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6091248
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:09:58
+CPU Efficiency: 7.95% of 02:05:24 core-walltime
+Job Wall-clock time: 00:10:27
+Memory Utilized: 237.32 MB
+Memory Efficiency: 0.25% of 91.80 GB (91.80 GB/node)

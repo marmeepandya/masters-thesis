@@ -1,0 +1,27 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/52_encode_sfr_mistral_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[GPU] VRAM   : 42.4 GB
+[Encode] Loading SFR-Mistral (fp16)...
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Model loaded in 0.6 minutes
+[Encode] Final embeddings already on disk -- skipping corpus encoding
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6088406
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:32
+CPU Efficiency: 2.05% of 00:26:00 core-walltime
+Job Wall-clock time: 00:02:10
+Memory Utilized: 14.38 GB
+Memory Efficiency: 15.66% of 91.80 GB (91.80 GB/node)

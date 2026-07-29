@@ -2029,6 +2029,79 @@ Pulling together every check in Sections~\ref{sec:silver_labels}--\ref{subsec:ca
 
 The defensible claim this thesis supports is therefore narrower than ``the new labels are better'': \emph{the independent gold standard is methodologically sounder for evaluation purposes and demonstrates concrete, measurable blind spots in production's own ranking, but this thesis has not yet shown that its own ranking algorithm retrieves relevant companies more effectively than production does.} Confirming or refuting that stronger claim requires evaluating against a gold-verified relevant set drawn from candidates production had no part in surfacing, which motivates the random-sample-based evaluation described next.
 
+\paragraph{Limitation: precision is a lower bound, not an exact figure.} Every precision@$k$ number reported in this thesis is computed against the pooled, actively-sampled gold standard, not an exhaustive judgment of every retrieved candidate. A retrieved company only counts as a true positive if it happens to have already been gold-labelled; a genuinely relevant company that was simply never pooled or judged contributes neither a true positive nor a false positive; it is silently invisible to the metric. Recall@$k$ is unaffected by this, since it is computed only over the set of candidates that do have a gold label. Precision@$k$, however, is systematically biased downward by an unknown amount, since some fraction of a method's retrieved-but-unlabelled candidates are almost certainly relevant and simply were never reviewed. This is a known consequence of evaluating against pooled rather than exhaustive judgments \citep{baryossef2008random, lu2016effect}, not a flaw specific to this thesis's pipeline, but it means precision figures throughout should be read as conservative lower bounds rather than exact values.
+
+\paragraph{Future work: tightening this bound with more exhaustive LLM ranking.} A more exhaustive per-query relevance pass, an LLM directly ranking or scoring every candidate in an already-pooled, multi-source candidate set (rather than the smaller, actively-sampled subset actually judged in this thesis), would shrink the gap between reported and true precision by leaving fewer retrieved candidates unjudged. This must still draw its candidates from a pooled, multi-source set rather than a single retrieval method's own output, otherwise the same single-source circularity this thesis's gold standard was built to avoid (Section~\ref{subsec:pooled_gold_standard}) reappears one layer downstream, with the LLM only ever able to rank whatever one method chose to surface. Scaling this idea further, toward Istari's full company database rather than the $\sim$98\,716-\,to-397\,025-company samples used throughout this thesis, is a natural direction: the same pool-then-judge structure would need to repeat at that scale, with the resulting broader, automated relevance judgments used both as a larger gold standard and as the basis for the production top-1{,}000 retrieval this thesis's methods ultimately aim to support. Neither extension is implemented here; both are left as concrete next steps.
+
+\subsection{Preparing an External Review: Where Existing Gold Coverage Actually Sits in the Ranking}
+\label{subsec:external_review_prep}
+
+Before sending ranked candidate lists to external reviewers at Istari (Kerem Cerit and Manav) for a joint relevance-label review, it is worth checking where the gold labels already collected sit within each query's own ranked output, since that determines whether the top of the ranking can already be called trustworthy or whether it is still, in effect, unverified.
+
+\paragraph{Two representative queries.} Query 1 (``software companies'') and query 92 (``wealth management firms'') were chosen to send out, the former for its comparatively large existing label count, the latter for having the largest coverage gap identified in Section~\ref{subsec:production_divergence}.
+
+\paragraph{Method.} For each query, the classifier-ranked top-1{,}000 candidates from Section~\ref{subsec:refit_fusion_ranker}'s silver-label pipeline were split into five rank bands (1--100, 101--300, 301--500, 501--700, 701--1{,}000), and every candidate already carrying a verified gold label was located within its band.
+
+\begin{table}[h]
+\centering
+\caption{Where existing gold-verified labels fall within each query's own ranked list.}
+\label{tab:rank_band_coverage}
+\begin{tabular}{lrrr}
+\toprule
+Rank band & $n$ gold-verified & \% highly relevant & \% at least partial \\
+\midrule
+\multicolumn{4}{l}{\textit{Query 1: software companies (99 gold-verified of 1{,}000)}} \\
+1--100    & 9  & 100.0 & 100.0 \\
+101--300  & 12 & 100.0 & 100.0 \\
+301--500  & 9  & 100.0 & 100.0 \\
+501--700  & 11 & 100.0 & 100.0 \\
+701--1{,}000 & 58 & 55.2  & 100.0 \\
+\midrule
+\multicolumn{4}{l}{\textit{Query 92: wealth management firms (70 gold-verified of 1{,}000)}} \\
+1--700    & 0  & --    & -- \\
+701--1{,}000 & 70 & 90.0  & 100.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding.} Gold coverage is not spread evenly across the ranking, it clusters heavily toward the bottom of each query's top-1{,}000 list. For query 92, every single gold-verified candidate falls in ranks 701--1{,}000; ranks 1--700 have no independent verification at all. Query 1 has thin coverage (9--12 candidates per band) scattered through ranks 1--700, with the bulk (58 of 99) again sitting in ranks 701--1{,}000. This is a direct consequence of how the gold standard was built: active learning (Section~\ref{subsec:active_learning}) deliberately samples uncertain, boundary-case candidates for labelling, not the candidates the classifier is already most confident about, so verified labels naturally accumulate low in the ranking rather than high. Where gold labels do exist, relevance is generally high (90--100\% for query 92, 100\% in four of five bands for query 1) but not perfect, query 1's rank 701--1{,}000 band drops to 55.2\% highly relevant, so ``the bottom of the ranking is still decent'' is roughly supported but not guaranteed, and ``the top 500 are the best of the best'' cannot yet be confirmed internally: there is essentially no ground truth there to confirm it with.
+
+\paragraph{Implication for the external review.} This motivates exporting the \emph{full} ranked top-1{,}000 list per query, in rank order, rather than a hand-picked top-$N$ sample: rank order alone already front-loads exactly the part of the list with the least existing verification (ranks 1--700), so no additional stratified-sampling logic is needed. The export omits every internal signal (predicted probability, silver/gold tier, existing gold label) and reviewers are asked to label top-down for as long as time allows. Because already-gold-labelled candidates remain at their natural rank position, unflagged, agreement or disagreement between the external reviewers' judgments and this thesis's own gold labels on those specific rows serves as a free, blind inter-rater consistency check once the review comes back.
+
+\subsection{Hyperparameter Tuning the Fusion Ranker}
+\label{subsec:hyperparameter_tuning}
+
+Every fusion ranker result reported so far, the original model (Section~\ref{sec:learned_fusion}), the pooled-gold-standard retraining (Section~\ref{subsec:refit_fusion_ranker}), and the cross-validated ranking comparison against production (Section~\ref{subsec:goi_vs_ours_ranking}), uses the same hand-picked \texttt{HistGradientBoostingClassifier} configuration (\texttt{max\_iter=150}, \texttt{max\_depth=4}, \texttt{class\_weight="balanced"}), chosen once early on and never systematically tuned against the gold standard. This section addresses that gap with a randomized hyperparameter search.
+
+\paragraph{Method.} The search space covers \texttt{max\_depth} (2 to 8, or unlimited), \texttt{max\_iter} (50 to 300), \texttt{learning\_rate} (0.03 to 0.3), \texttt{min\_samples\_leaf} (5 to 30), and \texttt{l2\_regularization} (0.0 to 2.0); \texttt{class\_weight="balanced"} is kept fixed throughout, since it is an established, justified design choice rather than a model-capacity hyperparameter. 40 combinations are sampled at random (fixed seed for reproducibility).
+
+\paragraph{Avoiding leakage in model selection.} Selecting the best combination using the same cross-validated metric later reported as the final result would bias that result upward (the ``winner's curse'' in model selection): a combination is not a fair, unbiased estimate of unseen-data performance if it was chosen \emph{because} it scored best on exactly the data used to report it. To avoid this, the search itself is restricted to the 82 queries without deep gold coverage, evaluated with \texttt{LeaveOneGroupOut} cross-validation grouped by \texttt{query\_id} within that 82-query pool only, scored by mean Recall@1{,}000 and NDCG@1{,}000. The 19 deep-coverage queries (5-query pilot plus 14 headline queries) are never touched during the search. Once the best combination is fixed, it is evaluated fresh with a full \texttt{LeaveOneGroupOut} pass over all 101 queries, the same protocol used for the untuned baseline (Section~\ref{subsec:goi_vs_ours_ranking}). The 19-deep-query subset of that final evaluation is a genuinely leakage-free comparison against the untuned baseline, since those queries never influenced which hyperparameters were chosen; the all-101-query subset is reported alongside it for comparability with earlier sections, but should be read as directional rather than strictly unbiased, since the other 82 queries did inform the search.
+
+\paragraph{Results.} The best combination found by the search (selected on the 82 tuning-only queries) was \texttt{max\_depth=3}, \texttt{max\_iter=50}, \texttt{learning\_rate=0.03}, \texttt{min\_samples\_leaf=10}, \texttt{l2\_regularization=0.5}, notably shallower and using far fewer boosting iterations than the original hand-picked configuration (\texttt{max\_depth=4}, \texttt{max\_iter=150}).
+
+\begin{table}[ht]
+\centering
+\caption{Recall@$k$ and NDCG@$k$ on the 19 deep-coverage queries (leakage-free: these queries never contributed to the hyperparameter search), untuned baseline vs. the best combination found.}
+\label{tab:hyperparameter_tuning}
+\begin{tabular}{lrrrrrr}
+\toprule
+& \multicolumn{6}{c}{\textbf{Recall@$k$}} \\
+\textbf{Model} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{300} & \textbf{500} & \textbf{1000} \\
+\midrule
+Baseline (untuned) & 0.012 & 0.042 & 0.073 & 0.183 & 0.325 & 0.654 \\
+Tuned               & 0.010 & 0.051 & 0.070 & 0.206 & 0.360 & \textbf{0.678} \\
+\midrule
+& \multicolumn{6}{c}{\textbf{NDCG@$k$}} \\
+\textbf{Model} & \textbf{10} & \textbf{50} & \textbf{100} & \textbf{300} & \textbf{500} & \textbf{1000} \\
+\midrule
+Baseline (untuned) & \textbf{0.034} & \textbf{0.039} & \textbf{0.049} & 0.101 & 0.156 & 0.286 \\
+Tuned               & 0.015 & 0.033 & 0.044 & \textbf{0.108} & \textbf{0.168} & \textbf{0.295} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Finding, stated honestly.} Tuning produces a modest, genuine improvement on the metric the search was told to optimize: Recall@1{,}000 rises from 0.654 to 0.678 and NDCG@1{,}000 from 0.286 to 0.295, both leakage-free numbers since the 19 deep queries never influenced the search. This is not, however, an unambiguous win. NDCG@10 falls from 0.034 to 0.015, roughly a 55\% relative decline, and the same pattern holds throughout the $k$-sweep: the tuned model beats the baseline at $k \in \{300, 500, 1{,}000\}$ but loses at $k \in \{10, 50, 100\}$. This is a direct, mechanistic consequence of the search objective, NDCG@1{,}000 and Recall@1{,}000 reward broad coverage of the full ranked list, not sharpness at the very top, so the search found hyperparameters (shallower trees, fewer boosting iterations) that spread relevance signal more evenly across the ranking at a real cost to top-of-list precision. Whether the tuned or untuned configuration is actually preferable depends on how the ranking is consumed downstream: the untuned baseline is better suited to a use case that only looks at the first handful of results, while the tuned configuration is closer to how this pipeline is actually deployed, a broad top-1{,}000 candidate pool handed to a downstream reranker (Section~\ref{sec:hybrid_fullpool}), which specifically benefits from higher recall further down the list rather than from top-10 precision on its own. On the all-101-query subset (not leakage-free, since 82 of those queries informed the search), the same qualitative pattern holds: NDCG@1{,}000 improves (0.166~$\to$~0.173) while NDCG@10 degrades (0.007~$\to$~0.003), reported for completeness rather than as independent confirmation.
+
 % ────────────────────────────────────────────────────────────
 \section{Scaling to a Larger Corpus: a Random Sample and Nested Corpus Tiers}
 \label{sec:scaling_corpus}
@@ -2050,7 +2123,9 @@ The 98\,716-company corpus used throughout this thesis is not just query-gatekep
 
 ColBERT is architecturally distinct from every other model here: it stores one embedding per token rather than one vector per company (`doc\_embs.pt`, shape $[N, 192, 128]$, roughly 19.5\,GB at this scale versus 4.85\,GB for the original 98,716-company run), so it cannot simply be subset into corpus-size tiers the same way a single dense vector per company can; it is included nonetheless, for completeness against every method previously evaluated.
 
-\paragraph{Status.} The combined pool and nested tier membership have been constructed. The three SentenceTransformer-based fast models (MiniLM, GTE-large, BGE-large, BGE-M3, Nomic) are comparatively quick to encode at this scale; the four large, AutoModel-based encoders (Linq-Embed-Mistral, E5-Mistral, SFR-Mistral, all 7B parameters fp16, plus ColBERTv2's per-token encoding) are markedly slower, the original 98\,716-company Linq-Embed-Mistral run took approximately 34 minutes of GPU time, spread across several resubmitted jobs due to this cluster's per-job wall-time limit and lengthy model-loading time. At roughly 4$\times$ the scale, each of these slower encoders is expected to take on the order of 2-2.5 hours of cumulative GPU time. The resulting embeddings, together with per-tier BM25 indexes and an evaluation notebook, are intended to answer two separate questions: (1) does Recall@$k$/NDCG@$k$ and query latency hold up as the corpus grows from roughly 100K to 400K companies, using the queries with the deepest and most reliable gold-standard coverage (the original 5-query pilot and the headline queries from Section~\ref{subsec:active_learning}) so that the resulting metrics are not read from an unreliably shallow label set; and (2) does the original baseline-model ranking (Section on baseline comparisons) survive re-evaluation against the non-circular gold standard. These results will be reported here once available.
+\paragraph{Status.} The combined pool and nested tier membership have been constructed, and encoding is essentially complete: 9 of the 10 models (MiniLM, GTE-large, BGE-large, Nomic, Linq-Embed-Mistral, E5-Mistral, SFR-Mistral, SimLM, ColBERTv2) have produced a full embedding file covering all $\sim$397\,025 companies; BGE-M3 is the last one still running. The original 98\,716-company Linq-Embed-Mistral run took approximately 34 minutes of GPU time, spread across several resubmitted jobs due to this cluster's per-job wall-time limit and lengthy model-loading time, at roughly 4$\times$ the scale, encoding times for the large AutoModel-based encoders turned out shorter than that estimate once a Hugging Face Hub network-verification hang was diagnosed and fixed (Section~\ref{sec:scaling_corpus}'s encoding pipeline), typically well under 30 minutes of pure encoding once loading succeeds.
+
+Two evaluation notebooks have been built to answer question (1), does Recall@$k$/NDCG@$k$ and query latency hold up as the corpus grows from roughly 100K to 400K companies, restricted to the 19 queries with the deepest and most reliable gold-standard coverage (the 5-query pilot plus the 14 headline queries from Section~\ref{subsec:active_learning}), so the resulting metrics are not read from an unreliably shallow label set. A per-tier BM25 index notebook builds a separate index for each of the four nested tiers (tokenizing the corpus once and reusing the tokenization across tiers, since only the IDF statistics change with tier size, not the tokens themselves). A scaling-evaluation notebook then covers BM25 alongside the three embedding models already inside the trained fusion ranker (MiniLM, GTE-large, Linq-Embed-Mistral), computing Recall@$k$/NDCG@$k$ against the gold standard and per-query retrieval latency at every tier, for every method. Every gold-relevant candidate for the 19 deep queries is present in all four tiers by construction, confirmed directly (906 of 906 relevant candidates found in even the smallest, 100K, tier), so any change in these metrics across tiers is attributable to the growing pool of distractor companies rather than relevant companies dropping out of the search pool. Both notebooks are built and ready to run once the last encoder finishes; results will be reported here once available. Question (2), whether the original baseline-model ranking survives re-evaluation against the non-circular gold standard, remains a separate follow-up not yet started.
 
 % here the original content of my thesis ends
 

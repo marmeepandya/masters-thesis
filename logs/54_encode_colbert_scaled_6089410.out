@@ -1,0 +1,52 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Result folder : result/54_encode_colbert_scaled/ -- ready
+[Load] Companies to encode: 397,025
+[GPU] CUDA available : True
+[GPU] Device : NVIDIA A100-PCIE-40GB
+[Load] Loading ColBERTv2 tokenizer + BertModel backbone...
+[Load] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Load] Loading token-projection linear layer from checkpoint...
+[Load] Done in 3.7s on cuda -- linear projection shape (128, 768)
+[Encode] Encoding 397,025 companies (max_length=192)...
+[Encode] Migrating legacy checkpoint (300,000 rows) into per-chunk format...
+[Encode] Resuming -- 300,000/397,025 (75.6%) companies already encoded across 1 chunk files
+[Encode]   305,000/397,025 companies encoded (76.8%)... chunk saved
+[Encode]   310,000/397,025 companies encoded (78.1%)... chunk saved
+[Encode]   315,000/397,025 companies encoded (79.3%)... chunk saved
+[Encode]   320,000/397,025 companies encoded (80.6%)... chunk saved
+[Encode]   325,000/397,025 companies encoded (81.9%)... chunk saved
+[Encode]   330,000/397,025 companies encoded (83.1%)... chunk saved
+[Encode]   335,000/397,025 companies encoded (84.4%)... chunk saved
+[Encode]   340,000/397,025 companies encoded (85.6%)... chunk saved
+[Encode]   345,000/397,025 companies encoded (86.9%)... chunk saved
+[Encode]   350,000/397,025 companies encoded (88.2%)... chunk saved
+[Encode]   355,000/397,025 companies encoded (89.4%)... chunk saved
+[Encode]   360,000/397,025 companies encoded (90.7%)... chunk saved
+[Encode]   365,000/397,025 companies encoded (91.9%)... chunk saved
+[Encode]   370,000/397,025 companies encoded (93.2%)... chunk saved
+[Encode]   375,000/397,025 companies encoded (94.5%)... chunk saved
+[Encode]   380,000/397,025 companies encoded (95.7%)... chunk saved
+[Encode]   385,000/397,025 companies encoded (97.0%)... chunk saved
+[Encode]   390,000/397,025 companies encoded (98.2%)... chunk saved
+[Encode]   395,000/397,025 companies encoded (99.5%)... chunk saved
+[Encode]   397,025/397,025 companies encoded (100.0%)... chunk saved
+[Encode] Done in 5.1 minutes (this session)
+[Encode] doc_embs shape : (397025, 192, 128)  (19.51 GB)
+[Encode] Saved -> result/54_encode_colbert_scaled/doc_embs.pt, result/54_encode_colbert_scaled/doc_masks.pt
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n568
+Job ID: 6089410
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:06:24
+CPU Efficiency: 7.58% of 01:24:24 core-walltime
+Job Wall-clock time: 00:07:02
+Memory Utilized: 39.13 GB
+Memory Efficiency: 42.62% of 91.80 GB (91.80 GB/node)

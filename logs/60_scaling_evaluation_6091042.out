@@ -1,0 +1,164 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Setup] Device: cuda
+[Load] Gold standard for the 19 deep queries: 1,449 candidates
+[Load] Combined pool: 397,025 companies
+[Encode] Loading MiniLM for query encoding...
+[Encode] MiniLM query embeddings: (19, 384)
+[Encode] Loading GTE-large for query encoding...
+[Encode] GTE-large query embeddings: (19, 1024)
+[Encode] Loading Linq-Embed-Mistral for query encoding...
+[Encode] Loaded from local cache -- skipped Hugging Face Hub network calls
+[Encode] Linq-Embed-Mistral query embeddings: (19, 4096)
+[minilm] Loading company embeddings from result/45_encode_minilm_scaled/company_embeddings.npy...
+[minilm] Tier 100k: 100,000 companies
+[minilm] Tier 200k: 200,000 companies
+[minilm] Tier 300k: 300,000 companies
+[minilm] Tier 400k: 397,025 companies
+[minilm] Saved -> result/60_scaling_evaluation/minilm_results_all_tiers.json
+[gte] Loading company embeddings from result/46_encode_gte_scaled/company_embeddings.npy...
+[gte] Tier 100k: 100,000 companies
+[gte] Tier 200k: 200,000 companies
+[gte] Tier 300k: 300,000 companies
+[gte] Tier 400k: 397,025 companies
+[gte] Saved -> result/60_scaling_evaluation/gte_results_all_tiers.json
+[linq] Loading company embeddings from result/47_encode_linq_mistral_scaled/company_embeddings.npy...
+[linq] Tier 100k: 100,000 companies
+[linq] Tier 200k: 200,000 companies
+[linq] Tier 300k: 300,000 companies
+[linq] Tier 400k: 397,025 companies
+[linq] Saved -> result/60_scaling_evaluation/linq_results_all_tiers.json
+[Done] All embedding methods processed.
+[Combined] 304,000 retrieval rows, 304 timing rows
+[Combined] Methods: ['bm25', 'gte', 'linq', 'minilm']
+[Combined] Tiers: ['100k', '200k', '300k', '400k']
+method tier    k  precision   recall     ndcg
+  bm25 100k   10   0.157895 0.026753 0.149798
+  bm25 100k   50   0.104211 0.104182 0.124934
+  bm25 100k  100   0.072632 0.159701 0.132649
+  bm25 100k  300   0.052281 0.350384 0.223695
+  bm25 100k  500   0.042000 0.466327 0.272199
+  bm25 100k 1000   0.029632 0.631654 0.339233
+  bm25 200k   10   0.157895 0.027340 0.149286
+  bm25 200k   50   0.103158 0.104260 0.123594
+  bm25 200k  100   0.074211 0.155763 0.131957
+  bm25 200k  300   0.050877 0.339519 0.217706
+  bm25 200k  500   0.040421 0.445411 0.263041
+  bm25 200k 1000   0.028000 0.601199 0.324733
+  bm25 300k   10   0.152632 0.026505 0.145326
+  bm25 300k   50   0.101053 0.096100 0.119855
+  bm25 300k  100   0.073158 0.153554 0.130240
+  bm25 300k  300   0.049825 0.332124 0.213438
+  bm25 300k  500   0.040000 0.441545 0.260016
+  bm25 300k 1000   0.027158 0.583413 0.316306
+  bm25 400k   10   0.152632 0.026505 0.145159
+  bm25 400k   50   0.101053 0.096100 0.119459
+  bm25 400k  100   0.073684 0.160148 0.132056
+  bm25 400k  300   0.049298 0.328575 0.211101
+  bm25 400k  500   0.038947 0.430667 0.254381
+  bm25 400k 1000   0.026579 0.569649 0.309967
+   gte 100k   10   0.221053 0.045333 0.225556
+   gte 100k   50   0.123158 0.130828 0.167174
+   gte 100k  100   0.081053 0.170132 0.158381
+   gte 100k  300   0.053860 0.325026 0.237667
+   gte 100k  500   0.044632 0.455230 0.293685
+   gte 100k 1000   0.036526 0.749660 0.409745
+   gte 200k   10   0.215789 0.044484 0.221853
+   gte 200k   50   0.122105 0.130107 0.166126
+   gte 200k  100   0.080526 0.169411 0.157541
+   gte 200k  300   0.052456 0.317769 0.233243
+   gte 200k  500   0.043263 0.432817 0.284750
+   gte 200k 1000   0.034421 0.702204 0.390309
+   gte 300k   10   0.215789 0.044484 0.221853
+   gte 300k   50   0.118947 0.127511 0.163330
+   gte 300k  100   0.079474 0.167095 0.155588
+   gte 300k  300   0.050351 0.304720 0.226131
+   gte 300k  500   0.042000 0.420458 0.278012
+   gte 300k 1000   0.032632 0.663041 0.373320
+   gte 400k   10   0.215789 0.044484 0.221471
+   gte 400k   50   0.115789 0.125171 0.160426
+   gte 400k  100   0.078421 0.158767 0.152082
+   gte 400k  300   0.049825 0.302354 0.223718
+   gte 400k  500   0.041474 0.416002 0.274532
+   gte 400k 1000   0.031316 0.637824 0.361391
+  linq 100k   10   0.105263 0.028159 0.099231
+  linq 100k   50   0.077895 0.099279 0.099473
+  linq 100k  100   0.062632 0.137378 0.107109
+  linq 100k  300   0.046842 0.301644 0.185478
+  linq 100k  500   0.042632 0.471627 0.255518
+  linq 100k 1000   0.035368 0.761758 0.370618
+  linq 200k   10   0.084211 0.018379 0.080581
+  linq 200k   50   0.072632 0.094712 0.092026
+  linq 200k  100   0.060526 0.132917 0.101291
+  linq 200k  300   0.044561 0.277995 0.172926
+  linq 200k  500   0.040000 0.439582 0.238261
+  linq 200k 1000   0.032895 0.709429 0.344825
+  linq 300k   10   0.078947 0.017569 0.077233
+  linq 300k   50   0.070526 0.086383 0.087601
+  linq 300k  100   0.058947 0.130665 0.098513
+  linq 300k  300   0.042456 0.267146 0.165825
+  linq 300k  500   0.038105 0.420318 0.227709
+  linq 300k 1000   0.030895 0.664830 0.324761
+  linq 400k   10   0.078947 0.017569 0.076093
+  linq 400k   50   0.067368 0.084233 0.083929
+  linq 400k  100   0.056842 0.126898 0.094766
+  linq 400k  300   0.042105 0.265023 0.162929
+  linq 400k  500   0.036421 0.401729 0.217734
+  linq 400k 1000   0.029000 0.631643 0.308050
+minilm 100k   10   0.163158 0.028844 0.152178
+minilm 100k   50   0.108421 0.100705 0.125955
+minilm 100k  100   0.084737 0.166658 0.137407
+minilm 100k  300   0.057544 0.335286 0.221960
+minilm 100k  500   0.048105 0.463211 0.279682
+minilm 100k 1000   0.034000 0.678464 0.363960
+minilm 200k   10   0.163158 0.028844 0.152178
+minilm 200k   50   0.106316 0.098760 0.124148
+minilm 200k  100   0.082632 0.162839 0.134642
+minilm 200k  300   0.055789 0.327269 0.216601
+minilm 200k  500   0.046000 0.443792 0.269258
+minilm 200k 1000   0.032737 0.650410 0.350822
+minilm 300k   10   0.163158 0.028844 0.152178
+minilm 300k   50   0.105263 0.097950 0.122803
+minilm 300k  100   0.081053 0.153763 0.130576
+minilm 300k  300   0.052807 0.309487 0.206666
+minilm 300k  500   0.044316 0.428686 0.260333
+minilm 300k 1000   0.031789 0.630244 0.340153
+minilm 400k   10   0.163158 0.028844 0.151971
+minilm 400k   50   0.105263 0.097950 0.122557
+minilm 400k  100   0.079474 0.151512 0.128763
+minilm 400k  300   0.051754 0.303865 0.203103
+minilm 400k  500   0.042316 0.410686 0.251081
+minilm 400k 1000   0.030737 0.609959 0.330334
+method tier  n_companies  avg_query_latency_ms
+  bm25 100k       100000            172.080309
+  bm25 200k       200000            349.914344
+  bm25 300k       300000            501.590312
+  bm25 400k       397025            647.086609
+   gte 100k       100000             28.332847
+   gte 200k       200000             56.973185
+   gte 300k       300000             85.124941
+   gte 400k       397025            112.272231
+  linq 100k       100000            113.784658
+  linq 200k       200000            227.293042
+  linq 300k       300000            337.620397
+  linq 400k       397025            455.047888
+minilm 100k       100000             76.706478
+minilm 200k       200000            153.477431
+minilm 300k       300000            230.542110
+minilm 400k       397025            305.336639
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n573
+Job ID: 6091042
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:36
+CPU Efficiency: 3.36% of 00:47:36 core-walltime
+Job Wall-clock time: 00:03:58
+Memory Utilized: 15.37 GB
+Memory Efficiency: 16.74% of 91.80 GB (91.80 GB/node)
