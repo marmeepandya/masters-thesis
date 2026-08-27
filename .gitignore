@@ -3,6 +3,7 @@ thesis/
 thesis_broken_*/
 __pycache__/
 *.pyc
+logs/rclone_sync_*.log
 
 # Large reproducible caches -- regenerable from notebooks + dataset/, backed up
 # separately to Google Drive rather than git (GitHub hard-rejects files >100MB

@@ -1,0 +1,43 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+Trustworthy pooled candidates available for judging: 1229
+FULL RUN: judging all 1229 candidates across 19 queries
+Loaded 190 cached entries (190 with a successful gemini label)
+  10/1229 judged
+  20/1229 judged
+  30/1229 judged
+  40/1229 judged
+  50/1229 judged
+  60/1229 judged
+  70/1229 judged
+  80/1229 judged
+  90/1229 judged
+  100/1229 judged
+  110/1229 judged
+  120/1229 judged
+  130/1229 judged
+  140/1229 judged
+  150/1229 judged
+  160/1229 judged
+  170/1229 judged
+  180/1229 judged
+  190/1229 judged
+  200/1229 judged
+  210/1229 judged
+  220/1229 judged
+  230/1229 judged
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 6168752
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:04
+CPU Efficiency: 0.02% of 06:01:12 core-walltime
+Job Wall-clock time: 00:30:06
+Memory Utilized: 387.43 MB
+Memory Efficiency: 0.41% of 91.80 GB (91.80 GB/node)

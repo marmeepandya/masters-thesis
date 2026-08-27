@@ -1,0 +1,119 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Note] 4 candidates are in the manual tie-break queue; 0 have a resolved_label so far.
+[Load] Production-independent gold labels: 143 candidates across 2 queries
+gold_label
+0      1
+1     38
+2    104
+Name: count, dtype: int64
+[Load] Highly-relevant (gold_label>=2), production-independent companies: 104 across 2 queries
+  query 1: 64 gold-verified relevant
+  query 2: 40 gold-verified relevant
+[Encode] Done for 2 queries with gold-verified production-independent relevant companies.
+[minilm] tier 100k done
+[minilm] tier 200k done
+[minilm] tier 300k done
+[minilm] tier 400k done
+[gte] tier 100k done
+[gte] tier 200k done
+[gte] tier 300k done
+[gte] tier 400k done
+[linq] tier 100k done
+[linq] tier 200k done
+[linq] tier 300k done
+[linq] tier 400k done
+[Done] 144 eval rows
+method tier    k  precision   recall     ndcg
+   gte 100k   10   0.000000 0.000000 0.000000
+   gte 100k   50   0.000000 0.000000 0.000000
+   gte 100k  100   0.000000 0.000000 0.000000
+   gte 100k  300   0.000000 0.000000 0.000000
+   gte 100k  500   0.000000 0.000000 0.000000
+   gte 100k 1000   0.000000 0.000000 0.000000
+   gte 200k   10   0.000000 0.000000 0.000000
+   gte 200k   50   0.030000 0.023438 0.022309
+   gte 200k  100   0.050000 0.092188 0.061788
+   gte 200k  300   0.030000 0.173437 0.104453
+   gte 200k  500   0.021000 0.196875 0.115672
+   gte 200k 1000   0.012000 0.229687 0.129061
+   gte 300k   10   0.000000 0.000000 0.000000
+   gte 300k   50   0.050000 0.043750 0.039775
+   gte 300k  100   0.085000 0.170313 0.113297
+   gte 300k  300   0.055000 0.342187 0.201160
+   gte 300k  500   0.040000 0.406250 0.230764
+   gte 300k 1000   0.025500 0.515625 0.275443
+   gte 400k   10   0.000000 0.000000 0.000000
+   gte 400k   50   0.070000 0.064062 0.055940
+   gte 400k  100   0.145000 0.292187 0.189577
+   gte 400k  300   0.080000 0.492188 0.291233
+   gte 400k  500   0.057000 0.581250 0.331109
+   gte 400k 1000   0.035500 0.714063 0.385484
+  linq 100k   10   0.000000 0.000000 0.000000
+  linq 100k   50   0.000000 0.000000 0.000000
+  linq 100k  100   0.000000 0.000000 0.000000
+  linq 100k  300   0.000000 0.000000 0.000000
+  linq 100k  500   0.000000 0.000000 0.000000
+  linq 100k 1000   0.000000 0.000000 0.000000
+  linq 200k   10   0.250000 0.053125 0.217795
+  linq 200k   50   0.130000 0.134375 0.155468
+  linq 200k  100   0.070000 0.142187 0.150743
+  linq 200k  300   0.031667 0.185938 0.175179
+  linq 200k  500   0.022000 0.209375 0.186479
+  linq 200k 1000   0.013500 0.253125 0.205331
+  linq 300k   10   0.300000 0.065625 0.249606
+  linq 300k   50   0.250000 0.270313 0.275878
+  linq 300k  100   0.155000 0.321875 0.296820
+  linq 300k  300   0.065000 0.403125 0.337803
+  linq 300k  500   0.046000 0.471875 0.368394
+  linq 300k 1000   0.027000 0.543750 0.399086
+  linq 400k   10   0.300000 0.060937 0.260967
+  linq 400k   50   0.310000 0.335938 0.332936
+  linq 400k  100   0.205000 0.418750 0.371394
+  linq 400k  300   0.085000 0.520312 0.422774
+  linq 400k  500   0.059000 0.601562 0.459192
+  linq 400k 1000   0.036500 0.734375 0.514423
+minilm 100k   10   0.000000 0.000000 0.000000
+minilm 100k   50   0.000000 0.000000 0.000000
+minilm 100k  100   0.000000 0.000000 0.000000
+minilm 100k  300   0.000000 0.000000 0.000000
+minilm 100k  500   0.000000 0.000000 0.000000
+minilm 100k 1000   0.000000 0.000000 0.000000
+minilm 200k   10   0.000000 0.000000 0.000000
+minilm 200k   50   0.090000 0.079687 0.073181
+minilm 200k  100   0.060000 0.112500 0.083975
+minilm 200k  300   0.030000 0.168750 0.112829
+minilm 200k  500   0.021000 0.201563 0.127294
+minilm 200k 1000   0.013500 0.257812 0.150546
+minilm 300k   10   0.100000 0.025000 0.064938
+minilm 300k   50   0.150000 0.140625 0.131581
+minilm 300k  100   0.120000 0.229687 0.175500
+minilm 300k  300   0.058333 0.339062 0.231102
+minilm 300k  500   0.041000 0.404687 0.259348
+minilm 300k 1000   0.025500 0.506250 0.299969
+minilm 400k   10   0.100000 0.025000 0.064938
+minilm 400k   50   0.210000 0.192188 0.181939
+minilm 400k  100   0.160000 0.296875 0.229958
+minilm 400k  300   0.078333 0.432812 0.303580
+minilm 400k  500   0.059000 0.554688 0.357728
+minilm 400k 1000   0.037000 0.718750 0.421822
+
+Read this as: of the companies independently, blindly verified as relevant, none of which
+production had any opportunity to already know about, how many does this pipeline actually
+find and rank well, as the corpus scales from 100K to 400K companies.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6129712
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:55
+CPU Efficiency: 2.33% of 00:39:24 core-walltime
+Job Wall-clock time: 00:03:17
+Memory Utilized: 15.86 GB
+Memory Efficiency: 17.27% of 91.80 GB (91.80 GB/node)

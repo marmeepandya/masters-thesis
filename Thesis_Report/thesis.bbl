@@ -1,9 +1,16 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Artstein and Poesio(2008)]{artstein2008inter}
+Ron Artstein and Massimo Poesio.
+\newblock Inter-coder agreement for computational linguistics.
+\newblock \emph{Computational Linguistics}, 34\penalty0 (4):\penalty0 555--596,
+  2008.
+\newblock \doi{10.1162/coli.07-034-R2}.
 
 \bibitem[{BAAI}(2024)]{baaireranker2024}
 {BAAI}.
@@ -21,10 +28,25 @@ Ziv Bar-Yossef and Maxim Gurevich.
 Steven Bird, Ewan Klein, and Edward Loper.
 \newblock {NLTK}: the natural language toolkit, 2009.
 
+\bibitem[Buckley and Voorhees(2004)]{buckley2004retrieval}
+Chris Buckley and Ellen~M. Voorhees.
+\newblock Retrieval evaluation with incomplete information.
+\newblock In \emph{Proceedings of the 27th Annual International ACM SIGIR
+  Conference on Research and Development in Information Retrieval}, pages
+  25--32, 2004.
+\newblock \doi{10.1145/1008992.1009000}.
+
 \bibitem[Chen et~al.(2024)Chen, Xiao, Zhang, Luo, Lian, and Liu]{chen2024bge}
 Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu.
 \newblock {BGE} m3-embedding: Multi-lingual, multi-functionality,
   multi-granularity text embeddings through self-knowledge distillation, 2024.
+
+\bibitem[Cohen(1960)]{cohen1960coefficient}
+Jacob Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock \emph{Educational and Psychological Measurement}, 20\penalty0
+  (1):\penalty0 37--46, 1960.
+\newblock \doi{10.1177/001316446002000104}.
 
 \bibitem[Cormack et~al.(2009)Cormack, Clarke, and
   B{\"u}ttcher]{cormack2009reciprocal}
@@ -56,6 +78,12 @@ Omar Khattab and Matei Zaharia.
   on Research and Development in Information Retrieval}, pages 39--48. ACM,
   2020.
 \newblock \doi{10.1145/3397271.3401075}.
+
+\bibitem[Landis and Koch(1977)]{landis1977measurement}
+J.~Richard Landis and Gary~G. Koch.
+\newblock The measurement of observer agreement for categorical data.
+\newblock \emph{Biometrics}, 33\penalty0 (1):\penalty0 159--174, 1977.
+\newblock \doi{10.2307/2529310}.
 
 \bibitem[Liu(2009)]{liu2009learning}
 Tie-Yan Liu.
@@ -109,8 +137,17 @@ Stephen Robertson and Hugo Zaragoza.
   (4):\penalty0 333--389, 2009.
 \newblock \doi{10.1561/1500000019}.
 
-\bibitem[Santhanam et~al.(2022)Santhanam, Khattab, Saad-Falcon, Potts, and
-  Zaharia]{santhanam2022colbertv2}
+\bibitem[Santhanam et~al.(2022{\natexlab{a}})Santhanam, Khattab, Potts, and
+  Zaharia]{santhanam2022plaid}
+Keshav Santhanam, Omar Khattab, Christopher Potts, and Matei Zaharia.
+\newblock {PLAID}: An efficient engine for late interaction retrieval.
+\newblock In \emph{Proceedings of the 31st ACM International Conference on
+  Information \& Knowledge Management}, pages 1747--1756. ACM,
+  2022{\natexlab{a}}.
+\newblock \doi{10.1145/3511808.3557325}.
+
+\bibitem[Santhanam et~al.(2022{\natexlab{b}})Santhanam, Khattab, Saad-Falcon,
+  Potts, and Zaharia]{santhanam2022colbertv2}
 Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
   Zaharia.
 \newblock Colbertv2: Effective and efficient retrieval via lightweight late
@@ -118,7 +155,7 @@ Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
 \newblock In \emph{Proceedings of the 2022 Conference of the North American
   Chapter of the Association for Computational Linguistics: Human Language
   Technologies}, pages 3715--3734. Association for Computational Linguistics,
-  2022.
+  2022{\natexlab{b}}.
 \newblock \doi{10.18653/v1/2022.naacl-main.272}.
 
 \bibitem[Settles(2009)]{settles2009active}
@@ -148,10 +185,14 @@ Paul Thomas, Seth Spielman, Nick Craswell, and Bhaskar Mitra.
 \newblock Large language models can accurately predict searcher preferences,
   2024.
 
-\bibitem[Voorhees(1999)]{voorhees1999trec}
+\bibitem[Voorhees(2002)]{voorhees2002philosophy}
 Ellen~M Voorhees.
-\newblock The trec-8 question answering track report.
-\newblock In \emph{Proceedings of TREC}, 1999.
+\newblock The philosophy of information retrieval evaluation.
+\newblock In \emph{Evaluation of Cross-Language Information Retrieval Systems:
+  Second Workshop of the Cross-Language Evaluation Forum, CLEF 2001, Revised
+  Papers}, volume 2406 of \emph{Lecture Notes in Computer Science}, pages
+  355--370. Springer, 2002.
+\newblock \doi{10.1007/3-540-45691-0_34}.
 
 \bibitem[Wang et~al.(2022)Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and
   Wei]{wang2022simlm}

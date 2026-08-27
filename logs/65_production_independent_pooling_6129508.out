@@ -1,0 +1,65 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Load] Combined pool: 397,025 companies
+[Load] source=='new' (random sample, production-independent): 298,309 companies
+[Load] Deep-coverage queries: 19
+[BM25] Reusing notebook 59's already-tokenized corpus (same row order as combined_pool.parquet)
+[BM25] Building index over 298,309 source=='new' companies only...
+[BM25] Index built in 11.5s
+[Encode] MiniLM...
+[Encode] GTE-large...
+[Encode] Linq-Embed-Mistral...
+[Encode] Done. minilm=(19, 384), gte=(19, 1024), linq=(19, 4096)
+[Load] source=='new' embeddings: minilm=(298309, 384), gte=(298309, 1024), linq=(298309, 4096)
+  query 1 (software companies): 73 unique pooled candidates
+  query 2 (healthcare providers): 75 unique pooled candidates
+  query 3 (AI startups in Berlin): 51 unique pooled candidates
+  query 4 (renewable energy companies in Germany): 62 unique pooled candidates
+  query 5 (companies providing cloud migration services): 58 unique pooled candidates
+  query 11 (tech companies in Munich): 72 unique pooled candidates
+  query 12 (manufacturing in Baden-Württemberg): 69 unique pooled candidates
+  query 15 (logistics companies in the US): 68 unique pooled candidates
+  query 34 (venture capital firms): 62 unique pooled candidates
+  query 14 (pharmaceutical companies): 64 unique pooled candidates
+  query 27 (biotech companies): 66 unique pooled candidates
+  query 66 (customer relationship management (CRM) software): 50 unique pooled candidates
+  query 72 (managed service providers (MSPs)): 59 unique pooled candidates
+  query 99 (vertical farming companies): 72 unique pooled candidates
+  query 101 (alternative protein manufacturers): 63 unique pooled candidates
+  query 56 (defense contractors): 64 unique pooled candidates
+  query 82 (public relations agencies): 61 unique pooled candidates
+  query 91 (investment management firms): 72 unique pooled candidates
+  query 92 (wealth management firms): 71 unique pooled candidates
+[Pool] Done pooling all 19 queries.
+[Pool] 1,232 pooled candidates across 19 queries
+[Pool] Average unique candidates per query: 64.8
+[Trust] Loaded 296 boilerplate templates
+[Trust] Flagged untrustworthy: 3/1232 (0.2%)
+[Pool] Saved -> result/65_production_independent_pooling/pooled_candidates.json
+
+Per-query pool size distribution:
+count    19.000000
+mean     64.842105
+std       7.143475
+min      50.000000
+25%      61.500000
+50%      64.000000
+75%      71.500000
+max      75.000000
+dtype: float64
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6129508
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:01:24
+CPU Efficiency: 3.35% of 00:41:48 core-walltime
+Job Wall-clock time: 00:03:29
+Memory Utilized: 19.09 GB
+Memory Efficiency: 20.80% of 91.80 GB (91.80 GB/node)

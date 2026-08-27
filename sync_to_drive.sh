@@ -6,4 +6,5 @@ rclone sync /pfs/data6/home/ma/ma_ma/ma_mpandya/Thesis gdrive:Thesis-Backup \
   --exclude ".git/**" \
   --exclude "__pycache__/**" \
   --exclude "*.pyc" \
+  --exclude "logs/rclone_sync_*.log" \
   --transfers=8 --checkers=8 --log-file="$LOG"

@@ -1,0 +1,43 @@
+[Note] 99 candidates are in the manual tie-break queue; 0 have a resolved_label so far.
+[Load] Production-independent gold labels: 1,130 candidates across 19 queries
+gold_label
+0    227
+1    208
+2    695
+Name: count, dtype: int64
+[Load] Highly-relevant (gold_label>=2), production-independent companies: 695 across 19 queries
+  query 1: 65 gold-verified relevant
+  query 2: 39 gold-verified relevant
+  query 3: 13 gold-verified relevant
+  query 4: 35 gold-verified relevant
+  query 5: 33 gold-verified relevant
+  query 11: 17 gold-verified relevant
+  query 12: 47 gold-verified relevant
+  query 14: 44 gold-verified relevant
+  query 15: 49 gold-verified relevant
+  query 27: 43 gold-verified relevant
+  query 34: 45 gold-verified relevant
+  query 56: 22 gold-verified relevant
+  query 66: 32 gold-verified relevant
+  query 72: 34 gold-verified relevant
+  query 82: 53 gold-verified relevant
+  query 91: 54 gold-verified relevant
+  query 92: 59 gold-verified relevant
+  query 99: 2 gold-verified relevant
+  query 101: 9 gold-verified relevant
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc3n069
+Job ID: 6202897
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: OUT_OF_MEMORY (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:06:55
+CPU Efficiency: 39.67% of 00:17:26 core-walltime
+Job Wall-clock time: 00:08:43
+Memory Utilized: 3.82 GB
+Memory Efficiency: 97.67% of 3.91 GB (1.95 GB/core)

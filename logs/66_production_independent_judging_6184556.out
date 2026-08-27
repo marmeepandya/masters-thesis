@@ -1,0 +1,27 @@
+Trustworthy pooled candidates available for judging: 1229
+FULL RUN: judging all 1229 candidates across 19 queries
+Loaded 1108 cached entries (1108 with a successful gemini label)
+  row 1110/1229 reached, 1110 candidates fully judged so far
+  row 1120/1229 reached, 1120 candidates fully judged so far
+  row 1130/1229 reached, 1130 candidates fully judged so far
+  row 1140/1229 reached, 1140 candidates fully judged so far
+  row 1150/1229 reached, 1150 candidates fully judged so far
+  row 1160/1229 reached, 1160 candidates fully judged so far
+  row 1170/1229 reached, 1170 candidates fully judged so far
+  row 1180/1229 reached, 1180 candidates fully judged so far
+  [gemini] error on 40daywealth.com: 503 Server Error: Service Unavailable for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc3n069
+Job ID: 6184556
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:02
+CPU Efficiency: 0.06% of 01:00:14 core-walltime
+Job Wall-clock time: 00:30:07
+Memory Utilized: 108.47 MB
+Memory Efficiency: 2.71% of 3.91 GB (1.95 GB/core)

@@ -1,0 +1,17 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6146537
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:05
+CPU Efficiency: 0.02% of 06:03:48 core-walltime
+Job Wall-clock time: 00:30:19
+Memory Utilized: 379.98 MB
+Memory Efficiency: 0.40% of 91.80 GB (91.80 GB/node)

@@ -1,0 +1,19 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+[Note] 0 candidates are in the manual tie-break queue; 0 have a resolved_label so far.
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n567
+Job ID: 6146554
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:07
+CPU Efficiency: 1.14% of 00:10:12 core-walltime
+Job Wall-clock time: 00:00:51
+Memory Utilized: 389.48 MB
+Memory Efficiency: 0.41% of 91.80 GB (91.80 GB/node)

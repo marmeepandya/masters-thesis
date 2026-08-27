@@ -1,0 +1,32 @@
+Trustworthy pooled candidates available for judging: 1229
+FULL RUN: judging all 1229 candidates across 19 queries
+Loaded 1185 cached entries (1184 with a successful gemini label)
+  row 1190/1229 reached, 1190 candidates fully judged so far
+  row 1200/1229 reached, 1200 candidates fully judged so far
+  row 1210/1229 reached, 1210 candidates fully judged so far
+  row 1220/1229 reached, 1220 candidates fully judged so far
+  row 1229/1229 reached, 1229 candidates fully judged so far
+Done judging.
+Unanimous agreement: 1130/1229 (91.9%)
+Needs manual tie-break: 99 -- see result/66_production_independent_judging/manual_review_queue.json
+gold_label
+0    227
+1    208
+2    695
+Name: count, dtype: int64
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc3n069
+Job ID: 6184631
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:04
+CPU Efficiency: 0.16% of 00:42:24 core-walltime
+Job Wall-clock time: 00:21:12
+Memory Utilized: 111.64 MB
+Memory Efficiency: 2.79% of 3.91 GB (1.95 GB/core)

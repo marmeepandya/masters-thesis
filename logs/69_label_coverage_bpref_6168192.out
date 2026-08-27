@@ -1,0 +1,52 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+Silver labels matched to features: 2267 across 101 queries
+LOGO CV done in 14.2s
+Systems compared: ['production', 'ours_logo_cv', 'channel_bm25', 'channel_minilm', 'channel_gte', 'channel_linq']
+=== Ranked by standard Recall@1000 ===
+                coverage_at_10  recall_at_1000  bpref
+system                                               
+channel_minilm           0.004           0.751  0.506
+channel_gte              0.058           0.741  0.583
+channel_linq             0.026           0.732  0.609
+production               0.056           0.720  0.568
+channel_bm25             0.065           0.664  0.495
+ours_logo_cv             0.008           0.659  0.541
+
+=== Ranked by bpref ===
+                coverage_at_10  recall_at_1000  bpref
+system                                               
+channel_linq             0.026           0.732  0.609
+channel_gte              0.058           0.741  0.583
+production               0.056           0.720  0.568
+ours_logo_cv             0.008           0.659  0.541
+channel_minilm           0.004           0.751  0.506
+channel_bm25             0.065           0.664  0.495
+
+Full coverage-by-k table:
+                coverage_at_10  ...  coverage_at_1000
+system                          ...                  
+channel_bm25             0.065  ...             0.013
+channel_gte              0.058  ...             0.015
+production               0.056  ...             0.014
+channel_linq             0.026  ...             0.015
+ours_logo_cv             0.008  ...             0.013
+channel_minilm           0.004  ...             0.016
+
+[6 rows x 6 columns]
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6168192
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:40
+CPU Efficiency: 3.14% of 00:21:12 core-walltime
+Job Wall-clock time: 00:01:46
+Memory Utilized: 391.87 MB
+Memory Efficiency: 0.42% of 91.80 GB (91.80 GB/node)

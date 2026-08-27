@@ -1,0 +1,29 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+35_llm_judge_ensemble                         n=  430  agreement= 83.7%  kappa=0.622
+40_active_learning_labeling_queue             n= 1010  agreement= 84.4%  kappa=0.640
+42_headline_query_deepening                   n=  840  agreement= 79.6%  kappa=0.607
+42_headline_query_deepening_validation        n=  112  agreement= 89.3%  kappa=0.828
+66_production_independent_judging_pilot       n=  147  agreement= 97.3%  kappa=0.934
+
+POOLED                                        n= 2539  agreement= 83.7%  kappa=0.655
+
+Saved to result/68_interrater_agreement/llm_llm_kappa.csv
+No returned reviews found yet under result/58_gold_label_review_export/returned -- Part 2 cannot run until at least one reviewer's files are saved there.
+Expected layout: result/58_gold_label_review_export/returned/<reviewer_name>/<original_filename>.xlsx
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6168022
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:06
+CPU Efficiency: 0.94% of 00:10:36 core-walltime
+Job Wall-clock time: 00:00:53
+Memory Utilized: 383.95 MB
+Memory Efficiency: 0.41% of 91.80 GB (91.80 GB/node)

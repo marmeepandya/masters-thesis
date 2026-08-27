@@ -1,0 +1,7 @@
+round,description,judge_a,judge_b,n_candidates,pct_agreement,cohens_kappa
+35_llm_judge_ensemble,original 5-query silver-standard pilot,openai,claude,430,0.8372093023255814,0.621531226817216
+40_active_learning_labeling_queue,101-query active-learning expansion,openai,claude,1010,0.8435643564356435,0.6403466267001725
+42_headline_query_deepening,headline query deepening,openai,claude,840,0.7964285714285714,0.606865350561484
+42_headline_query_deepening_validation,"bronze-tier spot-check, upgraded judge pair",gpt54,sonnet5,112,0.8928571428571429,0.8275154004106776
+66_production_independent_judging_pilot,"production-independent pilot, pre-redesign GPT+Sonnet pair",gpt54,sonnet5,147,0.9727891156462585,0.933806146572104
+pooled_all_rounds,every LLM-LLM judging round combined,mixed,mixed,2539,0.8365498227648681,0.6553903543901316

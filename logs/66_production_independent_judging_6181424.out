@@ -1,0 +1,33 @@
+Trustworthy pooled candidates available for judging: 1229
+FULL RUN: judging all 1229 candidates across 19 queries
+Loaded 701 cached entries (701 with a successful gemini label)
+  row 710/1229 reached, 710 candidates fully judged so far
+  row 720/1229 reached, 720 candidates fully judged so far
+  row 730/1229 reached, 730 candidates fully judged so far
+  row 740/1229 reached, 740 candidates fully judged so far
+  row 750/1229 reached, 750 candidates fully judged so far
+  row 760/1229 reached, 760 candidates fully judged so far
+  row 770/1229 reached, 770 candidates fully judged so far
+  row 780/1229 reached, 780 candidates fully judged so far
+  row 790/1229 reached, 790 candidates fully judged so far
+  row 800/1229 reached, 800 candidates fully judged so far
+  row 810/1229 reached, 810 candidates fully judged so far
+  row 820/1229 reached, 820 candidates fully judged so far
+  row 830/1229 reached, 830 candidates fully judged so far
+  row 840/1229 reached, 840 candidates fully judged so far
+  row 850/1229 reached, 850 candidates fully judged so far
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc3n069
+Job ID: 6181424
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:02
+CPU Efficiency: 0.05% of 01:00:48 core-walltime
+Job Wall-clock time: 00:30:24
+Memory Utilized: 105.84 MB
+Memory Efficiency: 2.65% of 3.91 GB (1.95 GB/core)

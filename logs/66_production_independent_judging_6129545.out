@@ -1,0 +1,35 @@
+CUDA available: True
+GPU: NVIDIA A100-PCIE-40GB
+Trustworthy pooled candidates available for judging: 1229
+PILOT MODE: judging 147 candidates across 2 queries
+Loaded 0 already-judged candidates from cache
+  25/147 judged
+  50/147 judged
+  75/147 judged
+  100/147 judged
+  125/147 judged
+  147/147 judged
+Done judging.
+Unanimous agreement: 143/147 (97.3%)
+Needs manual tie-break: 4 -- see result/66_production_independent_judging/manual_review_queue.json
+gold_label
+0      1
+1     38
+2    104
+Name: count, dtype: int64
+Job complete!
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n561
+Job ID: 6129545
+Cluster: uc3
+User/Group: ma_mpandya/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:08
+CPU Efficiency: 0.12% of 01:55:24 core-walltime
+Job Wall-clock time: 00:09:37
+Memory Utilized: 102.03 MB
+Memory Efficiency: 0.11% of 91.80 GB (91.80 GB/node)
