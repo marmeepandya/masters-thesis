@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  27 AUG 2026 06:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  27 AUG 2026 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,7 +870,7 @@ Class scrbook Warning: \float@addtolists detected!
  [4]
 chapter 1.
 
-Overfull \hbox (6.87854pt too wide) in paragraph at lines 76--77
+Overfull \hbox (6.87854pt too wide) in paragraph at lines 78--79
 []\OT1/cmr/m/n/10.95 This the-sis in-ves-ti-gates whether embedding-based se-ma
 n-tic re-trieval, where both queries
  []
@@ -885,12 +885,12 @@ chapter 2.
 
 
 ]
-Underfull \hbox (badness 3907) in paragraph at lines 143--143
+Underfull \hbox (badness 3907) in paragraph at lines 145--145
 []|\OT1/cmr/m/n/10.95 Organisation web-site do-main
  []
 
 
-Underfull \hbox (badness 3989) in paragraph at lines 143--143
+Underfull \hbox (badness 3989) in paragraph at lines 145--145
 []|\OT1/cmr/m/n/10.95 NACE in-dus-try clas-si-fi-ca-tion
  []
 
@@ -912,272 +912,273 @@ chapter 4.
 
 
 ] [12] [13] [14] [15] [16]
-Overfull \hbox (8.52048pt too wide) in paragraph at lines 431--432
+Overfull \hbox (8.52048pt too wide) in paragraph at lines 433--434
 \OT1/cmr/m/n/10.95 BGE is the fastest method over-all (44.4ms to-tal query la-t
 ency), thanks to GPU-accelerated
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 507--507
+Underfull \hbox (badness 10000) in paragraph at lines 509--509
 []|\OT1/cmr/m/n/10 Pseudo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 []|\OT1/cmr/m/n/10 Baseline com-par-i-son,
  []
 
 
-Underfull \hbox (badness 2941) in paragraph at lines 507--508
+Underfull \hbox (badness 2941) in paragraph at lines 509--510
 \OT1/cmr/m/n/10 rerank-ing, hy-brid fu-sion,
  []
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 507--508
+Underfull \hbox (badness 7047) in paragraph at lines 509--510
 \OT1/cmr/m/n/10 oracle-ceiling ex-per-i-ments
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 []|\OT1/cmr/m/n/10 two in-de-pen-dent LLM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 \OT1/cmr/m/n/10 re-solves their dis-agree-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 \OT1/cmr/m/n/10 drawn from a pooled,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 []|\OT1/cmr/m/n/10 Fusion-ranker re-train-ing,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 \OT1/cmr/m/n/10 tun-ing, fine-tuning, all
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--509
+Underfull \hbox (badness 10000) in paragraph at lines 511--511
 []|\OT1/cmr/m/n/10 Production-
  []
 
 
-Underfull \hbox (badness 5403) in paragraph at lines 509--509
+Underfull \hbox (badness 5403) in paragraph at lines 511--511
 []|\OT1/cmr/m/n/10 the same silver-standard
  []
 
 [19]
-Overfull \hbox (1.86752pt too wide) in paragraph at lines 526--527
+Overfull \hbox (1.86752pt too wide) in paragraph at lines 528--529
 []\OT1/cmr/bx/n/10.95 E5-Mistral-7B-Instruct \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it
 /10.95 intfloat/e5-mistral-7b-instruct\OT1/cmr/m/n/10.95 ): an instruction-
  []
 
 
-Overfull \hbox (13.85pt too wide) in paragraph at lines 527--528
+Overfull \hbox (13.85pt too wide) in paragraph at lines 529--530
 []\OT1/cmr/bx/n/10.95 Linq-Embed-Mistral \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/10.
 95 Linq-AI-Research/Linq-Embed-Mistral\OT1/cmr/m/n/10.95 ): a 7B-parameter
  []
 
 
-Overfull \hbox (0.5123pt too wide) in paragraph at lines 528--529
+Overfull \hbox (0.5123pt too wide) in paragraph at lines 530--531
 []\OT1/cmr/bx/n/10.95 SFR-Embedding-Mistral \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/
 10.95 Salesforce/SFR-Embedding-Mistral\OT1/cmr/m/n/10.95 ): Sales-force's
  []
 
 
-Overfull \hbox (49.20364pt too wide) in paragraph at lines 552--553
+Overfull \hbox (49.20364pt too wide) in paragraph at lines 554--555
 \OT1/cmr/m/n/10.95 Mistral-7B-Instruct, which sub-stan-tially un-der-per-forms 
 (Re-call@1000 = 0.274, NDCG@10 = 0.631)
  []
 
 [20] [21]
-Overfull \hbox (13.35596pt too wide) in paragraph at lines 613--614
+Overfull \hbox (13.35596pt too wide) in paragraph at lines 615--616
 \OT1/cmr/m/n/10.95 To test whether the ex-act search used through-out this chap
 -ter (\OT1/cmtt/l/it/10.95 IndexFlatL2\OT1/cmr/m/n/10.95 /\OT1/cmtt/l/it/10.95 
 IndexFlatIP\OT1/cmr/m/n/10.95 )
  []
 
 [22]
-Overfull \hbox (49.2538pt too wide) in paragraph at lines 620--629
+Overfull \hbox (49.2538pt too wide) in paragraph at lines 622--631
  [][] 
  []
 
 [23] [24] [25] [26] [27]
-Overfull \hbox (24.38359pt too wide) in paragraph at lines 778--779
+Overfull \hbox (24.38359pt too wide) in paragraph at lines 780--781
 \OT1/cmr/m/n/10.95 sub-stan-tially (0.782 $\OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/
 10.95 0.802, 2-way), at the cost of a small drop in NDCG@10 (0.979 $\OMS/cmsy/m
 /n/10.95 !$ \OT1/cmr/m/n/10.95 0.955):
  []
 
 [28]
-Overfull \hbox (2.98535pt too wide) in paragraph at lines 789--790
+Overfull \hbox (2.98535pt too wide) in paragraph at lines 791--792
 \OT1/cmr/m/n/10.95 on a DeBERTa-v2 back-bone, an ar-chi-tec-turally dis-tinct, 
 comparably-sized cross-encoder),
  []
 
 [29]
-Underfull \hbox (badness 1742) in paragraph at lines 825--825
+Underfull \hbox (badness 1742) in paragraph at lines 827--827
 \OT1/cmr/m/n/10.95 top-1000 pro-to-col), com-pared against the best pretrained-
 component
  []
 
 [30] [31] [32] [33] [34] [35] [36]
-<figures/gold_silver_pipeline.png, id=752, 1547.7825pt x 935.495pt>
+<figures/gold_silver_pipeline.png, id=758, 1547.7825pt x 935.495pt>
 File: figures/gold_silver_pipeline.png Graphic file (type png)
 <use figures/gold_silver_pipeline.png>
 Package pdftex.def Info: figures/gold_silver_pipeline.png  used on input line 9
-49.
+51.
 (pdftex.def)             Requested size: 397.34149pt x 240.15395pt.
  [37 <./figures/gold_silver_pipeline.png>]
-Overfull \hbox (0.70409pt too wide) in paragraph at lines 963--964
+Overfull \hbox (0.70409pt too wide) in paragraph at lines 965--966
 \OT1/cmr/m/n/10.95 adjacent-category dis-am-bigua-tion (e.g. phar-ma-ceu-ti-cal
 /biotech, in-vest-ment/wealth man-
  []
 
 [38]
-Overfull \hbox (1.79942pt too wide) in paragraph at lines 991--992
+Overfull \hbox (1.79942pt too wide) in paragraph at lines 993--994
 \OT1/cmtt/l/it/10.95 dataset/production[]-re-sults.xlsx\OT1/cmr/m/n/10.95 , pro
 -duc-tion's own top-1,000-per-query rank-ing, has
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 995--995
+Underfull \hbox (badness 1867) in paragraph at lines 997--997
 [][][]\OT1/cmr/m/n/10.95 Four checks com-par-ing pro-duc-tion's own top-1,000-p
 er-query rank-ing
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 1004--1005
+Underfull \hbox (badness 1057) in paragraph at lines 1006--1007
 \OT1/cmr/m/n/10.95 man cor-re-la-tion be-tween pro-duc-tion's rank and the
  []
 
 
-Overfull \hbox (69.1004pt too wide) in paragraph at lines 997--1007
+Overfull \hbox (69.1004pt too wide) in paragraph at lines 999--1009
  [][] 
  []
 
 [39] [40]
-Overfull \hbox (2.01222pt too wide) in paragraph at lines 1036--1037
+Overfull \hbox (2.01222pt too wide) in paragraph at lines 1038--1039
 [] []\OT1/cmss/bx/n/10.95 Finding.[][] \OT1/cmr/m/n/10.95 Pro-duc-tion's own ra
 nk-ing out-per-forms the in-de-pen-dently cross-validated rank-
  []
 
 
-Overfull \hbox (10.13333pt too wide) in paragraph at lines 1041--1042
+Overfull \hbox (10.13333pt too wide) in paragraph at lines 1043--1044
 \OT1/cmr/m/n/10.95 The ex-pla-na-tion of-fered above, that pro-duc-tion's ad-va
 n-tage in Sec-tion [][]4.20.4[][] is a candidate-
  []
 
 [41] [42]
-Overfull \hbox (8.00502pt too wide) in paragraph at lines 1054--1055
+Overfull \hbox (8.00502pt too wide) in paragraph at lines 1056--1057
 \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/10.95 production[]-re-sults.xlsx \OT1/cmr/m/
 n/10.95 only ever cov-ers the orig-i-nal cor-pus), a sym-met-ric production-
  []
 
 
-Underfull \hbox (badness 4181) in paragraph at lines 1060--1060
+Underfull \hbox (badness 4181) in paragraph at lines 1062--1062
 [][][]\OT1/cmr/m/n/10.95 Production-independent eval-u-a-tion: Re-call@1,000 an
 d NDCG@1,000
  []
 
-<figures/fig_production_independent_scaling.pdf, id=848, 433.62pt x 303.534pt>
+[43]
+<figures/fig_production_independent_scaling.pdf, id=863, 433.62pt x 303.534pt>
 File: figures/fig_production_independent_scaling.pdf Graphic file (type pdf)
 <use figures/fig_production_independent_scaling.pdf>
 Package pdftex.def Info: figures/fig_production_independent_scaling.pdf  used o
-n input line 1078.
+n input line 1080.
 (pdftex.def)             Requested size: 313.69167pt x 219.59566pt.
-[43] [44 <./figures/fig_production_independent_scaling.pdf>] [45]
-<figures/fig_calibration.pdf, id=932, 361.35pt x 361.35pt>
+ [44 <./figures/fig_production_independent_scaling.pdf>] [45]
+<figures/fig_calibration.pdf, id=937, 361.35pt x 361.35pt>
 File: figures/fig_calibration.pdf Graphic file (type pdf)
 <use figures/fig_calibration.pdf>
-Package pdftex.def Info: figures/fig_calibration.pdf  used on input line 1121.
+Package pdftex.def Info: figures/fig_calibration.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 250.95587pt x 250.95833pt.
  [46] [47 <./figures/fig_calibration.pdf>] [48]
-Overfull \hbox (10.75563pt too wide) in paragraph at lines 1148--1149
+Overfull \hbox (10.75563pt too wide) in paragraph at lines 1150--1151
 \OT1/cmr/m/n/10.95 HNSW-based ANN search matches ex-act search's Re-call@1,000/
 NDCG@1,000 within
  []
 
 [49] [50] [51]
-Overfull \hbox (2.11858pt too wide) in paragraph at lines 1168--1169
+Overfull \hbox (2.11858pt too wide) in paragraph at lines 1170--1171
 [] []\OT1/cmss/bx/n/10.95 Method.[][] \OT1/cmr/m/n/10.95 For each query, the cl
 assifier-ranked top-1,000 can-di-dates from Sec-tion [][]4.19.2[][]'s
  []
 
-[52] [53] [54]
-Overfull \hbox (3.96185pt too wide) in paragraph at lines 1239--1240
+[52] [53] [54] [55]
+Overfull \hbox (3.96185pt too wide) in paragraph at lines 1250--1251
 [] []\OT1/cmss/bx/n/10.95 Results.[][] \OT1/cmr/m/n/10.95 The best ar-chi-tec-t
 ure found, se-lected purely on the 16 search-validation queries,
  []
 
-[55] [56] [57] [58]
-Overfull \hbox (7.51787pt too wide) in paragraph at lines 1321--1322
+[56] [57] [58] [59]
+Overfull \hbox (7.51787pt too wide) in paragraph at lines 1332--1333
 \OT1/cmr/m/n/10.95 dom, query-independent sam-ple of 300000 com-pa-nies drawn f
 rom the un-der-ly-ing database,
  []
 
-[59] [60] [61]
+[60] [61] [62]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-361.
+372.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1361.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1372.
 
 
-Underfull \hbox (badness 3179) in paragraph at lines 1365--1365
+Underfull \hbox (badness 3179) in paragraph at lines 1376--1376
 [][][]\OT1/cmr/m/n/10.95 Exact search vs. ANN (HNSW, \OT1/cmtt/l/it/10.95 M\OT1
 /cmr/m/n/10.95 =16, \OT1/cmtt/l/it/10.95 ef[]-con-struc-tion\OT1/cmr/m/n/10.95 
 =40, \OT1/cmtt/l/it/10.95 ef[]-
  []
 
-<figures/fig_ann_tradeoff.pdf, id=1195, 433.62pt x 303.534pt>
+<figures/fig_ann_tradeoff.pdf, id=1214, 433.62pt x 303.534pt>
 File: figures/fig_ann_tradeoff.pdf Graphic file (type pdf)
 <use figures/fig_ann_tradeoff.pdf>
-Package pdftex.def Info: figures/fig_ann_tradeoff.pdf  used on input line 1382.
+Package pdftex.def Info: figures/fig_ann_tradeoff.pdf  used on input line 1393.
 
 (pdftex.def)             Requested size: 313.69167pt x 219.59566pt.
-[62] [63] [64 <./figures/fig_ann_tradeoff.pdf>] [65]
-Underfull \hbox (badness 2913) in paragraph at lines 1438--1438
+[63] [64] [65 <./figures/fig_ann_tradeoff.pdf>] [66]
+Underfull \hbox (badness 2913) in paragraph at lines 1449--1449
 []|\OT1/cmr/m/n/10 Ranking qual-ity holds; feature-
  []
 
-[66]
+[67]
 chapter 5.
-(./thesis.bbl [67
-
-
-]
-chapter without number
 [68
 
 
-] [69]) [70]
+] [69] (./thesis.bbl [70]
 chapter without number
 [71
 
 
+] [72]) [73]
+chapter without number
+[74
+
+
 
 
 ]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1475.
+(LaTeX3)     1507.
 
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1475.
+(LaTeX3)     1507.
 
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1475.
+(LaTeX3)     1507.
 
  (./thesis.aux)
 
@@ -1187,13 +1188,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 15129 strings out of 481008
- 245711 string characters out of 5909440
- 722990 words of memory out of 5000000
- 31660 multiletter control sequences out of 15000+600000
+ 15151 strings out of 481008
+ 245977 string characters out of 5909440
+ 725059 words of memory out of 5000000
+ 31664 multiletter control sequences out of 15000+600000
  419062 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 111i,11n,116p,10601b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,11n,116p,10601b,574s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texl
@@ -1215,10 +1216,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist
 public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 cm-super/sfrm1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-supe
 r/sfti1095.pfb>
-Output written on thesis.pdf (75 pages, 646700 bytes).
+Output written on thesis.pdf (78 pages, 663510 bytes).
 PDF statistics:
- 1711 PDF objects out of 1728 (max. 8388607)
- 1449 compressed objects within 15 object streams
- 414 named destinations out of 1000 (max. 500000)
- 597 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1791 PDF objects out of 2073 (max. 8388607)
+ 1525 compressed objects within 16 object streams
+ 432 named destinations out of 1000 (max. 500000)
+ 621 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -277,7 +277,9 @@
       "Bash(gs -sDEVICE=png16m -r150 -dFirstPage=1 -dLastPage=2 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/pngs/fm%d.png thesis.pdf)",
       "Bash(gs -sDEVICE=png16m -r150 -dFirstPage=1 -dLastPage=6 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/pngs/fresh%d.png thesis.pdf)",
       "Bash(gs -sDEVICE=png16m -r150 -dFirstPage=23 -dLastPage=24 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/pngs/sec45_%d.png thesis.pdf)",
-      "Bash(gs -sDEVICE=png16m -r150 -dFirstPage=22 -dLastPage=22 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/pngs/sec45_0.png thesis.pdf)"
+      "Bash(gs -sDEVICE=png16m -r150 -dFirstPage=22 -dLastPage=22 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/pngs/sec45_0.png thesis.pdf)",
+      "Bash(mkdir -p /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/toc_export)",
+      "Bash(gs -sDEVICE=png16m -r200 -dFirstPage=3 -dLastPage=4 -o /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/toc_export/contents_page%d.png thesis.pdf)"
     ]
   }
 }
