@@ -1,0 +1,13 @@
+tier,source,n_companies,pct_contaminated
+100K,existing,98716,2.84
+100K,new,1284,0.39
+100K,all,100000,2.81
+200K,existing,98716,2.84
+200K,new,101284,0.41
+200K,all,200000,1.61
+300K,existing,98716,2.84
+300K,new,201284,0.41
+300K,all,300000,1.21
+397K,existing,98716,2.84
+397K,new,298309,0.41
+397K,all,397025,1.02

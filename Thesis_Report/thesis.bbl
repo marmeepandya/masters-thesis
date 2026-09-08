@@ -1,9 +1,20 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Althammer et~al.(2023)Althammer, Zuccon, Hofst{\"a}tter, Verberne, and
+  Hanbury]{althammer2023annotating}
+Sophia Althammer, Guido Zuccon, Sebastian Hofst{\"a}tter, Suzan Verberne, and
+  Allan Hanbury.
+\newblock Annotating data for fine-tuning a neural ranker? current active
+  learning strategies are not better than random selection.
+\newblock In \emph{Proceedings of the Annual International ACM SIGIR Conference
+  on Research and Development in Information Retrieval in the Asia Pacific
+  Region}, 2023.
+\newblock \doi{10.1145/3624918.3625333}.
 
 \bibitem[Artstein and Poesio(2008)]{artstein2008inter}
 Ron Artstein and Massimo Poesio.
@@ -56,6 +67,11 @@ Gordon~V. Cormack, Charles L.~A. Clarke, and Stefan B{\"u}ttcher.
 \newblock In \emph{Proceedings of the 32nd International ACM SIGIR Conference
   on Research and Development in Information Retrieval}, pages 758--759, 2009.
 
+\bibitem[Gerling(2023)]{gerling2023company}
+Christopher Gerling.
+\newblock Company2vec: German company embeddings based on corporate websites,
+  2023.
+
 \bibitem[Johnson et~al.(2019)Johnson, Douze, and J{\'e}gou]{johnson2017billion}
 Jeff Johnson, Matthijs Douze, and Herv{\'e} J{\'e}gou.
 \newblock Billion-scale similarity search with {GPU}s.
@@ -85,6 +101,29 @@ J.~Richard Landis and Gary~G. Koch.
 \newblock \emph{Biometrics}, 33\penalty0 (1):\penalty0 159--174, 1977.
 \newblock \doi{10.2307/2529310}.
 
+\bibitem[Li et~al.(2024)Li, Jiang, Huang, Beigi, Zhao, Tan, Bhattacharjee,
+  Jiang, Chen, Wu, Shu, Cheng, and Liu]{li2024fromgeneration}
+Dawei Li, Bohan Jiang, Liangjie Huang, Alimohammad Beigi, Chengshuai Zhao, Zhen
+  Tan, Amrita Bhattacharjee, Yuxuan Jiang, Canyu Chen, Tianhao Wu, Kai Shu,
+  Lu~Cheng, and Huan Liu.
+\newblock From generation to judgment: Opportunities and challenges of
+  {LLM}-as-a-judge, 2024.
+
+\bibitem[Li et~al.(2020)Li, Li, Suhara, Doan, and Tan]{li2020deep}
+Yuliang Li, Jinfeng Li, Yoshihiko Suhara, AnHai Doan, and Wang-Chiew Tan.
+\newblock Deep entity matching with pre-trained language models, 2020.
+
+\bibitem[Li et~al.(2023)Li, Zhang, Zhang, Long, Xie, and
+  Zhang]{li2023towardsgte}
+Zehan Li, Xin Zhang, Yanzhao Zhang, Dingkun Long, Pengjun Xie, and Meishan
+  Zhang.
+\newblock Towards general text embeddings with multi-stage contrastive
+  learning, 2023.
+
+\bibitem[{Linq AI Research}(2024)]{linq2024technical}
+{Linq AI Research}.
+\newblock Linq-embed-mistral technical report, 2024.
+
 \bibitem[Liu(2009)]{liu2009learning}
 Tie-Yan Liu.
 \newblock Learning to rank for information retrieval.
@@ -106,12 +145,49 @@ Yu~A. Malkov and D.~A. Yashunin.
   Intelligence}, 42\penalty0 (4):\penalty0 824--836, 2020.
 \newblock \doi{10.1109/TPAMI.2018.2889473}.
 
+\bibitem[Meng et~al.(2024)Meng, Liu, Joty, Xiong, Zhou, and
+  Yavuz]{meng2024sfrembedding}
+Rui Meng, Ye~Liu, Shafiq~Rayhan Joty, Caiming Xiong, Yingbo Zhou, and Semih
+  Yavuz.
+\newblock {SFR-Embedding-Mistral}: Enhance text retrieval with transfer
+  learning.
+\newblock \url{https://blog.salesforceairesearch.com/sfr-embedded-mistral/},
+  2024.
+\newblock Salesforce AI Research Blog.
+
 \bibitem[{Mixedbread AI}(2024)]{mixedbread2024mxbai}
 {Mixedbread AI}.
 \newblock mxbai-rerank-large-v1.
 \newblock \url{https://huggingface.co/mixedbread-ai/mxbai-rerank-large-v1},
   2024.
 \newblock Model card.
+
+\bibitem[Mudgal et~al.(2018)Mudgal, Li, Rekatsinas, Doan, Park, Krishnan, Deep,
+  Arcaute, and Raghavendra]{mudgal2018deep}
+Sidharth Mudgal, Han Li, Theodoros Rekatsinas, AnHai Doan, Youngchoon Park,
+  Ganesh Krishnan, Rohit Deep, Esteban Arcaute, and Vijay Raghavendra.
+\newblock Deep learning for entity matching: A design space exploration.
+\newblock In \emph{Proceedings of the 2018 International Conference on
+  Management of Data}, pages 19--34. ACM, 2018.
+\newblock \doi{10.1145/3183713.3196926}.
+
+\bibitem[Muennighoff et~al.(2023)Muennighoff, Tazi, Magne, and
+  Reimers]{muennighoff2023mteb}
+Niklas Muennighoff, Nouamane Tazi, Loic Magne, and Nils Reimers.
+\newblock {MTEB}: Massive text embedding benchmark.
+\newblock In \emph{Proceedings of the 17th Conference of the European Chapter
+  of the Association for Computational Linguistics}, pages 2014--2037, 2023.
+\newblock \doi{10.18653/v1/2023.eacl-main.148}.
+
+\bibitem[Nogueira and Cho(2019)]{nogueira2019passage}
+Rodrigo Nogueira and Kyunghyun Cho.
+\newblock Passage re-ranking with {BERT}, 2019.
+
+\bibitem[Nussbaum et~al.(2024)Nussbaum, Morris, Duderstadt, and
+  Mulyar]{nussbaum2024nomic}
+Zach Nussbaum, John~X. Morris, Brandon Duderstadt, and Andriy Mulyar.
+\newblock Nomic embed: Training a reproducible long context text embedder,
+  2024.
 
 \bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion,
   Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
@@ -123,6 +199,19 @@ Fabian Pedregosa, Ga{\"e}l Varoquaux, Alexandre Gramfort, Vincent Michel,
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock \emph{Journal of Machine Learning Research}, 12:\penalty0 2825--2830,
   2011.
+
+\bibitem[Peeters et~al.(2025)Peeters, Steiner, and Bizer]{peeters2025entity}
+Ralph Peeters, Aaron Steiner, and Christian Bizer.
+\newblock Entity matching using large language models.
+\newblock In \emph{Proceedings of the 28th International Conference on
+  Extending Database Technology (EDBT)}, 2025.
+
+\bibitem[Rahman et~al.(2020)Rahman, Kutlu, and Lease]{rahman2020efficient}
+Md~Mustafizur Rahman, Mucahid Kutlu, and Matthew Lease.
+\newblock Efficient test collection construction via active learning.
+\newblock In \emph{Proceedings of the 2020 ACM SIGIR International Conference
+  on Theory of Information Retrieval}, pages 177--184, 2020.
+\newblock \doi{10.1145/3409256.3409837}.
 
 \bibitem[Reimers and Gurevych(2019)]{reimers2019sentence}
 Nils Reimers and Iryna Gurevych.
@@ -164,6 +253,15 @@ Burr Settles.
 \newblock Technical Report Computer Sciences Technical Report 1648, University
   of Wisconsin-Madison, 2009.
 
+\bibitem[Smucker et~al.(2007)Smucker, Allan, and
+  Carterette]{smucker2007comparison}
+Mark~D. Smucker, James Allan, and Ben Carterette.
+\newblock A comparison of statistical significance tests for information
+  retrieval evaluation.
+\newblock In \emph{Proceedings of the Sixteenth ACM Conference on Information
+  and Knowledge Management}, pages 623--632, 2007.
+\newblock \doi{10.1145/1321440.1321528}.
+
 \bibitem[Takehi et~al.(2024)Takehi, Voorhees, Sakai, and
   Soboroff]{takehi2024llmassisted}
 Rikiya Takehi, Ellen~M. Voorhees, Tetsuya Sakai, and Ian Soboroff.
@@ -200,6 +298,26 @@ Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang,
   Rangan Majumder, and Furu Wei.
 \newblock Simlm: Pre-training with representation bottleneck for dense passage
   retrieval, 2022.
+
+\bibitem[Wang et~al.(2024)Wang, Yang, Huang, Yang, Majumder, and
+  Wei]{wang2024improving}
+Liang Wang, Nan Yang, Xiaolong Huang, Linjun Yang, Rangan Majumder, and Furu
+  Wei.
+\newblock Improving text embeddings with large language models, 2024.
+
+\bibitem[Xia et~al.(2025)Xia, Mukherjee, Xie, Wu, Li, Aponte, Lyu, Barrow,
+  Chen, Dernoncourt, Kveton, Yu, Zhang, Gu, Ahmed, Wang, Chen, Deilamsalehy,
+  Kim, Hu, Zhao, Lipka, Yoon, Huang, Wang, Mathur, Pal, Mukherjee, Zhang, Park,
+  Nguyen, Luo, Rossi, and McAuley]{xia2025fromselection}
+Yu~Xia, Subhojyoti Mukherjee, Zhouhang Xie, Junda Wu, Xintong Li, Ryan Aponte,
+  Hanjia Lyu, Joe Barrow, Hongjie Chen, Franck Dernoncourt, Branislav Kveton,
+  Tong Yu, Ruiyi Zhang, Jiuxiang Gu, Nesreen~K. Ahmed, Yu~Wang, Xiang Chen,
+  Hanieh Deilamsalehy, Sungchul Kim, Zhengmian Hu, Yue Zhao, Nedim Lipka,
+  Seunghyun Yoon, Ting-Hao Huang, Zichao Wang, Puneet Mathur, Soumyabrata Pal,
+  Koyel Mukherjee, Zhehao Zhang, Namyong Park, Thien~Huu Nguyen, Jiebo Luo,
+  Ryan~A. Rossi, and Julian McAuley.
+\newblock From selection to generation: A survey of {LLM}-based active
+  learning, 2025.
 
 \bibitem[Xiao et~al.(2024)Xiao, Liu, Zhang, Muennighoff, Lian, and
   Nie]{xiao2024cpack}

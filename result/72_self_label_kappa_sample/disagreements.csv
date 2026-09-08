@@ -1,0 +1,65 @@
+query_id,query,domain,name,relevance_label,gold_label,direction
+12,manufacturing in Baden-Württemberg,bayer-raach.de,Bayer + Raach Neue Energien GmbH & Co. KG,0,1,Marmee stricter
+5,companies providing cloud migration services,bizcloud9.com,Business Cloud Solutions,1,2,Marmee stricter
+2,healthcare providers,yourbridgewell.com,BridgeWell,1,2,Marmee stricter
+4,renewable energy companies in Germany,energiezukunftdeutschland.de,energiezukunftdeutschland.de,0,1,Marmee stricter
+11,tech companies in Munich,ystmr.com,Yestermorrow Ventures UG (haftungsbeschränkt),1,2,Marmee stricter
+12,manufacturing in Baden-Württemberg,schreinerei-fischbacher.de,Fischbacher - Holz und Technik,1,0,Marmee looser
+15,logistics companies in the US,futura-coldstore.com,Futura cold store d.o.o.,1,0,Marmee looser
+15,logistics companies in the US,srpdigitalservices.com,SRP Digital Services Pvt Ltd.,2,1,Marmee looser
+12,manufacturing in Baden-Württemberg,becht-online.de,Alfred Becht GmbH,1,0,Marmee looser
+66,customer relationship management (CRM) software,dinware.ch,Sprenger Informationssysteme GmbH,2,1,Marmee looser
+11,tech companies in Munich,mathae-mueller.de,Mathä Müller GmbH,1,0,Marmee looser
+14,pharmaceutical companies,pharmalot.com,Pharmalot,0,1,Marmee stricter
+15,logistics companies in the US,greencitytrucking.com,GREEN CITY TRUCKING LLC,1,2,Marmee stricter
+27,biotech companies,genilac.com,GEN İlaç ve Sağlık Ürünleri Sanayi ve Ticaret A.Ş.,1,2,Marmee stricter
+11,tech companies in Munich,computerservice-hess.de,Computerservice Hess München,2,1,Marmee looser
+72,managed service providers (MSPs),smileback.com,ConnectWise,1,2,Marmee stricter
+11,tech companies in Munich,bitautor.de,BitAutor,1,0,Marmee looser
+2,healthcare providers,healthcare4ppl.com,Health Care for People,0,2,Marmee stricter
+72,managed service providers (MSPs),meetgradient.com,Gradient MSP Inc.,1,2,Marmee stricter
+34,venture capital firms,bridgeventurepartners.com,Bridge Venture Partners,1,2,Marmee stricter
+56,defense contractors,rhiconstruct.com,RHI Construction,2,1,Marmee looser
+12,manufacturing in Baden-Württemberg,hoju-beschlag.de,HOJU Beschlag GmbH,1,2,Marmee stricter
+66,customer relationship management (CRM) software,okdongdong.cn,美萍软件 (Meiping Software),2,1,Marmee looser
+66,customer relationship management (CRM) software,webflow.nl,Webflow,1,2,Marmee stricter
+12,manufacturing in Baden-Württemberg,liebensteiner.de,Die Liebensteiner Kartonagenwerk GmbH,1,0,Marmee looser
+4,renewable energy companies in Germany,german-sun.com,Germany Sun AG,1,2,Marmee stricter
+2,healthcare providers,carelike.com,"HealthLink Dimensions, LLC",1,2,Marmee stricter
+2,healthcare providers,zorgbeurs.nl,Zorgbeurs.nl,1,2,Marmee stricter
+27,biotech companies,sanqifh.com,xxpay钱包,1,2,Marmee stricter
+27,biotech companies,pharmavoice.com,PharmaVoice,0,1,Marmee stricter
+34,venture capital firms,impactcapitalpartner.com,Impact Capital Partner LLC,1,2,Marmee stricter
+1,software companies,sweetsoftware.co.nz,Sweet Software,0,1,Marmee stricter
+15,logistics companies in the US,hotoho.com,华通行物流有限公司 (HTH LOGISTICS),1,0,Marmee looser
+11,tech companies in Munich,visieconsult.com,Company Name,1,0,Marmee looser
+34,venture capital firms,saschajecht.com,MARS ventures GmbH,1,2,Marmee stricter
+11,tech companies in Munich,loopdive.com,Loopdive GmbH,1,2,Marmee stricter
+14,pharmaceutical companies,inkemia.com,"Inkemia, S.A.",2,1,Marmee looser
+11,tech companies in Munich,eurodsn.de,H-TECH GROUP,1,2,Marmee stricter
+15,logistics companies in the US,landesk.mx,Ländesk Integral Solutions,1,0,Marmee looser
+15,logistics companies in the US,hokushin-net.co.jp,北辰物流エンジニアリング 株式会社,1,0,Marmee looser
+4,renewable energy companies in Germany,rener.com.ua,RENER Energy Companies Group,1,0,Marmee looser
+11,tech companies in Munich,kontron.ag,Kontron,1,0,Marmee looser
+15,logistics companies in the US,iron-haulers.com,Iron Haulers,1,2,Marmee stricter
+72,managed service providers (MSPs),getatria.com,Atria,1,2,Marmee stricter
+12,manufacturing in Baden-Württemberg,lighthousetechmed.com,Lighthouse Tech Med,1,0,Marmee looser
+12,manufacturing in Baden-Württemberg,heilmannsoftware.de,Heilmann Software Gesellschaft für Informationstechnologie mbH,1,0,Marmee looser
+66,customer relationship management (CRM) software,seamlesscrm.co.uk,Seamless CRM,2,1,Marmee looser
+72,managed service providers (MSPs),vanquish.de,Vanquish GmbH,1,2,Marmee stricter
+11,tech companies in Munich,holm-computer-service.de,"Manfred Holm Computer Service, Beratung und Vertrieb",2,1,Marmee looser
+3,AI startups in Berlin,tbo.de,TBO Digital GmbH,2,1,Marmee looser
+12,manufacturing in Baden-Württemberg,est-gmbh.com,EST Integrata GmbH,1,0,Marmee looser
+72,managed service providers (MSPs),networkplatforms.co.za,Network Platforms,1,2,Marmee stricter
+66,customer relationship management (CRM) software,unibiz.com,Unique Business Systems Corp (UBS),2,1,Marmee looser
+72,managed service providers (MSPs),cienagasystems.net,CIENAGA SYSTEMS,1,2,Marmee stricter
+12,manufacturing in Baden-Württemberg,horn-technic.de,HORN Technic,2,0,Marmee looser
+72,managed service providers (MSPs),crosstel.com,Crosstel,2,1,Marmee looser
+11,tech companies in Munich,multimedia-schmiede.de,die Multimedia Schmiede GmbH,1,2,Marmee stricter
+4,renewable energy companies in Germany,solarinvest-deutschland.de,Solarinvest Deutschland Verwaltungs UG,1,2,Marmee stricter
+72,managed service providers (MSPs),p2telecom.com,P2 Business Solutions,1,2,Marmee stricter
+56,defense contractors,meadconstruction.com,"Mead Construction, Inc.",2,1,Marmee looser
+15,logistics companies in the US,viteusa.com,"ShenZhen ELONDA Information Technology Co., Ltd.",2,1,Marmee looser
+34,venture capital firms,umbrahelion.com,Umbrahelion Corporation,1,2,Marmee stricter
+11,tech companies in Munich,i-f-de.com,Innovations-Forum Deutschland,1,0,Marmee looser
+15,logistics companies in the US,westlogistic.ru,Вест Логистик,1,0,Marmee looser
