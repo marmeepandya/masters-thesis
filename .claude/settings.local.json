@@ -335,7 +335,18 @@
       "Bash(awk '/^\\\\\\\\section\\\\{Company and Entity/{f=1} /^\\\\\\\\section\\\\{Evaluation Without/{f=0} f' thesis.tex)",
       "Bash(awk '/^\\\\\\\\section\\\\{Evaluation Without/{f=1} /^\\\\\\\\paragraph\\\\{Synthesis/{f=0} f' thesis.tex)",
       "Bash(echo \"---overfull check---\")",
-      "Bash(awk 'NR>=291 && NR<=331 && /:/' thesis.tex)"
+      "Bash(awk 'NR>=291 && NR<=331 && /:/' thesis.tex)",
+      "WebFetch(domain:dl.acm.org)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=32 -dLastPage=34 -r150 -o __TRACKED_VAR__/fig_check2_%d.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=35 -dLastPage=37 -r150 -o __TRACKED_VAR__/fig_check3_%d.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=34 -dLastPage=34 -r150 -o __TRACKED_VAR__/fig_check4.png thesis.pdf)",
+      "Bash(pdftotext /dev/null)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=34 -dLastPage=34 -r300 -o __TRACKED_VAR__/fig_recheck.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=33 -dLastPage=34 -r300 -o __TRACKED_VAR__/fig_v3_%d.png thesis.pdf)",
+      "Bash(awk -F: '$1>=336 && $1<=772')",
+      "Bash(awk 'NR==895,NR==1157' thesis.tex)",
+      "Bash(awk 'NR==1157,NR==1451' thesis.tex)",
+      "Bash(awk 'NR==776,NR==1644' thesis.tex)"
     ]
   }
 }

@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {4.2.1}Dataset}{16}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Evaluation Protocol}{16}{subsection.4.2.2}%
 \contentsline {paragraph}{\nonumberline Pseudo-relevance labels.}{16}{paragraph*.20}%
-\contentsline {paragraph}{\nonumberline Metrics.}{16}{paragraph*.22}%
+\contentsline {paragraph}{\nonumberline Metrics.}{17}{paragraph*.22}%
 \contentsline {paragraph}{\nonumberline Reading Precision and Recall together.}{17}{paragraph*.24}%
 \contentsline {paragraph}{\nonumberline Computational environment.}{18}{paragraph*.26}%
 \contentsline {subsection}{\numberline {4.2.3}Sparse Retrieval Baseline: BM25}{18}{subsection.4.2.3}%
@@ -40,181 +40,176 @@
 \contentsline {subsubsection}{\nonumberline OpenAI (text-embedding-3-small)}{19}{subsubsection*.32}%
 \contentsline {section}{\numberline {4.3}Phase II: Improving Retrieval}{20}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Extended Baseline Comparison: Additional Embedding Models}{20}{subsection.4.3.1}%
-\contentsline {paragraph}{\nonumberline Query expansion: HyDE pipeline.}{20}{paragraph*.34}%
-\contentsline {paragraph}{\nonumberline Hybrid retrieval: Reciprocal Rank Fusion.}{21}{paragraph*.36}%
-\contentsline {paragraph}{\nonumberline ANN index scaling to 2 million vectors.}{21}{paragraph*.38}%
-\contentsline {paragraph}{\nonumberline Recall@1000 error analysis.}{21}{paragraph*.40}%
-\contentsline {subsection}{\numberline {4.3.2}Corpus Quality: Platform Boilerplate in AI-Generated Summaries}{21}{subsection.4.3.2}%
-\contentsline {paragraph}{\nonumberline Detection approach.}{22}{paragraph*.42}%
-\contentsline {paragraph}{\nonumberline Oracle union recall ceiling.}{22}{paragraph*.44}%
-\contentsline {subsection}{\numberline {4.3.3}SimLM: A Purpose-Built Retrieval Pre-training Baseline}{22}{subsection.4.3.3}%
-\contentsline {paragraph}{\nonumberline Implementation.}{22}{paragraph*.46}%
-\contentsline {subsection}{\numberline {4.3.4}ColBERT: Late-Interaction Retrieval via Brute-Force MaxSim}{23}{subsection.4.3.4}%
-\contentsline {paragraph}{\nonumberline Implementation.}{23}{paragraph*.48}%
-\contentsline {subsection}{\numberline {4.3.5}Hybrid Full-Pool Reranking}{23}{subsection.4.3.5}%
-\contentsline {paragraph}{\nonumberline Implementation.}{23}{paragraph*.50}%
-\contentsline {paragraph}{\nonumberline Reranker ablation: isolating the bottleneck.}{24}{paragraph*.52}%
-\contentsline {paragraph}{\nonumberline Implementation.}{24}{paragraph*.54}%
-\contentsline {subsection}{\numberline {4.3.6}Learned Fusion Ranker}{24}{subsection.4.3.6}%
-\contentsline {paragraph}{\nonumberline Formal setup.}{24}{paragraph*.56}%
-\contentsline {paragraph}{\nonumberline Implementation.}{24}{paragraph*.58}%
+\contentsline {subsection}{\numberline {4.3.2}Query Expansion: HyDE Pipeline}{20}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Hybrid Retrieval: Reciprocal Rank Fusion}{21}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}ANN Index Scaling to 2 Million Vectors}{21}{subsection.4.3.4}%
+\contentsline {paragraph}{\nonumberline Recall@1000 error analysis.}{21}{paragraph*.34}%
+\contentsline {subsection}{\numberline {4.3.5}Corpus Quality: Platform Boilerplate in AI-Generated Summaries}{21}{subsection.4.3.5}%
+\contentsline {paragraph}{\nonumberline Detection approach.}{22}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Oracle union recall ceiling.}{22}{paragraph*.38}%
+\contentsline {subsection}{\numberline {4.3.6}SimLM: A Purpose-Built Retrieval Pre-training Baseline}{22}{subsection.4.3.6}%
+\contentsline {paragraph}{\nonumberline Implementation.}{22}{paragraph*.40}%
+\contentsline {subsection}{\numberline {4.3.7}ColBERT: Late-Interaction Retrieval via Brute-Force MaxSim}{23}{subsection.4.3.7}%
+\contentsline {paragraph}{\nonumberline Implementation.}{23}{paragraph*.42}%
+\contentsline {subsection}{\numberline {4.3.8}Hybrid Full-Pool Reranking}{23}{subsection.4.3.8}%
+\contentsline {paragraph}{\nonumberline Implementation.}{23}{paragraph*.44}%
+\contentsline {paragraph}{\nonumberline Reranker ablation: isolating the bottleneck.}{24}{paragraph*.46}%
+\contentsline {paragraph}{\nonumberline Implementation.}{24}{paragraph*.48}%
+\contentsline {subsection}{\numberline {4.3.9}Learned Fusion Ranker}{24}{subsection.4.3.9}%
+\contentsline {paragraph}{\nonumberline Formal setup.}{24}{paragraph*.50}%
+\contentsline {paragraph}{\nonumberline Implementation.}{24}{paragraph*.52}%
 \contentsline {section}{\numberline {4.4}Phase III: Evaluation Validity}{25}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Building a Pooled, Independently Judged Silver Standard}{25}{subsection.4.4.1}%
-\contentsline {paragraph}{\nonumberline Pooling.}{25}{paragraph*.60}%
-\contentsline {paragraph}{\nonumberline Trust filtering.}{25}{paragraph*.62}%
-\contentsline {paragraph}{\nonumberline Multi-judge relevance labelling.}{25}{paragraph*.64}%
-\contentsline {paragraph}{\nonumberline Blind calibration of the judges.}{26}{paragraph*.66}%
-\contentsline {paragraph}{\nonumberline Scope of this pilot.}{26}{paragraph*.68}%
+\contentsline {paragraph}{\nonumberline Pooling.}{25}{paragraph*.54}%
+\contentsline {paragraph}{\nonumberline Trust filtering.}{25}{paragraph*.56}%
+\contentsline {paragraph}{\nonumberline Multi-judge relevance labelling.}{25}{paragraph*.58}%
+\contentsline {paragraph}{\nonumberline Blind calibration of the judges.}{26}{paragraph*.60}%
+\contentsline {paragraph}{\nonumberline Scope of this pilot.}{26}{paragraph*.62}%
 \contentsline {subsection}{\numberline {4.4.2}Retraining Against the New Silver Standard}{26}{subsection.4.4.2}%
-\contentsline {paragraph}{\nonumberline Approach.}{27}{paragraph*.70}%
-\contentsline {paragraph}{\nonumberline Validating the bronze tier.}{27}{paragraph*.72}%
+\contentsline {paragraph}{\nonumberline Approach.}{27}{paragraph*.64}%
+\contentsline {paragraph}{\nonumberline Validating the bronze tier.}{27}{paragraph*.66}%
 \contentsline {subsection}{\numberline {4.4.3}Expanding the Silver Standard via Active Learning (AL)}{27}{subsection.4.4.3}%
-\contentsline {paragraph}{\nonumberline A further possible extension (not yet implemented).}{28}{paragraph*.74}%
 \contentsline {subsection}{\numberline {4.4.4}Deepening a Headline Query Subset via Round-Based AL}{28}{subsection.4.4.4}%
-\contentsline {paragraph}{\nonumberline Refreshing the bronze tier at no additional cost.}{29}{paragraph*.76}%
-\contentsline {paragraph}{\nonumberline Quantifying how far production's own ranking diverges from the independent silver/bronze set.}{30}{paragraph*.78}%
-\contentsline {paragraph}{\nonumberline A direct ranking comparison: production vs. an independently cross-validated ranker.}{30}{paragraph*.80}%
+\contentsline {paragraph}{\nonumberline Refreshing the bronze tier at no additional cost.}{29}{paragraph*.68}%
+\contentsline {paragraph}{\nonumberline Quantifying how far production's own ranking diverges from the independent silver/bronze set.}{30}{paragraph*.70}%
+\contentsline {paragraph}{\nonumberline A direct ranking comparison: production vs. an independently cross-validated ranker.}{30}{paragraph*.72}%
 \contentsline {subsection}{\numberline {4.4.5}Effect of Judgment Coverage on the Production Comparison}{30}{subsection.4.4.5}%
-\contentsline {paragraph}{\nonumberline Method.}{31}{paragraph*.82}%
+\contentsline {paragraph}{\nonumberline Method.}{30}{paragraph*.74}%
 \contentsline {subsection}{\numberline {4.4.6}A Production-Independent Test: Companies Production Never Saw}{31}{subsection.4.4.6}%
-\contentsline {paragraph}{\nonumberline Method.}{31}{paragraph*.84}%
-\contentsline {paragraph}{\nonumberline Result.}{32}{paragraph*.86}%
-\contentsline {paragraph}{\nonumberline Is the classifier's confidence honest? A calibration check.}{32}{paragraph*.88}%
+\contentsline {paragraph}{\nonumberline Method.}{31}{paragraph*.76}%
+\contentsline {paragraph}{\nonumberline Is the classifier's confidence honest? A calibration check.}{31}{paragraph*.78}%
 \contentsline {subsection}{\numberline {4.4.7}Silver-Standard Coverage Across the Ranking}{32}{subsection.4.4.7}%
-\contentsline {paragraph}{\nonumberline Two representative queries.}{32}{paragraph*.90}%
-\contentsline {paragraph}{\nonumberline Method.}{32}{paragraph*.92}%
-\contentsline {paragraph}{\nonumberline Implication for the external review.}{32}{paragraph*.94}%
-\contentsline {section}{\numberline {4.5}Phase IV: Learned Retrieval Revisited}{33}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Hyperparameter Tuning the Fusion Ranker}{33}{subsection.4.5.1}%
-\contentsline {paragraph}{\nonumberline Method.}{33}{paragraph*.96}%
-\contentsline {paragraph}{\nonumberline Avoiding leakage in model selection.}{33}{paragraph*.98}%
-\contentsline {subsection}{\numberline {4.5.2}A Neural Network Fusion Ranker}{34}{subsection.4.5.2}%
-\contentsline {paragraph}{\nonumberline Formal setup.}{34}{paragraph*.100}%
-\contentsline {paragraph}{\nonumberline Method.}{34}{paragraph*.102}%
-\contentsline {subsection}{\numberline {4.5.3}Fine-Tuning the Reranker}{35}{subsection.4.5.3}%
-\contentsline {paragraph}{\nonumberline Method.}{35}{paragraph*.104}%
-\contentsline {paragraph}{\nonumberline A second attempt: hard negatives and a pairwise ranking loss.}{35}{paragraph*.106}%
+\contentsline {paragraph}{\nonumberline Two representative queries.}{32}{paragraph*.80}%
+\contentsline {paragraph}{\nonumberline Method.}{32}{paragraph*.82}%
+\contentsline {paragraph}{\nonumberline Implication for the external review.}{32}{paragraph*.84}%
+\contentsline {section}{\numberline {4.5}Phase IV: Learned Retrieval Revisited}{32}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Hyperparameter Tuning the Fusion Ranker}{32}{subsection.4.5.1}%
+\contentsline {paragraph}{\nonumberline Method.}{33}{paragraph*.86}%
+\contentsline {paragraph}{\nonumberline Avoiding leakage in model selection.}{33}{paragraph*.88}%
+\contentsline {subsection}{\numberline {4.5.2}A Neural Network Fusion Ranker}{33}{subsection.4.5.2}%
+\contentsline {paragraph}{\nonumberline Formal setup.}{33}{paragraph*.90}%
+\contentsline {paragraph}{\nonumberline Method.}{34}{paragraph*.92}%
+\contentsline {subsection}{\numberline {4.5.3}Fine-Tuning the Reranker}{34}{subsection.4.5.3}%
+\contentsline {paragraph}{\nonumberline Method.}{34}{paragraph*.94}%
+\contentsline {paragraph}{\nonumberline A second attempt: hard negatives and a pairwise ranking loss.}{34}{paragraph*.96}%
 \contentsline {section}{\numberline {4.6}Phase V: Scalability}{35}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Scaling to a Larger Corpus: A Random Sample and Nested Corpus Tiers}{35}{subsection.4.6.1}%
-\contentsline {paragraph}{\nonumberline A fully random sample.}{36}{paragraph*.108}%
-\contentsline {paragraph}{\nonumberline Data quality.}{36}{paragraph*.110}%
-\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{36}{paragraph*.112}%
-\contentsline {paragraph}{\nonumberline Encoding.}{36}{paragraph*.114}%
-\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{37}{paragraph*.116}%
-\contentsline {paragraph}{\nonumberline Status.}{37}{paragraph*.118}%
-\contentsline {subsection}{\numberline {4.6.2}Approximate Nearest Neighbor (ANN) Index Tuning}{38}{subsection.4.6.2}%
-\contentsline {paragraph}{\nonumberline Method.}{38}{paragraph*.120}%
-\contentsline {chapter}{\numberline {5}Results and Discussion}{39}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Phase I: Baselines}{40}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Phase I: Sparse Retrieval Baseline (BM25)}{40}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Phase I: Baseline Results}{40}{subsection.5.1.2}%
-\contentsline {paragraph}{\nonumberline BM25 vs dense retrieval.}{40}{paragraph*.122}%
-\contentsline {paragraph}{\nonumberline MiniLM.}{41}{paragraph*.124}%
-\contentsline {paragraph}{\nonumberline Why does the smallest model win?}{41}{paragraph*.126}%
-\contentsline {paragraph}{\nonumberline BGE vs OpenAI.}{41}{paragraph*.128}%
-\contentsline {subsection}{\numberline {5.1.3}Phase I: Runtime Analysis}{41}{subsection.5.1.3}%
-\contentsline {paragraph}{\nonumberline Why BGE is faster despite being a larger model.}{42}{paragraph*.130}%
-\contentsline {paragraph}{\nonumberline MiniLM encodes slowly despite being a small model.}{42}{paragraph*.132}%
-\contentsline {paragraph}{\nonumberline OpenAI's latency is dominated by network time.}{42}{paragraph*.134}%
-\contentsline {paragraph}{\nonumberline Summary.}{43}{paragraph*.136}%
-\contentsline {section}{\numberline {5.2}Phase II: Improving Retrieval}{43}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Extended Baseline Comparison: Results}{43}{subsection.5.2.1}%
-\contentsline {paragraph}{\nonumberline Findings.}{43}{paragraph*.138}%
-\contentsline {paragraph}{\nonumberline Encoding cost.}{44}{paragraph*.140}%
-\contentsline {subsection}{\numberline {5.2.2}Query Expansion: HyDE Results}{44}{subsection.5.2.2}%
-\contentsline {paragraph}{\nonumberline Finding.}{44}{paragraph*.142}%
-\contentsline {subsection}{\numberline {5.2.3}Hybrid Retrieval: RRF Results}{44}{subsection.5.2.3}%
-\contentsline {paragraph}{\nonumberline Finding.}{45}{paragraph*.144}%
-\contentsline {subsection}{\numberline {5.2.4}ANN Index Scaling: Results}{45}{subsection.5.2.4}%
-\contentsline {paragraph}{\nonumberline Finding.}{45}{paragraph*.146}%
-\contentsline {subsection}{\numberline {5.2.5}Recall@1000 Error Analysis: Results}{45}{subsection.5.2.5}%
-\contentsline {paragraph}{\nonumberline Finding.}{45}{paragraph*.148}%
-\contentsline {subsection}{\numberline {5.2.6}Corpus Quality: Findings}{46}{subsection.5.2.6}%
-\contentsline {paragraph}{\nonumberline How much of the corpus is affected.}{46}{paragraph*.150}%
-\contentsline {paragraph}{\nonumberline Why this limitation was not corrected in the reported results.}{46}{paragraph*.152}%
-\contentsline {paragraph}{\nonumberline Does this get worse at scale?}{47}{paragraph*.154}%
-\contentsline {subsection}{\numberline {5.2.7}Oracle Union Recall Ceiling: Results}{47}{subsection.5.2.7}%
-\contentsline {paragraph}{\nonumberline Findings.}{47}{paragraph*.156}%
-\contentsline {paragraph}{\nonumberline Interpretation.}{47}{paragraph*.158}%
-\contentsline {subsection}{\numberline {5.2.8}SimLM: Results}{47}{subsection.5.2.8}%
-\contentsline {paragraph}{\nonumberline Finding.}{48}{paragraph*.160}%
-\contentsline {subsection}{\numberline {5.2.9}ColBERT: Results}{48}{subsection.5.2.9}%
-\contentsline {paragraph}{\nonumberline Finding.}{48}{paragraph*.162}%
-\contentsline {subsection}{\numberline {5.2.10}Hybrid Full-Pool Reranking: Results}{49}{subsection.5.2.10}%
-\contentsline {paragraph}{\nonumberline Finding.}{49}{paragraph*.164}%
-\contentsline {paragraph}{\nonumberline Interpretation: channel saturation.}{49}{paragraph*.166}%
-\contentsline {subsection}{\numberline {5.2.11}Reranker Ablation: Results}{49}{subsection.5.2.11}%
-\contentsline {paragraph}{\nonumberline Finding.}{50}{paragraph*.168}%
-\contentsline {subsection}{\numberline {5.2.12}Learned Fusion Ranker: Results}{50}{subsection.5.2.12}%
-\contentsline {paragraph}{\nonumberline Finding.}{50}{paragraph*.170}%
-\contentsline {paragraph}{\nonumberline Interpretation: what the model learned.}{50}{paragraph*.172}%
-\contentsline {section}{\numberline {5.3}Phase III: Evaluation Validity}{51}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Building the Silver Standard: Results}{51}{subsection.5.3.1}%
-\contentsline {paragraph}{\nonumberline Inter-rater reliability.}{51}{paragraph*.174}%
-\contentsline {paragraph}{\nonumberline Blind calibration against the silver standard.}{51}{paragraph*.176}%
-\contentsline {subsection}{\numberline {5.3.2}Retraining Against the New Silver Standard: Results}{52}{subsection.5.3.2}%
-\contentsline {paragraph}{\nonumberline Finding.}{52}{paragraph*.178}%
-\contentsline {paragraph}{\nonumberline Confirmation at full scale.}{53}{paragraph*.180}%
-\contentsline {paragraph}{\nonumberline Limitations.}{53}{paragraph*.182}%
-\contentsline {subsection}{\numberline {5.3.3}Extending the Independent Evaluation: Bronze Labels and Active Learning}{54}{subsection.5.3.3}%
-\contentsline {paragraph}{\nonumberline Status.}{54}{paragraph*.184}%
-\contentsline {subsection}{\numberline {5.3.4}Active Learning: Results}{54}{subsection.5.3.4}%
-\contentsline {paragraph}{\nonumberline Result.}{54}{paragraph*.186}%
-\contentsline {paragraph}{\nonumberline Result.}{54}{paragraph*.188}%
-\contentsline {subsection}{\numberline {5.3.5}Round-Based AL: Results}{55}{subsection.5.3.5}%
-\contentsline {paragraph}{\nonumberline Stopping.}{55}{paragraph*.190}%
-\contentsline {paragraph}{\nonumberline Result.}{55}{paragraph*.192}%
-\contentsline {subsection}{\numberline {5.3.6}Production Divergence: Results}{55}{subsection.5.3.6}%
-\contentsline {paragraph}{\nonumberline Finding.}{55}{paragraph*.194}%
-\contentsline {subsection}{\numberline {5.3.7}Production vs. Independent Ranker: Results}{56}{subsection.5.3.7}%
-\contentsline {paragraph}{\nonumberline Finding.}{56}{paragraph*.196}%
-\contentsline {subsection}{\numberline {5.3.8}Judgment Coverage: Results}{57}{subsection.5.3.8}%
-\contentsline {paragraph}{\nonumberline Finding.}{57}{paragraph*.198}%
-\contentsline {subsection}{\numberline {5.3.9}Production-Independent Test: Results}{58}{subsection.5.3.9}%
-\contentsline {paragraph}{\nonumberline Finding.}{58}{paragraph*.200}%
-\contentsline {paragraph}{\nonumberline Qualitative error analysis: what does the pipeline still miss at 400K?}{59}{paragraph*.202}%
-\contentsline {paragraph}{\nonumberline What this answers, and what it still does not.}{60}{paragraph*.204}%
-\contentsline {subsection}{\numberline {5.3.10}Calibration Check: Results}{60}{subsection.5.3.10}%
-\contentsline {paragraph}{\nonumberline Finding.}{60}{paragraph*.206}%
-\contentsline {subsection}{\numberline {5.3.11}Synthesis of Evaluation Findings}{61}{subsection.5.3.11}%
-\contentsline {paragraph}{\nonumberline Part 1: is the silver/bronze standard better than GOI's own output?}{61}{paragraph*.208}%
-\contentsline {paragraph}{\nonumberline Part 2: once the silver standard existed, did tuning and fine-tuning the pipeline against it actually help?}{62}{paragraph*.210}%
-\contentsline {paragraph}{\nonumberline Limitation: precision is a lower bound, not an exact figure.}{64}{paragraph*.212}%
-\contentsline {paragraph}{\nonumberline A second, distinct bias: active-learning sampling skews which relevant companies get verified, not just how many.}{64}{paragraph*.214}%
-\contentsline {paragraph}{\nonumberline A third bias, harder to quantify: the author personally breaks judge disagreements, then those decisions score the author's own system.}{65}{paragraph*.216}%
-\contentsline {paragraph}{\nonumberline Future work: tightening this bound with more exhaustive LLM ranking.}{65}{paragraph*.218}%
-\contentsline {subsection}{\numberline {5.3.12}Silver-Standard Coverage: Results}{66}{subsection.5.3.12}%
+\contentsline {paragraph}{\nonumberline A fully random sample.}{35}{paragraph*.98}%
+\contentsline {paragraph}{\nonumberline Data quality.}{35}{paragraph*.100}%
+\contentsline {paragraph}{\nonumberline Nested corpus tiers.}{35}{paragraph*.102}%
+\contentsline {paragraph}{\nonumberline Encoding.}{36}{paragraph*.104}%
+\contentsline {paragraph}{\nonumberline Scope: beyond the three fusion-ranker features.}{36}{paragraph*.106}%
+\contentsline {paragraph}{\nonumberline Status.}{36}{paragraph*.108}%
+\contentsline {subsection}{\numberline {4.6.2}Approximate Nearest Neighbor (ANN) Index Tuning}{37}{subsection.4.6.2}%
+\contentsline {paragraph}{\nonumberline Method.}{37}{paragraph*.110}%
+\contentsline {chapter}{\numberline {5}Results and Discussion}{38}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Phase I: Baselines}{38}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Phase I: Sparse Retrieval Baseline (BM25)}{38}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Phase I: Baseline Results}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{\nonumberline BM25 vs dense retrieval.}{39}{paragraph*.112}%
+\contentsline {paragraph}{\nonumberline MiniLM.}{39}{paragraph*.114}%
+\contentsline {paragraph}{\nonumberline Why does the smallest model win?}{39}{paragraph*.116}%
+\contentsline {paragraph}{\nonumberline BGE vs OpenAI.}{40}{paragraph*.118}%
+\contentsline {subsection}{\numberline {5.1.3}Phase I: Runtime Analysis}{40}{subsection.5.1.3}%
+\contentsline {paragraph}{\nonumberline Why BGE is faster despite being a larger model.}{41}{paragraph*.120}%
+\contentsline {paragraph}{\nonumberline MiniLM encodes slowly despite being a small model.}{41}{paragraph*.122}%
+\contentsline {paragraph}{\nonumberline OpenAI's latency is dominated by network time.}{41}{paragraph*.124}%
+\contentsline {paragraph}{\nonumberline Summary.}{41}{paragraph*.126}%
+\contentsline {section}{\numberline {5.2}Phase II: Improving Retrieval}{42}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Extended Baseline Comparison: Results}{42}{subsection.5.2.1}%
+\contentsline {paragraph}{\nonumberline Findings.}{42}{paragraph*.128}%
+\contentsline {paragraph}{\nonumberline Encoding cost.}{42}{paragraph*.130}%
+\contentsline {subsection}{\numberline {5.2.2}Query Expansion: HyDE Results}{42}{subsection.5.2.2}%
+\contentsline {paragraph}{\nonumberline Finding.}{42}{paragraph*.132}%
+\contentsline {subsection}{\numberline {5.2.3}Hybrid Retrieval: RRF Results}{43}{subsection.5.2.3}%
+\contentsline {paragraph}{\nonumberline Finding.}{43}{paragraph*.134}%
+\contentsline {subsection}{\numberline {5.2.4}ANN Index Scaling: Results}{43}{subsection.5.2.4}%
+\contentsline {paragraph}{\nonumberline Finding.}{43}{paragraph*.136}%
+\contentsline {subsection}{\numberline {5.2.5}Recall@1000 Error Analysis: Results}{44}{subsection.5.2.5}%
+\contentsline {paragraph}{\nonumberline Finding.}{44}{paragraph*.138}%
+\contentsline {subsection}{\numberline {5.2.6}Corpus Quality: Findings}{44}{subsection.5.2.6}%
+\contentsline {paragraph}{\nonumberline How much of the corpus is affected.}{44}{paragraph*.140}%
+\contentsline {paragraph}{\nonumberline Why this limitation was not corrected in the reported results.}{45}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Does this get worse at scale?}{45}{paragraph*.144}%
+\contentsline {subsection}{\numberline {5.2.7}Oracle Union Recall Ceiling: Results}{46}{subsection.5.2.7}%
+\contentsline {paragraph}{\nonumberline Findings.}{46}{paragraph*.146}%
+\contentsline {paragraph}{\nonumberline Interpretation.}{46}{paragraph*.148}%
+\contentsline {subsection}{\numberline {5.2.8}SimLM: Results}{46}{subsection.5.2.8}%
+\contentsline {paragraph}{\nonumberline Finding.}{46}{paragraph*.150}%
+\contentsline {subsection}{\numberline {5.2.9}ColBERT: Results}{47}{subsection.5.2.9}%
+\contentsline {paragraph}{\nonumberline Finding.}{47}{paragraph*.152}%
+\contentsline {subsection}{\numberline {5.2.10}Hybrid Full-Pool Reranking: Results}{47}{subsection.5.2.10}%
+\contentsline {paragraph}{\nonumberline Finding.}{48}{paragraph*.154}%
+\contentsline {paragraph}{\nonumberline Interpretation: channel saturation.}{48}{paragraph*.156}%
+\contentsline {subsection}{\numberline {5.2.11}Reranker Ablation: Results}{48}{subsection.5.2.11}%
+\contentsline {paragraph}{\nonumberline Finding.}{48}{paragraph*.158}%
+\contentsline {subsection}{\numberline {5.2.12}Learned Fusion Ranker: Results}{49}{subsection.5.2.12}%
+\contentsline {paragraph}{\nonumberline Finding.}{49}{paragraph*.160}%
+\contentsline {paragraph}{\nonumberline Interpretation: what the model learned.}{49}{paragraph*.162}%
+\contentsline {section}{\numberline {5.3}Phase III: Evaluation Validity}{49}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Building the Silver Standard: Results}{49}{subsection.5.3.1}%
+\contentsline {paragraph}{\nonumberline Inter-rater reliability.}{49}{paragraph*.164}%
+\contentsline {paragraph}{\nonumberline Blind calibration against the silver standard.}{50}{paragraph*.166}%
+\contentsline {subsection}{\numberline {5.3.2}Retraining Against the New Silver Standard: Results}{50}{subsection.5.3.2}%
+\contentsline {paragraph}{\nonumberline Finding.}{51}{paragraph*.168}%
+\contentsline {paragraph}{\nonumberline Confirmation at full scale.}{52}{paragraph*.170}%
+\contentsline {paragraph}{\nonumberline Limitations.}{52}{paragraph*.172}%
+\contentsline {subsection}{\numberline {5.3.3}Extending the Independent Evaluation: Bronze Labels and Active Learning}{52}{subsection.5.3.3}%
+\contentsline {paragraph}{\nonumberline Status.}{52}{paragraph*.174}%
+\contentsline {subsection}{\numberline {5.3.4}Active Learning: Results}{53}{subsection.5.3.4}%
+\contentsline {paragraph}{\nonumberline Result.}{53}{paragraph*.176}%
+\contentsline {paragraph}{\nonumberline Result.}{53}{paragraph*.178}%
+\contentsline {subsection}{\numberline {5.3.5}Round-Based AL: Results}{53}{subsection.5.3.5}%
+\contentsline {paragraph}{\nonumberline Stopping.}{54}{paragraph*.180}%
+\contentsline {paragraph}{\nonumberline Result.}{54}{paragraph*.182}%
+\contentsline {subsection}{\numberline {5.3.6}Production Divergence: Results}{54}{subsection.5.3.6}%
+\contentsline {paragraph}{\nonumberline Finding.}{54}{paragraph*.184}%
+\contentsline {subsection}{\numberline {5.3.7}Production vs. Independent Ranker: Results}{54}{subsection.5.3.7}%
+\contentsline {paragraph}{\nonumberline Finding.}{54}{paragraph*.186}%
+\contentsline {subsection}{\numberline {5.3.8}Judgment Coverage: Results}{55}{subsection.5.3.8}%
+\contentsline {paragraph}{\nonumberline Finding.}{55}{paragraph*.188}%
+\contentsline {subsection}{\numberline {5.3.9}Production-Independent Test: Results}{56}{subsection.5.3.9}%
+\contentsline {paragraph}{\nonumberline Result.}{56}{paragraph*.190}%
+\contentsline {paragraph}{\nonumberline Finding.}{56}{paragraph*.192}%
+\contentsline {paragraph}{\nonumberline Qualitative error analysis: what does the pipeline still miss at 400K?}{58}{paragraph*.194}%
+\contentsline {paragraph}{\nonumberline What this answers, and what it still does not.}{58}{paragraph*.196}%
+\contentsline {subsection}{\numberline {5.3.10}Calibration Check: Results}{59}{subsection.5.3.10}%
+\contentsline {paragraph}{\nonumberline Finding.}{59}{paragraph*.198}%
+\contentsline {subsection}{\numberline {5.3.11}Synthesis of Evaluation Findings}{59}{subsection.5.3.11}%
+\contentsline {paragraph}{\nonumberline Part 1: is the silver/bronze standard better than GOI's own output?}{59}{paragraph*.200}%
+\contentsline {paragraph}{\nonumberline Part 2: once the silver standard existed, did tuning and fine-tuning the pipeline against it actually help?}{61}{paragraph*.202}%
+\contentsline {paragraph}{\nonumberline Limitation: precision is a lower bound, not an exact figure.}{62}{paragraph*.204}%
+\contentsline {paragraph}{\nonumberline A second, distinct bias: active-learning sampling skews which relevant companies get verified, not just how many.}{63}{paragraph*.206}%
+\contentsline {paragraph}{\nonumberline A third bias, harder to quantify: the author personally breaks judge disagreements, then those decisions score the author's own system.}{63}{paragraph*.208}%
+\contentsline {paragraph}{\nonumberline Future work: tightening this bound with more exhaustive LLM ranking.}{64}{paragraph*.210}%
+\contentsline {subsection}{\numberline {5.3.12}Silver-Standard Coverage: Results}{64}{subsection.5.3.12}%
+\contentsline {paragraph}{\nonumberline Finding.}{64}{paragraph*.212}%
+\contentsline {subsection}{\numberline {5.3.13}What the External Review Found}{65}{subsection.5.3.13}%
+\contentsline {paragraph}{\nonumberline The free consistency check had too little overlap to compute.}{65}{paragraph*.214}%
+\contentsline {paragraph}{\nonumberline A stronger result: independent human confirmation of the production-independent coverage claim.}{66}{paragraph*.216}%
+\contentsline {section}{\numberline {5.4}Phase IV: Learned Retrieval Revisited}{66}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Hyperparameter Tuning: Results}{66}{subsection.5.4.1}%
+\contentsline {paragraph}{\nonumberline Results.}{66}{paragraph*.218}%
 \contentsline {paragraph}{\nonumberline Finding.}{66}{paragraph*.220}%
-\contentsline {subsection}{\numberline {5.3.13}What the External Review Found}{66}{subsection.5.3.13}%
-\contentsline {paragraph}{\nonumberline The free consistency check had too little overlap to compute.}{67}{paragraph*.222}%
-\contentsline {paragraph}{\nonumberline A stronger result: independent human confirmation of the production-independent coverage claim.}{67}{paragraph*.224}%
-\contentsline {section}{\numberline {5.4}Phase IV: Learned Retrieval Revisited}{67}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Hyperparameter Tuning: Results}{67}{subsection.5.4.1}%
-\contentsline {paragraph}{\nonumberline Results.}{67}{paragraph*.226}%
-\contentsline {paragraph}{\nonumberline Finding.}{67}{paragraph*.228}%
-\contentsline {subsection}{\numberline {5.4.2}Neural Network Fusion Ranker: Results}{68}{subsection.5.4.2}%
-\contentsline {paragraph}{\nonumberline Results.}{68}{paragraph*.230}%
-\contentsline {paragraph}{\nonumberline Finding.}{68}{paragraph*.232}%
-\contentsline {subsection}{\numberline {5.4.3}Fine-Tuning the Reranker: Results}{69}{subsection.5.4.3}%
-\contentsline {paragraph}{\nonumberline Finding.}{70}{paragraph*.234}%
-\contentsline {paragraph}{\nonumberline Finding.}{71}{paragraph*.236}%
-\contentsline {section}{\numberline {5.5}Phase V: Scalability}{71}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Scaling to a Larger Corpus: Results}{71}{subsection.5.5.1}%
-\contentsline {paragraph}{\nonumberline Finding.}{71}{paragraph*.238}%
-\contentsline {subsection}{\numberline {5.5.2}ANN Index Tuning: Results}{72}{subsection.5.5.2}%
-\contentsline {paragraph}{\nonumberline Finding.}{72}{paragraph*.240}%
-\contentsline {section}{\numberline {5.6}Overall Experimental Findings}{74}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Retrieval Performance}{74}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Evaluation Validity}{74}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}Independent Evaluation of the Learned Pipeline}{75}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Scalability and Efficiency}{75}{subsection.5.6.4}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{77}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Contributions}{77}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Future Work}{78}{section.6.2}%
-\contentsline {paragraph}{\nonumberline Closing the central open question.}{78}{paragraph*.242}%
-\contentsline {paragraph}{\nonumberline Strengthening the evaluation methodology itself.}{78}{paragraph*.244}%
-\contentsline {paragraph}{\nonumberline Further modelling experiments.}{79}{paragraph*.246}%
-\contentsline {paragraph}{\nonumberline Scaling further.}{79}{paragraph*.248}%
-\contentsline {chapter}{\nonumberline Bibliography}{81}{chapter*.249}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{86}{chapter*.250}%
+\contentsline {subsection}{\numberline {5.4.2}Neural Network Fusion Ranker: Results}{67}{subsection.5.4.2}%
+\contentsline {paragraph}{\nonumberline Results.}{67}{paragraph*.222}%
+\contentsline {paragraph}{\nonumberline Finding.}{67}{paragraph*.224}%
+\contentsline {subsection}{\numberline {5.4.3}Fine-Tuning the Reranker: Results}{68}{subsection.5.4.3}%
+\contentsline {paragraph}{\nonumberline Finding.}{68}{paragraph*.226}%
+\contentsline {paragraph}{\nonumberline Finding.}{69}{paragraph*.228}%
+\contentsline {section}{\numberline {5.5}Phase V: Scalability}{70}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Scaling to a Larger Corpus: Results}{70}{subsection.5.5.1}%
+\contentsline {paragraph}{\nonumberline Finding.}{70}{paragraph*.230}%
+\contentsline {subsection}{\numberline {5.5.2}ANN Index Tuning: Results}{70}{subsection.5.5.2}%
+\contentsline {paragraph}{\nonumberline Finding.}{71}{paragraph*.232}%
+\contentsline {section}{\numberline {5.6}Overall Experimental Findings}{72}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{74}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of Contributions}{74}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Future Work}{75}{section.6.2}%
+\contentsline {paragraph}{\nonumberline Closing the central open question.}{75}{paragraph*.234}%
+\contentsline {paragraph}{\nonumberline Strengthening the evaluation methodology itself.}{75}{paragraph*.236}%
+\contentsline {paragraph}{\nonumberline Further modelling experiments.}{76}{paragraph*.238}%
+\contentsline {paragraph}{\nonumberline Scaling further.}{76}{paragraph*.240}%
+\contentsline {chapter}{\nonumberline Bibliography}{78}{chapter*.241}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{83}{chapter*.242}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
