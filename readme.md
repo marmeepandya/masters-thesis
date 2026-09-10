@@ -1,59 +1,84 @@
 # Semantic Company Retrieval at Scale
-### Master's Thesis — Data Science, University of Mannheim
-**Author:** Marmee Pandya  
-**Industry Partner:** [Istari.ai](https://istari.ai)  
-**Date:** March 2026
+
+**Master's Thesis — Data Science, University of Mannheim**
+**Author:** Marmee Pandya
+**Advisor:** Prof. Dr. Ralph Peeters
+**Industry Partner:** [ISTARI.AI](https://istari.ai)
 
 ---
 
-## Project Overview
+## Overview
 
-Modern company intelligence platforms maintain datasets containing millions of company profiles. Despite the availability of large amounts of structured and unstructured data, retrieving relevant companies remains challenging. Current workflows often rely on manually configured filters and keyword-based queries, which require multiple iterations before satisfactory results are obtained.
+A company that is a perfect match for a search query can still be invisible to a keyword-based search system, simply because its own description never repeats the query's exact wording. This project investigates whether embedding-based semantic retrieval, paired with approximate nearest-neighbour (ANN) search, can generate accurate candidate sets efficiently at scale, and whether it can outperform the keyword-driven production search system currently used by ISTARI.AI.
 
-This thesis investigates whether **embedding-based semantic retrieval** combined with **approximate nearest neighbor (ANN) search** can efficiently generate accurate top-k candidate company sets from large-scale datasets while maintaining low query latency.
+The work compares more than ten dense embedding models, a late-interaction architecture, and several hybrid retrieval pipelines over a corpus of company profiles drawn from ISTARI's Global Organization Index (GOI), a dataset of roughly 20 million verified, actively operated organizations across 232 countries. A learned fusion ranker trained on the task's own queries is the strongest performer under a standard retrieval protocol. Because no independent human relevance judgements existed for this task at the outset, a large part of the project is dedicated to building an independent, multi-judge silver-labeling pipeline and testing how much of that initial result depended on using production's own output as ground truth. At the largest tested scale, ANN search matches exact search's retrieval quality within a small margin while running significantly faster, a result confirmed with statistical testing rather than asserted from raw numbers alone.
 
----
-
-## Thesis Goal
-
-Design, implement, and evaluate an efficient embedding-based candidate retrieval system for large-scale company data, using Istari's **Global Organization Index (GOI)** — a dataset of ~20 million verified and active organizations across 232 countries.
-
-### Research Goals
-
-| Goal | Description |
-|------|-------------|
-| **Goal 1** | Develop a semantic retrieval pipeline that encodes company descriptions into dense vector representations and supports scalable top-k retrieval using ANN search |
-| **Goal 2** | Systematically compare the proposed approach against the production search system and a BM25 baseline using standard retrieval metrics (Precision@k, Recall@k, NDCG@k) and efficiency measures |
-| **Goal 3 *(optional)*** | Explore similarity-based explanatory techniques such as embedding neighborhood analysis and visualization of retrieved company clusters |
+The full write-up, including methodology, results, and discussion of the evaluation-circularity problem, is in [`Thesis_Report/thesis.pdf`](Thesis_Report/thesis.pdf).
 
 ---
 
-## Dataset
+## Repository Structure
 
-The thesis uses Istari's **Global Organization Index (GOI)**, built through a multi-step validation pipeline:
+```
+.
+├── 01_..._76_...ipynb       # Numbered analysis pipeline (see below)
+├── 66_..._69_...py          # Standalone scripts mirroring the corresponding notebooks, for batch/SLURM runs
+├── result/                  # Per-notebook output artefacts (metrics, figures, intermediate tables)
+├── dataset/                 # Not included in this repository — see Data Availability
+├── Thesis_Report/           # LaTeX source and compiled PDF of the thesis
+├── Thesis_Proposal/         # Original thesis proposal
+├── assessor_guidelines.md   # Guidelines given to human relevance assessors
+├── requirements.txt         # Python dependencies
+└── sync_to_drive.sh         # Syncs result/ artefacts to Google Drive backup
+```
 
-- ~400M organizations collected from national registries worldwide
-- ~40M attributed to identifiable web domains
-- ~20M verified as actively operated — this is the final dataset
+### Pipeline Overview
 
-Each organization record includes an AI-generated `summary`, `keywords`, `nace_code`, `organization_type`, `organization_size`, and location fields.
+The notebooks are numbered in the order they were run and roughly fall into the following stages:
+
+| Range | Stage |
+|-------|-------|
+| `01`–`05` | Baseline dense retrievers (BM25, BGE, MiniLM, OpenAI, Nomic) |
+| `06`–`30` | Hybrid retrieval, reranking, and fusion ranker experiments |
+| `32`–`43` | Evaluation-set construction, LLM judge ensembles, and silver-label calibration |
+| `44`–`64` | Scaling embeddings and retrieval to the full corpus, reranker fine-tuning, ANN tuning |
+| `65`–`76` | Production-independent evaluation, inter-rater agreement, and significance testing |
+
+Each notebook writes its outputs to a correspondingly named folder under `result/`.
 
 ---
 
-## Baselines
+## Data Availability
 
-1. **Production Search Baseline** — Istari's existing keyword-based search system
-2. **BM25 Baseline** — Classical probabilistic retrieval model
-3. **Embedding-Based Literature Baseline** — A recent dense retrieval method from scientific literature
+Company-level data from ISTARI's Global Organization Index (GOI), the evaluation queries, and the production search results used as a comparison baseline are proprietary to ISTARI.AI and are **not included** in this repository.
 
----
-
-## Evaluation
-
-- **Retrieval Quality:** Precision@k, Recall@k, NDCG@k
-- **Efficiency:** Query latency, throughput, memory consumption
-- **Error Analysis:** Qualitative analysis of vocabulary mismatch and failure modes
+Result outputs, trained model artefacts, and other intermediate files that do not expose raw company data (relevance labels, evaluation metrics, figures) are backed up separately at this [Google Drive folder](https://drive.google.com/drive/u/3/folders/1dRm6Oj8p3JlzWZsJoMJukuh19AkFJi1m), so the analysis can be reproduced conditional on independent access to the underlying GOI data.
 
 ---
 
-*More sections will be added as the project progresses.*
+## Setup
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Notebooks expect a `dataset/` directory populated with the GOI export (see Data Availability above) and a `.env` file with any required API keys (OpenAI, Anthropic, Google) for the embedding and LLM-judging notebooks.
+
+---
+
+## Key Results
+
+- A learned fusion ranker reaches **Recall@1,000 = 0.823** on a corpus of 98,716 companies under the standard evaluation protocol.
+- Retrained against an independently built, multi-judge silver standard, production's own results miss **27.3%** of independently verified relevant companies.
+- On a pool of companies production had never ranked, the same pipeline recovers **88.5%** of them.
+- At the largest tested scale (397,025 companies, ~2% of ISTARI's full database), ANN search matches exact search's retrieval quality within 2.5% while running up to **78x faster**.
+
+See [`Thesis_Report/thesis.pdf`](Thesis_Report/thesis.pdf) for full methodology and discussion.
+
+---
+
+## License
+
+This repository accompanies an academic thesis produced in collaboration with ISTARI.AI. Code is shared for reproducibility; the underlying GOI dataset remains proprietary to ISTARI.AI.
