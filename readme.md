@@ -17,37 +17,6 @@ The full write-up, including methodology, results, and discussion of the evaluat
 
 ---
 
-## Repository Structure
-
-```
-.
-├── 01_..._76_...ipynb       # Numbered analysis pipeline (see below)
-├── 66_..._69_...py          # Standalone scripts mirroring the corresponding notebooks, for batch/SLURM runs
-├── result/                  # Per-notebook output artefacts (metrics, figures, intermediate tables)
-├── dataset/                 # Not included in this repository — see Data Availability
-├── Thesis_Report/           # LaTeX source and compiled PDF of the thesis
-├── Thesis_Proposal/         # Original thesis proposal
-├── assessor_guidelines.md   # Guidelines given to human relevance assessors
-├── requirements.txt         # Python dependencies
-└── sync_to_drive.sh         # Syncs result/ artefacts to Google Drive backup
-```
-
-### Pipeline Overview
-
-The notebooks are numbered in the order they were run and roughly fall into the following stages:
-
-| Range | Stage |
-|-------|-------|
-| `01`–`05` | Baseline dense retrievers (BM25, BGE, MiniLM, OpenAI, Nomic) |
-| `06`–`30` | Hybrid retrieval, reranking, and fusion ranker experiments |
-| `32`–`43` | Evaluation-set construction, LLM judge ensembles, and silver-label calibration |
-| `44`–`64` | Scaling embeddings and retrieval to the full corpus, reranker fine-tuning, ANN tuning |
-| `65`–`76` | Production-independent evaluation, inter-rater agreement, and significance testing |
-
-Each notebook writes its outputs to a correspondingly named folder under `result/`.
-
----
-
 ## Data Availability
 
 Company-level data from ISTARI's Global Organization Index (GOI), the evaluation queries, and the production search results used as a comparison baseline are proprietary to ISTARI.AI and are **not included** in this repository.
