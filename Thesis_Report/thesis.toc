@@ -176,37 +176,37 @@
 \contentsline {paragraph}{\nonumberline Limitation: precision is a lower bound, not an exact figure.}{62}{paragraph*.196}%
 \contentsline {paragraph}{\nonumberline A second, distinct bias: active-learning sampling skews which relevant companies get verified, not just how many.}{62}{paragraph*.198}%
 \contentsline {paragraph}{\nonumberline A third bias, harder to quantify: the author personally breaks judge disagreements, then those decisions score the author's own system.}{63}{paragraph*.200}%
-\contentsline {paragraph}{\nonumberline Future work: tightening this bound with more exhaustive LLM ranking.}{64}{paragraph*.202}%
-\contentsline {subsection}{\numberline {5.3.12}Silver-Standard Coverage: Results}{64}{subsection.5.3.12}%
-\contentsline {paragraph}{\nonumberline Finding.}{64}{paragraph*.204}%
-\contentsline {subsection}{\numberline {5.3.13}What the External Review Found}{65}{subsection.5.3.13}%
-\contentsline {paragraph}{\nonumberline The free consistency check had too little overlap to compute.}{65}{paragraph*.206}%
-\contentsline {paragraph}{\nonumberline A direct human-human kappa was computed instead.}{65}{paragraph*.208}%
-\contentsline {paragraph}{\nonumberline A fresh LLM-judging round confirmed the same pattern from a third, author-independent angle.}{65}{paragraph*.210}%
-\contentsline {paragraph}{\nonumberline A stronger result: independent human confirmation of the production-independent coverage claim.}{66}{paragraph*.212}%
-\contentsline {section}{\numberline {5.4}Phase IV: Learned Retrieval Revisited}{66}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Hyperparameter Tuning: Results}{66}{subsection.5.4.1}%
-\contentsline {paragraph}{\nonumberline Results.}{66}{paragraph*.214}%
-\contentsline {paragraph}{\nonumberline Finding.}{66}{paragraph*.216}%
-\contentsline {subsection}{\numberline {5.4.2}Neural Network Fusion Ranker: Results}{67}{subsection.5.4.2}%
-\contentsline {paragraph}{\nonumberline Results.}{67}{paragraph*.218}%
-\contentsline {paragraph}{\nonumberline Finding.}{67}{paragraph*.220}%
+\contentsline {subsection}{\numberline {5.3.12}Silver-Standard Coverage: Results}{63}{subsection.5.3.12}%
+\contentsline {paragraph}{\nonumberline Finding.}{63}{paragraph*.202}%
+\contentsline {subsection}{\numberline {5.3.13}What the External Review Found}{64}{subsection.5.3.13}%
+\contentsline {paragraph}{\nonumberline The free consistency check had too little overlap to compute.}{64}{paragraph*.204}%
+\contentsline {paragraph}{\nonumberline A direct human-human kappa was computed instead.}{64}{paragraph*.206}%
+\contentsline {paragraph}{\nonumberline A fresh LLM-judging round confirmed the same pattern from a third, author-independent angle.}{64}{paragraph*.208}%
+\contentsline {paragraph}{\nonumberline A stronger result: independent human confirmation of the production-independent coverage claim.}{65}{paragraph*.210}%
+\contentsline {section}{\numberline {5.4}Phase IV: Learned Retrieval Revisited}{65}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Hyperparameter Tuning: Results}{65}{subsection.5.4.1}%
+\contentsline {paragraph}{\nonumberline Results.}{65}{paragraph*.212}%
+\contentsline {paragraph}{\nonumberline Finding.}{65}{paragraph*.214}%
+\contentsline {subsection}{\numberline {5.4.2}Neural Network Fusion Ranker: Results}{66}{subsection.5.4.2}%
+\contentsline {paragraph}{\nonumberline Results.}{66}{paragraph*.216}%
+\contentsline {paragraph}{\nonumberline Finding.}{66}{paragraph*.218}%
 \contentsline {subsection}{\numberline {5.4.3}Fine-Tuning the Reranker: Results}{68}{subsection.5.4.3}%
-\contentsline {paragraph}{\nonumberline Finding.}{68}{paragraph*.222}%
+\contentsline {paragraph}{\nonumberline First attempt: uniformly worse.}{68}{paragraph*.220}%
+\contentsline {paragraph}{\nonumberline Second attempt: broad-list gains, top-of-list trade-off.}{68}{paragraph*.222}%
+\contentsline {section}{\numberline {5.5}Phase V: Scalability}{69}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Scaling to a Larger Corpus: Results}{69}{subsection.5.5.1}%
 \contentsline {paragraph}{\nonumberline Finding.}{69}{paragraph*.224}%
-\contentsline {section}{\numberline {5.5}Phase V: Scalability}{70}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Scaling to a Larger Corpus: Results}{70}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}ANN Index Tuning: Results}{70}{subsection.5.5.2}%
 \contentsline {paragraph}{\nonumberline Finding.}{70}{paragraph*.226}%
-\contentsline {subsection}{\numberline {5.5.2}ANN Index Tuning: Results}{71}{subsection.5.5.2}%
-\contentsline {paragraph}{\nonumberline Finding.}{71}{paragraph*.228}%
 \contentsline {section}{\numberline {5.6}Overall Experimental Findings}{72}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{74}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Contributions}{74}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Future Work}{75}{section.6.2}%
-\contentsline {paragraph}{\nonumberline Closing the central open question.}{75}{paragraph*.230}%
-\contentsline {paragraph}{\nonumberline Strengthening the evaluation methodology itself.}{75}{paragraph*.232}%
-\contentsline {paragraph}{\nonumberline Further modelling experiments.}{76}{paragraph*.234}%
-\contentsline {paragraph}{\nonumberline Scaling further.}{76}{paragraph*.236}%
-\contentsline {chapter}{\nonumberline Bibliography}{78}{chapter*.237}%
-\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{83}{chapter*.238}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{73}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of Contributions}{73}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Future Work}{73}{section.6.2}%
+\contentsline {paragraph}{\nonumberline Closing the central open question.}{73}{paragraph*.228}%
+\contentsline {paragraph}{\nonumberline Strengthening the evaluation methodology itself.}{74}{paragraph*.230}%
+\contentsline {paragraph}{\nonumberline Further modelling experiments.}{75}{paragraph*.232}%
+\contentsline {paragraph}{\nonumberline Scaling further.}{75}{paragraph*.234}%
+\contentsline {chapter}{\nonumberline Bibliography}{76}{chapter*.235}%
+\contentsline {chapter}{\nonumberline Code Availability}{81}{chapter*.236}%
+\contentsline {chapter}{\nonumberline Ehrenwörtliche Erklärung}{82}{chapter*.237}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

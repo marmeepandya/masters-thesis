@@ -365,7 +365,13 @@
       "Bash(awk '/Phase III: Evaluation Validity/{p=1} /Phase IV/{p=0} p')",
       "Bash(awk 'NR==1139,NR==1440' thesis.tex)",
       "Bash(gs -sDEVICE=png16m -dFirstPage=59 -dLastPage=59 -r150 -o __TRACKED_VAR__/pdiv.png thesis.pdf)",
-      "Bash(gs -sDEVICE=png16m -dFirstPage=59 -dLastPage=59 -r150 -o __TRACKED_VAR__/pdiv2.png thesis.pdf)"
+      "Bash(gs -sDEVICE=png16m -dFirstPage=59 -dLastPage=59 -r150 -o __TRACKED_VAR__/pdiv2.png thesis.pdf)",
+      "Bash(awk 'NR==1442,NR==1560' thesis.tex)",
+      "Bash(awk '/Phase V/{p=1} p{print} /Conclusion/{exit}')",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=88 -dLastPage=88 -r150 -o __TRACKED_VAR__/lastpage.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=87 -dLastPage=87 -r150 -o __TRACKED_VAR__/table_page.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=86 -dLastPage=87 -r150 -o __TRACKED_VAR__/final_%d.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=86 -dLastPage=87 -r150 -o __TRACKED_VAR__/reorder_%d.png thesis.pdf)"
     ]
   }
 }
