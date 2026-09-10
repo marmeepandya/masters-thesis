@@ -7,7 +7,7 @@
 # 
 # Run across all four corpus tiers (100K-400K), the same methods and metrics as the scaling evaluation (Section~\ref{sec:scaling_corpus}), so this result is directly comparable to, and can be read alongside, everything already reported there.
 
-# In[ ]:
+# In[1]:
 
 
 import os
@@ -57,7 +57,7 @@ for qid, rel in relevant_sets.items():
     print(f"  query {qid}: {len(rel)} gold-verified relevant")
 
 
-# In[ ]:
+# In[2]:
 
 
 DEEP_QUERY_IDS = sorted(relevant_sets.keys())

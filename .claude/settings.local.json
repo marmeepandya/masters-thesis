@@ -346,7 +346,26 @@
       "Bash(awk -F: '$1>=336 && $1<=772')",
       "Bash(awk 'NR==895,NR==1157' thesis.tex)",
       "Bash(awk 'NR==1157,NR==1451' thesis.tex)",
-      "Bash(awk 'NR==776,NR==1644' thesis.tex)"
+      "Bash(awk 'NR==776,NR==1644' thesis.tex)",
+      "Bash(awk '/\\\\\\\\chapter{Results and Discussion}/{p=1} p && /\\\\\\\\label{tab:/{print NR\": \"$0} /\\\\\\\\chapter{Conclusion/{p=0}' thesis.tex)",
+      "Bash(awk '/\\\\\\\\section{Phase II/{p=1} p && /^\\\\\\\\\\\\\\\\subsection{/{print NR\": \"$0} /\\\\\\\\section{Phase III/{p=0}' thesis.tex)",
+      "Bash(awk '/Phase II/{p=1} /Phase III/{p=0} p')",
+      "Bash(pdfgrep -n \"Recall@1000 Error Analysis\" thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=44 -dLastPage=44 -r150 -o __TRACKED_VAR__/page44.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=49 -dLastPage=49 -r150 -o __TRACKED_VAR__/page49.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=49 -dLastPage=49 -r150 -o __TRACKED_VAR__/page49b.png thesis.pdf)",
+      "Bash(awk '/Phase II: Improving Retrieval/{p=1} /Phase III/{p=0} p')",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=51 -dLastPage=51 -r150 -o __TRACKED_VAR__/page51.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=53 -dLastPage=53 -r150 -o __TRACKED_VAR__/page53.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=54 -dLastPage=54 -r150 -o __TRACKED_VAR__/page54.png thesis.pdf)",
+      "Bash(awk '/\\\\\\\\section{Phase III: Evaluation Validity}/{c++} c==2,/\\\\\\\\section{Phase IV/' thesis.tex)",
+      "Bash(awk 'BEGIN{RS=\"\"} {n=split\\($0,a,\" \"\\); if \\(n>150\\) print n\" words: \"substr\\($0,1,80\\)\"...\"}')",
+      "Bash(awk 'BEGIN{RS=\"\"} {n=split\\($0,a,\" \"\\); if \\(n>170 && $0 !~ /^\\\\\\\\begin{table}/ && $0 !~ /^\\\\\\\\begin{itemize}/\\) print n\" words: \"substr\\($0,1,90\\)\"...\"}')",
+      "Bash(awk '/\\\\\\\\chapter{Results and Discussion}/{p=1} p && /\\\\\\\\label{tab:/{print ++n\": \"$0} /\\\\\\\\chapter{Conclusion/{p=0}' thesis.tex)",
+      "Bash(awk '/Phase III: Evaluation Validity/{p=1} /Phase IV/{p=0} p')",
+      "Bash(awk 'NR==1139,NR==1440' thesis.tex)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=59 -dLastPage=59 -r150 -o __TRACKED_VAR__/pdiv.png thesis.pdf)",
+      "Bash(gs -sDEVICE=png16m -dFirstPage=59 -dLastPage=59 -r150 -o __TRACKED_VAR__/pdiv2.png thesis.pdf)"
     ]
   }
 }
