@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  10 SEP 2026 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  10 SEP 2026 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1480,7 +1480,7 @@ sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm100
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on thesis.pdf (87 pages, 727941 bytes).
+Output written on thesis.pdf (87 pages, 728211 bytes).
 PDF statistics:
  2066 PDF objects out of 2073 (max. 8388607)
  1785 compressed objects within 18 object streams
