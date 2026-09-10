@@ -371,7 +371,27 @@
       "Bash(gs -sDEVICE=png16m -dFirstPage=88 -dLastPage=88 -r150 -o __TRACKED_VAR__/lastpage.png thesis.pdf)",
       "Bash(gs -sDEVICE=png16m -dFirstPage=87 -dLastPage=87 -r150 -o __TRACKED_VAR__/table_page.png thesis.pdf)",
       "Bash(gs -sDEVICE=png16m -dFirstPage=86 -dLastPage=87 -r150 -o __TRACKED_VAR__/final_%d.png thesis.pdf)",
-      "Bash(gs -sDEVICE=png16m -dFirstPage=86 -dLastPage=87 -r150 -o __TRACKED_VAR__/reorder_%d.png thesis.pdf)"
+      "Bash(gs -sDEVICE=png16m -dFirstPage=86 -dLastPage=87 -r150 -o __TRACKED_VAR__/reorder_%d.png thesis.pdf)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Read(//pfs/data6/home/ma/ma_ma/ma_mpandya/**)",
+      "Bash(git push *)",
+      "Bash(pip3 show *)",
+      "Bash(java -version)",
+      "Bash(git cat-file *)",
+      "Bash(awk '$1==\"blob\" && $3>52428800 {print $3, $4}')",
+      "Bash(awk '{printf \"%.1f MB  %s\\\\n\", $1/1024/1024, $2}')",
+      "Bash(du -sh /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/main-old-clean)",
+      "Bash(ls /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/main-old-clean)",
+      "Bash(git clone *)",
+      "Bash(/home/ma/ma_ma/ma_mpandya/.local/bin/git-filter-repo --path dataset/pdl_companies/free_company_dataset.json --path result/51_encode_e5_mistral_scaled/company_embeddings_checkpoint.npy.corrupted_backup --path result/62_reranker_finetuning/finetuned_model/model.safetensors --path result/62b_reranker_finetuning_v2/finetuned_model/model.safetensors --path result/44_build_scaled_corpus/combined_pool.parquet --path dataset/goi_random_sample_300k.parquet --path dataset/goi_random_sample_300k_clean.parquet --invert-paths --force)",
+      "Bash(wc -c /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/repo2.json)",
+      "Bash(cat /scratch/claude-986127/-pfs-data6-home-ma-ma-ma-ma-mpandya-Thesis/0c665983-5d4f-4f7c-871a-abba6d755e59/scratchpad/repo2.json)",
+      "Bash(sed -E 's#https://[^:]*:\\([^@]*\\)@.*#\\\\1#' ~/.git-credentials)",
+      "Bash(cat __TRACKED_VAR__/step2b.json)",
+      "Bash(git *)",
+      "Bash(cat __TRACKED_VAR__/step2c.json)",
+      "Bash(cat __TRACKED_VAR__/rename_test.json)"
     ]
   }
 }

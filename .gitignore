@@ -18,3 +18,22 @@ result/**/*.json
 # Raw dataset file exceeds GitHub's 100MB hard limit (120MB) -- the gzipped
 # copy (dataset/goi_search_results.json.gz, ~19MB) is committed instead.
 dataset/goi_search_results.json
+
+# All GOI/Istari company data is proprietary and/or too large for git (the
+# pdl_companies export alone is ~10GB) -- backed up to Google Drive instead,
+# see Thesis_Report/thesis.tex's Code Availability chapter.
+dataset/
+
+# Multi-GB model checkpoints and a corrupted intermediate cache that should
+# never have been committed -- backed up to Google Drive where needed.
+*.safetensors
+*.npy.corrupted_backup
+result/44_build_scaled_corpus/combined_pool.parquet
+
+.claude/
+.agents/
+__pycache__/
+skills-lock.json
+scratch_bucket_analysis.py
+review-thesis.md
+common-commands.md
