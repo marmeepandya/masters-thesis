@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{49}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -66,6 +66,15 @@ Gordon~V. Cormack, Charles L.~A. Clarke, and Stefan B{\"u}ttcher.
   learning methods.
 \newblock In \emph{Proceedings of the 32nd International ACM SIGIR Conference
   on Research and Development in Information Retrieval}, pages 758--759, 2009.
+
+\bibitem[Formal et~al.(2021)Formal, Piwowarski, and
+  Clinchant]{formal2021splade}
+Thibault Formal, Benjamin Piwowarski, and St{\'e}phane Clinchant.
+\newblock {SPLADE}: Sparse lexical and expansion model for first stage ranking.
+\newblock In \emph{Proceedings of the 44th International ACM SIGIR Conference
+  on Research and Development in Information Retrieval}, pages 2288--2292. ACM,
+  2021.
+\newblock \doi{10.1145/3404835.3463098}.
 
 \bibitem[Gerling(2023)]{gerling2023company}
 Christopher Gerling.
@@ -183,6 +192,11 @@ Niklas Muennighoff, Nouamane Tazi, Loic Magne, and Nils Reimers.
 Rodrigo Nogueira and Kyunghyun Cho.
 \newblock Passage re-ranking with {BERT}, 2019.
 
+\bibitem[Nogueira et~al.(2019)Nogueira, Yang, Lin, and
+  Cho]{nogueira2019doc2query}
+Rodrigo Nogueira, Wei Yang, Jimmy Lin, and Kyunghyun Cho.
+\newblock Document expansion by query prediction, 2019.
+
 \bibitem[Nussbaum et~al.(2024)Nussbaum, Morris, Duderstadt, and
   Mulyar]{nussbaum2024nomic}
 Zach Nussbaum, John~X. Morris, Brandon Duderstadt, and Andriy Mulyar.
@@ -225,6 +239,13 @@ Stephen Robertson and Hugo Zaragoza.
 \newblock \emph{Foundations and Trends in Information Retrieval}, 3\penalty0
   (4):\penalty0 333--389, 2009.
 \newblock \doi{10.1561/1500000019}.
+
+\bibitem[Salton and Buckley(1988)]{salton1988termweighting}
+Gerard Salton and Christopher Buckley.
+\newblock Term-weighting approaches in automatic text retrieval.
+\newblock \emph{Information Processing \& Management}, 24\penalty0
+  (5):\penalty0 513--523, 1988.
+\newblock \doi{10.1016/0306-4573(88)90021-0}.
 
 \bibitem[Santhanam et~al.(2022{\natexlab{a}})Santhanam, Khattab, Potts, and
   Zaharia]{santhanam2022plaid}
