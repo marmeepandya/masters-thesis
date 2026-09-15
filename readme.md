@@ -1,7 +1,6 @@
 # Semantic Company Retrieval at Scale
 
-**Master's Thesis - Data Science University of Mannheim**
-
+**Master's Thesis - Data Science University of Mannheim**. 
 **Author:** Marmee Pandya
 
 ---
@@ -31,6 +30,8 @@ pip install -r requirements.txt
 ```
 
 Notebooks expect a `dataset/` directory populated with the GOI export (see Data Availability above) and a `.env` file with any required API keys (OpenAI, Anthropic, Google) for the embedding and LLM-judging notebooks.
+
+The HyDE pipeline and the original LLM judge pair notebooks also expect a local [Ollama](https://ollama.com) server running `llama3.1:8b` (`OLLAMA_BASE_URL`, default `http://localhost:11434`); this is a separate, non-Python installation and is not covered by `pip install`.
 
 ---
 
