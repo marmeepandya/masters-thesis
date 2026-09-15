@@ -1,7 +1,0 @@
-round,description,n_candidates,n_agreed,n_disagreed,disagreement_rate
-35_llm_judge_ensemble,original 5-query silver-standard pilot,430,360,70,0.16279069767441862
-40_active_learning_labeling_queue,101-query active-learning expansion,1010,852,158,0.15643564356435644
-42_headline_query_deepening,headline query deepening,840,669,171,0.20357142857142857
-42_headline_query_deepening_validation,"bronze-tier spot-check, upgraded judge pair",112,100,12,0.10714285714285714
-66_production_independent_judging_pilot,"production-independent pilot, pre-redesign GPT+Sonnet pair",147,143,4,0.027210884353741496
-pooled_all_rounds,every judging round combined,2539,2124,415,0.16345017723513194

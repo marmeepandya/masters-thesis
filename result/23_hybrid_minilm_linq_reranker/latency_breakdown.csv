@@ -1,4 +1,0 @@
-pipeline,retrieval_ms,rrf_ms,rerank_ms,total_ms
-MiniLM baseline,16.9,0.0,0.0,16.9
-Hybrid RRF (MiniLM + Linq),138.0,2.3,0.0,140.3
-Hybrid RRF + Reranker,138.0,2.3,253.0,393.0

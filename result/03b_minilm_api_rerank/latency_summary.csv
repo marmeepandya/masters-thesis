@@ -1,4 +1,0 @@
-component,avg_ms,note
-v2 API fetch,656.4,"1 page(s)/query, network"
-MiniLM rerank,296.7,"local GPU, encode + sort"
-Combined,953.1,end-to-end this pipeline

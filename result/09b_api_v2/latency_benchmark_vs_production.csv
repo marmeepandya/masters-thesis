@@ -1,3 +1,0 @@
-scope,n,p50_ms,p75_ms,p95_ms,avg_ms,max_ms
-"v2 Semantic (this notebook, size=25, single page)",30,242.3,460.6,707.0,347.6,730.8
-"Production search route (per Manav, latency-baseline.txt)",39039,466.0,553.0,2143.0,974.0,181012.0
