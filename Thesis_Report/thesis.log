@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  14 SEP 2026 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  15 SEP 2026 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,27 +901,27 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-Package scrbase Info: activating english \contentsname on input line 37.
-Package scrbase Info: activating english \listfigurename on input line 37.
-Package scrbase Info: activating english \listtablename on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+Package scrbase Info: activating english \contentsname on input line 49.
+Package scrbase Info: activating english \listfigurename on input line 49.
+Package scrbase Info: activating english \listtablename on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -945,7 +945,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 37.
+Package hyperref Info: Link coloring ON on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -958,9 +958,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count326
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
@@ -973,7 +973,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 37.
+(scrbook)           before \begin{document} on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -984,138 +984,138 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 ))
 
 LaTeX Font Warning: Font shape `OT1/cmtt/m/scsl' undefined
-(Font)              using `OT1/cmtt/m/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/m/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/m/n' instead on input line 37.
+(Font)              using `OT1/cmtt/m/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/it' undefined
-(Font)              using `OT1/cmtt/b/n' instead on input line 37.
+(Font)              using `OT1/cmtt/b/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/sl' undefined
-(Font)              using `OT1/cmtt/b/it' instead on input line 37.
+(Font)              using `OT1/cmtt/b/it' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/scit' undefined
-(Font)              using `OT1/cmtt/b/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/b/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/sc' undefined
-(Font)              using `OT1/cmtt/b/n' instead on input line 37.
+(Font)              using `OT1/cmtt/b/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/bx/sc' undefined
-(Font)              using `OT1/cmtt/b/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/b/sc' instead on input line 49.
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 37.
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 49.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/sl' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 37.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 49.
 
 LaTeX Font Warning: Font shape `OT1/cmtt/bx/scsl' undefined
-(Font)              using `OT1/cmtt/bx/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/bx/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/bx/sc' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 37.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 49.
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 37.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 49.
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sbx/sc' undefined
-(Font)              using `OT1/cmtt/sb/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/sb/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sb/n' undefined
-(Font)              using `OT1/cmtt/m/n' instead on input line 37.
+(Font)              using `OT1/cmtt/m/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sb/it' undefined
-(Font)              using `OT1/cmtt/sb/n' instead on input line 37.
+(Font)              using `OT1/cmtt/sb/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sb/sl' undefined
-(Font)              using `OT1/cmtt/sb/it' instead on input line 37.
+(Font)              using `OT1/cmtt/sb/it' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sb/scit' undefined
-(Font)              using `OT1/cmtt/sb/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/sb/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sb/sc' undefined
-(Font)              using `OT1/cmtt/sb/n' instead on input line 37.
+(Font)              using `OT1/cmtt/sb/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/sbc/sc' undefined
-(Font)              using `OT1/cmtt/c/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/c/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/c/n' undefined
-(Font)              using `OT1/cmtt/m/n' instead on input line 37.
+(Font)              using `OT1/cmtt/m/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/c/it' undefined
-(Font)              using `OT1/cmtt/c/n' instead on input line 37.
+(Font)              using `OT1/cmtt/c/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/c/sl' undefined
-(Font)              using `OT1/cmtt/c/it' instead on input line 37.
+(Font)              using `OT1/cmtt/c/it' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/c/scit' undefined
-(Font)              using `OT1/cmtt/c/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/c/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/c/sc' undefined
-(Font)              using `OT1/cmtt/c/n' instead on input line 37.
+(Font)              using `OT1/cmtt/c/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/lc/sc' undefined
-(Font)              using `OT1/cmtt/l/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/l/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/l/n' undefined
-(Font)              using `OT1/cmtt/m/n' instead on input line 37.
+(Font)              using `OT1/cmtt/m/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/l/it' undefined
-(Font)              using `OT1/cmtt/l/n' instead on input line 37.
+(Font)              using `OT1/cmtt/l/n' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/l/sl' undefined
-(Font)              using `OT1/cmtt/l/it' instead on input line 37.
+(Font)              using `OT1/cmtt/l/it' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/l/scit' undefined
-(Font)              using `OT1/cmtt/l/sc' instead on input line 37.
+(Font)              using `OT1/cmtt/l/sc' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/l/sc' undefined
-(Font)              using `OT1/cmtt/l/n' instead on input line 37.
+(Font)              using `OT1/cmtt/l/n' instead on input line 49.
 
 LaTeX Font Info:    Font shape `OT1/cmtt/m/ui' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 37.
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 49.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/ui' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 37.
+(Font)              Font shape `OT1/cmtt/m/it' tried instead on input line 49.
 
 LaTeX Font Warning: Font shape `OT1/cmtt/m/In' undefined
-(Font)              using `OT1/cmtt/m/n' instead on input line 37.
+(Font)              using `OT1/cmtt/m/n' instead on input line 49.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 49
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 61
 .
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1158,264 +1158,244 @@ chapter 1.
 
 
 
-]
-Overfull \hbox (2.49303pt too wide) in paragraph at lines 83--84
-[] []\OT1/cmss/bx/n/10.95 Research con-text and gap.[][] \OT1/cmr/m/n/10.95 Den
-se, embedding-based re-trieval and ap-prox-i-mate nearest-
- []
-
-
-Overfull \hbox (12.23201pt too wide) in paragraph at lines 83--84
-\OT1/cmr/m/n/10.95 neighbour search are well es-tab-lished in-di-vid-u-ally: bi
--encoder ar-chi-tec-tures, late-interaction
- []
-
-[2] [3]
+] [2] [3]
 chapter 2.
+
+Overfull \hbox (2.83797pt too wide) in paragraph at lines 160--160
+\OT1/cmr/m/n/10.95 FLOAT64|  
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 160--160
+[]|\OT1/cmr/m/n/10.95 Type (Com-pany, Startup, Aca-demic, Pub-lic,
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [4
 
 
-]
-Underfull \hbox (badness 3907) in paragraph at lines 163--163
-[]|\OT1/cmr/m/n/10.95 Organisation web-site do-main
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 163--163
-[]|\OT1/cmr/m/n/10.95 NACE in-dus-try clas-si-fi-ca-tion
- []
-
-[5] [6] [7]
+] [5] [6]
 chapter 3.
-[8
+[7
 
 
-] [9] [10]
-Overfull \hbox (0.21745pt too wide) in paragraph at lines 314--315
+] [8] [9]
+Overfull \hbox (0.21745pt too wide) in paragraph at lines 285--286
 \OT1/cmr/m/n/10.95 purpose pas-sage and doc-u-ment re-trieval bench-marks, ques
 -tions an-swered from Wikipedia
  []
 
-[11] [12] [13] [14]
+[10] [11] [12]
 chapter 4.
-[15
+[13
 
 
 ]
-<figures/fig_judge_disagreement_rate.png, id=488, 788.4657pt x 390.9807pt>
+<figures/fig_judge_disagreement_rate.png, id=458, 788.4657pt x 390.9807pt>
 File: figures/fig_judge_disagreement_rate.png Graphic file (type png)
 <use figures/fig_judge_disagreement_rate.png>
 Package pdftex.def Info: figures/fig_judge_disagreement_rate.png  used on input
- line 372.
+ line 344.
 (pdftex.def)             Requested size: 355.51976pt x 176.29764pt.
- [16] [17 <./figures/fig_judge_disagreement_rate.png>] [18] [19] [20]
-Overfull \hbox (2.86374pt too wide) in paragraph at lines 460--461
-\OT1/cmr/m/n/10.95 Section [][]4.2.2[][]'s three dense base-lines al-ready span
- a size and cost spec-trum, from MiniLM's
- []
-
-
-Overfull \hbox (1.86752pt too wide) in paragraph at lines 465--466
+ [14] [15 <./figures/fig_judge_disagreement_rate.png>] [16] [17] [18]
+Overfull \hbox (1.86752pt too wide) in paragraph at lines 437--438
 []\OT1/cmr/bx/n/10.95 E5-Mistral-7B-Instruct \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it
 /10.95 intfloat/e5-mistral-7b-instruct\OT1/cmr/m/n/10.95 ): an instruction-
  []
 
 
-Overfull \hbox (13.85pt too wide) in paragraph at lines 466--467
+Overfull \hbox (13.85pt too wide) in paragraph at lines 438--439
 []\OT1/cmr/bx/n/10.95 Linq-Embed-Mistral \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/10.
 95 Linq-AI-Research/Linq-Embed-Mistral\OT1/cmr/m/n/10.95 ): a 7B-parameter
  []
 
 
-Overfull \hbox (0.5123pt too wide) in paragraph at lines 467--468
+Overfull \hbox (0.5123pt too wide) in paragraph at lines 439--440
 []\OT1/cmr/bx/n/10.95 SFR-Embedding-Mistral \OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/
 10.95 Salesforce/SFR-Embedding-Mistral\OT1/cmr/m/n/10.95 ): Sales-force's
  []
 
-[21] [22] [23]
-Overfull \hbox (2.98535pt too wide) in paragraph at lines 536--537
-\OT1/cmr/m/n/10.95 on a DeBERTa-v2 back-bone, an ar-chi-tec-turally dis-tinct, 
-comparably-sized cross-encoder),
+[19] [20] [21]
+Overfull \hbox (0.82335pt too wide) in paragraph at lines 510--511
+\OT1/cmr/m/n/10.95 RoBERTa back-bone) is re-placed with \OT1/cmtt/l/it/10.95 mi
+xedbread-ai/mxbai-rerank-large-v1 \OT1/cmr/m/n/10.95 ([][]Mixed-
  []
 
-[24] [25]
-Overfull \hbox (6.80411pt too wide) in paragraph at lines 554--555
+
+Overfull \hbox (7.94331pt too wide) in paragraph at lines 510--511
+\OT1/cmr/m/n/10.95 bread AI[][] [][]2024[][]) (built on a DeBERTa-v2 back-bone,
+ an ar-chi-tec-turally dis-tinct, comparably-
+ []
+
+[22]
+Overfull \hbox (6.80411pt too wide) in paragraph at lines 528--529
 \OT1/cmr/m/n/10.95 This sec-tion builds this the-sis's \OT1/cmr/m/it/10.95 sil-
 ver stan-dard[][][][][]\OT1/cmr/m/n/10.95 , a pooled, multi-judge, human-adjudi
 cated
  []
 
-[26] [27] [28] [29]
-Overfull \hbox (0.70409pt too wide) in paragraph at lines 648--649
+[23] [24] [25] [26]
+Overfull \hbox (0.70409pt too wide) in paragraph at lines 622--623
 \OT1/cmr/m/n/10.95 adjacent-category dis-am-bigua-tion (e.g. phar-ma-ceu-ti-cal
 /biotech, in-vest-ment/wealth man-
  []
 
-
-Overfull \hbox (0.39438pt too wide) in paragraph at lines 657--658
-\OT1/cmss/bx/n/10.95 ver/bronze set.[][] \OT1/cmtt/l/it/10.95 dataset/productio
-n[]-re-sults.xlsx\OT1/cmr/m/n/10.95 , pro-duc-tion's own top-1,000-per-
- []
-
-[30]
-Overfull \hbox (4.65833pt too wide) in paragraph at lines 667--668
-\OT1/cmr/m/n/10.95 The ex-pla-na-tion of-fered above, that pro-duc-tion's ad-va
-n-tage in Sec-tion [][]4.4.2[][] is a candidate-
- []
-
-[31]
-Overfull \hbox (8.00502pt too wide) in paragraph at lines 678--679
-\OT1/cmr/m/n/10.95 (\OT1/cmtt/l/it/10.95 production[]-re-sults.xlsx \OT1/cmr/m/
-n/10.95 only ever cov-ers the orig-i-nal cor-pus), a sym-met-ric production-
- []
-
-
-Overfull \hbox (4.93082pt too wide) in paragraph at lines 690--691
+[27] [28] [29]
+Overfull \hbox (4.93082pt too wide) in paragraph at lines 663--664
 \OT1/cmr/m/n/10.95 Before send-ing ranked can-di-date lists to an ex-ter-nal re
 -viewer at IS-TARI.AI for a relevance-
  []
 
-[32] [33] [34] [35] [36] [37]
+[30] [31] [32] [33] [34]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
-60.
+33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 760.
- [38]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 733.
+ [35]
 chapter 5.
-[39
+[36
 
 
-] [40] [41] [42]
-Overfull \hbox (52.7517pt too wide) in paragraph at lines 944--953
+] [37] [38] [39]
+Overfull \hbox (52.7517pt too wide) in paragraph at lines 918--927
  [][] 
  []
 
-[43] [44] [45] [46]
-Overfull \hbox (0.21762pt too wide) in paragraph at lines 1067--1068
-[] []\OT1/cmss/bx/n/10.95 Finding.[][] \OT1/cmr/m/n/10.95 Rerank-ing the full u
-nion pool in-stead of a fixed top-50 slice raises Re-call@1,000
+[40] [41] [42]
+Overfull \hbox (7.89774pt too wide) in paragraph at lines 1041--1042
+\OT1/cmr/m/n/10.95 stan-tially (0.782 $\OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/10.9
+5 0.802, 2-way), at the cost of a small drop in NDCG@10 (0.979 $\OMS/cmsy/m/n/1
+0.95 !$ \OT1/cmr/m/n/10.95 0.955).
  []
 
-
-Overfull \hbox (24.38359pt too wide) in paragraph at lines 1067--1068
-\OT1/cmr/m/n/10.95 sub-stan-tially (0.782 $\OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/
-10.95 0.802, 2-way), at the cost of a small drop in NDCG@10 (0.979 $\OMS/cmsy/m
-/n/10.95 !$ \OT1/cmr/m/n/10.95 0.955).
+[43] [44] [45]
+Overfull \hbox (1.26688pt too wide) in paragraph at lines 1150--1151
+\OT1/cmr/m/n/10.95 rank-ing qual-ity over sim-ply reusing the orig-i-nal model'
+s scores (NDCG@5: 0.915 $\OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/10.95 0.934;
  []
 
-[47] [48] [49] [50] [51] [52]
-Underfull \hbox (badness 1867) in paragraph at lines 1224--1224
+[46] [47] [48]
+Underfull \hbox (badness 1867) in paragraph at lines 1198--1198
 [][][]\OT1/cmr/m/n/10.95 Four checks com-par-ing pro-duc-tion's own top-1,000-p
 er-query rank-ing
  []
 
 
-Overfull \hbox (4.08301pt too wide) in paragraph at lines 1226--1236
+Overfull \hbox (4.08301pt too wide) in paragraph at lines 1200--1210
  [][] 
  []
 
-[53]
-Overfull \hbox (2.01222pt too wide) in paragraph at lines 1262--1263
-[] []\OT1/cmss/bx/n/10.95 Finding.[][] \OT1/cmr/m/n/10.95 Pro-duc-tion's own ra
-nk-ing out-per-forms the in-de-pen-dently cross-validated rank-
- []
-
-[54]
-Underfull \hbox (badness 4181) in paragraph at lines 1282--1282
+[49] [50] [51]
+Underfull \hbox (badness 4181) in paragraph at lines 1256--1256
 [][][]\OT1/cmr/m/n/10.95 Production-independent eval-u-a-tion: Re-call@1,000 an
 d NDCG@1,000
  []
 
-<figures/fig_production_independent_scaling.pdf, id=1096, 433.62pt x 303.534pt>
+<figures/fig_production_independent_scaling.pdf, id=1006, 433.62pt x 303.534pt>
 
 File: figures/fig_production_independent_scaling.pdf Graphic file (type pdf)
 <use figures/fig_production_independent_scaling.pdf>
 Package pdftex.def Info: figures/fig_production_independent_scaling.pdf  used o
-n input line 1300.
+n input line 1274.
 (pdftex.def)             Requested size: 313.69167pt x 219.59566pt.
-[55] [56 <./figures/fig_production_independent_scaling.pdf>] [57]
-<figures/fig_calibration.pdf, id=1177, 361.35pt x 361.35pt>
+[52 <./figures/fig_production_independent_scaling.pdf>] [53]
+<figures/fig_calibration.pdf, id=1074, 361.35pt x 361.35pt>
 File: figures/fig_calibration.pdf Graphic file (type pdf)
 <use figures/fig_calibration.pdf>
-Package pdftex.def Info: figures/fig_calibration.pdf  used on input line 1350.
+Package pdftex.def Info: figures/fig_calibration.pdf  used on input line 1324.
 (pdftex.def)             Requested size: 250.95587pt x 250.95833pt.
- [58] [59 <./figures/fig_calibration.pdf>] [60]
-Overfull \hbox (10.75563pt too wide) in paragraph at lines 1376--1377
+ [54] [55 <./figures/fig_calibration.pdf>] [56]
+Overfull \hbox (10.75563pt too wide) in paragraph at lines 1350--1351
 \OT1/cmr/m/n/10.95 HNSW-based ANN search matches ex-act search's Re-call@1,000/
 NDCG@1,000 within
  []
 
 
-Overfull \hbox (8.82533pt too wide) in paragraph at lines 1379--1380
-\OT1/cmr/m/n/10.95 or search ob-jec-tive is reweighted to-ward broad rank-ing q
-ual-ity (a large Recall@$\OML/cmm/m/it/10.95 k$\OT1/cmr/m/n/10.95 /NDCG@$\OML/c
-mm/m/it/10.95 k$
+Overfull \hbox (13.1445pt too wide) in paragraph at lines 1353--1354
+\OT1/cmr/m/n/10.95 or search ob-jec-tive is reweighted to-wards broad rank-ing 
+qual-ity (a large Recall@$\OML/cmm/m/it/10.95 k$\OT1/cmr/m/n/10.95 /NDCG@$\OML/
+cmm/m/it/10.95 k$
  []
 
-[61] [62] [63]
-Overfull \hbox (16.8068pt too wide) in paragraph at lines 1414--1415
+[57] [58] [59]
+Overfull \hbox (16.8068pt too wide) in paragraph at lines 1388--1389
 [] []\OT1/cmss/bx/n/10.95 A fresh LLM-judging round con-firmed the same pat-ter
 n from a third, author-independent
  []
 
-[64] [65]
-Overfull \hbox (3.96185pt too wide) in paragraph at lines 1455--1456
-[] []\OT1/cmss/bx/n/10.95 Results.[][] \OT1/cmr/m/n/10.95 The best ar-chi-tec-t
-ure found, se-lected purely on the 16 search-validation queries,
- []
-
-[66] [67] [68]
-Underfull \hbox (badness 3179) in paragraph at lines 1554--1554
+[60] [61] [62] [63] [64]
+Underfull \hbox (badness 3179) in paragraph at lines 1528--1528
 [][][]\OT1/cmr/m/n/10.95 Exact search vs. ANN (HNSW, \OT1/cmtt/l/it/10.95 M\OT1
 /cmr/m/n/10.95 =16, \OT1/cmtt/l/it/10.95 ef[]-con-struc-tion\OT1/cmr/m/n/10.95 
 =40, \OT1/cmtt/l/it/10.95 ef[]-
  []
 
-<figures/fig_ann_tradeoff.pdf, id=1368, 433.62pt x 303.534pt>
+<figures/fig_ann_tradeoff.pdf, id=1256, 433.62pt x 303.534pt>
 File: figures/fig_ann_tradeoff.pdf Graphic file (type pdf)
 <use figures/fig_ann_tradeoff.pdf>
-Package pdftex.def Info: figures/fig_ann_tradeoff.pdf  used on input line 1571.
+Package pdftex.def Info: figures/fig_ann_tradeoff.pdf  used on input line 1545.
 
 (pdftex.def)             Requested size: 313.69167pt x 219.59566pt.
-[69] [70]
-Underfull \hbox (badness 2913) in paragraph at lines 1605--1605
+[65] [66]
+Underfull \hbox (badness 2913) in paragraph at lines 1579--1579
 []|\OT1/cmr/m/n/10 Ranking qual-ity holds; feature-
  []
 
 
-Overfull \hbox (3.47197pt too wide) in paragraph at lines 1608--1609
+Overfull \hbox (3.47197pt too wide) in paragraph at lines 1582--1583
 []\OT1/cmr/m/n/10.95 Read hon-estly and with-out over-claim-ing (Sec-tion [][]5
-.3.6[][]), a fi-nal production-independent
+.3.5[][]), a fi-nal production-independent
  []
 
-[71 <./figures/fig_ann_tradeoff.pdf>] [72]
+[67 <./figures/fig_ann_tradeoff.pdf>] [68]
 chapter 6.
-[73
+[69
 
 
 ]
-Overfull \hbox (7.74925pt too wide) in paragraph at lines 1621--1622
+Overfull \hbox (7.74925pt too wide) in paragraph at lines 1595--1596
 [] []\OT1/cmss/bx/n/10.95 RQ3: is the eval-u-a-tion pro-to-col trust-wor-thy?[]
 [] \OT1/cmr/m/n/10.95 This the-sis asked whether the production-
  []
 
-[74]
+[70]
 chapter 7.
-[75
+[71
 
 
-] [76] (./thesis.bbl [77]
+] (./thesis.bbl [72]
 chapter without number
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--31
+[]\OT1/cmr/m/n/10.95 BAAI.  bge-reranker-v2-m3.  [][]$\OT1/cmtt/l/it/10.95 http
+s : / / huggingface . co / BAAI /
+ []
+
+[73
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
+[]\OT1/cmr/m/n/10.95 Mixedbread AI.  mxbai-rerank-large-v1.  [][]$\OT1/cmtt/l/i
+t/10.95 https : / / huggingface . co /
+ []
+
+[74] [75] [76]) [77]
+chapter without number
+
+Overfull \hbox (40.95557pt too wide) in paragraph at lines 1628--1629
+\OT1/cmr/m/n/10.95 The en-tire code repos-i-tory is avail-able at [][]$\OT1/cmt
+t/l/it/10.95 https : / / github . com / marmeepandya / masters-[]thesis$[][]\OT
+1/cmr/m/n/10.95 . 
+ []
+
 [78
-
-
-] [79] [80] [81]) [82]
-chapter without number
-[83
 
 
 
@@ -1423,40 +1403,45 @@ chapter without number
 ]
 chapter without number
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1657
 []|\OT1/cmr/m/n/10 Claude Son-net 5
  []
 
 
-Underfull \hbox (badness 4765) in paragraph at lines 1685--1685
+Underfull \hbox (badness 4765) in paragraph at lines 1657--1657
 []|\OT1/cmr/m/n/10 Claude Haiku 4.5
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1685
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1657
 []|\OT1/cmr/m/n/10 Claude Son-net 5
  []
 
 
-Underfull \hbox (badness 6220) in paragraph at lines 1685--1685
+Underfull \hbox (badness 6220) in paragraph at lines 1657--1657
 []|\OT1/cmr/m/n/10 Gemini 3.6 Flash
  []
 
-[84
+<sign.png, id=1448, 469.755pt x 227.85126pt>
+File: sign.png Graphic file (type png)
+<use sign.png>
+Package pdftex.def Info: sign.png  used on input line 1663.
+(pdftex.def)             Requested size: 85.35826pt x 41.40085pt.
+[79
 
 
-]
-
-LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1692.
-
-
-LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1692.
-
+ <./sign.png>]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1692.
+(LaTeX3)     1666.
+
+
+LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
+(LaTeX3)     1666.
+
+
+LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
+(LaTeX3)     1666.
 
  (./thesis.aux)
 
@@ -1466,10 +1451,10 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26217 strings out of 481008
- 491040 string characters out of 5909440
- 960977 words of memory out of 5000000
- 42448 multiletter control sequences out of 15000+600000
+ 26126 strings out of 481008
+ 490129 string characters out of 5909440
+ 961247 words of memory out of 5000000
+ 42454 multiletter control sequences out of 15000+600000
  419062 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  111i,11n,116p,10601b,873s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1497,10 +1482,10 @@ sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm100
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on thesis.pdf (88 pages, 753379 bytes).
+Output written on thesis.pdf (83 pages, 949678 bytes).
 PDF statistics:
- 1990 PDF objects out of 2073 (max. 8388607)
- 1708 compressed objects within 18 object streams
- 493 named destinations out of 1000 (max. 500000)
- 625 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1824 PDF objects out of 2073 (max. 8388607)
+ 1547 compressed objects within 16 object streams
+ 395 named destinations out of 1000 (max. 500000)
+ 574 words of extra memory for PDF output out of 10000 (max. 10000000)
 

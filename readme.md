@@ -11,7 +11,7 @@
 
 A company that is a perfect match for a search query can still be invisible to a keyword-based search system, simply because its own description never repeats the query's exact wording. This project investigates whether embedding-based semantic retrieval, paired with approximate nearest-neighbour (ANN) search, can generate accurate candidate sets efficiently at scale, and whether it can outperform the keyword-driven production search system currently used by ISTARI.AI.
 
-The work compares more than ten dense embedding models, a late-interaction architecture, and several hybrid retrieval pipelines over a corpus of company profiles drawn from ISTARI's Global Organization Index (GOI), a dataset of roughly 20 million verified, actively operated organizations across 232 countries. A learned fusion ranker trained on the task's own queries is the strongest performer under a standard retrieval protocol. Because no independent human relevance judgements existed for this task at the outset, a large part of the project is dedicated to building an independent, multi-judge silver-labeling pipeline and testing how much of that initial result depended on using production's own output as ground truth. At the largest tested scale, ANN search matches exact search's retrieval quality within a small margin while running significantly faster, a result confirmed with statistical testing rather than asserted from raw numbers alone.
+The work compares ten dense embedding models, a late-interaction architecture, and several hybrid retrieval pipelines over a corpus of company profiles drawn from ISTARI's Global Organisation Index (GOI), a dataset of roughly 20 million verified, actively operated organisations across 232 countries and territories. A learned fusion ranker trained on the task's own queries is the strongest performer under a standard retrieval protocol. Because no independent human relevance judgements existed for this task at the outset, a large part of the project is dedicated to building an independent, multi-judge silver-labelling pipeline and testing how much of that initial result depended on using production's own output as ground truth. At the largest tested scale, ANN search matches exact search's retrieval quality within 0.5-2.5 percentage points while running 25-78x faster, a result confirmed with statistical testing rather than asserted from raw numbers alone.
 
 The full write-up, including methodology, results, and discussion of the evaluation-circularity problem, is in [`Thesis_Report/thesis.pdf`](Thesis_Report/thesis.pdf).
 
@@ -19,7 +19,7 @@ The full write-up, including methodology, results, and discussion of the evaluat
 
 ## Data Availability
 
-Company-level data from ISTARI's Global Organization Index (GOI), the evaluation queries, and the production search results used as a comparison baseline are proprietary to ISTARI.AI and are **not included** in this repository.
+Company-level data from ISTARI's Global Organisation Index (GOI), the evaluation queries, and the production search results used as a comparison baseline are proprietary to ISTARI.AI and are **not included** in this repository.
 
 Result outputs, trained model artefacts, and other intermediate files that do not expose raw company data (relevance labels, evaluation metrics, figures) are backed up separately at this [Google Drive folder](https://drive.google.com/drive/u/3/folders/1dRm6Oj8p3JlzWZsJoMJukuh19AkFJi1m), so the analysis can be reproduced conditional on independent access to the underlying GOI data.
 
@@ -41,8 +41,8 @@ Notebooks expect a `dataset/` directory populated with the GOI export (see Data 
 
 - A learned fusion ranker reaches **Recall@1,000 = 0.823** on a corpus of 98,716 companies under the standard evaluation protocol.
 - Retrained against an independently built, multi-judge silver standard, production's own results miss **27.3%** of independently verified relevant companies.
-- On a pool of companies production had never ranked, the same pipeline recovers **88.5%** of them.
-- At the largest tested scale (397,025 companies, ~2% of ISTARI's full database), ANN search matches exact search's retrieval quality within 2.5% while running up to **78x faster**.
+- On a pool of companies production had never ranked, the strongest single embedding model, **Linq-Embed-Mistral**, recovers **88.5%** of them.
+- At the largest tested scale (397,025 companies, ~2% of ISTARI's full database), ANN search matches exact search's retrieval quality within 0.5-2.5 percentage points while running **25-78x faster**.
 
 See [`Thesis_Report/thesis.pdf`](Thesis_Report/thesis.pdf) for full methodology and discussion.
 
