@@ -1,6 +1,6 @@
 # Semantic Company Retrieval at Scale
 
-**Master's Thesis - Data Science University of Mannheim**. 
+**Master's Thesis - Data Science University of Mannheim**<br>
 **Author:** Marmee Pandya
 
 ---
