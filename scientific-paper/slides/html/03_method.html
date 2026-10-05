@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+}
+.header { margin: 42pt 60pt 0 60pt; }
+.kicker { color: #2E6E9E; font-size: 12pt; letter-spacing: 2pt; font-weight: bold; margin: 0 0 10pt 0; }
+h1 { color: #1C2833; font-size: 26pt; font-weight: bold; margin: 0 0 24pt 0; }
+.row { display: flex; margin: 0 60pt; }
+.col { width: 285pt; }
+.col:first-child { margin-right: 30pt; }
+.label { font-size: 11pt; font-weight: bold; color: #1C2833; letter-spacing: 1pt; margin: 0 0 8pt 0; text-transform: uppercase; }
+.bignum { font-size: 30pt; font-weight: bold; color: #2E6E9E; margin: 0 0 6pt 0; }
+.desc { font-size: 11pt; color: #2E4053; line-height: 1.5; margin: 0; }
+hr.div { border: none; border-top: 1pt solid #D5DBDE; margin: 24pt 0; }
+.joinbox { margin: 10pt 60pt 0 60pt; background: #F4F6F6; border-left: 6pt solid #2E6E9E; padding: 16pt 20pt; border-radius: 4pt; }
+.joinbox p { margin: 0; font-size: 11.5pt; color: #1C2833; line-height: 1.5; }
+.joinbox b { color: #2E6E9E; }
+</style>
+</head>
+<body>
+<div class="header">
+  <p class="kicker">METHODOLOGY</p>
+  <h1>How we tested it</h1>
+</div>
+<div class="row">
+  <div class="col">
+    <p class="label">GOI side</p>
+    <p class="bignum">300,000</p>
+    <p class="desc">A random, query-independent sample, not the 101-query corpus used elsewhere in the thesis. Chosen so the comparison reflects GOI's overall makeup rather than a search-topic-skewed slice.</p>
+  </div>
+  <div class="col">
+    <p class="label">PDL side</p>
+    <p class="bignum">35,828,989</p>
+    <p class="desc">Every row in PDL's public file. Streamed line by line rather than loaded at once, the file is 10.7GB, too large to hold in memory as a table.</p>
+  </div>
+</div>
+<div class="joinbox">
+  <p><b>Join key:</b> normalised domain / website (lowercase, protocol and "www." stripped, path removed). This is what every overlap figure in this deck is built on.</p>
+</div>
+</body>
+</html>

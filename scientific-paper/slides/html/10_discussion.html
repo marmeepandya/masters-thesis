@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+}
+.header { margin: 40pt 60pt 0 60pt; }
+.kicker { color: #2E6E9E; font-size: 12pt; letter-spacing: 2pt; font-weight: bold; margin: 0 0 8pt 0; }
+h1 { color: #1C2833; font-size: 25pt; font-weight: bold; margin: 0 0 26pt 0; }
+.opt { margin: 0 60pt 18pt 60pt; display: flex; align-items: flex-start; }
+.num { width: 28pt; height: 28pt; border-radius: 50%; background: #1C2833; display: flex; align-items: center; justify-content: center; margin-right: 16pt; flex-shrink: 0; }
+.num p { color: #FFFFFF; font-size: 12pt; font-weight: bold; margin: 0; }
+.opt-text p { margin: 0; font-size: 12pt; color: #1C2833; font-weight: bold; }
+.opt-text p.sub { font-weight: normal; color: #2E4053; font-size: 10.5pt; margin-top: 3pt; max-width: 520pt; line-height: 1.4; }
+.question { margin: 30pt 60pt 0 60pt; background: #F4F6F6; border-radius: 6pt; padding: 14pt 20pt; }
+.question p { margin: 0; font-size: 11pt; color: #1C2833; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="header">
+  <p class="kicker">FOR DISCUSSION</p>
+  <h1>Three ways forward</h1>
+</div>
+<div class="opt">
+  <div class="num"><p>1</p></div>
+  <div class="opt-text">
+    <p>Scope the PDL corpus to where it's strong</p>
+    <p class="sub">Restrict the paper's PDL-derived sample to well-covered countries and company sizes, and say so explicitly as a limitation.</p>
+  </div>
+</div>
+<div class="opt">
+  <div class="num"><p>2</p></div>
+  <div class="opt-text">
+    <p>Source descriptions separately</p>
+    <p class="sub">Scrape company websites and generate summaries the same way GOI's own pipeline does, budget this as real added work, not a footnote.</p>
+  </div>
+</div>
+<div class="opt">
+  <div class="num"><p>3</p></div>
+  <div class="opt-text">
+    <p>Use PDL for identity only</p>
+    <p class="sub">Treat PDL as the public company list, pair it with freshly generated text, rather than expecting it to be a drop-in GOI replacement.</p>
+  </div>
+</div>
+<div class="question">
+  <p>"Given the time left, which of these is worth committing to for the paper?"</p>
+</div>
+</body>
+</html>

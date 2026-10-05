@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  15 SEP 2026 13:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2026.7.2)  15 SEP 2026 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1447,6 +1447,9 @@ LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
@@ -1482,7 +1485,7 @@ sfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm100
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on thesis.pdf (83 pages, 949678 bytes).
+Output written on thesis.pdf (83 pages, 949676 bytes).
 PDF statistics:
  1824 PDF objects out of 2073 (max. 8388607)
  1547 compressed objects within 16 object streams

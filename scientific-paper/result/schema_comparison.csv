@@ -1,0 +1,13 @@
+goi_field,pdl_field,note
+domain,website,"direct match, used as the join key for overlap"
+name,name,direct match
+country,country,direct match
+state,region,"approximate match, granularity may differ"
+district/municipality,locality,"GOI has two finer levels, PDL has one"
+organization_size,size,"both bucketed, but bucket boundaries differ, see Section 8"
+nace_code,industry,"different taxonomies entirely, NACE vs free-text/LinkedIn-style category, see Section 9"
+organization_type,,no PDL equivalent
+,founded,no GOI equivalent
+,linkedin_url,no GOI equivalent
+summary,,"CRITICAL: PDL has no free-text company description field at all, see Section 10"
+summary_keywords,,"CRITICAL: derived from summary, same gap"

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+}
+.header { margin: 28pt 60pt 0 60pt; }
+.kicker { color: #2E6E9E; font-size: 12pt; letter-spacing: 2pt; font-weight: bold; margin: 0 0 6pt 0; }
+h1 { color: #1C2833; font-size: 21pt; font-weight: bold; margin: 0 0 4pt 0; }
+.lede { font-size: 10.5pt; color: #2E4053; margin: 0 0 14pt 0; }
+.row { display: flex; margin: 0 40pt 0 60pt; }
+.col { width: 290pt; margin-right: 20pt; }
+.label { font-size: 10.5pt; font-weight: bold; color: #1C2833; margin: 0 0 6pt 0; }
+img.chart1 { width: 260pt; height: 182pt; }
+img.chart2 { width: 260pt; height: 162pt; }
+.cap { font-size: 9.5pt; color: #7C8A99; margin: 6pt 0 0 0; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="header">
+  <p class="kicker">WHERE IT HOLDS UP</p>
+  <h1>Industry is fine. Company size is not.</h1>
+  <p class="lede">Not every dimension breaks down the way geography does.</p>
+</div>
+<div class="row">
+  <div class="col">
+    <p class="label">By NACE section</p>
+    <img class="chart1" src="../figures/overlap_rate_by_nace.png">
+    <p class="cap">Spread is 27-55%, roughly 2&times;, not 10&times;. No industry is badly abandoned by PDL.</p>
+  </div>
+  <div class="col">
+    <p class="label">By organisation size</p>
+    <img class="chart2" src="../figures/overlap_rate_by_size.png">
+    <p class="cap">Micro companies (0-9 employees) sit at 30%, well below Small/Medium/Large (47-53%), and Micro is GOI's largest size bucket.</p>
+  </div>
+</div>
+</body>
+</html>

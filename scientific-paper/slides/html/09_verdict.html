@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #F4F6F6; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F4F6F6; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+}
+.header { margin: 36pt 60pt 0 60pt; }
+.kicker { color: #2E6E9E; font-size: 12pt; letter-spacing: 2pt; font-weight: bold; margin: 0 0 8pt 0; }
+h1 { color: #1C2833; font-size: 25pt; font-weight: bold; margin: 0 0 24pt 0; }
+.row { display: flex; margin: 0 60pt; }
+.card { width: 185pt; margin-right: 15pt; background: #FFFFFF; border-radius: 6pt; padding: 16pt; box-sizing: border-box; border-top: 6pt solid; }
+.card.holds { border-color: #3F7D5C; }
+.card.doesnt { border-color: #C0392B; }
+.card.next { border-color: #2E6E9E; }
+.card h2 { font-size: 12pt; margin: 0 0 10pt 0; color: #1C2833; }
+.card ul { margin: 0; padding-left: 14pt; }
+.card li { font-size: 9.5pt; color: #2E4053; line-height: 1.5; margin-bottom: 6pt; }
+</style>
+</head>
+<body>
+<div class="header">
+  <p class="kicker">VERDICT</p>
+  <h1>A real substitute, with two real caveats.</h1>
+</div>
+<div class="row">
+  <div class="card holds">
+    <h2>Holds up</h2>
+    <ul>
+      <li>40.4% direct domain overlap on a random sample</li>
+      <li>PDL is larger than GOI overall (23.1M vs ~20M)</li>
+      <li>Industry coverage is fairly even (27-55%)</li>
+      <li>Most firmographic fields map cleanly</li>
+    </ul>
+  </div>
+  <div class="card doesnt">
+    <h2>Doesn't hold up</h2>
+    <ul>
+      <li>No description field, the one GOI field this thesis's method depends on most</li>
+      <li>Geography is wildly uneven (6-66%)</li>
+      <li>Weakest exactly where GOI is biggest: micro companies</li>
+    </ul>
+  </div>
+  <div class="card next">
+    <h2>What it means</h2>
+    <ul>
+      <li>PDL is a defensible substitute for company identity, not yet for the retrieval task itself</li>
+      <li>Scope and a text-sourcing plan are the open questions, not whether PDL is usable at all</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+}
+.header { margin: 28pt 60pt 0 60pt; }
+.kicker { color: #C0392B; font-size: 12pt; letter-spacing: 2pt; font-weight: bold; margin: 0 0 6pt 0; }
+h1 { color: #1C2833; font-size: 21pt; font-weight: bold; margin: 0 0 10pt 0; }
+.row { display: flex; margin: 0 40pt 0 60pt; align-items: flex-start; }
+.textcol { width: 220pt; margin-right: 20pt; margin-top: 10pt; }
+.textcol p { font-size: 10.5pt; color: #2E4053; line-height: 1.5; margin: 0 0 10pt 0; }
+.textcol b { color: #1C2833; }
+.callout { background: #FDEDEC; border-left: 5pt solid #C0392B; padding: 9pt 11pt; border-radius: 4pt; margin-top: 8pt; }
+.callout p { margin: 0; font-size: 10pt; color: #7B241C; line-height: 1.4; }
+img.chart { width: 340pt; height: 272pt; }
+</style>
+</head>
+<body>
+<div class="header">
+  <p class="kicker">WHERE IT BREAKS DOWN</p>
+  <h1>Geography is the weak point</h1>
+</div>
+<div class="row">
+  <div class="textcol">
+    <p>Overlap rate ranges from <b>66% in Brazil</b> down to <b>6% in Russia</b>, a 10&times; spread. The Americas, India, and the UK are well covered. East Asia and Eastern Europe are not.</p>
+    <div class="callout">
+      <p><b>Germany</b>, GOI's #2 country by volume, sits at just <b>29.8% overlap</b>, well below the 40.4% average.</p>
+    </div>
+  </div>
+  <img class="chart" src="../figures/overlap_rate_by_country.png">
+</div>
+</body>
+</html>
